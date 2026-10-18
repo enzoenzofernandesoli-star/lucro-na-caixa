@@ -1,0 +1,119 @@
+---
+modulo: 13
+aula: 2
+titulo: "Google Shopping e Performance Max: quando faz sentido"
+nivel: avancado
+duracao_min: 20
+objetivo: "Ao final você entende como os anúncios do Shopping e o Performance Max usam o feed de produtos, onde aparecem e quando vale testar o Google."
+pre_requisitos: ["12-6", "9-3"]
+fontes:
+  - titulo: "Ajuda do Google Ads — Sobre os anúncios do Shopping"
+    url: "https://support.google.com/google-ads/answer/2454022?hl=pt-BR"
+    consultado_em: "2026-10-18"
+  - titulo: "Ajuda do Google Ads — Sobre as campanhas Performance Max"
+    url: "https://support.google.com/google-ads/answer/10724817?hl=pt-BR"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Anúncios do Shopping usam palavras-chave?"
+    verso: "Não. Usam os dados de produto enviados ao Merchant Center para decidir como e onde aparecer."
+  - frente: "Onde o Performance Max veicula?"
+    verso: "Em todo o inventário do Google Ads: YouTube, Display, Pesquisa, Discover, Gmail e Maps."
+  - frente: "O que é preciso para anunciar no Shopping?"
+    verso: "Conta no Merchant Center com feed de produtos, vinculada à conta do Google Ads."
+---
+
+<Objetivo>
+Ao final você entende como os anúncios do Shopping e o Performance Max usam o feed de produtos, onde aparecem e quando vale testar o Google.
+</Objetivo>
+
+<PorQue>
+Na Meta e no TikTok você interrompe a pessoa com um anúncio. No Google, muitas vezes a pessoa já está procurando o produto. Isso muda o jogo: a intenção é maior, mas a comparação de preço também. Quem tem preço ruim ou feed bagunçado paga o clique e perde a venda.
+</PorQue>
+
+## Explicação
+
+### 1. Anúncios do Shopping
+
+- Mostram **foto, título, preço e nome da loja** antes do clique. [verificado]
+- **Não usam palavras-chave**: usam os dados de produto do <Termo id="merchant-center">Merchant Center</Termo> para decidir como e onde aparecer. [verificado]
+- Aparecem na aba Shopping, junto aos resultados da Pesquisa Google, no Google Imagens e, se você permitir, em sites parceiros de pesquisa. [verificado]
+- Podem rodar em campanhas do Shopping ou em campanhas **Performance Max** que usam o feed do Merchant Center. [verificado]
+
+Para isso, você precisa de uma conta no Merchant Center com o <Termo id="feed-de-produtos">feed de produtos</Termo>, vinculada à conta do Google Ads. [verificado]
+
+### 2. Performance Max
+
+- Campanha baseada em metas: com **uma só campanha** você acessa todo o inventário do Google Ads. [verificado]
+- Veicula em YouTube, Display, Pesquisa, Discover, Gmail e Maps. [verificado]
+- Você define as ações de conversão que importam e pode definir ROAS ou CPA desejado. [verificado]
+
+O <Termo id="performance-max">Performance Max</Termo> decide sozinho onde gastar. Sem medição de compra correta, ele otimiza no escuro, como qualquer campanha de vendas.
+
+### 3. Quando faz sentido
+
+| Faz sentido | Não faz sentido (ainda) |
+| --- | --- |
+| Produto que as pessoas **procuram pelo nome** | Produto de impulso que ninguém pesquisa |
+| Preço competitivo na comparação | Preço muito acima de quem aparece ao lado |
+| Feed completo: título, foto, preço, estoque corretos | Loja sem medição de compra |
+| Margem que aguenta o CPA da busca | Margem que só fecha com volume enorme |
+
+Essa tabela é critério de gestão, não regra do Google. [estimativa]
+
+<Exemplo>
+Produto: filtro de café de papel nº 103, R$ 19,90 (números de exemplo).
+
+- Muita gente pesquisa "filtro de café 103": intenção alta.
+- No Shopping aparecem 8 lojas lado a lado; a mais barata vende a R$ 14,90.
+- Com R$ 19,90 e frete à parte, o clique pode até vir, mas a compra vai para a concorrência.
+
+Conclusão: o Google só compensa se você for competitivo no preço total (produto + frete) ou tiver diferencial claro no título e na foto.
+</Exemplo>
+
+## Ferramenta
+
+<Calculadora tipo="campanha" />
+
+<ErroComum>
+**Feed com título genérico ("Produto 1").** O Shopping usa os dados do feed para casar com as buscas: título ruim é anúncio que não aparece para quem procura.
+
+**Preço do feed diferente do site.** Gera reprovação e cliente frustrado.
+</ErroComum>
+
+<NaPratica>
+Pesquise o seu produto no Google e abra a aba Shopping. Anote quantas lojas aparecem, o menor preço total e como estão os títulos. Decida: o Google faz sentido para esse produto agora?
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Como os anúncios do Shopping decidem quando aparecer?",
+      opcoes: ["Por palavras-chave escolhidas", "Pelos dados de produto do Merchant Center", "Por sorteio"],
+      correta: 1,
+      explicacao: "A Ajuda do Google Ads diz que o Shopping usa os dados de produto, não palavras-chave.",
+    },
+    {
+      enunciado: "Em quais canais o Performance Max pode veicular?",
+      opcoes: ["Só na Pesquisa", "YouTube, Display, Pesquisa, Discover, Gmail e Maps", "Só no YouTube"],
+      correta: 1,
+      explicacao: "É uma campanha com acesso a todo o inventário do Google Ads.",
+    },
+    {
+      enunciado: "Quando o Google Shopping tende a funcionar pior?",
+      opcoes: ["Produto pesquisado pelo nome e preço competitivo", "Produto de impulso que ninguém procura", "Feed completo"],
+      correta: 1,
+      explicacao: "Sem busca pelo produto, a vantagem de intenção do Google some.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Shopping mostra foto, título, preço e loja, a partir do feed.
+- Precisa de Merchant Center vinculado ao Google Ads.
+- Performance Max usa todo o inventário do Google com uma campanha.
+- Faz sentido para produto pesquisado e preço competitivo.
+- Feed correto é a base de tudo.
+</Resumo>
+
+<Fontes />

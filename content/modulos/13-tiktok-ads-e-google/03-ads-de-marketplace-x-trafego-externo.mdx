@@ -1,0 +1,123 @@
+---
+modulo: 13
+aula: 3
+titulo: "Anúncios dentro dos marketplaces x tráfego externo"
+nivel: avancado
+duracao_min: 15
+objetivo: "Ao final você compara anúncios dentro do marketplace (Product Ads, Shopee Ads) com tráfego externo para a loja própria, incluindo taxas na conta."
+pre_requisitos: ["6-6", "7-5", "12-5"]
+fontes:
+  - titulo: "Mercado Livre — O que é e como funciona Product Ads (Central de Vendedores)"
+    url: "https://vendedores.mercadolivre.com.br/nota/o-que-e-e-como-funciona-o-product-ads"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Livre — O que as métricas disponíveis em Product Ads significam? (Central de Vendedores)"
+    url: "https://vendedores.mercadolivre.com.br/nota/o-que-as-metricas-no-administrador-significam"
+    consultado_em: "2026-10-18"
+  - titulo: "Shopee — O que é Shopee Ads? (24/09/2024)"
+    url: "https://seller.shopee.com.br/edu/article/18375"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Qual a principal vantagem do anúncio dentro do marketplace?"
+    verso: "A pessoa já está no ambiente de compra, buscando, com checkout e confiança da plataforma."
+  - frente: "Qual custo extra o anúncio no marketplace tem que o tráfego externo para loja própria não tem?"
+    verso: "A comissão e as tarifas do marketplace sobre cada venda, além do custo do anúncio."
+  - frente: "Como comparar dois canais de forma justa?"
+    verso: "Pelo lucro por venda depois de todas as taxas e do anúncio, não pelo ROAS de cada painel."
+---
+
+<Objetivo>
+Ao final você compara anúncios dentro do marketplace (Product Ads, Shopee Ads) com tráfego externo para a loja própria, incluindo taxas na conta.
+</Objetivo>
+
+<PorQue>
+"No Mercado Livre o ROAS é 8 e na Meta é 2, então o Mercado Livre é melhor." Talvez. Mas a venda no marketplace paga comissão e tarifa, e parte dela viria mesmo sem anúncio. Comparar painéis diferentes sem pôr tudo na mesma conta leva a decisões erradas.
+</PorQue>
+
+## Explicação
+
+### 1. Os dois caminhos
+
+| | Anúncio no marketplace | Tráfego externo (Meta, TikTok, Google) para loja própria |
+| --- | --- | --- |
+| Onde a pessoa está | Já buscando e comparando para comprar | Rolando o feed ou pesquisando |
+| Checkout | Da plataforma, com confiança pronta | O seu, que precisa conquistar confiança |
+| Taxas sobre a venda | Comissão e tarifas do marketplace | Gateway de pagamento e plataforma de loja |
+| Dados do cliente | Ficam majoritariamente com a plataforma | Ficam com você (respeitando a LGPD) |
+
+### 2. Como cada um cobra
+
+- **Product Ads (Mercado Livre)**: cobra por clique, sem passar do orçamento definido; o painel mostra o ACOS (investimento ÷ receita). [verificado] Detalhes na aula 7.5.
+- **Shopee Ads**: anúncios de produtos na busca e em vitrines, e anúncios de busca da loja para elegíveis. [verificado] Detalhes na aula 6.6.
+- **Meta, TikTok, Google**: aulas 12 e 13.
+
+### 3. A conta que iguala os canais
+
+Para cada canal, calcule o **lucro por venda** depois de tudo:
+
+<Formula>
+Lucro por venda = preço − custo do produto − frete − taxas do canal − impostos − custo de anúncio por venda (CPA)
+</Formula>
+
+Só esse número pode ser comparado entre canais.
+
+<Exemplo>
+Mesmo produto de R$ 100, custo R$ 40, impostos 6% (números de exemplo):
+
+| | Marketplace + Ads | Loja própria + Meta |
+| --- | --- | --- |
+| Taxas do canal | Comissão 14% + tarifa R$ 6 = R$ 20 | Gateway 5% + plataforma R$ 1 = R$ 6 |
+| Frete pago pelo vendedor | R$ 10 | R$ 10 |
+| Impostos | R$ 6 | R$ 6 |
+| CPA do anúncio | R$ 12 (ROAS do painel ≈ 8,3) | R$ 30 (ROAS ≈ 3,3) |
+| **Lucro por venda** | 100 − 40 − 20 − 10 − 6 − 12 = **R$ 12** | 100 − 40 − 6 − 10 − 6 − 30 = **R$ 8** |
+
+O marketplace ganha neste exemplo, mas por R$ 4, não pela diferença de 8 contra 3 no ROAS.
+</Exemplo>
+
+## Ferramenta
+
+<Calculadora tipo="margem" />
+
+<ErroComum>
+**Comparar ROAS de painéis diferentes.** Cada painel mede de um jeito e nenhum desconta as taxas do canal.
+
+**Esquecer que parte das vendas do marketplace viria sem anúncio.** O Mercado Livre separa vendas diretas e indiretas; nenhuma das duas prova que a venda não viria de qualquer forma.
+</ErroComum>
+
+<NaPratica>
+Monte a tabela do exemplo com os números reais do seu produto em dois canais. Use as tabelas de comissão dos módulos 6, 7 e 8.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Qual número compara canais de forma justa?",
+      opcoes: ["ROAS de cada painel", "Lucro por venda depois de taxas e anúncio", "Número de cliques"],
+      correta: 1,
+      explicacao: "Só o lucro por venda coloca todos os custos na mesma conta.",
+    },
+    {
+      enunciado: "Como o Product Ads do Mercado Livre cobra?",
+      opcoes: ["Por venda", "Por clique, sem passar do orçamento", "Mensalidade fixa"],
+      correta: 1,
+      explicacao: "Segundo a Central de Vendedores, cobra por clique recebido.",
+    },
+    {
+      enunciado: "Qual vantagem típica do anúncio no marketplace?",
+      opcoes: ["A pessoa já está no ambiente de compra", "Você fica com todos os dados do cliente", "Não paga comissão"],
+      correta: 0,
+      explicacao: "O marketplace concentra quem já está buscando para comprar, com checkout pronto.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Marketplace: intenção alta e checkout pronto, mas comissão e tarifas.
+- Loja própria: dados e margem com você, mas precisa gerar confiança.
+- ROAS de painéis diferentes não se compara.
+- Compare o lucro por venda depois de tudo.
+- Parte das vendas com anúncio viria de qualquer jeito.
+</Resumo>
+
+<Fontes />

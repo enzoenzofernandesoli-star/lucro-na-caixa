@@ -1,0 +1,138 @@
+---
+modulo: 13
+aula: 4
+titulo: "Atribuição: por que cada plataforma \"diz\" que vendeu"
+nivel: avancado
+duracao_min: 20
+objetivo: "Ao final você entende janelas e modelos de atribuição, explica por que a soma das vendas dos painéis passa dos pedidos reais e mede o resultado pela loja."
+pre_requisitos: ["13-3"]
+fontes:
+  - titulo: "Central de Ajuda da Meta para Empresas — Sobre modelos de atribuição e configurações de atribuição"
+    url: "https://www.facebook.com/business/help/460276478298895"
+    consultado_em: "2026-10-18"
+  - titulo: "Ajuda do Google Ads — Sobre os modelos de atribuição"
+    url: "https://support.google.com/google-ads/answer/6259715?hl=pt-BR"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Livre — O que as métricas disponíveis em Product Ads significam? (Central de Vendedores)"
+    url: "https://vendedores.mercadolivre.com.br/nota/o-que-as-metricas-no-administrador-significam"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Quais janelas de atribuição padrão a Meta oferece para conversões no site?"
+    verso: "Clique: 1 ou 7 dias após o clique no link. Visualização: 1 dia após a impressão. Engajamento: 1 dia após clique sem link."
+  - frente: "Qual é o modelo de atribuição padrão do Google Ads para a maioria das conversões?"
+    verso: "Baseado em dados (data-driven). O outro disponível é o de último clique."
+  - frente: "Por que a soma das vendas dos painéis passa dos pedidos reais?"
+    verso: "Porque cada plataforma credita para si a mesma venda quando a pessoa interagiu com anúncios de mais de uma."
+---
+
+<Objetivo>
+Ao final você entende janelas e modelos de atribuição, explica por que a soma das vendas dos painéis passa dos pedidos reais e mede o resultado pela loja.
+</Objetivo>
+
+<PorQue>
+Mês com 100 pedidos. A Meta diz que vendeu 70, o Google diz 45 e o TikTok 30: 145 vendas "atribuídas". Ninguém está mentindo exatamente: cada um conta pela própria regra. Se você soma os painéis para decidir onde investir, decide com vendas que não existem.
+</PorQue>
+
+## Explicação
+
+### 1. O que é atribuição
+
+<Termo id="atribuicao">Atribuição</Termo> é a regra que dá o crédito de uma venda a um anúncio. Duas peças:
+
+- **Janela**: quanto tempo depois do clique ou da visualização a compra ainda conta.
+- **Modelo**: como dividir o crédito quando houve vários contatos.
+
+### 2. Meta
+
+- Modelos disponíveis: padrão ou incremental; é possível também a atribuição personalizada, com dados de ferramenta externa. [verificado]
+- Na atribuição padrão, as <Termo id="janela-de-atribuicao">janelas</Termo> para conversões no site são [verificado]:
+  - **Clique**: eventos até 1 ou 7 dias após o clique no link.
+  - **Visualização**: eventos até 1 dia após a impressão.
+  - **Engajamento**: eventos até 1 dia após um clique que não é no link (e certas reproduções de vídeo).
+- A própria Meta avisa que comparar conjuntos com modelos de atribuição diferentes leva a conclusões imprecisas. [verificado]
+
+### 3. Google Ads
+
+- Modelos disponíveis: **baseado em dados** (padrão para a maioria das conversões) e **último clique**. [verificado]
+- Os modelos linear, por posição, primeiro clique e redução de tempo deixaram de ser oferecidos. [verificado]
+
+### 4. Marketplace
+
+O Mercado Livre separa vendas **diretas** (clicou e comprou o produto anunciado) e **indiretas** (clicou e comprou outro produto seu). [verificado]
+
+### 5. Como medir sem se enganar
+
+- A fonte da verdade são os **pedidos reais** da loja e o lucro do mês.
+- Use os painéis para comparar anúncios **dentro** da mesma plataforma.
+- Entre plataformas, olhe o total: pedidos e lucro subiram quando você ligou o canal novo? Esse é o efeito que importa. [estimativa]
+
+<Exemplo>
+Uma compra, três painéis (situação de exemplo):
+
+1. Segunda: Ana vê um anúncio na Meta e não clica.
+2. Quarta: clica num anúncio do TikTok e olha o produto.
+3. Sexta: pesquisa o nome no Google, clica no Shopping e compra.
+
+- **Meta**: só houve impressão, 4 dias antes. A janela de visualização é de 1 dia: **não conta**.
+- **TikTok**: houve clique 2 dias antes; dentro da janela de clique dele, **pode contar**.
+- **Google**: último clique antes da compra: **conta**.
+
+Pedidos reais: **1**. Vendas nos painéis: até **2**.
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Medição honesta"
+  itens={[
+    "Anoto todo mês os pedidos reais e o lucro da loja.",
+    "Sei qual janela e qual modelo cada plataforma está usando.",
+    "Não somo vendas de painéis diferentes.",
+    "Comparo anúncios só dentro da mesma plataforma e configuração.",
+    "Ao ligar um canal novo, olho se o total de pedidos e o lucro mudaram.",
+  ]}
+/>
+
+<ErroComum>
+**Somar as vendas dos painéis.** A mesma venda aparece em mais de um.
+
+**Mudar a janela de atribuição e comemorar o ROAS maior.** A venda é a mesma; mudou só a régua.
+</ErroComum>
+
+<NaPratica>
+Pegue um mês da sua loja (ou do exemplo) e compare: pedidos reais × soma das vendas dos painéis. Calcule a diferença e escreva qual número você vai usar para decidir verba.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Qual é o modelo de atribuição padrão do Google Ads para a maioria das conversões?",
+      opcoes: ["Primeiro clique", "Baseado em dados", "Linear"],
+      correta: 1,
+      explicacao: "A Ajuda do Google Ads informa que o baseado em dados é o padrão para a maioria das conversões.",
+    },
+    {
+      enunciado: "Na atribuição padrão da Meta, até quantos dias após a impressão uma compra pode ser creditada por visualização?",
+      opcoes: ["1 dia", "7 dias", "28 dias"],
+      correta: 0,
+      explicacao: "A janela de visualização é de 1 dia após a impressão.",
+    },
+    {
+      enunciado: "100 pedidos reais e 145 vendas somando os painéis. O que usar para decidir a verba?",
+      opcoes: ["As 145", "Os pedidos reais e o lucro da loja", "Só o painel com mais vendas"],
+      correta: 1,
+      explicacao: "Os painéis se sobrepõem; a loja é a fonte da verdade.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Atribuição = janela + modelo.
+- Meta: clique 1 ou 7 dias, visualização 1 dia, engajamento 1 dia.
+- Google: baseado em dados (padrão) ou último clique.
+- A soma dos painéis passa dos pedidos reais.
+- Decida pelos pedidos e pelo lucro da loja.
+</Resumo>
+
+<Fontes />

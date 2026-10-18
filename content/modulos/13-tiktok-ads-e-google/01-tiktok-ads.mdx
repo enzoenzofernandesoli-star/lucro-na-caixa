@@ -1,0 +1,136 @@
+---
+modulo: 13
+aula: 1
+titulo: "TikTok Ads: estrutura e diferenças da Meta"
+nivel: avancado
+duracao_min: 15
+objetivo: "Ao final você reconhece a estrutura de uma campanha no TikTok Ads Manager, escolhe o objetivo para vender e sabe o que muda em relação à Meta."
+pre_requisitos: ["12-2", "11-2"]
+fontes:
+  - titulo: "TikTok Ads Manager Help Center — TikTok Ads Structure"
+    url: "https://ads.tiktok.com/help/article/tiktok-ads-structure?lang=en"
+    consultado_em: "2026-10-18"
+  - titulo: "TikTok Ads Manager Help Center — Choose the Right Objective"
+    url: "https://ads.tiktok.com/help/article/choose-right-objective"
+    consultado_em: "2026-10-18"
+  - titulo: "TikTok Ads Manager Help Center — Events API"
+    url: "https://ads.tiktok.com/help/article/events-api"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Quais são os três níveis de uma campanha no TikTok Ads Manager?"
+    verso: "Campanha (objetivo e orçamento), grupo de anúncios (posicionamento, público, orçamento, programação, otimização e lance) e anúncio (criativo)."
+  - frente: "Em que categoria fica o objetivo Vendas no TikTok?"
+    verso: "Conversão (junto com promoção de app e geração de leads)."
+  - frente: "O TikTok recomenda Events API junto com o pixel?"
+    verso: "Sim, para sites recomenda integrar a Events API ao pixel existente, com deduplicação de eventos."
+---
+
+<Objetivo>
+Ao final você reconhece a estrutura de uma campanha no TikTok Ads Manager, escolhe o objetivo para vender e sabe o que muda em relação à Meta.
+</Objetivo>
+
+<PorQue>
+Quem já anuncia na Meta tende a copiar tudo para o TikTok: o mesmo vídeo, o mesmo texto, a mesma estrutura. A lógica dos níveis é parecida, mas o criativo que funciona é outro, e um anúncio "de propaganda" no meio de vídeos nativos é pulado em um segundo.
+</PorQue>
+
+## Explicação
+
+### 1. Os três níveis
+
+| Nível | O que você decide |
+| --- | --- |
+| **Campanha** | Objetivo e orçamento (diário, total ou sem limite) |
+| **Grupo de anúncios** | Posicionamentos, público, orçamento e programação, meta de otimização e lance |
+| **Anúncio** | Formato, vídeo ou imagens, nome de exibição, texto, botão de ação e rastreamento |
+
+Assim descreve a Central de Ajuda do TikTok Ads Manager. [verificado] É a mesma ideia de campanha, conjunto e anúncio da Meta (aula 12.2).
+
+### 2. Objetivos
+
+O TikTok agrupa os objetivos em três categorias [verificado]:
+
+- **Reconhecimento**: alcance.
+- **Consideração**: tráfego, visualizações de vídeo, interação com a comunidade, missão de marca.
+- **Conversão**: promoção de app, geração de leads e **vendas**.
+
+Para vender na loja, use **Vendas**, com o evento de compra medido.
+
+### 3. Medição: pixel e Events API
+
+Para sites, o TikTok recomenda usar a **Events API** junto com o pixel já instalado, com deduplicação de eventos, para ter o melhor desempenho. [verificado] É o equivalente à API de Conversões da Meta (aula 12.1).
+
+### 4. O que muda de verdade: o criativo
+
+- O anúncio aparece entre vídeos nativos, em tela cheia vertical (aula 11.3).
+- O gancho dos primeiros segundos pesa ainda mais (aula 11.2).
+- Conteúdo gerado por IA segue a regra de rótulo AIGC do TikTok (aula 11.6).
+
+Se você vende pelo TikTok Shop, as regras de comissão e de loja são as do módulo 8.
+
+<Exemplo>
+Adaptação de um anúncio da Meta para o TikTok (situação de exemplo):
+
+| Meta (feed) | TikTok |
+| --- | --- |
+| Foto do produto em fundo branco + texto longo | Vídeo vertical de 15 s, pessoa usando o produto |
+| Título "Garrafa térmica 1 L" | Primeira frase falada: "Meu café ainda está quente depois de 8 horas de trilha" |
+| Botão "Comprar agora" | Mesmo botão, mas o vídeo mostra preço e frete antes |
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Antes da primeira campanha no TikTok"
+  itens={[
+    "Pixel do TikTok instalado e Events API integrada (ou integração da plataforma de loja).",
+    "Evento de compra com valor funcionando.",
+    "Objetivo Vendas, na categoria Conversão.",
+    "Criativos verticais nativos, não reaproveitados sem edição.",
+    "Rótulo de conteúdo gerado por IA, quando houver.",
+    "CPA máximo calculado (módulo 1).",
+  ]}
+/>
+
+<ErroComum>
+**Subir o mesmo criativo da Meta sem adaptar.** O formato e o ritmo são outros.
+
+**Julgar o canal por um único vídeo.** No TikTok, o criativo responde por boa parte do resultado: teste 3 a 5 (aula 11.5).
+</ErroComum>
+
+<NaPratica>
+Escreva a estrutura de uma campanha de teste no TikTok para o seu produto: objetivo, grupo de anúncios (público, orçamento, otimização) e 3 roteiros de vídeo com gancho diferente.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "No TikTok Ads Manager, onde se define o público?",
+      opcoes: ["Na campanha", "No grupo de anúncios", "No anúncio"],
+      correta: 1,
+      explicacao: "Público, posicionamento, orçamento, programação, otimização e lance ficam no grupo de anúncios.",
+    },
+    {
+      enunciado: "Qual objetivo usar para vender na loja?",
+      opcoes: ["Alcance", "Visualizações de vídeo", "Vendas"],
+      correta: 2,
+      explicacao: "Vendas está na categoria Conversão.",
+    },
+    {
+      enunciado: "O que o TikTok recomenda para medir conversões no site?",
+      opcoes: ["Só o pixel", "Events API junto com o pixel, com deduplicação", "Só planilha"],
+      correta: 1,
+      explicacao: "A Central de Ajuda recomenda integrar a Events API ao pixel existente.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Níveis: campanha, grupo de anúncios e anúncio, como na Meta.
+- Objetivos em reconhecimento, consideração e conversão; venda é Vendas.
+- Pixel + Events API para medir.
+- O criativo precisa ser nativo e vertical.
+- TikTok Shop tem regras próprias (módulo 8).
+</Resumo>
+
+<Fontes />

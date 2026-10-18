@@ -583,5 +583,30 @@
     "id": "cpc",
     "termo": "CPC",
     "definicao": "Custo por clique: gasto ÷ cliques."
+  },
+  {
+    "id": "merchant-center",
+    "termo": "Google Merchant Center",
+    "definicao": "Painel do Google onde a loja envia os dados dos produtos (feed) para aparecerem em anúncios do Shopping e outras superfícies."
+  },
+  {
+    "id": "feed-de-produtos",
+    "termo": "Feed de produtos",
+    "definicao": "Lista estruturada dos produtos da loja (título, preço, foto, disponibilidade) que alimenta anúncios de catálogo e Shopping."
+  },
+  {
+    "id": "performance-max",
+    "termo": "Performance Max",
+    "definicao": "Tipo de campanha do Google Ads baseado em metas que veicula em todo o inventário do Google (Pesquisa, YouTube, Display, Discover, Gmail, Maps) a partir de uma só campanha."
+  },
+  {
+    "id": "atribuicao",
+    "termo": "Atribuição",
+    "definicao": "Regra que define qual anúncio ou canal recebe o crédito por uma venda. Cada plataforma usa a sua, por isso as somas não batem com os pedidos reais."
+  },
+  {
+    "id": "janela-de-atribuicao",
+    "termo": "Janela de atribuição",
+    "definicao": "Prazo, depois de um clique ou visualização do anúncio, dentro do qual uma compra é creditada ao anúncio (por exemplo, 7 dias após o clique)."
   }
 ]
