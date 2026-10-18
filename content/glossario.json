@@ -408,5 +408,40 @@
     "id": "cupom",
     "termo": "Cupom",
     "definicao": "Desconto que o comprador aplica no pedido. Sai da margem do vendedor quando é ele quem oferece."
+  },
+  {
+    "id": "termometro",
+    "termo": "Termômetro de reputação",
+    "definicao": "A barra colorida do Mercado Livre, do vermelho ao verde, que resume como o vendedor atende: reclamações, cancelamentos e envios incorretos."
+  },
+  {
+    "id": "mercadolider",
+    "termo": "MercadoLíder",
+    "definicao": "Medalha do Mercado Livre para vendedores com reputação verde e alto volume de vendas e faturamento, com mais exposição e benefícios."
+  },
+  {
+    "id": "fulfillment",
+    "termo": "Fulfillment (Full)",
+    "definicao": "Serviço em que o estoque fica no centro de distribuição da plataforma, que armazena, embala, envia e cuida do pós-venda."
+  },
+  {
+    "id": "envio-flex",
+    "termo": "Envios Flex",
+    "definicao": "Modalidade do Mercado Livre em que o vendedor faz a entrega no mesmo dia ou no dia seguinte, com a tecnologia da plataforma."
+  },
+  {
+    "id": "acos",
+    "termo": "ACOS",
+    "definicao": "Custo de publicidade sobre as vendas: gasto com anúncio ÷ receita gerada por ele. É o inverso do ROAS (ACOS 25% = ROAS 4)."
+  },
+  {
+    "id": "mediacao",
+    "termo": "Mediação",
+    "definicao": "Quando a plataforma entra numa reclamação entre comprador e vendedor para decidir a solução."
+  },
+  {
+    "id": "compra-garantida",
+    "termo": "Compra Garantida",
+    "definicao": "Programa do Mercado Livre que protege o comprador e permite devolver o produto pelos canais da plataforma."
   }
 ]

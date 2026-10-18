@@ -1,0 +1,124 @@
+---
+modulo: 7
+aula: 1
+titulo: "Tipos de anúncio e taxas atuais"
+nivel: intermediario
+duracao_min: 20
+objetivo: "Ao final você escolhe entre anúncio grátis, Clássico e Premium e calcula a tarifa de cada um para o seu produto."
+pre_requisitos: ["1-3", "6-1"]
+fontes:
+  - titulo: "Mercado Livre — Quanto custa vender um produto? (Ajuda)"
+    url: "https://www.mercadolivre.com.br/ajuda/870"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Livre — Como funcionam as taxas do Mercado Livre? (Central de Vendedores)"
+    url: "https://vendedores.mercadolivre.com.br/nota/como-funcionam-as-taxas-do-mercado-livre"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Clássico x Premium no Mercado Livre: tarifa e parcelamento?"
+    verso: "Clássico: 10% a 14%, sem parcelamento sem juros. Premium: 15% a 19%, com até 12x sem juros (conferido em 18/10/2026)."
+  - frente: "Quanto dura e quais limites tem o anúncio grátis?"
+    verso: "Dura 60 dias, tem baixa exposição e não oferece parcelamento. Produto novo: até 5 vendas no último ano; usado: até 20."
+  - frente: "Produto abaixo de R$ 12,50 no Mercado Livre paga quanto de custo fixo?"
+    verso: "50% do valor da unidade, além da porcentagem da categoria."
+---
+
+<Objetivo>
+Ao final você escolhe entre anúncio grátis, Clássico e Premium e calcula a tarifa de cada um para o seu produto.
+</Objetivo>
+
+<PorQue>
+No Mercado Livre, o tipo de anúncio muda a tarifa em até 5 pontos percentuais e muda o que o comprador vê: parcelamento sem juros ou não. Escolher sem fazer a conta é deixar margem na mesa ou perder vendas.
+</PorQue>
+
+## Explicação
+
+### 1. Os três tipos
+
+<Alerta conferidoEm="18/10/2026" fonte="https://www.mercadolivre.com.br/ajuda/870">
+Segundo a ajuda oficial [verificado]:
+
+| | Grátis | Clássico | Premium |
+| --- | --- | --- | --- |
+| Tarifa de venda | Nenhuma | 10% a 14%, conforme a categoria | 15% a 19%, conforme a categoria |
+| Parcelamento | Não | Sem parcelamento sem juros | Até 12x sem juros (depende do valor e do meio de pagamento) |
+| Exposição | Baixa | Normal | Normal |
+| Limites | 60 dias; novos até 5 vendas no último ano; usados até 20; até 10 anúncios simultâneos com 1 unidade | — | — |
+
+Também: categorias selecionadas com preço entre R$ 150 e R$ 700 pagam tarifa menor; Supermercado tem outras tarifas; kits pagam a mesma tarifa dos produtos separados.
+</Alerta>
+
+### 2. O custo fixo por unidade
+
+Para produtos abaixo de R$ 12,50, o custo fixo é 50% do valor da unidade; entre R$ 12,50 e R$ 79, há três faixas; acima de R$ 79, não há custo fixo, segundo a Central de Vendedores. [verificado] Os valores das faixas aparecem no simulador de custos da sua conta.
+
+### 3. O que entra na tarifa
+
+A ajuda informa que as tarifas podem refletir a intermediação do Mercado Livre, o processamento do pagamento pelo Mercado Pago e, quando você escolhe, a taxa de antecipação. [verificado]
+
+### 4. Como decidir entre Clássico e Premium
+
+- **Premium** faz sentido quando o parcelamento sem juros muda a decisão do cliente: produtos mais caros, presentes, eletrônicos.
+- **Clássico** faz sentido em produtos baratos, em que ninguém parcela, ou quando a margem não aguenta 5 pontos a mais.
+- Faça a conta nos dois e compare a margem com a conversão esperada.
+
+<Exemplo>
+Fone de R$ 199 numa categoria com Clássico de **12%** e Premium de **17%** (percentuais de exemplo dentro das faixas oficiais). Custo R$ 80, frete que você paga R$ 15, embalagem R$ 2, imposto não incluído:
+
+| | Clássico | Premium |
+| --- | ---: | ---: |
+| Tarifa | R$ 23,88 | R$ 33,83 |
+| Margem | R$ 78,12 | R$ 68,17 |
+| Margem % | 39,3% | 34,3% |
+
+O Premium custa R$ 9,95 a mais por venda. Se o parcelamento aumentar as vendas o suficiente, compensa. Para empatar a margem total do mês, o Premium precisa vender cerca de 15% mais unidades (78,12 ÷ 68,17 ≈ 1,15).
+</Exemplo>
+
+## Ferramenta
+
+Teste o seu produto com a tarifa do Clássico e do Premium da sua categoria:
+
+<Calculadora tipo="margem" />
+
+<ErroComum>
+**Ir no Premium por padrão.** Em produto barato, quase ninguém parcela, e você paga a tarifa mais alta sem ganho.
+
+**Usar a faixa média em vez da tarifa da categoria.** A diferença entre 10% e 14% (ou 15% e 19%) é grande. Busque a categoria exata no simulador.
+</ErroComum>
+
+<NaPratica>
+Para os seus 3 produtos, procure a tarifa exata da categoria no simulador de custos do Mercado Livre. Calcule a margem no Clássico e no Premium e escreva qual você escolheria e quanto a mais o Premium precisaria vender para compensar.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Qual a faixa da tarifa do Premium, conferida em 18/10/2026?",
+      opcoes: ["10% a 14%", "15% a 19%", "20% fixo"],
+      correta: 1,
+      explicacao: "A ajuda oficial informa 15% a 19% no Premium, conforme a categoria.",
+    },
+    {
+      enunciado: "Produto de R$ 10 no Mercado Livre: quanto é o custo fixo?",
+      opcoes: ["Nenhum", "R$ 5 (50% do valor)", "R$ 1"],
+      correta: 1,
+      explicacao: "Abaixo de R$ 12,50, o custo fixo é 50% do valor da unidade, além da porcentagem.",
+    },
+    {
+      enunciado: "Por que vender um kit não aumenta a porcentagem da tarifa?",
+      opcoes: ["Porque kits são isentos", "Porque a tarifa do kit é a mesma da venda dos produtos separados", "Porque kits só existem no Premium"],
+      correta: 1,
+      explicacao: "A ajuda diz que a tarifa do Clássico ou Premium para kits continua a mesma dos produtos separados.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Grátis: sem tarifa, mas 60 dias, baixa exposição e limites de vendas.
+- Clássico: 10% a 14%; Premium: 15% a 19% com até 12x sem juros.
+- Abaixo de R$ 79 há custo fixo por unidade; abaixo de R$ 12,50 ele é metade do preço.
+- Escolha Premium só quando o parcelamento muda a decisão do cliente.
+- Confira a tarifa da sua categoria no simulador oficial.
+</Resumo>
+
+<Fontes />

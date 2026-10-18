@@ -1,0 +1,129 @@
+---
+modulo: 7
+aula: 3
+titulo: "Mercado Envios e modalidades logísticas"
+nivel: intermediario
+duracao_min: 15
+objetivo: "Ao final você compara Full, Flex, Coleta e Agências e escolhe a modalidade que cabe na sua operação e na sua margem."
+pre_requisitos: ["7-2", "1-5"]
+fontes:
+  - titulo: "Mercado Livre — Como os envios no Mercado Livre funcionam (Central de Vendedores)"
+    url: "https://vendedores.mercadolivre.com.br/nota/como-os-envios-do-mercado-livre-funcionam"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Livre — Como funcionam os fretes grátis (Ajuda)"
+    url: "https://www.mercadolivre.com.br/ajuda/16467"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "O que o Full faz pelo vendedor?"
+    verso: "Armazena o estoque no centro de distribuição do Mercado Livre e cuida de embalagem, envio e atendimento pós-venda."
+  - frente: "No Flex, quem faz a entrega?"
+    verso: "O vendedor. O Mercado Livre facilita com tecnologia, e o comprador recebe no mesmo dia ou no dia seguinte."
+  - frente: "Quando o dinheiro da venda fica disponível usando os envios do Mercado Livre?"
+    verso: "48 horas depois de a transportadora entregar o pacote, na conta do Mercado Pago (segundo a Central de Vendedores)."
+---
+
+<Objetivo>
+Ao final você compara Full, Flex, Coleta e Agências e escolhe a modalidade que cabe na sua operação e na sua margem.
+</Objetivo>
+
+<PorQue>
+No Mercado Livre, a forma de envio muda o prazo que o comprador vê, o custo do frete, o trabalho diário e até quando o dinheiro cai. Escolher bem é ganhar venda e tempo; escolher mal é atrasar e perder a cor da reputação.
+</PorQue>
+
+## Explicação
+
+### 1. As modalidades
+
+Segundo a Central de Vendedores [verificado]:
+
+| Modalidade | Como funciona | Para quem |
+| --- | --- | --- |
+| <Termo id="fulfillment">Full</Termo> | Você manda o estoque ao centro de distribuição; o Mercado Livre armazena, embala, envia e cuida do pós-venda | Quem tem produto que gira e quer escalar |
+| <Termo id="envio-flex">Flex</Termo> | Você entrega; o comprador recebe no mesmo dia ou no dia seguinte | Quem tem logística própria numa região |
+| Coleta | Coleta diária na sede, se estiver na área de cobertura | Volume médio, sem tempo de ir a agência |
+| Agências | Pontos perto de você para despachar | Começo, volume pequeno |
+
+### 2. Como é o envio padrão
+
+Cada venda gera uma etiqueta; você cola no pacote e envia conforme o serviço escolhido; vendedor e comprador acompanham o trajeto. [verificado] O dinheiro fica disponível no Mercado Pago **48 horas** depois de a transportadora entregar. [verificado]
+
+### 3. Custo e frete grátis
+
+O custo de envio depende do peso, do tamanho e do serviço. [verificado] Nas regras de frete grátis [verificado]:
+
+- abaixo de R$ 19 (ou usado): frete grátis opcional, custo todo seu;
+- produto novo de R$ 19 a R$ 78,99, entrega padrão: o Mercado Livre paga o envio;
+- produto novo acima de R$ 79: você oferece frete grátis e paga o envio com desconto (a Central cita descontos de até 70%, conforme a reputação).
+
+### 4. Como escolher
+
+1. Comece pelas Agências ou Coleta, aprendendo o volume e o prazo.
+2. Quando um produto gira com previsibilidade, avalie o Full: o estoque fica longe de você, mas o prazo de entrega e a operação melhoram.
+3. Flex é para quem consegue entregar rápido numa região, com custo controlado.
+
+<Exemplo>
+Loja com 3 produtos (situação de exemplo):
+
+| Produto | Vendas/mês | Escolha | Por quê |
+| --- | ---: | --- | --- |
+| Garrafa térmica | 300 | Full | Gira bem, leve, prazo curto vende mais |
+| Organizador | 40 | Agência | Pouco volume, ainda testando |
+| Kit presente | 15 (só na sua cidade) | Flex | Entrega no mesmo dia como diferencial local |
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Escolha da modalidade"
+  itens={[
+    "Conheço o volume mensal de cada produto.",
+    "Sei o custo de envio de cada um (peso e tamanho da embalagem).",
+    "Sei qual parte do frete grátis sai da minha margem.",
+    "Avaliei se o produto gira o bastante para ficar no Full.",
+    "Sei o prazo de despacho de cada modalidade e consigo cumprir.",
+  ]}
+/>
+
+<ErroComum>
+**Mandar para o Full um produto que não gira.** O estoque parado no centro de distribuição custa, e itens não retirados podem ser descartados com custo, segundo as regras de devolução Full.
+
+**Escolher Flex sem conseguir entregar no prazo.** O atraso pesa na reputação.
+</ErroComum>
+
+<NaPratica>
+Para cada um dos seus 3 produtos, escolha a modalidade inicial e escreva o motivo em uma frase. Calcule a margem com a parte do frete que sai do seu bolso nessa modalidade.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "No Full, quem embala e envia o pedido?",
+      opcoes: ["O vendedor", "O Mercado Livre, a partir do estoque no centro de distribuição", "O comprador retira"],
+      correta: 1,
+      explicacao: "No Full, o Mercado Livre armazena, embala, envia e cuida do pós-venda.",
+    },
+    {
+      enunciado: "Produto novo de R$ 50, entrega padrão. Quem paga o frete grátis?",
+      opcoes: ["O vendedor, inteiro", "O Mercado Livre", "O comprador"],
+      correta: 1,
+      explicacao: "De R$ 19 a R$ 78,99, com entrega padrão, o Mercado Livre paga o custo de envio.",
+    },
+    {
+      enunciado: "Quando o dinheiro da venda fica disponível?",
+      opcoes: ["Na hora da compra", "48 horas depois da entrega, no Mercado Pago", "Em 30 dias"],
+      correta: 1,
+      explicacao: "A Central de Vendedores informa 48 horas depois de a transportadora entregar o pacote.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Full: o Mercado Livre cuida de tudo a partir do seu estoque no CD.
+- Flex: você entrega rápido numa região.
+- Coleta e Agências: bons para começar.
+- Frete grátis: o Mercado Livre paga de R$ 19 a R$ 78,99; acima, você paga com desconto.
+- Dinheiro disponível 48 horas depois da entrega.
+</Resumo>
+
+<Fontes />

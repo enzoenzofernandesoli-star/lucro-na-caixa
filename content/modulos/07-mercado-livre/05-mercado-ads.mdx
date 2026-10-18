@@ -1,0 +1,119 @@
+---
+modulo: 7
+aula: 5
+titulo: "Mercado Ads e Product Ads"
+nivel: intermediario
+duracao_min: 15
+objetivo: "Ao final você entende como o Product Ads cobra, onde os anúncios aparecem e como ler ACOS e ROAS para decidir se a campanha se paga."
+pre_requisitos: ["7-4", "1-6"]
+fontes:
+  - titulo: "Mercado Livre — O que é e como funciona Product Ads (Central de Vendedores)"
+    url: "https://vendedores.mercadolivre.com.br/nota/o-que-e-e-como-funciona-o-product-ads"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Livre — O que as métricas disponíveis em Product Ads significam? (Central de Vendedores)"
+    url: "https://vendedores.mercadolivre.com.br/nota/o-que-as-metricas-no-administrador-significam"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Como o Product Ads cobra?"
+    verso: "Por clique recebido, sem passar do orçamento que você definiu."
+  - frente: "ACOS de 20% equivale a qual ROAS?"
+    verso: "ROAS 5 (1 ÷ 0,20)."
+  - frente: "Qual o ACOS máximo de um produto com margem de 30%?"
+    verso: "30%: ACOS acima da margem quer dizer anúncio custando mais do que a margem gerada."
+---
+
+<Objetivo>
+Ao final você entende como o Product Ads cobra, onde os anúncios aparecem e como ler ACOS e ROAS para decidir se a campanha se paga.
+</Objetivo>
+
+<PorQue>
+O Product Ads é o jeito mais direto de comprar visibilidade no Mercado Livre. É fácil ligar e fácil perder dinheiro: o painel mostra vendas, mas quem decide se elas deram lucro é a sua margem.
+</PorQue>
+
+## Explicação
+
+### 1. Como funciona
+
+Segundo a Central de Vendedores [verificado]:
+
+- A plataforma cria uma **campanha automática**, e você pode criar campanhas manuais para complementar.
+- Você define quanto investir ou usa o orçamento diário recomendado.
+- Paga **por clique recebido**, sem passar do limite.
+- Os anúncios aparecem nos primeiros resultados de busca e como recomendação em anúncios de outros vendedores, com a palavra "Patrocinado".
+
+A mesma página diz que vendedores que usam a ferramenta "estão aumentando as vendas em 26%". É um número de divulgação da própria plataforma, sem metodologia publicada. [alegação não confirmada]
+
+### 2. ACOS e ROAS
+
+O painel usa o <Termo id="acos">ACOS</Termo>: a relação entre o investimento e a receita das vendas por Product Ads (exemplo do Mercado Livre: R$ 100 investidos e R$ 1.000 de receita = ACOS de 10%). [verificado] É o inverso do ROAS (aula 1.6):
+
+<Formula titulo="ACOS e ROAS">
+ACOS = gasto ÷ vendas · ROAS = vendas ÷ gasto · ACOS = 1 ÷ ROAS
+</Formula>
+
+Regra prática: **o ACOS máximo é a sua margem de contribuição em porcentagem**. Margem de 30% → ACOS acima de 30% é prejuízo.
+
+### 3. Vendas diretas e indiretas
+
+O Mercado Livre separa vendas diretas (clicou no anúncio e comprou aquele produto) e indiretas (clicou e comprou outro produto seu), e recomenda manter as campanhas ativas por 30 dias para que se estabilizem, porque elas aprendem com o histórico. [verificado] Por isso, o número de vendas do painel não é igual ao número de pedidos do dia: confira com os seus pedidos reais.
+
+<Exemplo>
+Campanha de exemplo para a garrafa de R$ 89,90 com margem de **30%** (R$ 26,97):
+
+| Semana | Gasto | Vendas atribuídas | ACOS | Leitura |
+| --- | ---: | ---: | ---: | --- |
+| 1 | R$ 200 | R$ 899 (10 un.) | 22,2% | Abaixo de 30%: sobra margem |
+| 2 | R$ 300 | R$ 719 (8 un.) | 41,7% | Acima de 30%: cada venda paga mais de anúncio do que deixa |
+
+Na semana 2, a campanha gastou R$ 300 para gerar R$ 215,76 de margem: prejuízo de R$ 84,24.
+</Exemplo>
+
+## Ferramenta
+
+Coloque as vendas e o gasto da campanha (o ROAS é 1 ÷ ACOS):
+
+<Calculadora tipo="roas" />
+
+<ErroComum>
+**Comemorar vendas do painel.** Vendas atribuídas com ACOS acima da margem são vendas com prejuízo.
+
+**Ligar Ads em anúncio fraco.** Anúncio com foto ruim e sem avaliação converte pouco: você paga o clique e não vende. Arrume o anúncio (aula 7.4) antes.
+</ErroComum>
+
+<NaPratica>
+Calcule o ACOS máximo de cada um dos seus 3 produtos (igual à margem %). Defina um orçamento de teste e o critério para pausar: por exemplo, ACOS acima do máximo por 7 dias seguidos.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Gasto de R$ 100 e vendas atribuídas de R$ 500. Qual o ACOS?",
+      opcoes: ["5%", "20%", "500%"],
+      correta: 1,
+      explicacao: "ACOS = 100 ÷ 500 = 0,20, ou 20%. Equivale a ROAS 5.",
+    },
+    {
+      enunciado: "Margem de 25% e ACOS de 32%. A campanha…",
+      opcoes: ["dá lucro", "dá prejuízo antes dos custos fixos", "empata"],
+      correta: 1,
+      explicacao: "ACOS acima da margem quer dizer que o anúncio custou mais do que a margem gerada.",
+    },
+    {
+      enunciado: "Como o Product Ads cobra?",
+      opcoes: ["Por impressão", "Por clique, dentro do orçamento definido", "Uma mensalidade fixa"],
+      correta: 1,
+      explicacao: "Segundo a Central de Vendedores, você paga por clique recebido e nunca passa do limite.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Product Ads cobra por clique, com orçamento que você controla.
+- Aparece no topo da busca e em recomendações, como "Patrocinado".
+- ACOS = gasto ÷ vendas; ACOS máximo = margem %.
+- Vendas atribuídas não são iguais aos pedidos: confira com os reais.
+- Arrume o anúncio antes de pagar por clique.
+</Resumo>
+
+<Fontes />
