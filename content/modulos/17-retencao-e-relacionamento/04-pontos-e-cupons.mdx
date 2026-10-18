@@ -1,0 +1,130 @@
+---
+modulo: 17
+aula: 4
+titulo: "Programa de pontos e cupons: quando vale e quando corrói a margem"
+nivel: avancado
+duracao_min: 20
+objetivo: "Ao final você calcula quanto um cupom ou programa de pontos custa na margem, escreve regras claras e decide se ele se paga."
+pre_requisitos: ["17-3", "1-2"]
+fontes:
+  - titulo: "Código de Defesa do Consumidor, Lei nº 8.078/1990, arts. 30 e 31 (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+    consultado_em: "2026-10-18"
+  - titulo: "Decreto nº 7.962/2013 — comércio eletrônico, art. 2º (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Produto de R$ 100 com margem de R$ 30 e cupom de 10%: quanto sobra de margem?"
+    verso: "R$ 20. O desconto sai inteiro da margem, porque o custo do produto não muda."
+  - frente: "O que precisa constar nas regras de um cupom ou programa de pontos?"
+    verso: "Condições claras: validade, valor mínimo, produtos incluídos, limite de uso. A oferta divulgada obriga."
+  - frente: "Quando o cupom de volta se paga?"
+    verso: "Quando traz recompra que não aconteceria sem ele, com margem que ainda cobre o custo."
+---
+
+<Objetivo>
+Ao final você calcula quanto um cupom ou programa de pontos custa na margem, escreve regras claras e decide se ele se paga.
+</Objetivo>
+
+<PorQue>
+"10% de desconto" parece pouco. Num produto com 30% de margem, é um terço do lucro. E se o cliente ia voltar de qualquer jeito, você pagou um terço do lucro por nada. Cupom e pontos funcionam quando são medidos; quando não, só corroem a margem.
+</PorQue>
+
+## Explicação
+
+### 1. O custo do desconto
+
+O desconto sai **inteiro da margem**, porque o custo do produto não muda:
+
+<Formula>
+Margem com desconto = margem sem desconto − valor do desconto
+</Formula>
+
+| Margem antes | Desconto | Margem que sobra (em R$, para preço R$ 100) |
+| --- | --- | --- |
+| R$ 30 | 5% (R$ 5) | R$ 25 |
+| R$ 30 | 10% (R$ 10) | R$ 20 |
+| R$ 30 | 20% (R$ 20) | R$ 10 |
+
+(Taxas proporcionais ao preço também caem um pouco com o desconto; a calculadora de margem faz a conta exata.)
+
+### 2. Pontos e cashback
+
+Um <Termo id="programa-de-fidelidade">programa de fidelidade</Termo> é um desconto adiado. Calcule como desconto: "5% em pontos" custa até 5% do preço, quando os pontos forem usados. [estimativa]
+
+### 3. Regras claras
+
+- A oferta suficientemente precisa **obriga** e integra o contrato (CDC, art. 30). [verificado]
+- A oferta precisa de informações corretas e claras (CDC, art. 31), e a loja online deve informar as condições da oferta, incluindo modalidades de pagamento, disponibilidade e prazo (Decreto 7.962/2013, art. 2º). [verificado]
+
+Escreva: validade, valor mínimo, produtos incluídos, limite de uso por cliente, se acumula com outras promoções.
+
+### 4. Quando vale
+
+| Vale | Não vale |
+| --- | --- |
+| Traz de volta clientes que **não voltariam** | Dá desconto a quem já voltaria |
+| Margem depois do desconto ainda cobre custos | Margem fica perto de zero |
+| Medido: grupo com cupom × grupo sem | "Achamos que funcionou" |
+
+Para saber se o cupom trouxe venda nova, compare um grupo de clientes que recebeu com um que não recebeu (aula 14.3). [estimativa]
+
+<Exemplo>
+Cupom de volta de 10% para quem comprou há 60 dias (números de exemplo; preço R$ 100, margem R$ 30):
+
+| | Sem cupom (500 clientes) | Com cupom (500 clientes) |
+| --- | --- | --- |
+| Voltaram | 40 | 70 |
+| Margem por pedido | R$ 30 | R$ 20 |
+| Margem total | R$ 1.200 | R$ 1.400 |
+
+O cupom trouxe **R$ 200** a mais de margem. Se só 50 voltassem com cupom, a margem seria R$ 1.000: **R$ 200 a menos** que sem cupom.
+</Exemplo>
+
+## Ferramenta
+
+<Calculadora tipo="margem" />
+
+<ErroComum>
+**Cupom para todo mundo, o tempo todo.** O cliente aprende a só comprar com desconto.
+
+**Regras escondidas ou mudadas depois.** A oferta divulgada obriga.
+</ErroComum>
+
+<NaPratica>
+Calcule a margem do seu produto com cupom de 5%, 10% e 15%. Escreva as regras do cupom de volta do seu fluxo pós-compra (projeto do módulo) e como você vai medir se ele se paga.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Preço R$ 100, margem R$ 25. Cupom de 15%. Margem que sobra?",
+      opcoes: ["R$ 10", "R$ 21,25", "R$ 85"],
+      correta: 0,
+      explicacao: "25 − 15 = 10 (o desconto sai inteiro da margem).",
+    },
+    {
+      enunciado: "O cupom divulgado dizia 'válido até domingo'. No sábado você desistiu. Pode cancelar?",
+      opcoes: ["Pode", "Não: a oferta divulgada obriga (CDC, art. 30)", "Só se avisar no Instagram"],
+      correta: 1,
+      explicacao: "Informação precisa da oferta integra o contrato.",
+    },
+    {
+      enunciado: "Como saber se o cupom trouxe venda nova?",
+      opcoes: ["Contando quem usou o cupom", "Comparando com um grupo que não recebeu o cupom", "Pelo número de curtidas"],
+      correta: 1,
+      explicacao: "Sem grupo de comparação, você não sabe quem voltaria de qualquer jeito.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Desconto sai inteiro da margem.
+- Pontos e cashback são desconto adiado.
+- Regras claras e cumpridas: a oferta obriga.
+- Vale quando traz quem não voltaria.
+- Meça com grupo de comparação.
+</Resumo>
+
+<Fontes />

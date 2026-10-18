@@ -1,0 +1,112 @@
+---
+modulo: 17
+aula: 1
+titulo: "Por que o segundo pedido é mais barato que o primeiro"
+nivel: avancado
+duracao_min: 15
+objetivo: "Ao final você calcula quanto custa o primeiro e o segundo pedido de um cliente e entende por que a recompra muda o quanto você pode pagar em anúncio."
+pre_requisitos: ["14-2"]
+fontes:
+  - titulo: "Lei Geral de Proteção de Dados, Lei nº 13.709/2018, arts. 7º e 8º (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Por que o segundo pedido costuma custar menos?"
+    verso: "Porque o cliente já te conhece: dá para chegar até ele por e-mail ou WhatsApp com consentimento, sem pagar o custo de aquisição de novo."
+  - frente: "Como a recompra muda o CPA máximo do primeiro pedido?"
+    verso: "Se o cliente volta, a margem das compras seguintes ajuda a pagar a aquisição; o CPA aceitável pode subir, desde que a recompra seja medida."
+  - frente: "Recompra que você nunca mediu pode entrar na conta?"
+    verso: "Não. Use só recompra medida por coorte (aula 14.2)."
+---
+
+<Objetivo>
+Ao final você calcula quanto custa o primeiro e o segundo pedido de um cliente e entende por que a recompra muda o quanto você pode pagar em anúncio.
+</Objetivo>
+
+<PorQue>
+Muitas lojas gastam todo o esforço para conquistar cliente novo e nenhum para fazer o cliente voltar. É como encher um balde furado. Cada cliente que volta é uma venda sem pagar a aquisição de novo.
+</PorQue>
+
+## Explicação
+
+### 1. A conta
+
+| | 1º pedido | 2º pedido |
+| --- | --- | --- |
+| Como o cliente chega | Anúncio, busca, marketplace | E-mail, WhatsApp, lembrança da marca |
+| Custo de marketing | CAC (aula 14.2) | Custo da mensagem e, se houver, do cupom |
+| Confiança | Precisa ser conquistada | Já existe (se o primeiro deu certo) |
+
+A diferença de custo é real quando você pode falar com o cliente de novo **com base legal** (aula 17.2). Pela LGPD, o uso de dado pessoal precisa de uma das hipóteses do art. 7º, e o consentimento precisa ter finalidade determinada. [verificado]
+
+### 2. O que isso muda no anúncio
+
+Se você **mediu** que o cliente volta, a margem das compras seguintes ajuda a pagar a primeira. Na prática:
+
+<Formula>
+CPA aceitável no 1º pedido = margem do 1º pedido + margem esperada das próximas compras − custo de reter o cliente
+</Formula>
+
+Isso só vale com recompra medida por coorte (aula 14.2); com recompra imaginada, é atalho para o prejuízo. [estimativa]
+
+### 3. A condição: o primeiro pedido precisa dar certo
+
+Atraso, defeito ou atendimento ruim no primeiro pedido matam o segundo. A retenção começa na operação (módulo 15).
+
+<Exemplo>
+Cliente de café especial (números de exemplo): ticket R$ 80, margem de contribuição 40% = R$ 32 por pedido.
+
+- **1º pedido:** CAC de R$ 40 → resultado de **−R$ 8**.
+- **2º pedido** (e-mail com consentimento, custo de R$ 1): **+R$ 31**.
+- **Duas compras:** −8 + 31 = **R$ 23** de lucro com esse cliente.
+
+Se só 30% dos clientes voltam: média de −8 + 0,30 × 31 = **R$ 1,30** por cliente. Quase zero: a recompra precisa ser maior, ou o CAC, menor.
+</Exemplo>
+
+## Ferramenta
+
+<Calculadora tipo="cac-ltv" />
+
+<ErroComum>
+**Pagar CAC alto contando com recompra que ninguém mediu.** Primeiro meça, depois aumente o CPA.
+
+**Tratar todos os clientes como novos.** Mandar anúncio caro para quem já compraria por uma mensagem.
+</ErroComum>
+
+<NaPratica>
+Com os números da sua loja (ou do exemplo), calcule o resultado do primeiro pedido, do segundo e a média com a sua taxa de recompra real.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Margem por pedido R$ 30, CAC R$ 35. Resultado do 1º pedido?",
+      opcoes: ["R$ 5", "−R$ 5", "R$ 65"],
+      correta: 1,
+      explicacao: "30 − 35 = −5.",
+    },
+    {
+      enunciado: "Do exemplo acima, o cliente volta e o 2º pedido custa R$ 2 de mensagem. Resultado acumulado?",
+      opcoes: ["R$ 23", "R$ 28", "−R$ 7"],
+      correta: 0,
+      explicacao: "−5 + (30 − 2) = 23.",
+    },
+    {
+      enunciado: "Quando a recompra pode entrar no cálculo do CPA aceitável?",
+      opcoes: ["Sempre", "Só quando foi medida por coorte", "Nunca"],
+      correta: 1,
+      explicacao: "Recompra suposta não é dado.",
+    },
+  ]}
+/>
+
+<Resumo>
+- O segundo pedido não paga a aquisição de novo.
+- Falar com o cliente de novo exige base legal (LGPD).
+- Recompra medida pode aumentar o CPA aceitável.
+- Recompra imaginada leva ao prejuízo.
+- Retenção começa num primeiro pedido bem entregue.
+</Resumo>
+
+<Fontes />

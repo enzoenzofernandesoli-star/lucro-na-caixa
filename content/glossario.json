@@ -683,5 +683,25 @@
     "id": "responsabilidade-solidaria",
     "termo": "Responsabilidade solidária",
     "definicao": "Quando mais de um fornecedor responde junto pelo mesmo problema. No CDC, os fornecedores respondem solidariamente pelos vícios do produto: o cliente pode cobrar a loja."
+  },
+  {
+    "id": "opt-in",
+    "termo": "Opt-in",
+    "definicao": "Permissão que a pessoa dá para receber suas mensagens (e-mail, WhatsApp). Precisa ser clara, para uma finalidade definida, e poder ser retirada a qualquer momento."
+  },
+  {
+    "id": "fluxo-pos-compra",
+    "termo": "Fluxo pós-compra",
+    "definicao": "Sequência planejada de mensagens depois da compra: confirmação, acompanhamento da entrega, pedido de avaliação e convite para a próxima compra."
+  },
+  {
+    "id": "programa-de-fidelidade",
+    "termo": "Programa de fidelidade",
+    "definicao": "Regra que dá benefício a quem volta a comprar (pontos, cashback, desconto progressivo). Custa margem e precisa ter regras claras por escrito."
+  },
+  {
+    "id": "produto-complementar",
+    "termo": "Produto complementar",
+    "definicao": "Produto que combina com o que o cliente já comprou (refil, acessório, peça de reposição) e por isso facilita a próxima compra."
   }
 ]

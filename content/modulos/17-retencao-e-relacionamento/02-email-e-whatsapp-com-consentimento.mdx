@@ -1,0 +1,129 @@
+---
+modulo: 17
+aula: 2
+titulo: "E-mail e WhatsApp com consentimento (LGPD)"
+nivel: avancado
+duracao_min: 20
+objetivo: "Ao final você separa mensagens de serviço e de marketing, coleta consentimento do jeito certo e respeita o pedido de quem não quer mais receber."
+pre_requisitos: ["2-5", "17-1"]
+fontes:
+  - titulo: "Lei Geral de Proteção de Dados, Lei nº 13.709/2018, arts. 7º, 8º e 18 (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+    consultado_em: "2026-10-18"
+  - titulo: "WhatsApp — Política Empresarial e Política de Mensagens do WhatsApp Business"
+    url: "https://business.whatsapp.com/policy"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Quando uma empresa pode mandar mensagem a alguém pelo WhatsApp, segundo a política do WhatsApp Business?"
+    verso: "Quando a pessoa deu o número e a empresa recebeu permissão (opt-in) confirmando que ela quer receber as mensagens."
+  - frente: "O consentimento da LGPD pode ser genérico?"
+    verso: "Não. Precisa ter finalidade determinada; autorização genérica é nula (art. 8º)."
+  - frente: "A pessoa pediu para parar. O que fazer?"
+    verso: "Parar e respeitar o pedido, dentro e fora do WhatsApp; o consentimento pode ser revogado a qualquer momento."
+---
+
+<Objetivo>
+Ao final você separa mensagens de serviço e de marketing, coleta consentimento do jeito certo e respeita o pedido de quem não quer mais receber.
+</Objetivo>
+
+<PorQue>
+Comprar uma lista de contatos e disparar oferta parece rápido. Também é o caminho para ser bloqueado, denunciado e ter o número limitado, além de violar a LGPD. Mensagem que a pessoa pediu para receber é bem-vinda; a que ela não pediu é spam.
+</PorQue>
+
+## Explicação
+
+### 1. Serviço x marketing
+
+| Tipo | Exemplos | Base comum |
+| --- | --- | --- |
+| **Serviço** | Confirmação do pedido, rastreio, aviso de atraso | Execução do contrato (LGPD, art. 7º) [verificado] |
+| **Marketing** | Ofertas, lançamentos, cupom de volta | Normalmente consentimento (art. 7º e 8º) [verificado] |
+
+Consulte um profissional para confirmar a base legal de cada uso na sua loja.
+
+### 2. Consentimento que vale (LGPD)
+
+- Por escrito ou de outro jeito que mostre a vontade da pessoa. [verificado]
+- Com **finalidade determinada**: autorização genérica é nula. [verificado]
+- **Revogável** a qualquer momento, de forma gratuita e fácil. [verificado]
+- Cabe à loja provar que obteve. [verificado]
+
+Na prática: caixa de seleção **desmarcada** no checkout, com o texto do que a pessoa vai receber.
+
+### 3. WhatsApp: a política da plataforma
+
+- Só contate quem **deu o número** e de quem você recebeu **permissão** (<Termo id="opt-in">opt-in</Termo>) confirmando que quer receber as mensagens. [verificado]
+- Respeite todo pedido para bloquear, parar ou deixar de receber, dentro e fora do WhatsApp. [verificado]
+- Usuários podem bloquear ou denunciar, e o WhatsApp pode **limitar** quantas mensagens a empresa envia com base nesse retorno. [verificado]
+- Boa prática da própria política: consentimento por **categoria** de mensagem (atualização de pedido, ofertas, recomendações). [verificado]
+
+### 4. E-mail
+
+Mesma lógica: consentimento para marketing, um jeito fácil de sair em toda mensagem, e frequência combinada.
+
+<Exemplo>
+Texto de consentimento no checkout (situação de exemplo):
+
+> ☐ Quero receber por WhatsApp ofertas e lançamentos da Loja Café Serra (no máximo 2 mensagens por mês). Posso cancelar quando quiser respondendo SAIR.
+
+O que está certo: caixa desmarcada, canal, finalidade e frequência ditos, saída fácil. A confirmação do pedido e o rastreio vão para todos os clientes, porque fazem parte da entrega.
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Mensagens com consentimento"
+  itens={[
+    "Separei mensagens de serviço e de marketing.",
+    "Consentimento de marketing com caixa desmarcada e finalidade clara.",
+    "Registro de quando e como cada pessoa consentiu.",
+    "Saída fácil em toda mensagem de marketing.",
+    "Pedido de saída atendido em todos os canais.",
+    "Nunca uso lista comprada.",
+    "Política de privacidade explica o uso (LGPD, aula 2.5).",
+  ]}
+/>
+
+<ErroComum>
+**Caixa de consentimento já marcada.** Não mostra vontade clara da pessoa.
+
+**Usar o número do pedido para mandar oferta sem permissão.** O dado foi dado para a entrega, não para marketing.
+</ErroComum>
+
+<NaPratica>
+Escreva o texto de consentimento da sua loja para e-mail e para WhatsApp, e a frase de saída que vai em toda mensagem de marketing.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Pela política do WhatsApp Business, o que é preciso para mandar mensagem a alguém?",
+      opcoes: ["Só ter o número", "A pessoa ter dado o número e a empresa ter recebido permissão (opt-in)", "Ter comprado uma lista"],
+      correta: 1,
+      explicacao: "A política exige as duas condições.",
+    },
+    {
+      enunciado: "Consentimento 'para quaisquer fins' vale pela LGPD?",
+      opcoes: ["Sim", "Não, autorização genérica é nula", "Só para e-mail"],
+      correta: 1,
+      explicacao: "O art. 8º exige finalidade determinada.",
+    },
+    {
+      enunciado: "Mensagem de rastreio do pedido precisa do mesmo consentimento de marketing?",
+      opcoes: ["Sim", "Não: é mensagem de serviço ligada à entrega", "Só no WhatsApp"],
+      correta: 1,
+      explicacao: "Mensagens de serviço normalmente se apoiam na execução do contrato.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Serviço e marketing são coisas diferentes.
+- Consentimento: claro, com finalidade, revogável, provável.
+- WhatsApp: só com número dado e opt-in; respeite quem pede para sair.
+- Nunca use lista comprada.
+- Bloqueios e denúncias podem limitar o seu envio.
+</Resumo>
+
+<Fontes />
