@@ -1,0 +1,119 @@
+---
+modulo: 16
+aula: 6
+titulo: "A conta completa do drop, com reembolso e chargeback na margem"
+nivel: avancado
+duracao_min: 25
+objetivo: "Ao final você calcula o lucro médio por pedido de um produto de drop, já com reembolsos e chargebacks, e decide se o teste vale a pena."
+pre_requisitos: ["16-5", "1-2", "1-6"]
+fontes:
+  - titulo: "Código de Defesa do Consumidor, Lei nº 8.078/1990, art. 49 (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Pago Developers — Gerenciar contestações"
+    url: "https://www.mercadopago.com.br/developers/pt/docs/checkout-pro-preferences/chargebacks/manage"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Como entra o reembolso na margem do drop?"
+    verso: "Como média: (1 − taxa de problemas) × lucro do pedido normal + taxa de reembolso × perda do reembolso + taxa de chargeback × perda do chargeback."
+  - frente: "O que se perde num pedido reembolsado de drop (premissa do curso)?"
+    verso: "O custo do fornecedor, as taxas e o anúncio; o valor da venda é devolvido ao cliente."
+  - frente: "Por que um reembolso pesa mais que um pedido normal ganha?"
+    verso: "Porque a perda de um reembolso costuma ser maior que o lucro de um pedido; poucos reembolsos comem o lucro de muitos pedidos."
+---
+
+<Objetivo>
+Ao final você calcula o lucro médio por pedido de um produto de drop, já com reembolsos e chargebacks, e decide se o teste vale a pena.
+</Objetivo>
+
+<PorQue>
+Margem "de 40%" vira prejuízo com 10% de reembolso. Isso acontece porque um pedido que dá errado não "zera": ele perde o custo do produto, as taxas e o anúncio. No drop, onde prazo e qualidade são menos controlados, essa conta é a que decide.
+</PorQue>
+
+## Explicação
+
+### 1. Os três tipos de pedido
+
+| Pedido | Resultado (premissa do curso) |
+| --- | --- |
+| **Normal** | Preço − custo do fornecedor − taxas − impostos − CPA |
+| **Reembolsado** | −(custo do fornecedor + taxas + CPA): você devolve o valor da venda (CDC, art. 49, no arrependimento) [verificado] e não recupera o resto [estimativa] |
+| **Chargeback** | Perda do reembolso − tarifa de chargeback, se o intermediador cobrar [estimativa] |
+
+A premissa trata os impostos como recuperados no cancelamento: confirme com o seu contador. [estimativa]
+
+### 2. A média
+
+<Formula>
+Lucro médio = (1 − r − k) × lucro normal + r × perda do reembolso + k × perda do chargeback
+</Formula>
+
+**r** = parte dos pedidos reembolsados; **k** = parte dos pedidos com chargeback.
+
+### 3. De onde tirar r e k
+
+Não há taxa oficial de reembolso ou chargeback para dropshipping no Brasil. [alegação não confirmada] Use:
+
+- O histórico da sua loja, se tiver.
+- No teste, uma estimativa conservadora e alta.
+- Depois do teste, os números reais (aula 14.6).
+
+<Exemplo>
+Produto de drop nacional (números de exemplo): preço R$ 129,90; fornecedor + frete R$ 55; taxas 5%; impostos 6%; CPA R$ 30; reembolso 8%; chargeback 1%; tarifa de chargeback R$ 15.
+
+- Taxas: 129,90 × 5% = R$ 6,50. Impostos: 129,90 × 6% = R$ 7,79.
+- **Pedido normal:** 129,90 − 55 − 6,50 − 7,79 − 30 = **R$ 30,61**
+- **Reembolso:** −(55 + 6,50 + 30) = **−R$ 91,50**
+- **Chargeback:** −91,50 − 15 = **−R$ 106,50**
+- **Lucro médio:** 0,91 × 30,61 + 0,08 × (−91,50) + 0,01 × (−106,50) = 27,86 − 7,32 − 1,07 ≈ **R$ 19,47**
+
+A margem "de 23,6%" do pedido normal vira **15%** na média. Com reembolso de 25%, o lucro médio fica negativo. Teste no simulador.
+</Exemplo>
+
+## Ferramenta
+
+<Calculadora tipo="drop" />
+
+<ErroComum>
+**Calcular só o pedido normal.** É o melhor caso, não a média.
+
+**Usar taxa de reembolso otimista no teste.** Prefira uma estimativa alta e corrija com o dado real.
+</ErroComum>
+
+<NaPratica>
+Coloque os números do seu produto de drop na calculadora com três cenários de reembolso (5%, 10% e 20%). Anote o lucro médio de cada um e decida se o teste do projeto do módulo faz sentido.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Lucro do pedido normal R$ 30; perda do reembolso R$ 90; reembolso 10%; sem chargeback. Lucro médio?",
+      opcoes: ["R$ 30", "R$ 18", "R$ 27"],
+      correta: 1,
+      explicacao: "0,9 × 30 + 0,1 × (−90) = 27 − 9 = 18.",
+    },
+    {
+      enunciado: "Por que poucos reembolsos pesam tanto?",
+      opcoes: ["Porque a perda de um reembolso é maior que o lucro de um pedido", "Porque é proibido reembolsar", "Não pesam"],
+      correta: 0,
+      explicacao: "Um reembolso perde fornecedor, taxas e anúncio de uma vez.",
+    },
+    {
+      enunciado: "Existe uma taxa oficial de reembolso para drop no Brasil?",
+      opcoes: ["Sim, 5%", "Não; use histórico ou estimativa conservadora", "Sim, 15%"],
+      correta: 1,
+      explicacao: "Não há dado oficial; por isso o curso marca como alegação não confirmada.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Três tipos de pedido: normal, reembolsado e chargeback.
+- O lucro real é a média ponderada dos três.
+- Reembolso perde fornecedor, taxas e anúncio.
+- Use taxas conservadoras no teste e reais depois.
+- A margem do pedido normal é o melhor caso.
+</Resumo>
+
+<Fontes />

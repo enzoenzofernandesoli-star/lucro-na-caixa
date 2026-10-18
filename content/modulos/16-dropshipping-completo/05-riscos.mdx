@@ -1,0 +1,131 @@
+---
+modulo: 16
+aula: 5
+titulo: "Riscos: prazo, qualidade, reembolso, chargeback e responsabilidade"
+nivel: avancado
+duracao_min: 20
+objetivo: "Ao final você lista os riscos do seu drop, sabe o que a lei exige de você em cada um e escreve o plano de resposta antes de vender."
+pre_requisitos: ["16-4", "15-4", "15-5"]
+fontes:
+  - titulo: "Código de Defesa do Consumidor, Lei nº 8.078/1990, arts. 18, 26, 30 e 49 (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+    consultado_em: "2026-10-18"
+  - titulo: "Decreto nº 7.962/2013 — comércio eletrônico, arts. 4º e 5º (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Pago Developers — Gerenciar contestações"
+    url: "https://www.mercadopago.com.br/developers/pt/docs/checkout-pro-preferences/chargebacks/manage"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Cliente desiste no 5º dia de um pedido de drop. Pode negar porque o fornecedor não aceita devolução?"
+    verso: "Não. O arrependimento de 7 dias (CDC, art. 49) vale para a loja; o acordo com o fornecedor é problema seu."
+  - frente: "Por que o drop tem risco maior de chargeback 'não recebido'?"
+    verso: "Porque o prazo é maior e você não controla o envio; sem rastreio e prova de entrega, a defesa fica fraca."
+  - frente: "Qual risco do drop é exclusivo de quem não tem estoque?"
+    verso: "O fornecedor ficar sem produto depois que você já vendeu."
+---
+
+<Objetivo>
+Ao final você lista os riscos do seu drop, sabe o que a lei exige de você em cada um e escreve o plano de resposta antes de vender.
+</Objetivo>
+
+<PorQue>
+No drop, cada risco do fornecedor vira um problema seu na frente do cliente. Quem pensa nos riscos antes de vender tem resposta pronta; quem descobre na hora improvisa, promete o que não pode e perde cliente, dinheiro e reputação.
+</PorQue>
+
+## Explicação
+
+### 1. Os riscos e a regra que vale
+
+| Risco | O que a regra exige de você |
+| --- | --- |
+| **Atraso** | O prazo anunciado obriga (CDC, art. 30) [verificado] |
+| **Defeito ou produto diferente** | A loja responde, com 30 dias para resolver (CDC, art. 18) [verificado] |
+| **Arrependimento** | Aceitar em 7 dias e devolver tudo o que foi pago (CDC, art. 49) [verificado] |
+| **Estorno no cartão** | Avisar a operadora no arrependimento (Decreto 7.962/2013, art. 5º) [verificado] |
+| **Reclamação** | Responder em até 5 dias no atendimento eletrônico (Decreto 7.962/2013, art. 4º) [verificado] |
+| **Chargeback** | Defender com provas; pode haver só uma chance de enviar documentos [verificado] |
+| **Falta de estoque no fornecedor** | Cancelar e devolver; nos marketplaces, pesa na reputação (aula 16.4) |
+
+### 2. Por que no drop é pior
+
+- Você **não vê** o produto antes do cliente.
+- O **prazo** é maior, e prazo longo gera desistência e contestação "não recebido". [estimativa]
+- A **devolução** pode não voltar para o fornecedor: você devolve o dinheiro e fica sem o produto e sem o custo. [estimativa]
+
+### 3. O plano de resposta
+
+Para cada risco, escreva antes:
+
+- **Gatilho:** como você descobre (rastreio parado, reclamação, aviso do fornecedor).
+- **Ação com o cliente:** o que você diz e oferece, dentro da lei.
+- **Ação com o fornecedor:** o que o acordo escrito prevê (aula 16.3).
+- **Custo:** quanto custa e de quem é.
+
+<Exemplo>
+Plano de resposta para "rastreio parado há 7 dias" (situação de exemplo):
+
+1. **Gatilho:** conferência diária de rastreio marca pedidos parados há 5+ dias.
+2. **Cliente:** mensagem proativa no 5º dia, com a situação e o próximo passo (aula 15.3).
+3. **Fornecedor:** abre chamado com a transportadora em 24 h, conforme acordo.
+4. **Se passar do prazo anunciado:** oferecer cancelamento com devolução integral ou reenvio, à escolha do cliente.
+5. **Custo:** se reenviar, um produto + frete; se cancelar, o anúncio já pago.
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Mapa de riscos do drop"
+  itens={[
+    "Atraso: gatilho, mensagem ao cliente, ação com o fornecedor, custo.",
+    "Defeito: como o cliente envia foto, prazo de solução, quem paga.",
+    "Arrependimento: como devolver o dinheiro em 7 dias, mesmo se o fornecedor não aceitar.",
+    "Chargeback: kit de defesa de cada pedido (aula 15.5).",
+    "Falta de estoque: como você descobre antes de vender.",
+    "Reserva de caixa para reembolsos do mês.",
+  ]}
+/>
+
+<ErroComum>
+**Repassar ao cliente a regra do fornecedor ("ele não aceita devolução").** A regra que vale para o cliente é a da lei e a da sua loja.
+
+**Não ter reserva para reembolso.** No drop, o reembolso sai do seu caixa antes de qualquer acerto com o fornecedor.
+</ErroComum>
+
+<NaPratica>
+Preencha o mapa de riscos para o seu produto de drop e calcule quanto de caixa reservar para os reembolsos de um mês, usando a sua taxa de reembolso estimada.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "O fornecedor não aceita devolução. O cliente desistiu no 3º dia. O que fazer?",
+      opcoes: ["Negar", "Aceitar e devolver tudo o que foi pago; acertar com o fornecedor à parte", "Oferecer só crédito"],
+      correta: 1,
+      explicacao: "O arrependimento (CDC, art. 49) vale para a loja, independentemente do fornecedor.",
+    },
+    {
+      enunciado: "O prazo de entrega anunciado no drop obriga a loja?",
+      opcoes: ["Não", "Sim: a informação precisa da oferta integra o contrato (CDC, art. 30)", "Só no Natal"],
+      correta: 1,
+      explicacao: "Informação precisa da oferta obriga o fornecedor.",
+    },
+    {
+      enunciado: "Qual risco é típico de quem não tem estoque?",
+      opcoes: ["O fornecedor acabar o produto depois da venda", "Pagar aluguel de depósito", "Produto parado"],
+      correta: 0,
+      explicacao: "Sem estoque próprio, você só descobre a falta quando o fornecedor avisa.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Todo risco do fornecedor vira problema seu com o cliente.
+- Prazo anunciado obriga; defeito e arrependimento seguem o CDC.
+- Prazo longo aumenta desistência e chargeback.
+- Escreva gatilho, ação e custo de cada risco antes de vender.
+- Tenha caixa reservado para reembolsos.
+</Resumo>
+
+<Fontes />

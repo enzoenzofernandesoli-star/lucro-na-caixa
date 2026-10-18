@@ -663,5 +663,25 @@
     "id": "contestacao",
     "termo": "Contestação",
     "definicao": "Pedido do titular do cartão ao banco para desfazer uma compra (o chargeback). O vendedor pode se defender com provas como nota fiscal e comprovante de entrega."
+  },
+  {
+    "id": "prazo-de-disponibilidade",
+    "termo": "Prazo de disponibilidade",
+    "definicao": "No Mercado Livre, o tempo que o vendedor informa para ter o produto pronto para envio, usado em encomenda, fabricação ou estoque que chega do fornecedor. Conta fins de semana e feriados."
+  },
+  {
+    "id": "drop-nacional",
+    "termo": "Drop nacional",
+    "definicao": "Dropshipping com fornecedor no Brasil, que envia ao cliente a partir do território nacional, com nota fiscal brasileira."
+  },
+  {
+    "id": "drop-internacional",
+    "termo": "Drop internacional",
+    "definicao": "Dropshipping com fornecedor no exterior: o pedido chega ao cliente como remessa internacional, com prazo maior e impostos de importação."
+  },
+  {
+    "id": "responsabilidade-solidaria",
+    "termo": "Responsabilidade solidária",
+    "definicao": "Quando mais de um fornecedor responde junto pelo mesmo problema. No CDC, os fornecedores respondem solidariamente pelos vícios do produto: o cliente pode cobrar a loja."
   }
 ]
