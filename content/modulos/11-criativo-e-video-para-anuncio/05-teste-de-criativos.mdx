@@ -1,0 +1,116 @@
+---
+modulo: 11
+aula: 5
+titulo: "Estrutura de teste de criativos"
+nivel: intermediario
+duracao_min: 20
+objetivo: "Ao final você monta um teste de criativos com uma variável, orçamento e prazo adequados, e decide o vencedor pela margem, não pelo gosto."
+pre_requisitos: ["11-4", "1-6"]
+fontes:
+  - titulo: "Central de Ajuda da Meta para Empresas — Boas práticas para testes A/B"
+    url: "https://www.facebook.com/business/help/290009911394576"
+    consultado_em: "2026-10-18"
+  - titulo: "TikTok For Business — Creative best practices for performance ads"
+    url: "https://ads.tiktok.com/resources/help/article/creative-best-practices"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Quantas variáveis mudar num teste A/B?"
+    verso: "Uma. Os conjuntos devem ser idênticos, exceto pela variável testada (Meta)."
+  - frente: "Por quanto tempo a Meta recomenda testar no mínimo?"
+    verso: "7 dias. O teste pode ir até 30 dias; menos de 7 pode dar resultado inconclusivo."
+  - frente: "Por que o público do teste não pode estar em outra campanha ao mesmo tempo?"
+    verso: "Públicos sobrepostos causam problemas de veiculação e contaminam o resultado."
+---
+
+<Objetivo>
+Ao final você monta um teste de criativos com uma variável, orçamento e prazo adequados, e decide o vencedor pela margem, não pelo gosto.
+</Objetivo>
+
+<PorQue>
+"Achei que esse ia bombar" não é método. Sem teste, você mantém o criativo de que gosta, não o que vende. E teste mal montado (mudando tudo ao mesmo tempo, por dois dias) dá uma resposta errada com cara de certa.
+</PorQue>
+
+## Explicação
+
+### 1. As regras da Meta para um <Termo id="teste-ab">teste A/B</Termo>
+
+Segundo a central de ajuda [verificado]:
+
+- **Uma variável**: resultados mais conclusivos quando as versões são idênticas, exceto pelo que você está testando.
+- **Hipótese mensurável**: por exemplo, "o gancho de resultado terá custo por compra menor que o gancho de problema".
+- **Público**: grande o bastante e **não usado em outras campanhas ao mesmo tempo**, porque públicos sobrepostos contaminam o resultado.
+- **Prazo**: no mínimo **7 dias** (máximo de 30); menos que isso pode ser inconclusivo. Se o cliente costuma demorar mais para comprar, teste por mais tempo.
+- **Orçamento**: suficiente para gerar resultados que permitam escolher com confiança.
+
+O TikTok, por sua vez, sugere de 3 a 5 criativos por grupo de anúncios. [verificado]
+
+### 2. Ordem dos testes
+
+1. **Conceito/formato** (demonstração x problema-solução).
+2. **Gancho** dentro do conceito vencedor.
+3. **Detalhes** (texto na tela, chamada, duração).
+
+### 3. Como decidir o vencedor
+
+- Pela métrica que importa: **custo por compra (CPA)** comparado ao CPA máximo (aula 1.6).
+- Volume mínimo de vendas antes de concluir; com 2 vendas de cada lado, ainda é sorte.
+- Confirme com as vendas reais da loja (o número da plataforma é atribuído).
+
+<Exemplo>
+Teste de gancho, 7 dias, R$ 70 por dia em cada versão (números de exemplo), CPA máximo de R$ 31:
+
+| Versão | Gasto | Compras | CPA | Leitura |
+| --- | ---: | ---: | ---: | --- |
+| A: gancho de problema | R$ 490 | 14 | R$ 35,00 | Acima do CPA máximo |
+| B: gancho de resultado | R$ 490 | 23 | R$ 21,30 | Abaixo: vencedor |
+
+Próximo teste: dois textos na tela diferentes, dentro da versão B.
+</Exemplo>
+
+## Ferramenta
+
+<Calculadora tipo="roas" />
+
+<ErroComum>
+**Encerrar o teste no segundo dia.** A Meta recomenda no mínimo 7 dias; antes disso, o resultado pode ser inconclusivo.
+
+**Testar criativo e público ao mesmo tempo.** Se mudam duas coisas, você não sabe qual delas fez a diferença.
+</ErroComum>
+
+<NaPratica>
+Escreva o plano de teste para os 5 criativos do projeto: qual variável, hipótese, orçamento por dia, duração e critério de vitória (CPA abaixo de quanto). Calcule quanto o teste inteiro vai custar e se cabe no seu caixa.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Qual o tempo mínimo de teste A/B recomendado pela Meta?",
+      opcoes: ["1 dia", "7 dias", "60 dias"],
+      correta: 1,
+      explicacao: "A Meta recomenda no mínimo 7 dias, com máximo de 30.",
+    },
+    {
+      enunciado: "Você mudou o gancho e o público no mesmo teste. O que acontece?",
+      opcoes: ["Teste mais rápido", "Não dá para saber qual mudança causou o resultado", "Resultado mais confiável"],
+      correta: 1,
+      explicacao: "Com duas variáveis, o efeito de cada uma se mistura.",
+    },
+    {
+      enunciado: "Qual métrica decide o vencedor num teste de vendas?",
+      opcoes: ["Curtidas", "Custo por compra comparado ao CPA máximo", "Número de comentários"],
+      correta: 1,
+      explicacao: "O que importa é vender com lucro: CPA abaixo do máximo que a margem permite.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Uma variável por teste, com hipótese clara.
+- Público exclusivo do teste, grande o bastante.
+- Mínimo de 7 dias na Meta; 3 a 5 criativos por grupo no TikTok.
+- Ordem: conceito, gancho, detalhes.
+- Vencedor pelo CPA e confirmado nas vendas reais.
+</Resumo>
+
+<Fontes />

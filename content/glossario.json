@@ -523,5 +523,30 @@
     "id": "escassez",
     "termo": "Escassez",
     "definicao": "Mostrar que algo é limitado (estoque, tempo). Só é legítima quando é verdade; inventada, é publicidade enganosa."
+  },
+  {
+    "id": "ugc",
+    "termo": "UGC",
+    "definicao": "Conteúdo gerado por usuário: vídeo com cara de cliente real falando do produto, gravado no celular."
+  },
+  {
+    "id": "teste-ab",
+    "termo": "Teste A/B",
+    "definicao": "Comparar duas versões que mudam em uma só coisa (por exemplo, o gancho) para ver qual dá melhor resultado."
+  },
+  {
+    "id": "proporcao-de-tela",
+    "termo": "Proporção de tela",
+    "definicao": "A relação entre largura e altura do vídeo ou imagem: 9:16 é vertical de tela cheia; 1:1 é quadrado; 4:5 é vertical de feed."
+  },
+  {
+    "id": "aigc",
+    "termo": "Conteúdo gerado por IA",
+    "definicao": "Imagem, vídeo ou voz criados ou muito editados com inteligência artificial. Plataformas como o TikTok exigem rótulo quando parece real."
+  },
+  {
+    "id": "fadiga-de-criativo",
+    "termo": "Fadiga de criativo",
+    "definicao": "Quando o mesmo anúncio é visto muitas vezes e passa a render menos, pedindo criativos novos."
   }
 ]
