@@ -76,3 +76,13 @@ describe("CalculadoraRoas", () => {
     expect(screen.getByLabelText("Margem antes do anúncio (%)")).toHaveValue("-1");
   });
 });
+
+describe("CalculadoraRoas labels", () => {
+  it("labels R$ 390 as total margin, not sales", () => {
+    render(<CalculadoraRoas />);
+    // Lesson 1.2 example: R$ 1.000 of sales × 39% margin = R$ 390 of margin.
+    expect(resultado("conta")).toHaveTextContent("Margem total R$ 390,00 − anúncio R$ 300,00");
+    expect(resultado("conta")).not.toHaveTextContent(/vendas/i);
+    expect(resultado("sobra")).toHaveTextContent("R$ 90,00");
+  });
+});

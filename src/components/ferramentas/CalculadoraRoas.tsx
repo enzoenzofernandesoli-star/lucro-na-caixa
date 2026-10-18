@@ -69,7 +69,9 @@ export function CalculadoraRoas({ inicial }: CalculadoraRoasProps) {
           <div className="font-numero text-[40px] leading-[1.1] font-extrabold" data-resultado="sobra">
             {formatarReais(r.resultadoCentavos)}
           </div>
-          <div className="font-mono text-sm">Margem gerada {formatarReais(r.margemGeradaCentavos)} − anúncio {formatarReais(v.gasto)}</div>
+          <div className="font-mono text-sm" data-resultado="conta">
+            Margem total {formatarReais(r.margemGeradaCentavos)} − anúncio {formatarReais(v.gasto)}
+          </div>
         </div>
         <p className="m-0 text-[15px] leading-normal font-bold text-vermelho-texto">
           {r.roasEquilibrio === null
