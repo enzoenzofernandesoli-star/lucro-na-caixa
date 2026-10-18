@@ -1,18 +1,34 @@
+import type { ComponentType } from "react";
+import { CalculadoraCacLtv } from "@/components/ferramentas/CalculadoraCacLtv";
+import { CalculadoraImportacao } from "@/components/ferramentas/CalculadoraImportacao";
 import { CalculadoraMargem } from "@/components/ferramentas/CalculadoraMargem";
+import { CalculadoraMarkup } from "@/components/ferramentas/CalculadoraMarkup";
+import { CalculadoraPontoEquilibrio } from "@/components/ferramentas/CalculadoraPontoEquilibrio";
+import { CalculadoraPreco } from "@/components/ferramentas/CalculadoraPreco";
 import { CalculadoraRoas } from "@/components/ferramentas/CalculadoraRoas";
 
-// Phase 0 ships only "margem" and "roas"; the other types come in phase 1.
-const TIPOS = ["margem", "roas"] as const;
-type TipoCalculadora = (typeof TIPOS)[number];
+/** Every calculator, in the order /ferramentas shows them. */
+export const CALCULADORAS = {
+  margem: { titulo: "Margem de contribuição", aula: "1-2", Componente: CalculadoraMargem },
+  roas: { titulo: "ROAS da campanha", aula: "1-6", Componente: CalculadoraRoas },
+  "ponto-equilibrio": { titulo: "Ponto de equilíbrio", aula: "1-8", Componente: CalculadoraPontoEquilibrio },
+  preco: { titulo: "Preço ideal", aula: "1-7", Componente: CalculadoraPreco },
+  markup: { titulo: "Markup x margem", aula: "1-7", Componente: CalculadoraMarkup },
+  "cac-ltv": { titulo: "CAC x LTV", aula: "14-2", Componente: CalculadoraCacLtv },
+  importacao: { titulo: "Custo de importação", aula: "4-4", Componente: CalculadoraImportacao },
+} satisfies Record<string, { titulo: string; aula: string; Componente: ComponentType }>;
+
+export type TipoCalculadora = keyof typeof CALCULADORAS;
 
 function tipoValido(tipo: string): tipo is TipoCalculadora {
-  return (TIPOS as readonly string[]).includes(tipo);
+  return tipo in CALCULADORAS;
 }
 
-/** <Calculadora tipo="margem|roas" /> inside lessons. Unknown types fail the build. */
+/** <Calculadora tipo="..." /> inside lessons. Unknown types fail the build. */
 export function Calculadora({ tipo }: { tipo: string }) {
   if (!tipoValido(tipo)) {
-    throw new Error(`<Calculadora tipo="${tipo}">: tipo não disponível. Use: ${TIPOS.join(", ")}.`);
+    throw new Error(`<Calculadora tipo="${tipo}">: tipo não disponível. Use: ${Object.keys(CALCULADORAS).join(", ")}.`);
   }
-  return tipo === "margem" ? <CalculadoraMargem /> : <CalculadoraRoas />;
+  const { Componente } = CALCULADORAS[tipo];
+  return <Componente />;
 }

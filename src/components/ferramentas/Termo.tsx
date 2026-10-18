@@ -1,18 +1,21 @@
 "use client";
 
+import Link from "next/link";
 import { useId, useState, type ReactNode } from "react";
+import { termoPorId } from "@/lib/glossario";
 
 type TermoProps = {
-  /** Glossary id (the /glossario page arrives in phase 1). */
+  /** Glossary id in content/glossario.json. Unknown ids fail the build. */
   id: string;
-  definicao: string;
   children: ReactNode;
 };
 
-/** Technical term: a button that shows its definition inline. */
-export function Termo({ id, definicao, children }: TermoProps) {
+/** Technical term linked to the glossary: a button that shows its definition inline. */
+export function Termo({ id, children }: TermoProps) {
   const [aberto, setAberto] = useState(false);
   const idDefinicao = useId();
+  const termo = termoPorId(id);
+  if (!termo) throw new Error(`<Termo id="${id}">: termo não existe em content/glossario.json.`);
 
   return (
     <>
@@ -32,7 +35,10 @@ export function Termo({ id, definicao, children }: TermoProps) {
         hidden={!aberto}
         className="mx-1 rounded-md border-2 border-tinta bg-amarelo-claro px-2 py-0.5 text-[0.9em]"
       >
-        {definicao}
+        <strong>{termo.termo}:</strong> {termo.definicao}{" "}
+        <Link href={`/glossario#${id}`} className="font-mono text-[0.85em]">
+          ver no glossário
+        </Link>
       </span>
     </>
   );

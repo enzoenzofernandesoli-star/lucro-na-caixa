@@ -103,3 +103,106 @@ describe("calcularRoas", () => {
     expect(calcularRoas({ receitaCentavos: 10_000, gastoAnuncioCentavos: 100, margemPontosBase: -500 }).roasEquilibrio).toBeNull();
   });
 });
+
+import {
+  calcularCacLtv,
+  calcularImportacao,
+  calcularMarkup,
+  calcularPontoEquilibrio,
+  calcularPrecoIdeal,
+} from "@/lib/calculos";
+
+describe("calcularPontoEquilibrio", () => {
+  it("fixed costs ÷ margin %, rounded up", () => {
+    const r = calcularPontoEquilibrio({ custosFixosCentavos: 300_000, precoCentavos: 10_000, margemPontosBase: 3_900 });
+    expect(r.margemUnitariaCentavos).toBe(3_900);
+    expect(r.faturamentoCentavos).toBe(769_231);
+    expect(r.unidades).toBe(77);
+  });
+
+  it("exact division does not add an extra sale", () => {
+    expect(calcularPontoEquilibrio({ custosFixosCentavos: 100_000, precoCentavos: 10_000, margemPontosBase: 5_000 }).unidades).toBe(20);
+  });
+
+  it("returns null without positive margin", () => {
+    for (const m of [0, -500]) {
+      const r = calcularPontoEquilibrio({ custosFixosCentavos: 100_000, precoCentavos: 10_000, margemPontosBase: m });
+      expect(r.faturamentoCentavos).toBeNull();
+      expect(r.unidades).toBeNull();
+    }
+  });
+
+  it("zero fixed costs need zero sales", () => {
+    expect(calcularPontoEquilibrio({ custosFixosCentavos: 0, precoCentavos: 10_000, margemPontosBase: 3_000 }).unidades).toBe(0);
+  });
+});
+
+describe("calcularPrecoIdeal", () => {
+  it("rounds the formula price up so the margin reaches the target", () => {
+    const e = { custoCentavos: 3_500, freteCentavos: 1_000, embalagemCentavos: 100, taxaPontosBase: 1_500, margemDesejadaPontosBase: 3_000 };
+    const r = calcularPrecoIdeal(e);
+    expect(r.precoCentavos).toBe(8_364);
+    expect(r.margem?.margemPontosBase).toBeGreaterThanOrEqual(3_000);
+  });
+
+  it("is impossible when fees + margin reach 100%", () => {
+    expect(calcularPrecoIdeal({ custoCentavos: 100, freteCentavos: 0, embalagemCentavos: 0, taxaPontosBase: 5_000, margemDesejadaPontosBase: 5_000 }).precoCentavos).toBeNull();
+  });
+});
+
+describe("calcularMarkup", () => {
+  it("shows markup over cost and margin over price for the same money", () => {
+    const r = calcularMarkup(5_000, 10_000);
+    expect(r.markupPontosBase).toBe(10_000);
+    expect(r.multiplicador).toBe(2);
+    expect(r.margemBrutaPontosBase).toBe(5_000);
+  });
+
+  it("handles zero cost and zero price", () => {
+    expect(calcularMarkup(0, 1_000).markupPontosBase).toBeNull();
+    expect(calcularMarkup(1_000, 0).margemBrutaPontosBase).toBeNull();
+  });
+
+  it("goes negative when selling below cost", () => {
+    expect(calcularMarkup(10_000, 8_000).margemBrutaPontosBase).toBe(-2_500);
+  });
+});
+
+describe("calcularCacLtv", () => {
+  it("computes CAC, margin LTV and ratio", () => {
+    const r = calcularCacLtv({ gastoMarketingCentavos: 200_000, novosClientesCentesimos: 5_000, ticketMedioCentavos: 12_000, margemPontosBase: 3_500, comprasPorClienteCentesimos: 180 });
+    expect(r.cacCentavos).toBe(4_000);
+    expect(r.ltvCentavos).toBe(7_560);
+    expect(r.razao).toBeCloseTo(1.89, 2);
+  });
+
+  it("has no CAC without new customers", () => {
+    const r = calcularCacLtv({ gastoMarketingCentavos: 1_000, novosClientesCentesimos: 0, ticketMedioCentavos: 1_000, margemPontosBase: 1_000, comprasPorClienteCentesimos: 100 });
+    expect(r.cacCentavos).toBeNull();
+    expect(r.razao).toBeNull();
+  });
+});
+
+describe("calcularImportacao", () => {
+  it("converts goods + freight + insurance, applies the entered tax and fees", () => {
+    const r = calcularImportacao({
+      precoUnitarioUsdCentavos: 500, // US$ 5
+      quantidadeCentesimos: 10_000, // 100 units
+      cotacaoCentavos: 550, // R$ 5,50
+      freteUsdCentavos: 10_000, // US$ 100
+      seguroUsdCentavos: 0,
+      impostosPontosBase: 1_000, // 10% (example)
+      outrasTaxasCentavos: 5_000, // R$ 50
+    });
+    expect(r.baseReaisCentavos).toBe(330_000); // US$ 600 × 5,50
+    expect(r.impostosCentavos).toBe(33_000);
+    expect(r.totalCentavos).toBe(368_000);
+    expect(r.custoUnitarioCentavos).toBe(3_680);
+  });
+
+  it("has no unit cost for zero quantity and no tax by default", () => {
+    const r = calcularImportacao({ precoUnitarioUsdCentavos: 500, quantidadeCentesimos: 0, cotacaoCentavos: 550, freteUsdCentavos: 0, seguroUsdCentavos: 0, impostosPontosBase: 0, outrasTaxasCentavos: 0 });
+    expect(r.custoUnitarioCentavos).toBeNull();
+    expect(r.impostosCentavos).toBe(0);
+  });
+});

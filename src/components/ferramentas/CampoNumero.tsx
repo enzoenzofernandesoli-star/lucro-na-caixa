@@ -9,10 +9,10 @@ import {
 
 type CampoNumeroProps = {
   rotulo: string;
-  /** Value in cents (formato "reais") or basis points (formato "percentual"). */
+  /** Value ×100: cents ("reais"), basis points ("percentual") or plain hundredths ("numero"). */
   valor: number;
   aoMudar: (valor: number) => void;
-  formato: "reais" | "percentual";
+  formato: "reais" | "percentual" | "numero";
   /** Step of the −/+ buttons, same unit as `valor`. */
   passo: number;
   minimo?: number;
@@ -31,6 +31,7 @@ export function CampoNumero({
 }: CampoNumeroProps) {
   const id = useId();
   const formatar = formato === "reais" ? formatarReaisCampo : formatarPercentualCampo;
+  const sufixo = formato === "reais" ? "R$" : formato === "percentual" ? "%" : null;
   // Text being typed; null means "show the formatted value".
   const [rascunho, setRascunho] = useState<string | null>(null);
 
@@ -62,21 +63,23 @@ export function CampoNumero({
           −
         </button>
         <div className="relative">
-          <span
-            aria-hidden="true"
-            className={`pointer-events-none absolute top-1/2 -translate-y-1/2 font-mono text-sm ${
-              formato === "reais" ? "left-2.5" : "right-2.5"
-            }`}
-          >
-            {formato === "reais" ? "R$" : "%"}
-          </span>
+          {sufixo ? (
+            <span
+              aria-hidden="true"
+              className={`pointer-events-none absolute top-1/2 -translate-y-1/2 font-mono text-sm ${
+                formato === "reais" ? "left-2.5" : "right-2.5"
+              }`}
+            >
+              {sufixo}
+            </span>
+          ) : null}
           <input
             id={id}
             type="text"
             inputMode="decimal"
             autoComplete="off"
             className={`h-11 w-[124px] rounded-[10px] border-[3px] border-tinta bg-branco text-center font-mono text-[17px] font-semibold ${
-              formato === "reais" ? "pl-8" : "pr-7"
+              formato === "reais" ? "pl-8" : formato === "percentual" ? "pr-7" : ""
             }`}
             value={rascunho ?? formatar(valor)}
             onChange={(e) => setRascunho(e.target.value)}

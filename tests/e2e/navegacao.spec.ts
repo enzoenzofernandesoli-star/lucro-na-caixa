@@ -18,6 +18,8 @@ test.describe("capa", () => {
     await semRolagemHorizontal(page);
 
     await page.getByRole("link", { name: "Abrir o módulo 1" }).click();
+    await expect(page).toHaveURL("/modulo/01-a-conta-do-produto");
+    await page.getByRole("link", { name: /Margem de contribuição/ }).click();
     await expect(page).toHaveURL(AULA);
     await expect(page.getByRole("heading", { level: 1, name: "Margem de contribuição" })).toBeVisible();
   });
@@ -54,7 +56,7 @@ test.describe("aula", () => {
     const resumo = nav.locator("summary");
     if (await resumo.isVisible()) await resumo.click();
     await expect(nav.locator("li:visible")).toHaveCount(20);
-    await expect(nav.locator('a[aria-current="page"]:visible')).toHaveText(/A conta do produto/);
+    await expect(nav.locator('a[aria-current="true"]:visible')).toHaveText(/A conta do produto/);
   });
 
   test("calculator and quiz work with the keyboard", async ({ page }) => {
@@ -94,6 +96,8 @@ test.describe("aula", () => {
 
 test("small white-on-red labels reach 4.5:1 contrast", async ({ page }) => {
   await page.goto(AULA);
+  // The lesson streams in behind Suspense; wait for it before measuring.
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   const razoes = await page.locator(".text-branco:not([aria-hidden] *):not([aria-hidden])").evaluateAll((els) => {
     const lum = (rgb: string) => {
       const [r, g, b] = (rgb.match(/\d+/g) ?? []).slice(0, 3).map((v) => {

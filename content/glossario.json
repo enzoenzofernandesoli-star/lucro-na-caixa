@@ -1,0 +1,27 @@
+[
+  {
+    "id": "margem-de-contribuicao",
+    "termo": "Margem de contribuição",
+    "definicao": "O que sobra de uma venda depois de pagar os custos que só existem porque ela aconteceu: produto, taxas, imposto, frete e embalagem. É o dinheiro que paga os custos fixos e, depois deles, vira lucro."
+  },
+  {
+    "id": "roas",
+    "termo": "ROAS",
+    "definicao": "Retorno sobre o gasto com anúncio: valor das vendas atribuídas ao anúncio dividido pelo valor gasto nele. ROAS 4 quer dizer R$ 4 em vendas para cada R$ 1 de anúncio."
+  },
+  {
+    "id": "roas-de-equilibrio",
+    "termo": "ROAS de equilíbrio",
+    "definicao": "O ROAS mínimo para o anúncio não dar prejuízo. É 1 dividido pela margem de contribuição em decimal."
+  },
+  {
+    "id": "custo-variavel",
+    "termo": "Custo variável",
+    "definicao": "Gasto que aparece a cada venda e some quando não há venda, como o custo do produto, a taxa da plataforma e a embalagem."
+  },
+  {
+    "id": "custo-fixo",
+    "termo": "Custo fixo",
+    "definicao": "Gasto que você paga todo mês mesmo sem vender, como aluguel, internet, sistemas e salário fixo."
+  }
+]

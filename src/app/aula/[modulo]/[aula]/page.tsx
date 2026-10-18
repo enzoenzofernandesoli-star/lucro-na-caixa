@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { compileMDX } from "next-mdx-remote/rsc";
 import { Suspense } from "react";
-import remarkGfm from "remark-gfm";
-import { componentesDaAula } from "@/components/mdx";
 import { dataBR } from "@/components/mdx/Fontes";
+import { PaginaInterna } from "@/components/marca/Cabecalho";
 import { EtiquetaAula, QuadroAula } from "@/components/marca/QuadroAula";
+import { AcoesAula } from "@/components/progresso/AcoesAula";
 import { ROTULO_NIVEL, doisDigitos } from "@/data/modulos";
-import { aulaPorSlug, linksDosModulos, todasAsAulas } from "@/lib/conteudo";
+import { aulaPorSlug, idDaAula, todasAsAulas, urlDaAula } from "@/lib/conteudo";
+import { compilarMdx } from "@/lib/conteudo/mdx";
 
 type Params = PageProps<"/aula/[modulo]/[aula]">["params"];
 
@@ -28,48 +27,38 @@ export async function generateMetadata({ params }: PageProps<"/aula/[modulo]/[au
 // Static frame; the URL-dependent lesson sits behind <Suspense> so navigations stay instant.
 export default function PaginaAula({ params }: PageProps<"/aula/[modulo]/[aula]">) {
   return (
-    <div className="px-4 py-6 sm:px-6 lg:px-10 lg:py-10">
-      <header className="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <Link href="/" className="font-titulo text-2xl leading-none font-bold no-underline">
-          LUCRO NA CAIXA<span className="text-vermelho">.</span>
-        </Link>
-        <span className="font-mono text-xs tracking-[0.15em]">CURSO · E-COMMERCE · DROPSHIPPING</span>
-      </header>
-      <Suspense fallback={<AulaCarregando />}>
+    <PaginaInterna>
+      <Suspense
+        fallback={
+          <QuadroAula>
+            <main id="conteudo" aria-busy="true" className="font-mono text-sm">
+              Carregando a aula…
+            </main>
+          </QuadroAula>
+        }
+      >
         <Aula params={params} />
       </Suspense>
-    </div>
-  );
-}
-
-async function AulaCarregando() {
-  return (
-    <QuadroAula links={await linksDosModulos()}>
-      <main id="conteudo" aria-busy="true" className="font-mono text-sm">
-        Carregando a aula…
-      </main>
-    </QuadroAula>
+    </PaginaInterna>
   );
 }
 
 async function Aula({ params }: { params: Params }) {
   const { modulo, aula } = await params;
-  const dados = await aulaPorSlug(modulo, aula);
+  const [dados, todas] = await Promise.all([aulaPorSlug(modulo, aula), todasAsAulas()]);
   if (!dados) notFound();
 
   const fm = dados.frontmatter;
-  const [{ content }, links] = await Promise.all([
-    compileMDX({
-      source: dados.corpo,
-      components: componentesDaAula(fm.fontes),
-      // Lessons are our own files and pass props like <Quiz perguntas={[...]} />.
-      options: { blockJS: false, mdxOptions: { remarkPlugins: [remarkGfm] } },
-    }),
-    linksDosModulos(),
-  ]);
+  const conteudo = await compilarMdx(dados.corpo, fm.fontes);
+  // Cached results may be copies, so match by slug, not by reference.
+  const posicao = todas.findIndex((a) => a.moduloSlug === dados.moduloSlug && a.aulaSlug === dados.aulaSlug);
+  const vizinha = (i: number) => {
+    const a = todas[i];
+    return a ? { url: urlDaAula(a), titulo: `${a.frontmatter.modulo}.${a.frontmatter.aula} ${a.frontmatter.titulo}` } : undefined;
+  };
 
   return (
-    <QuadroAula ativo={dados.moduloSlug} links={links}>
+    <QuadroAula ativo={dados.moduloSlug}>
       <main id="conteudo" className="flex min-w-0 flex-col gap-6">
         <EtiquetaAula>
           MÓDULO {doisDigitos(fm.modulo)} · AULA {doisDigitos(fm.aula)}
@@ -90,8 +79,15 @@ async function Aula({ params }: { params: Params }) {
             <dt>Fatos verificados em:</dt>
             <dd className="m-0 font-semibold">{dataBR(fm.verificado_em)}</dd>
           </div>
+          {fm.pre_requisitos.length > 0 ? (
+            <div className="flex gap-1.5">
+              <dt>Antes, veja:</dt>
+              <dd className="m-0 font-semibold">{fm.pre_requisitos.map((p) => `aula ${p.replace("-", ".")}`).join(", ")}</dd>
+            </div>
+          ) : null}
         </dl>
-        <article className="prosa">{content}</article>
+        <article className="prosa">{conteudo}</article>
+        <AcoesAula id={idDaAula(dados)} anterior={vizinha(posicao - 1)} proxima={vizinha(posicao + 1)} />
       </main>
     </QuadroAula>
   );

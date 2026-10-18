@@ -23,10 +23,38 @@ export const esquemaFrontmatter = z.strictObject({
   pre_requisitos: z.array(z.string().regex(/^\d+-\d+$/, 'use "modulo-aula", ex.: "1-1"')),
   fontes: z.array(fonte).min(1, "toda aula precisa de pelo menos uma fonte"),
   verificado_em: dataIso,
+  /** Optional review cards for /revisao. */
+  flashcards: z
+    .array(z.strictObject({ frente: z.string().min(1), verso: z.string().min(1) }))
+    .optional(),
 });
 
 export type FrontmatterAula = z.infer<typeof esquemaFrontmatter>;
 export type FonteAula = FrontmatterAula["fontes"][number];
+
+// Module page data: content/modulos/NN-slug/_modulo.mdx. The body is the module project.
+export const esquemaModulo = z.strictObject({
+  modulo: z.int().min(0).max(19),
+  objetivo: z.string().min(1),
+  projeto: z.string().min(1),
+});
+
+export type FrontmatterModulo = z.infer<typeof esquemaModulo>;
+
+/** Validates a module's _modulo.mdx frontmatter. Throws ErroFrontmatter. */
+export function validarModulo(dados: unknown, caminho: string, esperado: number): FrontmatterModulo {
+  const r = esquemaModulo.safeParse(dados);
+  if (!r.success) {
+    throw new ErroFrontmatter(
+      caminho,
+      r.error.issues.map((i) => `${i.path.join(".") || "(raiz)"}: ${i.message}`),
+    );
+  }
+  if (r.data.modulo !== esperado) {
+    throw new ErroFrontmatter(caminho, [`modulo (${r.data.modulo}) não bate com a pasta (${esperado})`]);
+  }
+  return r.data;
+}
 
 export class ErroFrontmatter extends Error {
   constructor(caminho: string, problemas: string[]) {

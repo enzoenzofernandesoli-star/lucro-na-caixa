@@ -1,17 +1,19 @@
+import Link from "next/link";
 import { BotaoLink } from "@/components/marca/Botao";
+import { LINKS_SITE } from "@/components/marca/Cabecalho";
 import { EtiquetaPedido } from "@/components/marca/EtiquetaPedido";
 import { FitaDiagonal } from "@/components/marca/FitaDiagonal";
 import { EtiquetaAula, QuadroAula } from "@/components/marca/QuadroAula";
 import { SeloRedondo } from "@/components/marca/SeloRedondo";
 import { CalculadoraMargem } from "@/components/ferramentas/CalculadoraMargem";
 import { Quiz } from "@/components/ferramentas/Quiz";
+import { ContinuarDeOndeParei } from "@/components/progresso/Painel";
 import { MODULOS } from "@/data/modulos";
-import { linksDosModulos, todasAsAulas, urlDaAula } from "@/lib/conteudo";
+import { resumoDasAulas } from "@/lib/conteudo";
 
 export default async function Capa() {
-  const [aulas, links] = await Promise.all([todasAsAulas(), linksDosModulos()]);
-  const aulaMargem = aulas.find((a) => a.frontmatter.modulo === 1 && a.frontmatter.aula === 2);
-  const primeiraAula = aulaMargem ? urlDaAula(aulaMargem) : "#aula";
+  const aulas = await resumoDasAulas();
+  const aulaMargem = aulas.find((a) => a.id === "1-2");
 
   return (
     <main id="conteudo" className="mx-auto max-w-[1440px] pb-16">
@@ -37,8 +39,8 @@ export default async function Capa() {
               dinheiro no caixa.
             </p>
             <div className="flex flex-wrap gap-4">
-              <BotaoLink href={primeiraAula}>Abrir o módulo 1</BotaoLink>
-              <BotaoLink href="#aula" variante="secundario">
+              <BotaoLink href={`/modulo/${MODULOS[1].slug}`}>Abrir o módulo 1</BotaoLink>
+              <BotaoLink href="/trilha" variante="secundario">
                 Ver a trilha
               </BotaoLink>
             </div>
@@ -51,7 +53,11 @@ export default async function Capa() {
         </div>
       </section>
 
-      <QuadroAula id="aula" links={links} ativo={aulaMargem?.moduloSlug} className="mx-4 sm:mx-6 lg:mx-10">
+      <div className="mx-4 mb-10 sm:mx-6 lg:mx-10">
+        <ContinuarDeOndeParei aulas={aulas} />
+      </div>
+
+      <QuadroAula id="aula" ativo={aulaMargem?.moduloSlug} className="mx-4 sm:mx-6 lg:mx-10">
         <EtiquetaAula>MÓDULO 01 · AULA 02</EtiquetaAula>
         <h2 className="m-0 font-titulo text-[clamp(2.25rem,5vw,3.5rem)] leading-none font-bold">
           MARGEM DE CONTRIBUIÇÃO
@@ -74,10 +80,25 @@ export default async function Capa() {
         />
         {aulaMargem ? (
           <div>
-            <BotaoLink href={primeiraAula}>Abrir a aula completa</BotaoLink>
+            <BotaoLink href={aulaMargem.url}>Abrir a aula completa</BotaoLink>
           </div>
         ) : null}
       </QuadroAula>
+
+      <nav aria-label="Seções do curso" className="mx-4 mt-10 sm:mx-6 lg:mx-10">
+        <ul className="m-0 flex list-none flex-wrap gap-3 p-0">
+          {LINKS_SITE.map((l) => (
+            <li key={l.href}>
+              <Link
+                href={l.href}
+                className="inline-flex min-h-11 items-center rounded-[10px] border-[3px] border-tinta bg-papel px-4 font-mono text-sm font-semibold tracking-[0.08em] uppercase no-underline hover:bg-amarelo hover:text-tinta"
+              >
+                {l.rotulo}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </main>
   );
 }
