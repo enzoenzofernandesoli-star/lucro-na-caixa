@@ -493,5 +493,35 @@
     "id": "politica-de-trocas",
     "termo": "Política de trocas",
     "definicao": "Página que explica arrependimento, defeito, troca e devolução. Precisa estar visível antes da compra."
+  },
+  {
+    "id": "copy",
+    "termo": "Copy",
+    "definicao": "O texto que vende: título, descrição, anúncio e mensagens, escritos para levar a pessoa a agir."
+  },
+  {
+    "id": "beneficio",
+    "termo": "Benefício",
+    "definicao": "O que muda na vida do cliente por causa do produto (\"café quente o dia todo\"), diferente da característica técnica (\"parede dupla de inox\")."
+  },
+  {
+    "id": "objecao",
+    "termo": "Objeção",
+    "definicao": "O motivo que faz a pessoa hesitar em comprar: preço, dúvida se funciona, medo de não conseguir trocar, prazo."
+  },
+  {
+    "id": "oferta",
+    "termo": "Oferta",
+    "definicao": "Tudo o que o cliente recebe pelo preço: produto, kit, brinde, frete, garantia e condições de pagamento."
+  },
+  {
+    "id": "garantia-contratual",
+    "termo": "Garantia contratual",
+    "definicao": "Garantia extra que a loja oferece por escrito, somada à garantia legal do CDC, nunca no lugar dela."
+  },
+  {
+    "id": "escassez",
+    "termo": "Escassez",
+    "definicao": "Mostrar que algo é limitado (estoque, tempo). Só é legítima quando é verdade; inventada, é publicidade enganosa."
   }
 ]
