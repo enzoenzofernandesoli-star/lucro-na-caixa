@@ -1,0 +1,119 @@
+---
+modulo: 18
+aula: 3
+titulo: "Montando seu hub com IA: produtos, fornecedores, pedidos, caixa"
+nivel: avancado
+duracao_min: 25
+objetivo: "Ao final você desenha os dados e as telas do seu hub, usa IA para acelerar a construção sem entregar dados de clientes nem segredos, e testa antes de confiar."
+pre_requisitos: ["18-2"]
+fontes:
+  - titulo: "Lei Geral de Proteção de Dados, Lei nº 13.709/2018, arts. 6º e 46 (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Livre Developers — Autenticação e Autorização"
+    url: "https://developers.mercadolivre.com.br/pt_br/autenticacao-e-autorizacao"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Quais são as 4 tabelas básicas de um hub de loja?"
+    verso: "Produtos, fornecedores, pedidos e caixa (movimentos de dinheiro)."
+  - frente: "O que nunca colar num chat de IA?"
+    verso: "Tokens, chaves de API, senhas e dados pessoais de clientes sem necessidade e sem base legal."
+  - frente: "Como saber se o cálculo que a IA escreveu está certo?"
+    verso: "Testando com casos conhecidos (como os exemplos do curso) antes de usar com dados reais."
+---
+
+<Objetivo>
+Ao final você desenha os dados e as telas do seu hub, usa IA para acelerar a construção sem entregar dados de clientes nem segredos, e testa antes de confiar.
+</Objetivo>
+
+<PorQue>
+A IA escreve código e planilhas muito rápido. Também erra com muita confiança: uma fórmula de margem errada no seu hub vira decisão errada todo dia. Usar IA bem é decidir você o que o sistema faz, deixar a IA ajudar a construir e conferir tudo com casos conhecidos.
+</PorQue>
+
+## Explicação
+
+### 1. Comece pelos dados, não pelas telas
+
+| Tabela | Campos principais |
+| --- | --- |
+| **Produtos** | SKU, nome, custo, preço por canal, estoque, estoque mínimo, fornecedor |
+| **Fornecedores** | CNPJ, contato, prazo de entrega, pedido mínimo (módulo 4) |
+| **Pedidos** | Número, canal, data, itens, valor, frete, taxas, status, rastreio |
+| **Caixa** | Data, entrada ou saída, valor, categoria (venda, anúncio, fornecedor, taxa) |
+
+Com essas quatro, você calcula margem por produto e canal, giro e o painel semanal (aula 14.6).
+
+### 2. Telas
+
+1. **Pedidos do dia** (o que embalar, o que está atrasado).
+2. **Estoque** (o que está abaixo do mínimo).
+3. **Produtos** (margem por canal).
+4. **Painel semanal** (funil, CPA, ROAS, lucro).
+5. **Caixa** (saldo, a pagar, a receber).
+
+### 3. Como usar IA com segurança
+
+- Descreva **as regras** (fórmulas do curso, status de pedido) e peça código ou planilha.
+- **Nunca cole segredos**: tokens de API e chaves dão acesso à sua conta. O <Termo id="token-de-acesso">token</Termo> do Mercado Livre, por exemplo, vai no cabeçalho de cada chamada e autoriza agir na conta. [verificado]
+- **Dados de clientes**: use só o necessário. A LGPD tem o princípio da **necessidade** (art. 6º) e exige medidas de segurança (art. 46). [verificado] Para testar, use dados inventados.
+- **Teste com casos conhecidos**: os exemplos do curso têm resultado conhecido; se o seu hub der outro número, há erro.
+
+### 4. Comece pequeno
+
+Planilha bem estruturada já é um hub. Passe para código quando a planilha travar ou quando precisar de integração automática (aula 18.4). [estimativa]
+
+<Exemplo>
+Pedido à IA (situação de exemplo), sem dados reais:
+
+> "Crie uma planilha com as abas Produtos, Pedidos e Caixa. Em Produtos, calcule a margem de contribuição por canal assim: preço − custo − (preço × taxa do canal) − frete − embalagem. Use estes 3 produtos fictícios para testar: [...]."
+
+Conferência: o produto fictício de R$ 89,90, custo R$ 30, taxa 20%, frete R$ 8, embalagem R$ 2 precisa dar margem de **R$ 31,92**. (89,90 − 30 − 17,98 − 8 − 2.) Se der outro número, a fórmula está errada.
+</Exemplo>
+
+## Ferramenta
+
+<Calculadora tipo="margem" />
+
+<ErroComum>
+**Colar o token da API no chat para "a IA testar".** Qualquer um com o token age na sua conta. Se aconteceu, revogue e gere outro.
+
+**Confiar na fórmula sem testar.** Teste com os exemplos do curso.
+</ErroComum>
+
+<NaPratica>
+Desenhe as 4 tabelas com os campos da sua loja e as 5 telas. Escreva o pedido que você faria à IA para criar a primeira versão, usando só dados fictícios.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Por onde começar o desenho do hub?",
+      opcoes: ["Pelas cores", "Pelos dados (tabelas e campos)", "Pelo logo"],
+      correta: 1,
+      explicacao: "As telas mostram os dados; sem dados certos, telas bonitas não servem.",
+    },
+    {
+      enunciado: "Pode colar o token de acesso da API no chat de IA?",
+      opcoes: ["Pode", "Não: o token autoriza agir na sua conta", "Só se for rápido"],
+      correta: 1,
+      explicacao: "Token é segredo. Se vazou, revogue e gere outro.",
+    },
+    {
+      enunciado: "Como testar a fórmula de margem que a IA escreveu?",
+      opcoes: ["Confiar", "Comparar com um exemplo de resultado conhecido", "Perguntar se está certa"],
+      correta: 1,
+      explicacao: "Casos conhecidos mostram se a conta bate.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Comece pelos dados: produtos, fornecedores, pedidos, caixa.
+- Telas: pedidos do dia, estoque, produtos, painel, caixa.
+- IA ajuda a construir; você define as regras.
+- Nunca cole segredos; dados de clientes só o necessário.
+- Teste com casos de resultado conhecido.
+</Resumo>
+
+<Fontes />

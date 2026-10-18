@@ -1,0 +1,134 @@
+---
+modulo: 18
+aula: 5
+titulo: "Automações úteis: alertas, relatórios e reposição"
+nivel: avancado
+duracao_min: 15
+objetivo: "Ao final você escolhe as automações que economizam tempo e evitam erro (alertas, relatórios, reposição) e define regras claras para cada uma."
+pre_requisitos: ["18-4", "4-6"]
+fontes:
+  - titulo: "Mercado Livre Developers — Notificações"
+    url: "https://developers.mercadolivre.com.br/pt_br/produto-receba-notificacoes"
+    consultado_em: "2026-10-18"
+  - titulo: "Shopee — O que é a taxa de resposta do chat e como ela é medida? (31/07/2025)"
+    url: "https://seller.shopee.com.br/edu/article/2713/"
+    consultado_em: "2026-10-18"
+  - titulo: "WhatsApp — Política Empresarial e Política de Mensagens do WhatsApp Business"
+    url: "https://business.whatsapp.com/policy"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Qual a fórmula do ponto de recompra usada no curso?"
+    verso: "Consumo diário × prazo do fornecedor (lead time) + estoque mínimo de segurança."
+  - frente: "Por que resposta automática não resolve o chat da Shopee?"
+    verso: "Porque respostas automáticas não contam na taxa de resposta; é preciso responder de verdade em até 12 horas."
+  - frente: "Qual automação evita vender sem estoque?"
+    verso: "Alerta de estoque mínimo e pausa automática do anúncio quando o estoque zera."
+---
+
+<Objetivo>
+Ao final você escolhe as automações que economizam tempo e evitam erro (alertas, relatórios, reposição) e define regras claras para cada uma.
+</Objetivo>
+
+<PorQue>
+Automatizar tudo é tentador e perigoso: automação mal pensada manda mensagem errada para mil clientes ou pausa o produto que mais vende. As boas automações são simples, têm regra escrita e avisam você, em vez de decidir sozinhas o que é importante.
+</PorQue>
+
+## Explicação
+
+### 1. Alertas (avisam você)
+
+| Alerta | Regra de exemplo |
+| --- | --- |
+| Estoque mínimo | Estoque ≤ ponto de recompra |
+| Pedido atrasado | Não postado e prazo termina hoje |
+| Pergunta sem resposta | Pergunta ou chat aberto há mais de X horas |
+| Margem negativa | Pedido com margem calculada abaixo de zero |
+| Reclamação nova | Abriu reclamação ou mediação |
+
+As notificações do Mercado Livre avisam sobre perguntas, compras, pagamentos e envios em tempo real [verificado]: são a base desses alertas.
+
+### 2. Relatórios (resumem para você)
+
+- **Segunda de manhã:** painel semanal (aula 14.6) pronto.
+- **Todo dia, 8h:** pedidos a postar e atrasados.
+- **Todo mês:** margem por produto e canal, CAC e LTV.
+
+### 3. Reposição (sugere a compra)
+
+<Formula>
+Ponto de recompra = consumo diário × prazo do fornecedor + estoque de segurança
+</Formula>
+
+Mesma conta da aula 4.6. A automação **sugere** o pedido ao fornecedor; você aprova.
+
+### 4. O que não automatizar sem cuidado
+
+- **Atendimento:** na Shopee, respostas automáticas não contam como resposta na taxa de resposta do chat. [verificado]
+- **Mensagens em massa:** no WhatsApp, só para quem deu permissão; bloqueios e denúncias podem limitar o seu envio. [verificado]
+- **Preço automático:** regra errada pode vender abaixo do custo. Sempre com preço mínimo travado na margem. [estimativa]
+
+<Exemplo>
+Três automações de uma loja (números de exemplo):
+
+1. **Alerta de estoque:** garrafa térmica vende 4 por dia, fornecedor entrega em 10 dias, segurança de 12 unidades → ponto de recompra = 4 × 10 + 12 = **52**. Com 52 ou menos, chega alerta no celular.
+2. **Relatório diário às 8h:** "18 pedidos a postar hoje, 2 com prazo vencendo às 18h."
+3. **Pausa automática:** estoque zero → anúncio pausado nos 3 canais e alerta para você.
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Minhas 3 primeiras automações"
+  itens={[
+    "Um alerta (com regra escrita).",
+    "Um relatório (com dia e hora).",
+    "Uma reposição sugerida (com a fórmula e os números).",
+    "Cada automação avisa uma pessoa responsável.",
+    "Nenhuma automação manda mensagem em massa sem permissão.",
+    "Preço automático, se houver, com mínimo travado.",
+  ]}
+/>
+
+<ErroComum>
+**Automação que decide sozinha algo caro.** Prefira alertar e deixar você aprovar.
+
+**Resposta automática para fugir do atendimento.** Na Shopee, não conta como resposta.
+</ErroComum>
+
+<NaPratica>
+Escolha as suas 3 primeiras automações, escreva a regra de cada uma e calcule o ponto de recompra do seu produto principal. Inclua no desenho do hub (projeto do módulo).
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Consumo de 5 por dia, fornecedor entrega em 8 dias, segurança 10. Ponto de recompra?",
+      opcoes: ["23", "50", "40"],
+      correta: 1,
+      explicacao: "5 × 8 + 10 = 50.",
+    },
+    {
+      enunciado: "Resposta automática conta na taxa de resposta do chat da Shopee?",
+      opcoes: ["Sim", "Não", "Só no fim de semana"],
+      correta: 1,
+      explicacao: "A Shopee diz que respostas automáticas não são contabilizadas.",
+    },
+    {
+      enunciado: "Qual automação é mais segura?",
+      opcoes: ["Mudar o preço sozinha sem limite", "Alertar você quando o estoque chega no mínimo", "Mandar oferta para todos os contatos"],
+      correta: 1,
+      explicacao: "Alertas informam sem tomar decisões caras sozinhos.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Alertas avisam; relatórios resumem; reposição sugere.
+- Notificações das APIs alimentam os alertas.
+- Ponto de recompra = consumo × prazo + segurança.
+- Atendimento e mensagens em massa: cuidado com as regras.
+- Automação cara: alerte e aprove, não decida sozinha.
+</Resumo>
+
+<Fontes />

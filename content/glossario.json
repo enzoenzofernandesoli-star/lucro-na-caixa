@@ -703,5 +703,35 @@
     "id": "produto-complementar",
     "termo": "Produto complementar",
     "definicao": "Produto que combina com o que o cliente já comprou (refil, acessório, peça de reposição) e por isso facilita a próxima compra."
+  },
+  {
+    "id": "erp",
+    "termo": "ERP",
+    "definicao": "Sistema de gestão que junta estoque, pedidos, compras, financeiro e nota fiscal num lugar só, integrado aos canais de venda."
+  },
+  {
+    "id": "hub",
+    "termo": "Hub de vendas",
+    "definicao": "Sistema que conecta vários canais (marketplaces, loja própria) a um estoque e a uma lista de pedidos únicos. Pode ser parte de um ERP ou feito por você."
+  },
+  {
+    "id": "api",
+    "termo": "API",
+    "definicao": "Porta oficial que uma plataforma oferece para outros sistemas lerem e mudarem dados (produtos, pedidos, envios) de forma automática e autorizada."
+  },
+  {
+    "id": "webhook",
+    "termo": "Webhook (notificação)",
+    "definicao": "Aviso que a plataforma envia automaticamente para o seu sistema quando algo acontece (pedido novo, pergunta, pagamento), sem você precisar consultar o tempo todo."
+  },
+  {
+    "id": "token-de-acesso",
+    "termo": "Token de acesso",
+    "definicao": "Credencial temporária que autoriza o seu sistema a usar a API em nome da sua conta. É segredo: nunca vai no código nem em mensagens."
+  },
+  {
+    "id": "ambiente-de-homologacao",
+    "termo": "Ambiente de homologação",
+    "definicao": "Ambiente de testes, sem valor fiscal ou real, usado para testar integração (por exemplo, NF-e) antes de operar de verdade."
   }
 ]

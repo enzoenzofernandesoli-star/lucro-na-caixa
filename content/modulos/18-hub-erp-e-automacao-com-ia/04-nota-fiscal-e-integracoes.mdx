@@ -1,0 +1,133 @@
+---
+modulo: 18
+aula: 4
+titulo: "Nota fiscal e integrações (via API, nunca do zero)"
+nivel: avancado
+duracao_min: 20
+objetivo: "Ao final você sabe como ligar o hub à nota fiscal e aos marketplaces pelas vias oficiais, com notificações em vez de consultas constantes, e por que não construir emissor do zero."
+pre_requisitos: ["18-3", "2-3"]
+fontes:
+  - titulo: "Secretaria da Fazenda de São Paulo — NF-e: perguntas frequentes"
+    url: "https://www.fazenda.sp.gov.br/nfe/perguntas_frequentes/respostas_II.asp"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Livre Developers — Notificações"
+    url: "https://developers.mercadolivre.com.br/pt_br/produto-receba-notificacoes"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Livre Developers — Autenticação e Autorização"
+    url: "https://developers.mercadolivre.com.br/pt_br/autenticacao-e-autorizacao"
+    consultado_em: "2026-10-18"
+  - titulo: "Shopee Open Platform"
+    url: "https://open.shopee.com/"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Para que servem as notificações da API do Mercado Livre?"
+    verso: "Para receber em tempo real mudanças como item pausado, pergunta nova, compra, pagamento ou envio, sem consultar a API o tempo todo."
+  - frente: "Por que não construir um emissor de NF-e do zero?"
+    verso: "Exige credenciamento, certificado digital, testes em homologação e acompanhar mudanças técnicas e fiscais; emissores e ERPs prontos já fazem isso."
+  - frente: "O que é um ambiente de homologação?"
+    verso: "Ambiente de testes, sem valor real, para testar a integração antes de operar."
+---
+
+<Objetivo>
+Ao final você sabe como ligar o hub à nota fiscal e aos marketplaces pelas vias oficiais, com notificações em vez de consultas constantes, e por que não construir emissor do zero.
+</Objetivo>
+
+<PorQue>
+Integração feita "por fora" (copiando dados da tela, usando senha em robô) quebra sem aviso, viola termos de uso e expõe a conta. As plataformas oferecem portas oficiais para isso. E a nota fiscal é a parte que menos admite improviso: erro nela é problema fiscal.
+</PorQue>
+
+## Explicação
+
+### 1. Nota fiscal: use emissor pronto
+
+Para emitir NF-e, a Fazenda de São Paulo lista: credenciamento na Fazenda do estado, certificado digital ICP-Brasil com o CNPJ, programa emissor e testes em **homologação** antes de emitir de verdade. [verificado] Emissores e ERPs prontos cuidam da parte técnica; o seu hub só manda os dados do pedido e guarda a chave da nota.
+
+Converse com o seu contador sobre impostos, CFOP e regras do seu estado: o sistema emite o que você configura.
+
+### 2. Marketplaces: APIs oficiais
+
+- **Mercado Livre:** aplicativo criado no painel de desenvolvedores, autenticação OAuth 2.0, token no cabeçalho de cada chamada, expira em 6 horas e é renovado com refresh token. [verificado]
+- **Shopee:** a Shopee Open Platform oferece APIs como cadastro de produto, detalhe de pedido e organização de envio. [verificado]
+
+### 3. Notificações em vez de consulta constante
+
+O Mercado Livre explica que, com as <Termo id="webhook">notificações</Termo>, você recebe um feed em tempo real de mudanças, como item pausado, pergunta nova, compra, pagamento ou pedido de envio, sem precisar consultar a API o tempo todo. Você informa uma URL pública que recebe os avisos por HTTP POST e escolhe os tópicos. [verificado]
+
+### 4. O fluxo de um pedido integrado
+
+1. Cliente compra no marketplace.
+2. A plataforma envia a **notificação** ao seu hub.
+3. O hub busca os detalhes do pedido pela **API**.
+4. O hub baixa o estoque e atualiza os outros canais.
+5. O emissor gera a **nota** a partir do pedido.
+6. A etiqueta é gerada e o rastreio volta para o pedido.
+
+<Exemplo>
+Integração mínima de uma loja (situação de exemplo):
+
+| Etapa | Ferramenta |
+| --- | --- |
+| Pedidos do Mercado Livre | API oficial + notificações de pedidos e perguntas |
+| Pedidos da Shopee | ERP pronto com integração Shopee |
+| Nota fiscal | Emissor do ERP, testado em homologação |
+| Painel semanal | Hub próprio lendo pedidos do ERP |
+| Segredos | Cofre de segredos da hospedagem, nunca no código |
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Integração pelas vias oficiais"
+  itens={[
+    "Uso API oficial (nada de robô com senha na tela).",
+    "Tokens e chaves fora do código, em local seguro.",
+    "Renovação automática de token configurada.",
+    "Notificações configuradas para pedidos e perguntas.",
+    "Nota fiscal por emissor pronto, testada em homologação.",
+    "Contador revisou a configuração fiscal.",
+  ]}
+/>
+
+<ErroComum>
+**Robô que entra com a sua senha e copia a tela.** Quebra a cada mudança de layout e expõe a conta.
+
+**Consultar a API a cada minuto para ver se há pedido.** As notificações existem para isso.
+</ErroComum>
+
+<NaPratica>
+Desenhe o fluxo de um pedido na sua loja, do clique ao rastreio, marcando qual ferramenta faz cada etapa (API, notificação, ERP, emissor, hub).
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Como saber de um pedido novo no Mercado Livre sem consultar a API o tempo todo?",
+      opcoes: ["Notificações (webhooks)", "Atualizando a tela", "Por e-mail do comprador"],
+      correta: 0,
+      explicacao: "As notificações enviam as mudanças em tempo real para a sua URL.",
+    },
+    {
+      enunciado: "O que a Fazenda de SP pede antes de emitir NF-e de verdade?",
+      opcoes: ["Testes em ambiente de homologação", "Nada", "Só o logo da empresa"],
+      correta: 0,
+      explicacao: "Entre os passos está testar em homologação antes da autorização.",
+    },
+    {
+      enunciado: "Onde guardar o token da API?",
+      opcoes: ["No código", "Em local seguro fora do código, como o cofre de segredos da hospedagem", "Num grupo de WhatsApp"],
+      correta: 1,
+      explicacao: "Token é segredo e dá acesso à conta.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Nota fiscal: emissor pronto, homologação, contador.
+- Marketplaces: só APIs oficiais.
+- Notificações em vez de consulta constante.
+- Segredos fora do código.
+- Desenhe o fluxo completo de um pedido integrado.
+</Resumo>
+
+<Fontes />

@@ -1,0 +1,127 @@
+---
+modulo: 18
+aula: 2
+titulo: "ERPs prontos x hub próprio: custo, tempo e risco"
+nivel: avancado
+duracao_min: 15
+objetivo: "Ao final você compara ERP pronto e hub próprio em custo, tempo e risco, e escolhe o caminho (ou a combinação) certo para a sua fase."
+pre_requisitos: ["18-1"]
+fontes:
+  - titulo: "Mercado Livre Developers — Autenticação e Autorização"
+    url: "https://developers.mercadolivre.com.br/pt_br/autenticacao-e-autorizacao"
+    consultado_em: "2026-10-18"
+  - titulo: "Shopee Open Platform"
+    url: "https://open.shopee.com/"
+    consultado_em: "2026-10-18"
+  - titulo: "Lei Geral de Proteção de Dados, Lei nº 13.709/2018, art. 46 (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Principal vantagem do ERP pronto?"
+    verso: "Já vem com integrações, nota fiscal e manutenção; você começa rápido."
+  - frente: "Principal risco do hub próprio?"
+    verso: "Você vira responsável por manter integrações, segurança dos dados e correções quando as APIs mudam."
+  - frente: "Caminho comum que combina os dois?"
+    verso: "ERP pronto para estoque, pedidos e nota; hub próprio para painéis, alertas e análises em cima dos dados."
+---
+
+<Objetivo>
+Ao final você compara ERP pronto e hub próprio em custo, tempo e risco, e escolhe o caminho (ou a combinação) certo para a sua fase.
+</Objetivo>
+
+<PorQue>
+Com IA, parece fácil "fazer o próprio sistema". Fazer a primeira tela é fácil. Manter integrações funcionando quando a plataforma muda a API, proteger os dados dos clientes e não perder pedido numa madrugada é outro trabalho. A escolha certa depende do que você quer controlar e do que aceita manter.
+</PorQue>
+
+## Explicação
+
+### 1. Comparação
+
+| | ERP pronto | <Termo id="hub">Hub</Termo> próprio |
+| --- | --- | --- |
+| Custo | Mensalidade | Tempo de construção + hospedagem + manutenção |
+| Tempo até usar | Dias | Semanas a meses [estimativa] |
+| Integrações | Prontas (confira os canais) | Você integra cada API |
+| Nota fiscal | Normalmente inclusa | Precisa de emissor ou serviço externo (aula 18.4) |
+| Quando a API muda | O fornecedor do ERP atualiza | Você atualiza |
+| Personalização | Limitada ao que o sistema permite | Total |
+| Segurança dos dados | Responsabilidade compartilhada | Sua (LGPD, art. 46) [verificado] |
+
+### 2. O que as APIs oficiais exigem
+
+- **Mercado Livre:** autenticação por OAuth 2.0; o token de acesso expira em **6 horas** e é renovado com um refresh token; o token vai no cabeçalho de cada chamada. [verificado]
+- **Shopee:** a Shopee Open Platform oferece APIs para, por exemplo, cadastrar produto, ver detalhes do pedido e organizar o envio. [verificado]
+
+Isso significa: guardar segredos com segurança, renovar tokens, tratar erros e limites de uso. É trabalho contínuo.
+
+### 3. O caminho combinado
+
+Muitas lojas usam **ERP pronto** para o que é crítico e regulado (estoque, pedidos, nota) e um **hub próprio** para o que é específico do negócio (painel semanal, alertas, análises) lendo os dados do ERP. [estimativa]
+
+<Exemplo>
+Decisão de uma loja com 30 pedidos por dia em 3 canais (situação de exemplo):
+
+| Necessidade | Escolha | Motivo |
+| --- | --- | --- |
+| Estoque único e pedidos | ERP pronto | Integrações dos 3 canais prontas |
+| Nota fiscal | ERP pronto | Emissor integrado e atualizado |
+| Painel semanal com margem real | Hub próprio | O ERP não calcula a margem do jeito do curso |
+| Alerta de estoque mínimo no WhatsApp | Hub próprio | Simples, lendo o estoque do ERP |
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="ERP, hub ou os dois"
+  itens={[
+    "Listei as necessidades críticas (estoque, pedidos, nota).",
+    "Conferi se o ERP integra com todos os meus canais.",
+    "Listei o que é específico do meu negócio (painéis, alertas).",
+    "Sei quem vai manter o hub quando uma API mudar.",
+    "Sei onde ficam os segredos e quem acessa os dados.",
+  ]}
+/>
+
+<ErroComum>
+**Construir o próprio emissor de nota "para economizar".** É regulado e muda; use emissor pronto (aula 18.4).
+
+**Escolher ERP sem conferir os canais.** Integração que falta vira trabalho manual.
+</ErroComum>
+
+<NaPratica>
+Preencha a tabela do exemplo com as necessidades da sua loja e marque, para cada uma, ERP pronto ou hub próprio, com o motivo.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Na API do Mercado Livre, em quanto tempo o token de acesso expira?",
+      opcoes: ["6 horas", "30 dias", "Nunca"],
+      correta: 0,
+      explicacao: "A documentação diz que expira após 6 horas e é renovado com refresh token.",
+    },
+    {
+      enunciado: "Qual o principal custo escondido do hub próprio?",
+      opcoes: ["A primeira tela", "A manutenção quando APIs mudam e a segurança dos dados", "O nome do sistema"],
+      correta: 1,
+      explicacao: "Construir é o começo; manter é o trabalho contínuo.",
+    },
+    {
+      enunciado: "O que costuma fazer sentido deixar no ERP pronto?",
+      opcoes: ["Estoque, pedidos e nota fiscal", "Só o logo", "Nada"],
+      correta: 0,
+      explicacao: "São partes críticas e reguladas, que o fornecedor mantém.",
+    },
+  ]}
+/>
+
+<Resumo>
+- ERP pronto: rápido, integrado, menos controle.
+- Hub próprio: controle total, manutenção sua.
+- APIs exigem OAuth, renovação de tokens e cuidado com segredos.
+- Combinação comum: ERP para o crítico, hub para o específico.
+- Segurança dos dados é obrigação (LGPD, art. 46).
+</Resumo>
+
+<Fontes />
