@@ -70,4 +70,4 @@ for (const r of resultados.sort((a, b) => Number(a.ok) - Number(b.ok))) {
   if (!r.ok) console.log(`     citado em: ${r.arquivos.join(", ")}`);
 }
 console.log(`\n${resultados.length} fontes, ${quebrados} quebradas, ${resultados.filter((r) => r.bloqueado).length} bloqueiam robôs (conferir no navegador).`);
-process.exit(quebrados > 0 ? 1 : 0);
+process.exitCode = quebrados > 0 ? 1 : 0;

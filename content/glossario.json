@@ -378,5 +378,35 @@
     "id": "kit",
     "termo": "Kit",
     "definicao": "Venda de dois ou mais itens juntos num só anúncio, por um preço único."
+  },
+  {
+    "id": "pontos-de-penalidade",
+    "termo": "Pontos de penalidade",
+    "definicao": "Sistema da Shopee que soma pontos quando a loja falha (atraso, não envio, anúncio proibido). Muitos pontos tiram benefícios e reduzem a visibilidade."
+  },
+  {
+    "id": "taxa-de-nao-envio",
+    "termo": "Taxa de não envio",
+    "definicao": "Parte dos pedidos que a loja não enviou dentro do prazo e que acabaram cancelados. É uma das métricas que mais pesam na reputação."
+  },
+  {
+    "id": "reducao-de-visibilidade",
+    "termo": "Redução de visibilidade",
+    "definicao": "Quando o marketplace mostra o anúncio para menos gente na busca e nas vitrines, como punição por falhas operacionais. O anúncio continua no ar."
+  },
+  {
+    "id": "ads-de-marketplace",
+    "termo": "Anúncio dentro do marketplace",
+    "definicao": "Anúncio pago exibido dentro da própria plataforma (Shopee Ads, Mercado Ads), na busca ou em vitrines."
+  },
+  {
+    "id": "declaracao-de-conteudo",
+    "termo": "Declaração de conteúdo",
+    "definicao": "Documento que acompanha o pacote quando não há nota fiscal, descrevendo o que vai dentro. Na Shopee, é obrigatório para vendedor CPF."
+  },
+  {
+    "id": "cupom",
+    "termo": "Cupom",
+    "definicao": "Desconto que o comprador aplica no pedido. Sai da margem do vendedor quando é ele quem oferece."
   }
 ]
