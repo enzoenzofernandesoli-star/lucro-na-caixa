@@ -443,5 +443,30 @@
     "id": "compra-garantida",
     "termo": "Compra Garantida",
     "definicao": "Programa do Mercado Livre que protege o comprador e permite devolver o produto pelos canais da plataforma."
+  },
+  {
+    "id": "gancho",
+    "termo": "Gancho",
+    "definicao": "O começo do vídeo (os primeiros segundos) feito para a pessoa parar de rolar a tela e continuar assistindo."
+  },
+  {
+    "id": "cta",
+    "termo": "Chamada para ação (CTA)",
+    "definicao": "O pedido claro do que a pessoa deve fazer agora: clicar no carrinho, chamar no WhatsApp, comprar o kit."
+  },
+  {
+    "id": "afiliado",
+    "termo": "Afiliado",
+    "definicao": "Criador que divulga produtos de outras lojas e recebe uma comissão sobre as vendas que gera."
+  },
+  {
+    "id": "live-commerce",
+    "termo": "Live commerce",
+    "definicao": "Venda ao vivo: a pessoa apresenta os produtos em transmissão e o público compra durante a live."
+  },
+  {
+    "id": "periodo-probatorio",
+    "termo": "Período probatório",
+    "definicao": "Fase inicial de uma loja nova no TikTok Shop, com limites de pedidos por dia e de anúncios, que sobem conforme o desempenho."
   }
 ]
