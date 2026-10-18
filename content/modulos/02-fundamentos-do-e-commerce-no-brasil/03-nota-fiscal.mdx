@@ -1,0 +1,138 @@
+---
+modulo: 2
+aula: 3
+titulo: "Nota fiscal: NF-e, inscrição estadual e certificado digital"
+nivel: iniciante
+duracao_min: 20
+objetivo: "Ao final você sabe quando a nota fiscal é obrigatória para o MEI, o que é preciso para emitir NF-e e por que comprar sempre com nota."
+pre_requisitos: ["2-2"]
+fontes:
+  - titulo: "Receita Federal — Perguntas e Respostas MEI e Simei, pergunta 3.7 (PDF, atualizado em 18/04/2023)"
+    url: "https://www8.receita.fazenda.gov.br/SimplesNacional/Arquivos/pergunta-resposta/PerguntaoMEI.pdf"
+    consultado_em: "2026-10-18"
+  - titulo: "Secretaria da Fazenda de São Paulo — NF-e: perguntas frequentes"
+    url: "https://www.fazenda.sp.gov.br/nfe/perguntas_frequentes/respostas_II.asp"
+    consultado_em: "2026-10-18"
+  - titulo: "Decreto nº 7.962/2013, art. 2º (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "MEI precisa emitir nota para consumidor pessoa física?"
+    verso: "Não é obrigado (Resolução CGSN 140/2018, art. 106). Mas é obrigado quando o destinatário tem CNPJ, salvo se ele emitir nota de entrada."
+  - frente: "O que é preciso para emitir NF-e?"
+    verso: "Credenciamento na Fazenda do estado (com acesso de contribuinte), certificado digital ICP-Brasil com o CNPJ, um emissor, internet e testes em homologação."
+  - frente: "Mesmo dispensado de emitir nota, o MEI deve comprar com nota?"
+    verso: "Sim. A Receita orienta que o MEI deve sempre adquirir mercadorias com documento fiscal."
+---
+
+<Objetivo>
+Ao final você sabe quando a nota fiscal é obrigatória para o MEI, o que é preciso para emitir NF-e e por que comprar sempre com nota.
+</Objetivo>
+
+<PorQue>
+Nota fiscal assusta quem está começando: parece burocracia demais. Mas ela aparece em vários momentos do e-commerce: quando um cliente empresa compra de você, quando um marketplace ou transportadora pede, quando você compra do fornecedor.
+
+Saber quando ela é obrigatória evita duas coisas ruins: ficar irregular e gastar com burocracia que você não precisava ter ainda.
+</PorQue>
+
+## Explicação
+
+### 1. O que é
+
+A <Termo id="nota-fiscal">nota fiscal</Termo> registra a venda para o governo. Para mercadorias, a versão eletrônica é a <Termo id="nf-e">NF-e</Termo>.
+
+### 2. MEI: quando é obrigatória
+
+A Receita Federal responde assim [verificado]:
+
+- O MEI está **dispensado** de emitir nota para **consumidor pessoa física**.
+- É **obrigado** a emitir quando o destinatário tem **CNPJ**, salvo se esse destinatário emitir nota fiscal de entrada.
+- Mesmo dispensado, o MEI deve **sempre comprar** mercadorias com documento fiscal.
+
+A base é o art. 106 da Resolução CGSN 140/2018. Alguns estados têm regras próprias sobre a forma de emitir (nota avulsa, emissor estadual). Confira na Secretaria da Fazenda do seu estado.
+
+### 3. ME e EPP
+
+Empresas que vendem mercadorias, fora do MEI, emitem nota nas vendas. Na prática, isso exige montar a estrutura abaixo.
+
+### 4. O que é preciso para emitir NF-e
+
+A Fazenda de São Paulo lista os passos para uma empresa passar a emitir NF-e [verificado]:
+
+1. **Credenciamento** como emissora de NF-e na Secretaria da Fazenda de cada estado onde tiver estabelecimento.
+2. <Termo id="certificado-digital">Certificado digital</Termo> emitido por autoridade credenciada à ICP-Brasil, com o CNPJ da empresa.
+3. Um programa emissor: o sistema da empresa adaptado ou um emissor disponível.
+4. Acesso à internet e testes em ambiente de homologação antes da autorização para emitir de verdade.
+
+A mesma página informa que o credenciamento é feito com o acesso de contribuinte do estado [verificado], o que pressupõe o cadastro na Fazenda estadual: a <Termo id="inscricao-estadual">inscrição estadual</Termo>.
+
+### 5. Nota e informação ao consumidor
+
+Independentemente da nota, a loja online precisa mostrar em local de destaque o nome empresarial e o CPF ou CNPJ, o endereço e o contato (Decreto 7.962/2013, art. 2º). [verificado]
+
+<Exemplo>
+Uma loja MEI de utilidades domésticas, num mês (exemplo):
+
+| Venda | Cliente | Precisa de nota? |
+| --- | --- | --- |
+| 40 vendas pela Shopee | Pessoas físicas | Dispensada (pode emitir, se quiser ou se o estado exigir) |
+| 1 venda de 20 unidades | Um restaurante com CNPJ | **Sim**, salvo se o restaurante emitir nota de entrada |
+| Compra de estoque | Fornecedor atacadista | O fornecedor emite para você; exija sempre |
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Minha situação de nota fiscal"
+  itens={[
+    "Sei se vendo para pessoas físicas, empresas ou os dois.",
+    "Sei se o meu estado exige alguma forma de nota do MEI nas vendas.",
+    "Guardo as notas de compra de todo o estoque.",
+    "Se sou ME/EPP: tenho inscrição estadual, certificado digital, emissor e credenciamento.",
+    "Minha página mostra nome, CPF/CNPJ, endereço e contato.",
+  ]}
+/>
+
+<ErroComum>
+**Comprar estoque sem nota.** Além de irregular, você fica sem provar a origem do produto numa disputa, num chargeback ou numa fiscalização. E o MEI deve sempre comprar com documento fiscal.
+
+**Achar que MEI nunca emite nota.** A dispensa é para pessoa física. Vendeu para CNPJ, a regra muda.
+</ErroComum>
+
+<NaPratica>
+Liste os seus clientes prováveis (pessoas físicas, empresas, revendedores). Para cada tipo, escreva se precisaria emitir nota no formato que você escolheu na aula 2.2. Depois, procure no site da Secretaria da Fazenda do seu estado como o MEI emite nota quando precisa.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "MEI vendeu para uma pessoa física pela internet. Segundo a Receita, ele é obrigado a emitir nota?",
+      opcoes: ["Sim, sempre", "Não, está dispensado", "Só se a venda passar de R$ 100"],
+      correta: 1,
+      explicacao: "A dispensa vale para venda a consumidor pessoa física (Resolução CGSN 140/2018, art. 106).",
+    },
+    {
+      enunciado: "Qual destes NÃO é requisito para emitir NF-e?",
+      opcoes: ["Certificado digital com o CNPJ da empresa", "Credenciamento na Fazenda do estado", "Ter loja física"],
+      correta: 2,
+      explicacao: "Não é preciso ter loja física. Os passos são credenciamento, certificado digital, emissor, internet e testes.",
+    },
+    {
+      enunciado: "O que o Decreto 7.962/2013 exige que a loja online mostre em destaque?",
+      opcoes: ["O faturamento do mês", "Nome empresarial, CPF ou CNPJ, endereço e contato", "A margem de cada produto"],
+      correta: 1,
+      explicacao: "O art. 2º exige a identificação do fornecedor e os meios de contato, entre outras informações.",
+    },
+  ]}
+/>
+
+<Resumo>
+- MEI: dispensado de nota para pessoa física; obrigado quando o cliente tem CNPJ.
+- Compre sempre com nota, mesmo sendo MEI.
+- NF-e exige credenciamento no estado, certificado digital com o CNPJ, emissor e testes.
+- Regras de emissão variam por estado: confira na Fazenda estadual.
+- A loja online precisa mostrar nome, documento, endereço e contato.
+</Resumo>
+
+<Fontes />

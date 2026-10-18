@@ -1,0 +1,133 @@
+---
+modulo: 2
+aula: 6
+titulo: "Meios de pagamento: Pix, cartão, boleto e chargeback"
+nivel: iniciante
+duracao_min: 20
+objetivo: "Ao final você compara Pix, cartão e boleto pelo custo, pelo prazo de recebimento e pelo risco, e sabe como se defender de um chargeback."
+pre_requisitos: ["2-5", "1-3"]
+fontes:
+  - titulo: "Banco Central do Brasil — Pix (página oficial)"
+    url: "https://www.bcb.gov.br/estabilidadefinanceira/pix"
+    consultado_em: "2026-10-18"
+  - titulo: "Banco Central do Brasil — Guia de implementação dos procedimentos de devolução no âmbito do Pix (MED, PDF)"
+    url: "https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Guia_MED.pdf"
+    consultado_em: "2026-10-18"
+  - titulo: "Decreto nº 7.962/2013, art. 5º, § 3º (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Livre — Quanto custa vender um produto? (Ajuda)"
+    url: "https://www.mercadolivre.com.br/ajuda/870"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Pix é gratuito para quem?"
+    verso: "Para pessoa física. Para empresa, o Banco Central fala em custo baixo, definido pela instituição."
+  - frente: "O MED do Pix serve para disputa comercial (produto não chegou)?"
+    verso: "Não. O MED é para fraude ou falha operacional; o próprio Banco Central diz que ele não é um chargeback."
+  - frente: "O que é chargeback?"
+    verso: "A contestação de uma compra no cartão, feita pelo cliente no banco, que tira o valor do vendedor."
+  - frente: "Quais provas guardar contra chargeback?"
+    verso: "Nota fiscal, código de rastreio, comprovante de entrega, conversas com o cliente e dados do pedido."
+---
+
+<Objetivo>
+Ao final você compara Pix, cartão e boleto pelo custo, pelo prazo de recebimento e pelo risco, e sabe como se defender de um chargeback.
+</Objetivo>
+
+<PorQue>
+O meio de pagamento muda três coisas na sua loja: quanto você paga de taxa, quando o dinheiro cai na conta e o risco de perder a venda depois de enviar o produto.
+
+No marketplace, quase tudo isso já vem dentro da comissão. Na loja própria e na venda pelo WhatsApp, a escolha é sua, e ela entra direto na margem.
+</PorQue>
+
+## Explicação
+
+### 1. Pix
+
+O <Termo id="pix">Pix</Termo> é o pagamento instantâneo do Banco Central: o dinheiro cai em segundos, 24 horas por dia, 7 dias por semana. É gratuito para pessoa física e tem custo baixo para empresa, segundo o Banco Central. [verificado] O valor exato que a sua empresa paga depende da instituição e do contrato.
+
+**Risco:** o Pix não tem chargeback. O <Termo id="med">MED</Termo> (Mecanismo Especial de Devolução) existe para fraude e falha operacional. O guia do Banco Central diz que essa devolução é completamente diferente do chargeback dos cartões. [verificado]
+
+### 2. Cartão de crédito
+
+- **Parcelamento:** vende mais em produto caro, mas o dinheiro chega parcelado.
+- **Antecipação:** receber antes custa uma taxa (aula 1.3). No Mercado Livre, por exemplo, a tarifa pode incluir o processamento do pagamento e, quando você escolhe, a antecipação. [verificado]
+- **Risco: chargeback.** O <Termo id="chargeback">chargeback</Termo> acontece quando o dono do cartão contesta a compra no banco. O valor sai do seu caixa enquanto a disputa é analisada, e o vendedor precisa provar que a venda foi legítima. Prazos e regras são definidos pelas bandeiras e adquirentes: confira no contrato do seu meio de pagamento.
+
+### 3. Boleto
+
+Não tem chargeback, mas leva dias úteis para compensar e muitos boletos gerados não são pagos. Bom para quem não tem cartão; ruim para quem precisa de giro rápido.
+
+### 4. Estorno não é chargeback
+
+O <Termo id="estorno">estorno</Termo> é a devolução feita pela loja, por exemplo no arrependimento. O decreto do comércio eletrônico manda a loja avisar a operadora do cartão para não lançar a cobrança ou estornar o valor quando o cliente exerce o arrependimento. [verificado] Fazer o estorno rápido evita que o cliente abra um chargeback.
+
+### 5. Como se defender de chargeback
+
+- Envie só para o endereço do pedido e com rastreio.
+- Guarde nota fiscal, rastreio, comprovante de entrega e conversas.
+- Descreva o produto com fidelidade (evita "produto diferente do anunciado").
+- Responda rápido: muita contestação nasce de cliente que não conseguiu falar com a loja.
+
+<Exemplo>
+Uma venda de **R$ 200** numa loja própria, com taxas de exemplo (não são taxas de nenhuma empresa real):
+
+| Meio | Taxa de exemplo | Você recebe | Quando | Risco principal |
+| --- | ---: | ---: | --- | --- |
+| Pix | 0,99% | R$ 198,02 | Na hora | Fraude (MED) |
+| Cartão à vista | 4,99% | R$ 190,02 | Conforme o contrato | Chargeback |
+| Cartão 6x, antecipado | 4,99% + 9% de antecipação | R$ 172,02 | Antecipado | Chargeback |
+| Boleto | R$ 3,49 fixo | R$ 196,51 | Após compensar | Boleto não pago |
+
+Antes de escolher, troque as taxas de exemplo pelas do seu contrato.
+</Exemplo>
+
+## Ferramenta
+
+Coloque na calculadora a taxa do meio de pagamento mais usado na sua loja e veja o efeito na margem.
+
+<Calculadora tipo="margem" />
+
+<ErroComum>
+**Oferecer 12x sem juros sem fazer a conta.** "Sem juros" para o cliente quer dizer que alguém paga os juros: você, pela antecipação ou pela taxa maior. Coloque esse custo na margem antes de oferecer.
+
+**Achar que Pix nunca volta.** Em caso de fraude, o MED pode devolver o valor ao pagador. Desconfie de pedidos fora do padrão, como compras grandes de um cliente novo com entrega em endereço diferente.
+</ErroComum>
+
+<NaPratica>
+Pegue o contrato (ou a página de taxas) do meio de pagamento que você usa ou pretende usar. Anote as taxas reais de Pix, cartão à vista, cartão parcelado e antecipação. Calcule quanto você recebe de uma venda do seu produto de laboratório em cada caso.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Segundo o Banco Central, o Pix é gratuito para…",
+      opcoes: ["Todo mundo", "Pessoa física", "Só empresas do Simples"],
+      correta: 1,
+      explicacao: "O Banco Central diz que o Pix é gratuito para pessoa física e de custo baixo para empresa.",
+    },
+    {
+      enunciado: "O cliente diz que o produto não chegou e pediu o MED do Pix. O MED é o caminho certo para isso?",
+      opcoes: ["Sim, é o chargeback do Pix", "Não, o MED é para fraude ou falha operacional", "Sim, sempre devolve o dinheiro"],
+      correta: 1,
+      explicacao: "O guia do Banco Central diz que o MED é diferente do chargeback e trata de fraude ou falha operacional.",
+    },
+    {
+      enunciado: "Qual destas provas ajuda mais numa disputa de chargeback por 'não recebi'?",
+      opcoes: ["Print do anúncio", "Comprovante de entrega com rastreio", "Avaliação de outro cliente"],
+      correta: 1,
+      explicacao: "O comprovante de entrega no endereço do pedido mostra que a venda foi cumprida.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Pix: dinheiro na hora, gratuito para pessoa física, custo baixo para empresa, sem chargeback.
+- Cartão: parcelamento vende mais, mas antecipação e chargeback custam.
+- Boleto: sem chargeback, mas demora e tem muito boleto não pago.
+- Estorno rápido no arrependimento evita chargeback.
+- Guarde nota, rastreio, entrega e conversas de todo pedido.
+</Resumo>
+
+<Fontes />

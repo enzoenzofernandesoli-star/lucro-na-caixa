@@ -198,5 +198,70 @@
     "id": "margem-bruta",
     "termo": "Margem bruta",
     "definicao": "Preço menos o custo do produto, dividido pelo preço. Ainda não desconta taxas, imposto, frete nem anúncio."
+  },
+  {
+    "id": "cnae",
+    "termo": "CNAE",
+    "definicao": "Classificação Nacional de Atividades Econômicas: o código que diz, no cadastro da empresa, que tipo de atividade ela faz."
+  },
+  {
+    "id": "me-epp",
+    "termo": "ME e EPP",
+    "definicao": "Microempresa (ME) e empresa de pequeno porte (EPP): portes de empresa definidos pela receita bruta anual na Lei Complementar 123/2006."
+  },
+  {
+    "id": "inscricao-estadual",
+    "termo": "Inscrição estadual",
+    "definicao": "Cadastro da empresa na Secretaria da Fazenda do estado, necessário para quem vende mercadorias e recolhe ICMS."
+  },
+  {
+    "id": "certificado-digital",
+    "termo": "Certificado digital",
+    "definicao": "Arquivo ou cartão que funciona como assinatura eletrônica da empresa. Para emitir NF-e, ele precisa ser emitido por autoridade da ICP-Brasil e conter o CNPJ."
+  },
+  {
+    "id": "nf-e",
+    "termo": "NF-e",
+    "definicao": "Nota fiscal eletrônica de produtos: documento digital, assinado com certificado, que registra a venda de mercadorias para o fisco."
+  },
+  {
+    "id": "direito-de-arrependimento",
+    "termo": "Direito de arrependimento",
+    "definicao": "Direito do consumidor de desistir de uma compra feita fora da loja física, em até 7 dias da compra ou do recebimento, com devolução do que pagou (CDC, art. 49)."
+  },
+  {
+    "id": "vicio-do-produto",
+    "termo": "Vício do produto",
+    "definicao": "Defeito ou diferença que torna o produto impróprio, diminui o valor ou não bate com o que foi anunciado. Dá ao consumidor direito a conserto, troca ou devolução."
+  },
+  {
+    "id": "lgpd",
+    "termo": "LGPD",
+    "definicao": "Lei Geral de Proteção de Dados (Lei 13.709/2018): regras para coletar, usar, guardar e apagar dados pessoais."
+  },
+  {
+    "id": "dado-pessoal",
+    "termo": "Dado pessoal",
+    "definicao": "Qualquer informação que identifica ou pode identificar uma pessoa: nome, CPF, e-mail, telefone, endereço."
+  },
+  {
+    "id": "base-legal",
+    "termo": "Base legal",
+    "definicao": "O motivo, previsto na LGPD, que autoriza o uso de um dado pessoal, como consentimento, execução de contrato ou obrigação legal."
+  },
+  {
+    "id": "pix",
+    "termo": "Pix",
+    "definicao": "Pagamento instantâneo criado pelo Banco Central: o dinheiro cai na conta do recebedor em segundos, a qualquer hora."
+  },
+  {
+    "id": "med",
+    "termo": "MED (Pix)",
+    "definicao": "Mecanismo Especial de Devolução do Pix, criado pelo Banco Central para casos de fraude ou falha operacional. Não serve para disputa comercial."
+  },
+  {
+    "id": "estorno",
+    "termo": "Estorno",
+    "definicao": "Devolução de um pagamento feita pela própria loja (ou a pedido dela), por exemplo num cancelamento ou arrependimento."
   }
 ]
