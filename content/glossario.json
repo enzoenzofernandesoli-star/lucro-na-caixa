@@ -348,5 +348,35 @@
     "id": "certificacao-compulsoria",
     "termo": "Certificação compulsória",
     "definicao": "Avaliação obrigatória de segurança ou qualidade exigida pelo Inmetro para certos produtos, como brinquedos, antes de vender."
+  },
+  {
+    "id": "foto-principal",
+    "termo": "Foto principal",
+    "definicao": "A primeira foto do anúncio, que aparece na busca. É ela que decide se a pessoa clica ou passa."
+  },
+  {
+    "id": "ficha-tecnica",
+    "termo": "Ficha técnica",
+    "definicao": "Os campos de características do anúncio (marca, modelo, material, medidas). O marketplace usa esses dados na busca e nos filtros."
+  },
+  {
+    "id": "variacao",
+    "termo": "Variação",
+    "definicao": "Versões do mesmo produto num só anúncio, como cores e tamanhos, cada uma com seu estoque e seu SKU."
+  },
+  {
+    "id": "prova-social",
+    "termo": "Prova social",
+    "definicao": "Sinais de que outras pessoas compraram e aprovaram: avaliações, fotos de clientes, perguntas respondidas, número de vendas."
+  },
+  {
+    "id": "preco-psicologico",
+    "termo": "Preço psicológico",
+    "definicao": "Preço que termina em 90 ou 99, ou que fica logo abaixo de um número redondo, para parecer menor."
+  },
+  {
+    "id": "kit",
+    "termo": "Kit",
+    "definicao": "Venda de dois ou mais itens juntos num só anúncio, por um preço único."
   }
 ]
