@@ -242,3 +242,32 @@ describe("avaliarProduto", () => {
     expect(() => avaliarProduto({ ...todas(3), demanda: 2.5 })).toThrow();
   });
 });
+
+import { simularCampanha } from "@/lib/calculos";
+
+describe("simularCampanha", () => {
+  const base = { orcamentoCentavos: 15_000, cpcCentavos: 120, conversaoPontosBase: 150, ticketMedioCentavos: 8_990, margemPontosBase: 3_500 };
+
+  it("turns budget into clicks, sales, margin and result", () => {
+    const r = simularCampanha(base);
+    expect(r.cliques).toBe(125);
+    expect(r.vendas).toBeCloseTo(1.875, 6);
+    expect(r.receitaCentavos).toBe(16_856);
+    expect(r.margemCentavos).toBe(5_900);
+    expect(r.resultadoCentavos).toBe(5_900 - 15_000);
+    expect(r.cpaCentavos).toBe(8_000);
+  });
+
+  it("handles zero CPC, zero conversion and zero budget", () => {
+    expect(simularCampanha({ ...base, cpcCentavos: 0 }).cliques).toBe(0);
+    expect(simularCampanha({ ...base, conversaoPontosBase: 0 }).cpaCentavos).toBeNull();
+    expect(simularCampanha({ ...base, orcamentoCentavos: 0 }).roas).toBeNull();
+  });
+
+  it("breaks even when CPA equals the margin per sale", () => {
+    // ticket 100, margin 25% → R$ 25 per sale; CPC 1 and 4% conversion → CPA 25
+    const r = simularCampanha({ orcamentoCentavos: 10_000, cpcCentavos: 100, conversaoPontosBase: 400, ticketMedioCentavos: 10_000, margemPontosBase: 2_500 });
+    expect(r.cpaCentavos).toBe(2_500);
+    expect(r.resultadoCentavos).toBe(0);
+  });
+});

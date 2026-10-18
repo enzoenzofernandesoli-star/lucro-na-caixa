@@ -297,3 +297,47 @@ export function avaliarProduto(notas: NotasFicha): ResultadoFicha {
     eliminatorios.length > 0 || media < 3 ? "descartar" : media >= 4 ? "testar" : "talvez";
   return { media, eliminatorios, veredito };
 }
+
+// --- Simulador de campanha (módulo 12) ----------------------------------------------
+
+export type EntradaCampanha = {
+  orcamentoCentavos: number;
+  /** Average cost per click, cents. */
+  cpcCentavos: number;
+  /** Share of clicks that become a purchase, basis points (150 = 1,5%). */
+  conversaoPontosBase: number;
+  ticketMedioCentavos: number;
+  /** Contribution margin before ads, basis points. */
+  margemPontosBase: number;
+};
+
+export type ResultadoCampanha = {
+  cliques: number;
+  /** Expected purchases (can be fractional: it is an average). */
+  vendas: number;
+  receitaCentavos: number;
+  margemCentavos: number;
+  /** Margin minus ad spend. */
+  resultadoCentavos: number;
+  /** Null when there are no expected sales. */
+  cpaCentavos: number | null;
+  /** Null when the budget is zero. */
+  roas: number | null;
+};
+
+/** Budget → clicks → sales → profit, with averages (a plan, not a promise). */
+export function simularCampanha(e: EntradaCampanha): ResultadoCampanha {
+  const cliques = e.cpcCentavos > 0 ? Math.floor(e.orcamentoCentavos / e.cpcCentavos) : 0;
+  const vendas = (cliques * e.conversaoPontosBase) / 10_000;
+  const receitaCentavos = arredondar(vendas * e.ticketMedioCentavos);
+  const margemCentavos = arredondar((receitaCentavos * e.margemPontosBase) / 10_000);
+  return {
+    cliques,
+    vendas,
+    receitaCentavos,
+    margemCentavos,
+    resultadoCentavos: margemCentavos - e.orcamentoCentavos,
+    cpaCentavos: vendas > 0 ? arredondar(e.orcamentoCentavos / vendas) : null,
+    roas: e.orcamentoCentavos > 0 ? receitaCentavos / e.orcamentoCentavos : null,
+  };
+}

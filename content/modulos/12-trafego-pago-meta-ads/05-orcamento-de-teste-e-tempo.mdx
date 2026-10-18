@@ -1,0 +1,121 @@
+---
+modulo: 12
+aula: 5
+titulo: "Orçamento de teste e tempo de espera"
+nivel: intermediario
+duracao_min: 20
+objetivo: "Ao final você define orçamento diário, duração e critério de decisão de um teste de R$ 100 a R$ 200, e simula o resultado antes de gastar."
+pre_requisitos: ["12-3", "1-4"]
+fontes:
+  - titulo: "Central de Ajuda da Meta para Empresas — Sobre a fase de aprendizado"
+    url: "https://www.facebook.com/business/help/112167992830700"
+    consultado_em: "2026-10-18"
+  - titulo: "Central de Ajuda da Meta para Empresas — Boas práticas para testes A/B"
+    url: "https://www.facebook.com/business/help/290009911394576"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Quanto tempo deixar um teste rodar antes de concluir?"
+    verso: "Pelo menos 7 dias, sem edições significativas no meio, porque a fase de aprendizado conta a semana após a última edição."
+  - frente: "Qual é o CPA máximo de um produto?"
+    verso: "A margem de contribuição por venda: acima disso, cada venda dá prejuízo."
+  - frente: "O que decidir antes de começar o teste?"
+    verso: "Orçamento total, duração e critério escrito de pausar, manter ou escalar."
+---
+
+<Objetivo>
+Ao final você define orçamento diário, duração e critério de decisão de um teste de R$ 100 a R$ 200, e simula o resultado antes de gastar.
+</Objetivo>
+
+<PorQue>
+Sem regra escrita, a decisão sai da emoção: pausa no segundo dia porque "não vendeu", ou deixa rodando um mês porque "uma hora vai". Um teste pequeno não prova que um produto é bom, mas pode mostrar com pouco dinheiro que algo claramente não funciona.
+</PorQue>
+
+## Explicação
+
+### 1. O que um teste de R$ 100 a R$ 200 consegue dizer
+
+Com orçamento pequeno, você terá poucas vendas. O teste serve para **sinais**: o anúncio gera cliques a um custo razoável? As pessoas chegam ao carrinho? Alguma venda saiu abaixo do CPA máximo? Não serve para "provar" que o produto escala. [estimativa]
+
+### 2. Duração: pelo menos uma semana
+
+- A fase de aprendizado considera cerca de 50 resultados na semana após a última **edição significativa**. [verificado]
+- Editar orçamento, público, criativo ou evento no meio do teste reinicia esse período. [verificado]
+- A Meta recomenda que testes A/B rodem por tempo suficiente; em geral, ao menos 7 dias. [verificado]
+
+Exemplo de divisão: R$ 150 em 7 dias ≈ **R$ 21 por dia**.
+
+### 3. CPA máximo e critério de decisão
+
+Do módulo 1: **CPA máximo = margem de contribuição por venda**. Escreva antes de começar:
+
+| Situação após 7 dias | Decisão |
+| --- | --- |
+| Vendas com CPA abaixo do máximo | Manter e preparar escala (com cuidado) |
+| Carrinhos, mas vendas acima do máximo | Revisar página, preço e frete (módulo 9) |
+| Cliques caros, CTR baixo | Trocar criativo (módulo 11) |
+| Gasto de 2 a 3 vezes o CPA máximo e nenhuma venda | Pausar e rever produto ou oferta |
+
+A regra "2 a 3 vezes o CPA máximo sem venda" é um critério prático de gestão, não regra da Meta. [estimativa]
+
+<Exemplo>
+Produto com ticket de R$ 89,90 e margem de contribuição de 35% (números de exemplo):
+
+- Margem por venda: R$ 31,47 = **CPA máximo**.
+- Orçamento: R$ 150 em 7 dias.
+- Com CPC de R$ 1,20: 125 cliques. Com 1,5% de conversão: cerca de **1,9 venda**.
+- Resultado no papel: margem de R$ 58,95 − R$ 150 de anúncio = **−R$ 91,05**.
+
+O teste provavelmente dá prejuízo. O que ele compra é informação. Se a conversão real for 3%, o resultado melhora muito: veja no simulador.
+</Exemplo>
+
+## Ferramenta
+
+<Calculadora tipo="campanha" />
+
+<Alerta conferidoEm="18/10/2026" fonte="https://www.facebook.com/business/help/112167992830700">
+A Meta define o que conta como edição significativa e pode mudar esse critério. Confira a página da fase de aprendizado antes de editar uma campanha em teste.
+</Alerta>
+
+<ErroComum>
+**Concluir no segundo dia.** A entrega ainda está se ajustando; os números dos primeiros dias oscilam muito.
+
+**Investir dinheiro que faz falta.** Teste com valor que você aceita perder inteiro.
+</ErroComum>
+
+<NaPratica>
+Preencha o simulador com os números do seu produto, escreva orçamento total, orçamento diário, duração e a tabela de decisão no seu plano de teste.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Qual é o CPA máximo de um produto com margem de contribuição de R$ 25 por venda?",
+      opcoes: ["R$ 50", "R$ 25", "R$ 12,50"],
+      correta: 1,
+      explicacao: "Acima da margem de contribuição por venda, cada venda dá prejuízo.",
+    },
+    {
+      enunciado: "Você mudou o público no 3º dia do teste. O que acontece com a fase de aprendizado?",
+      opcoes: ["Nada", "Reinicia, porque é edição significativa", "Termina na hora"],
+      correta: 1,
+      explicacao: "Edições significativas reiniciam a contagem do aprendizado.",
+    },
+    {
+      enunciado: "R$ 140 em um teste de 7 dias dá quanto por dia?",
+      opcoes: ["R$ 14", "R$ 20", "R$ 70"],
+      correta: 1,
+      explicacao: "140 ÷ 7 = 20.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Teste pequeno mostra sinais, não prova escala.
+- Rode pelo menos 7 dias sem edições significativas.
+- CPA máximo = margem de contribuição por venda.
+- Escreva o critério de decisão antes de começar.
+- Teste só com dinheiro que você aceita perder.
+</Resumo>
+
+<Fontes />

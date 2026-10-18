@@ -548,5 +548,40 @@
     "id": "fadiga-de-criativo",
     "termo": "Fadiga de criativo",
     "definicao": "Quando o mesmo anúncio é visto muitas vezes e passa a render menos, pedindo criativos novos."
+  },
+  {
+    "id": "pixel",
+    "termo": "Pixel da Meta",
+    "definicao": "Código instalado no site que avisa a Meta quando alguém vê um produto, adiciona ao carrinho ou compra, para medir e otimizar anúncios."
+  },
+  {
+    "id": "api-de-conversoes",
+    "termo": "API de Conversões",
+    "definicao": "Envio dos eventos do site (como compras) direto do servidor da loja para a Meta, menos afetado por bloqueadores e falhas do navegador que o pixel."
+  },
+  {
+    "id": "conjunto-de-anuncios",
+    "termo": "Conjunto de anúncios",
+    "definicao": "Nível do meio da campanha da Meta: define público, orçamento (em alguns casos), posicionamentos e programação."
+  },
+  {
+    "id": "fase-de-aprendizado",
+    "termo": "Fase de aprendizado",
+    "definicao": "Período em que a Meta ainda está descobrindo como veicular um conjunto de anúncios. Costuma terminar após cerca de 50 resultados na semana após a última edição significativa."
+  },
+  {
+    "id": "ctr",
+    "termo": "CTR",
+    "definicao": "Taxa de cliques: cliques no link ÷ impressões. Mostra quanto o anúncio chama a atenção de quem o vê."
+  },
+  {
+    "id": "cpm",
+    "termo": "CPM",
+    "definicao": "Custo por mil impressões: gasto ÷ impressões × 1.000."
+  },
+  {
+    "id": "cpc",
+    "termo": "CPC",
+    "definicao": "Custo por clique: gasto ÷ cliques."
   }
 ]

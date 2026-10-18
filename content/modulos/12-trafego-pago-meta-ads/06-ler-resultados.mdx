@@ -1,0 +1,123 @@
+---
+modulo: 12
+aula: 6
+titulo: "Ler resultados: CPM, CTR, CPC, conversão, CPA e ROAS"
+nivel: intermediario
+duracao_min: 20
+objetivo: "Ao final você lê o funil de números de uma campanha, descobre em que etapa está o problema e decide o que mudar."
+pre_requisitos: ["12-5"]
+fontes:
+  - titulo: "Central de Ajuda da Meta para Empresas — CPM (custo por 1.000 impressões)"
+    url: "https://www.facebook.com/business/help/753932008002620"
+    consultado_em: "2026-10-18"
+  - titulo: "Central de Ajuda da Meta para Empresas — CTR (taxa de cliques no link)"
+    url: "https://www.facebook.com/business/help/877711998984611"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Como se calcula o CPM?"
+    verso: "Gasto ÷ impressões × 1.000."
+  - frente: "Como se calcula a CTR (taxa de cliques no link)?"
+    verso: "Cliques no link ÷ impressões."
+  - frente: "CTR boa, muitos carrinhos e poucas compras. Onde está o problema?"
+    verso: "No checkout: frete, prazo, forma de pagamento ou confiança."
+---
+
+<Objetivo>
+Ao final você lê o funil de números de uma campanha, descobre em que etapa está o problema e decide o que mudar.
+</Objetivo>
+
+<PorQue>
+"O anúncio não vende" não diz nada. Pode ser que ninguém clique, que cliquem e não comprem, ou que comprem com margem pequena demais. Cada caso pede uma correção diferente. Os números mostram em que etapa a venda se perde.
+</PorQue>
+
+## Explicação
+
+### 1. O funil de números
+
+| Etapa | Métrica | Conta |
+| --- | --- | --- |
+| Ver o anúncio | <Termo id="cpm">CPM</Termo> | Gasto ÷ impressões × 1.000 [verificado] |
+| Clicar | <Termo id="ctr">CTR</Termo> | Cliques no link ÷ impressões [verificado] |
+| Custo do clique | <Termo id="cpc">CPC</Termo> | Gasto ÷ cliques |
+| Comprar | Conversão | Compras ÷ cliques (ou sessões) |
+| Custo da venda | <Termo id="cpa">CPA</Termo> | Gasto ÷ compras |
+| Retorno | <Termo id="roas">ROAS</Termo> | Receita ÷ gasto |
+
+Uma relação útil: **CPC = CPM ÷ (1.000 × CTR)**. Se o CPM sobe ou a CTR cai, o clique fica mais caro.
+
+### 2. Onde está o problema
+
+| Sintoma | Onde olhar |
+| --- | --- |
+| CTR baixa | Criativo e gancho (módulo 11) |
+| CTR boa, conversão baixa | Página de produto, preço, prova (módulo 9) |
+| Muitos carrinhos, poucas compras | Checkout: frete, prazo, pagamento |
+| Vendas com CPA acima do máximo | Oferta, ticket médio ou margem (módulo 1) |
+| ROAS acima do equilíbrio | Funciona no papel: confira lucro real (módulo 14) |
+
+Não existe "CTR boa" universal: compare com os seus próprios testes e com o que o seu CPA máximo exige. [estimativa]
+
+### 3. Atenção à atribuição
+
+Os números de compras do Gerenciador dependem da configuração de atribuição e da medição (aula 12.1). Sempre compare com os pedidos reais da loja.
+
+<Exemplo>
+Resultado de 7 dias (números de exemplo): gasto **R$ 150**; 12.500 impressões; 150 cliques no link; 9 carrinhos; 2 compras; receita R$ 179,80.
+
+- CPM = 150 ÷ 12.500 × 1.000 = **R$ 12,00**
+- CTR = 150 ÷ 12.500 = **1,2%**
+- CPC = 150 ÷ 150 = **R$ 1,00**
+- Conversão = 2 ÷ 150 = **1,33%**
+- CPA = 150 ÷ 2 = **R$ 75,00**
+- ROAS = 179,80 ÷ 150 = **1,20**
+
+Com CPA máximo de R$ 31,47 (aula 12.5), o CPA de R$ 75 está mais que o dobro acima. Cliques a R$ 1 e 9 carrinhos mostram que o anúncio atrai; o gargalo está entre o carrinho e a compra: olhar frete e checkout.
+</Exemplo>
+
+## Ferramenta
+
+<Calculadora tipo="roas" />
+
+<ErroComum>
+**Olhar só o ROAS do Gerenciador.** Sem comparar com pedidos reais e margem, ROAS de 2 pode ser prejuízo.
+
+**Trocar tudo de uma vez.** Mude a etapa onde está o gargalo; o resto fica igual.
+</ErroComum>
+
+<NaPratica>
+Com os números de uma campanha sua (ou do exemplo), calcule as seis métricas, marque a etapa com problema e escreva uma única mudança para o próximo teste.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Gasto de R$ 80 com 20.000 impressões. Qual é o CPM?",
+      opcoes: ["R$ 0,40", "R$ 4,00", "R$ 40,00"],
+      correta: 1,
+      explicacao: "80 ÷ 20.000 × 1.000 = 4.",
+    },
+    {
+      enunciado: "200 cliques no link em 10.000 impressões. Qual é a CTR?",
+      opcoes: ["0,2%", "2%", "20%"],
+      correta: 1,
+      explicacao: "200 ÷ 10.000 = 0,02 = 2%.",
+    },
+    {
+      enunciado: "CTR alta, conversão muito baixa e poucos carrinhos. Onde mexer primeiro?",
+      opcoes: ["No criativo", "Na página de produto e na oferta", "No CPM"],
+      correta: 1,
+      explicacao: "As pessoas clicam (o anúncio funciona), mas não avançam na página.",
+    },
+  ]}
+/>
+
+<Resumo>
+- CPM = gasto ÷ impressões × 1.000; CTR = cliques no link ÷ impressões.
+- CPC, conversão, CPA e ROAS completam o funil.
+- Cada sintoma aponta uma etapa: criativo, página, checkout ou oferta.
+- Compare compras do Gerenciador com pedidos reais.
+- Mude uma coisa por vez, na etapa do gargalo.
+</Resumo>
+
+<Fontes />

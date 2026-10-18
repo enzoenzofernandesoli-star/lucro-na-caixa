@@ -1,0 +1,132 @@
+---
+modulo: 12
+aula: 1
+titulo: "Conta, portfólio empresarial, pixel e API de Conversões"
+nivel: intermediario
+duracao_min: 20
+objetivo: "Ao final você entende as peças que precisam estar prontas antes do primeiro anúncio: conta de anúncios, página, pixel e API de Conversões, e quais eventos enviar."
+pre_requisitos: ["9-3", "2-5"]
+fontes:
+  - titulo: "Central de Ajuda da Meta para Empresas — Sobre o Pixel da Meta"
+    url: "https://www.facebook.com/business/help/742478679120153"
+    consultado_em: "2026-10-18"
+  - titulo: "Central de Ajuda da Meta para Empresas — About Conversions API"
+    url: "https://www.facebook.com/business/help/2041148702652965"
+    consultado_em: "2026-10-18"
+  - titulo: "Lei Geral de Proteção de Dados, Lei nº 13.709/2018, arts. 7º e 9º (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Para que serve o pixel da Meta?"
+    verso: "Para registrar ações no site (ver produto, carrinho, compra) e usar esses dados para medir e otimizar os anúncios."
+  - frente: "Por que usar a API de Conversões junto com o pixel?"
+    verso: "Porque os eventos enviados pelo servidor são menos afetados por bloqueadores, falhas de carregamento e conexão, e a Meta recomenda usar os dois juntos."
+  - frente: "Quais eventos de e-commerce enviar?"
+    verso: "Visualização de conteúdo, adição ao carrinho, início do checkout e compra (com valor e moeda)."
+---
+
+<Objetivo>
+Ao final você entende as peças que precisam estar prontas antes do primeiro anúncio: conta de anúncios, página, pixel e API de Conversões, e quais eventos enviar.
+</Objetivo>
+
+<PorQue>
+Anúncio de venda na Meta aprende com as compras. Se o site não avisa à Meta quando alguém compra, a plataforma não sabe para quem mostrar o anúncio nem você sabe o resultado. A maior parte dos "anúncios que não funcionam" de iniciantes começa com medição quebrada.
+</PorQue>
+
+## Explicação
+
+### 1. As peças
+
+- **Página** no Facebook e conta no Instagram da loja.
+- **Portfólio empresarial** (gerenciador de negócios), que reúne página, conta de anúncios, pixel e acessos de pessoas.
+- **Conta de anúncios** com forma de pagamento.
+- **<Termo id="pixel">Pixel</Termo>** instalado no site.
+- **<Termo id="api-de-conversoes">API de Conversões</Termo>** enviando os mesmos eventos pelo servidor.
+
+### 2. Pixel e API de Conversões
+
+- A Meta recomenda que quem compartilha eventos pelo pixel use também a API de Conversões, para melhorar o desempenho e a mensuração. [verificado]
+- Os dados da API de Conversões são menos afetados por erros de carregamento do navegador, problemas de conexão e bloqueadores de anúncios. A melhor prática é usar a API **junto** com o pixel. [verificado]
+- A API não serve para contornar políticas de compartilhamento de dados. [verificado]
+
+Muitas plataformas de loja oferecem integração pronta com o pixel e a API: confira na sua.
+
+### 3. Os eventos de e-commerce
+
+| Evento | Quando dispara |
+| --- | --- |
+| Ver conteúdo | Alguém abre a página de produto |
+| Adicionar ao carrinho | Clica em comprar/adicionar |
+| Iniciar finalização | Entra no checkout |
+| Compra | Pedido concluído, **com valor e moeda** |
+
+O evento de compra com valor é o que permite calcular ROAS e otimizar para vendas.
+
+### 4. LGPD
+
+Pixel e API tratam dados de quem visita a loja. Explique esse uso na política de privacidade (LGPD, art. 9º) e tenha base legal para ele (art. 7º). [verificado] Peça orientação jurídica para o banner de cookies da sua loja.
+
+<Exemplo>
+Conferência de medição de uma loja (situação de exemplo): 100 pedidos no mês segundo a loja; o Gerenciador de Eventos mostrou **62 compras** pelo pixel e **96** depois de ativar a API de Conversões junto. Sem a API, a campanha "via" só 62 vendas e otimizava com menos informação.
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Antes do primeiro anúncio"
+  itens={[
+    "Página e Instagram da loja ligados ao portfólio empresarial.",
+    "Conta de anúncios com pagamento configurado.",
+    "Pixel instalado no site.",
+    "API de Conversões ativa (integração da plataforma ou servidor).",
+    "Eventos de produto, carrinho, checkout e compra com valor funcionando.",
+    "Compras medidas comparadas com os pedidos reais.",
+    "Política de privacidade explicando o uso de pixel e API.",
+  ]}
+/>
+
+<ErroComum>
+**Anunciar para vendas sem o evento de compra funcionando.** A plataforma otimiza no escuro e você não sabe o CPA real.
+
+**Instalar o pixel em site que não é seu.** A Meta orienta não colocar o pixel associado à sua conta em sites que não são seus sem permissão. [verificado]
+
+**Mandar informação proibida nos eventos.** A Meta proíbe compartilhar dados de saúde, financeiros ou de crianças pelo pixel; revise nomes de eventos, parâmetros e URLs. [verificado]
+</ErroComum>
+
+<NaPratica>
+Faça uma compra de teste na sua loja (ou acompanhe uma) e confira, no Gerenciador de Eventos, se os quatro eventos apareceram, com valor na compra. Compare as compras medidas na semana com os pedidos reais.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Por que a Meta recomenda usar a API de Conversões junto com o pixel?",
+      opcoes: ["Para gastar mais", "Porque os eventos do servidor são menos afetados por bloqueadores e falhas do navegador", "Porque o pixel foi proibido"],
+      correta: 1,
+      explicacao: "A Meta indica a API como menos afetada por bloqueadores e falhas, e recomenda usar as duas juntas.",
+    },
+    {
+      enunciado: "Qual evento precisa enviar o valor da venda para calcular ROAS?",
+      opcoes: ["Ver conteúdo", "Compra", "Curtir a página"],
+      correta: 1,
+      explicacao: "O evento de compra com valor e moeda permite medir receita e ROAS.",
+    },
+    {
+      enunciado: "A API de Conversões permite ignorar regras de privacidade?",
+      opcoes: ["Sim", "Não: a Meta diz que ela não serve para contornar políticas de compartilhamento de dados", "Só no Brasil"],
+      correta: 1,
+      explicacao: "A página oficial deixa claro que a API não é um meio de contornar essas políticas.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Peças: página, portfólio empresarial, conta de anúncios, pixel e API de Conversões.
+- Use pixel + API de Conversões juntos.
+- Eventos: ver produto, carrinho, checkout e compra com valor.
+- Confira as compras medidas com os pedidos reais.
+- Explique o uso na política de privacidade (LGPD).
+</Resumo>
+
+<Fontes />
