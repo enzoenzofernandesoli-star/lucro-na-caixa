@@ -9,6 +9,7 @@
   --color-amarelo: #ffe03a;
   --color-amarelo-claro: #fff4b8;
   --color-vermelho: #e5292b;
+  /* Also the background for small white text: white on #e5292b is only 4.48:1. */
   --color-vermelho-texto: #b3121a;
   --color-branco: #ffffff;
 

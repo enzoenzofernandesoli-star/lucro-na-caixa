@@ -23,11 +23,17 @@ describe("lerCentesimos", () => {
     ["R$ 10,00", 1_000],
     ["15%", 1_500],
     ["0,005", 1],
+    ["1.000", 100_000],
+    ["12.500", 1_250_000],
+    ["1.000.000", 100_000_000],
+    ["12.50", 1_250],
+    ["-10", -1_000],
+    ["-1.000,50", -100_050],
   ])("reads %s", (texto, esperado) => {
     expect(lerCentesimos(texto)).toBe(esperado);
   });
 
-  it.each(["", "abc", "1,2,3", "--1"])("rejects %s", (texto) => {
+  it.each(["", "abc", "1,2,3", "--1", "1.2345", "1.00,5", "12.34.5", ".5", "5,"])("rejects ambiguous %s", (texto) => {
     expect(lerCentesimos(texto)).toBeNull();
   });
 });

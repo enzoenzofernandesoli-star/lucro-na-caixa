@@ -91,3 +91,25 @@ test.describe("aula", () => {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(/NÃO ESTÁ NA CAIXA/);
   });
 });
+
+test("small white-on-red labels reach 4.5:1 contrast", async ({ page }) => {
+  await page.goto(AULA);
+  const razoes = await page.locator(".text-branco:not([aria-hidden] *):not([aria-hidden])").evaluateAll((els) => {
+    const lum = (rgb: string) => {
+      const [r, g, b] = (rgb.match(/\d+/g) ?? []).slice(0, 3).map((v) => {
+        const c = Number(v) / 255;
+        return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+      });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+    return els
+      .filter((e) => (e as HTMLElement).offsetParent !== null)
+      .map((e) => {
+        const cs = getComputedStyle(e);
+        const [a, b] = [lum(cs.color), lum(cs.backgroundColor)].sort((x, y) => y - x);
+        return (a + 0.05) / (b + 0.05);
+      });
+  });
+  expect(razoes.length).toBeGreaterThan(0);
+  for (const r of razoes) expect(r).toBeGreaterThanOrEqual(4.5);
+});

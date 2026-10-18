@@ -25,7 +25,7 @@ export function QuadroAula({ ativo, links, children, className = "", id }: Quadr
 /** Red label "MÓDULO 01 · AULA 02". */
 export function EtiquetaAula({ children }: { children: ReactNode }) {
   return (
-    <span className="self-start bg-vermelho px-3.5 py-1.5 font-mono text-[13px] font-semibold tracking-[0.1em] text-branco">
+    <span className="self-start bg-vermelho-texto px-3.5 py-1.5 font-mono text-[13px] font-semibold tracking-[0.1em] text-branco">
       {children}
     </span>
   );

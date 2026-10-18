@@ -30,15 +30,27 @@ export function formatarRazao(valor: number): string {
   return decimal2.format(valor);
 }
 
+// pt-BR: comma is the decimal mark, dot groups thousands in blocks of 3.
+const COM_VIRGULA = /^-?\d{1,3}(\.\d{3})*,\d+$|^-?\d+,\d+$/;
+const SO_MILHAR = /^-?\d{1,3}(\.\d{3})+$/;
+// Typed on a dot-only keyboard: "12.5" or "12.50" read as decimals.
+const PONTO_DECIMAL = /^-?\d+\.\d{1,2}$/;
+const INTEIRO = /^-?\d+$/;
+
 /**
- * Parses a pt-BR number typed by the user ("1.234,56", "12,5", "12.5", "R$ 10")
- * and returns it multiplied by 100 as an integer (cents or basis points).
- * Returns null when the text is not a number.
+ * Parses a pt-BR number typed by the user and returns it multiplied by 100 as an
+ * integer (cents or basis points). Rules:
+ * - "1.234,56", "12,5": comma is the decimal mark, dots group thousands;
+ * - "1.000", "12.500": dot followed by groups of 3 digits is a thousands separator;
+ * - "12.5", "12.50": dot followed by 1–2 digits is a decimal mark;
+ * - anything else ("1.2345", "1.00,5", "1,2,3") is ambiguous and returns null.
  */
 export function lerCentesimos(texto: string): number | null {
-  let limpo = texto.replace(/R\$|%|\s/g, "");
-  if (limpo === "") return null;
-  if (limpo.includes(",")) limpo = limpo.replace(/\./g, "").replace(",", ".");
-  if (!/^-?\d+(\.\d+)?$/.test(limpo)) return null;
-  return Math.round(Number(limpo) * 100);
+  const limpo = texto.replace(/R\$|%|\s/g, "");
+  let normalizado: string;
+  if (COM_VIRGULA.test(limpo)) normalizado = limpo.replace(/\./g, "").replace(",", ".");
+  else if (SO_MILHAR.test(limpo)) normalizado = limpo.replace(/\./g, "");
+  else if (PONTO_DECIMAL.test(limpo) || INTEIRO.test(limpo)) normalizado = limpo;
+  else return null;
+  return Math.round(Number(normalizado) * 100);
 }

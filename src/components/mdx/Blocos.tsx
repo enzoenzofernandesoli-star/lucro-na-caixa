@@ -100,7 +100,7 @@ export function Alerta({ conferidoEm, fonte, children }: AlertaProps) {
   }
   return (
     <aside role="note" className="rounded-2xl border-[3px] border-tinta bg-branco p-5" data-bloco="alerta">
-      <span className="mb-2 inline-block bg-vermelho px-2.5 py-1 font-mono text-xs font-semibold tracking-[0.1em] text-branco">
+      <span className="mb-2 inline-block bg-vermelho-texto px-2.5 py-1 font-mono text-xs font-semibold tracking-[0.1em] text-branco">
         REGRA QUE MUDA
       </span>
       <div className="flex flex-col gap-3 [&>*]:m-0">{children}</div>

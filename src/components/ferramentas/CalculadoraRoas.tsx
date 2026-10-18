@@ -42,7 +42,7 @@ export function CalculadoraRoas({ inicial }: CalculadoraRoasProps) {
         <RotuloMono aria-hidden="true">Calculadora de ROAS</RotuloMono>
         <CampoNumero rotulo="Vendas geradas pelo anúncio" formato="reais" valor={v.receita} aoMudar={set("receita")} passo={5_000} />
         <CampoNumero rotulo="Gasto com anúncio" formato="reais" valor={v.gasto} aoMudar={set("gasto")} passo={1_000} />
-        <CampoNumero rotulo="Margem antes do anúncio (%)" formato="percentual" valor={v.margem} aoMudar={set("margem")} passo={100} maximo={10_000} />
+        <CampoNumero rotulo="Margem antes do anúncio (%)" formato="percentual" valor={v.margem} aoMudar={set("margem")} passo={100} minimo={-10_000} maximo={10_000} />
       </fieldset>
 
       <div

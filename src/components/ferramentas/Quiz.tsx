@@ -39,7 +39,7 @@ function Pergunta({ pergunta, numero }: { pergunta: PerguntaQuiz; numero: number
             ? "bg-branco text-tinta hover:bg-amarelo-claro"
             : i === pergunta.correta
               ? "bg-tinta text-branco"
-              : "bg-vermelho text-branco";
+              : "bg-vermelho-texto text-branco";
           return (
             <button
               key={i}
