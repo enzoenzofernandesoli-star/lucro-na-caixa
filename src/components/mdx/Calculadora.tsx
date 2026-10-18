@@ -6,6 +6,7 @@ import { CalculadoraMarkup } from "@/components/ferramentas/CalculadoraMarkup";
 import { CalculadoraPontoEquilibrio } from "@/components/ferramentas/CalculadoraPontoEquilibrio";
 import { CalculadoraPreco } from "@/components/ferramentas/CalculadoraPreco";
 import { CalculadoraRoas } from "@/components/ferramentas/CalculadoraRoas";
+import { FichaProduto } from "@/components/ferramentas/FichaProduto";
 
 /** Every calculator, in the order /ferramentas shows them. */
 export const CALCULADORAS = {
@@ -16,6 +17,7 @@ export const CALCULADORAS = {
   markup: { titulo: "Markup x margem", aula: "1-7", Componente: CalculadoraMarkup },
   "cac-ltv": { titulo: "CAC x LTV", aula: "14-2", Componente: CalculadoraCacLtv },
   importacao: { titulo: "Custo de importação", aula: "4-4", Componente: CalculadoraImportacao },
+  "ficha-produto": { titulo: "Ficha de avaliação de produto", aula: "3-6", Componente: FichaProduto },
 } satisfies Record<string, { titulo: string; aula: string; Componente: ComponentType }>;
 
 export type TipoCalculadora = keyof typeof CALCULADORAS;

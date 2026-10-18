@@ -263,5 +263,40 @@
     "id": "estorno",
     "termo": "Estorno",
     "definicao": "Devolução de um pagamento feita pela própria loja (ou a pedido dela), por exemplo num cancelamento ou arrependimento."
+  },
+  {
+    "id": "demanda",
+    "termo": "Demanda",
+    "definicao": "Quantas pessoas procuram e compram um produto. Sem demanda, nenhum anúncio ou preço resolve."
+  },
+  {
+    "id": "validacao",
+    "termo": "Validação de produto",
+    "definicao": "Juntar sinais de que um produto vende (buscas, vendas visíveis, anúncios que duram) antes de investir dinheiro nele."
+  },
+  {
+    "id": "tendencia",
+    "termo": "Tendência",
+    "definicao": "Produto ou assunto cujo interesse está subindo de forma sustentada, e não só num pico de poucos dias."
+  },
+  {
+    "id": "google-trends",
+    "termo": "Google Trends",
+    "definicao": "Ferramenta do Google que mostra o interesse relativo por um termo de busca ao longo do tempo, numa escala de 0 a 100."
+  },
+  {
+    "id": "biblioteca-de-anuncios",
+    "termo": "Biblioteca de Anúncios",
+    "definicao": "Ferramenta pública da Meta para ver os anúncios ativos de qualquer página no Facebook e no Instagram."
+  },
+  {
+    "id": "nicho",
+    "termo": "Nicho",
+    "definicao": "Um grupo específico de clientes com uma necessidade em comum, como pais de bebês, ciclistas ou quem tem pele oleosa."
+  },
+  {
+    "id": "diferencial",
+    "termo": "Diferencial",
+    "definicao": "O motivo pelo qual o cliente compraria de você e não do concorrente: kit, garantia, prazo, qualidade, atendimento, conteúdo."
   }
 ]

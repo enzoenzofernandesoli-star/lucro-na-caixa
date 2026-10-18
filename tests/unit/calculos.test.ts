@@ -206,3 +206,28 @@ describe("calcularImportacao", () => {
     expect(r.impostosCentavos).toBe(0);
   });
 });
+
+import { CRITERIOS_FICHA, avaliarProduto, type NotasFicha } from "@/lib/calculos";
+
+describe("avaliarProduto", () => {
+  const todas = (n: number) => Object.fromEntries(CRITERIOS_FICHA.map((c) => [c.id, n])) as NotasFicha;
+
+  it("averages the 8 criteria and applies the teaching cut-offs", () => {
+    expect(avaliarProduto(todas(4))).toEqual({ media: 4, eliminatorios: [], veredito: "testar" });
+    expect(avaliarProduto(todas(3)).veredito).toBe("talvez");
+    expect(avaliarProduto(todas(2)).veredito).toBe("descartar");
+  });
+
+  it("rules out margin 1 or regulatory risk 1 even with a high average", () => {
+    const r = avaliarProduto({ ...todas(5), margem: 1 });
+    expect(r.media).toBe(4.5);
+    expect(r.veredito).toBe("descartar");
+    expect(r.eliminatorios).toEqual(["margem"]);
+    expect(avaliarProduto({ ...todas(5), regulatorio: 1 }).eliminatorios).toEqual(["regulatorio"]);
+  });
+
+  it("rejects notes outside 1–5", () => {
+    expect(() => avaliarProduto({ ...todas(3), demanda: 6 })).toThrow();
+    expect(() => avaliarProduto({ ...todas(3), demanda: 2.5 })).toThrow();
+  });
+});

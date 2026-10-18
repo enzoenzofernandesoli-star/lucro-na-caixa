@@ -236,3 +236,41 @@ export function calcularImportacao(e: EntradaImportacao): ResultadoImportacao {
       e.quantidadeCentesimos > 0 ? arredondar((totalCentavos * 100) / e.quantidadeCentesimos) : null,
   };
 }
+
+// --- Ficha de avaliação de produto (módulo 3) ---------------------------------------
+
+export const CRITERIOS_FICHA = [
+  { id: "demanda", titulo: "Demanda", ajuda: "1 = quase ninguém procura · 5 = busca constante e vendas visíveis" },
+  { id: "margem", titulo: "Margem", ajuda: "1 = prejuízo ou margem apertada · 5 = margem que paga anúncio com folga" },
+  { id: "concorrencia", titulo: "Concorrência", ajuda: "1 = mercado saturado, guerra de preço · 5 = espaço para diferenciar" },
+  { id: "apelo", titulo: "Apelo e problema resolvido", ajuda: "1 = ninguém entende pra que serve · 5 = resolve uma dor clara e se mostra bem em foto ou vídeo" },
+  { id: "logistica", titulo: "Logística", ajuda: "1 = pesado, frágil ou grande · 5 = leve, pequeno, resistente" },
+  { id: "constancia", titulo: "Constância", ajuda: "1 = vende só numa época · 5 = vende o ano inteiro" },
+  { id: "fornecedor", titulo: "Fornecedor", ajuda: "1 = sem nota, sem prazo confiável · 5 = fornecedor checado, com nota e reposição" },
+  { id: "regulatorio", titulo: "Risco regulatório", ajuda: "1 = exige certificação que você não tem · 5 = sem exigência especial" },
+] as const;
+
+export type CriterioFicha = (typeof CRITERIOS_FICHA)[number]["id"];
+export type NotasFicha = Record<CriterioFicha, number>;
+export type VereditoFicha = "testar" | "talvez" | "descartar";
+
+export type ResultadoFicha = {
+  /** Average of the notes, 1 to 5, with two decimals. */
+  media: number;
+  /** Criteria that rule the product out on their own (margin or regulatory risk at 1). */
+  eliminatorios: CriterioFicha[];
+  veredito: VereditoFicha;
+};
+
+/** Teaching rule of the course: margin 1 or regulatory risk 1 rules out; otherwise ≥ 4 test, ≥ 3 maybe. */
+export function avaliarProduto(notas: NotasFicha): ResultadoFicha {
+  const valores = CRITERIOS_FICHA.map((c) => notas[c.id]);
+  if (valores.some((v) => !Number.isInteger(v) || v < 1 || v > 5)) {
+    throw new Error("Cada critério da ficha precisa de uma nota inteira de 1 a 5.");
+  }
+  const media = Math.round((valores.reduce((s, v) => s + v, 0) / valores.length) * 100) / 100;
+  const eliminatorios = (["margem", "regulatorio"] as const).filter((c) => notas[c] === 1);
+  const veredito: VereditoFicha =
+    eliminatorios.length > 0 || media < 3 ? "descartar" : media >= 4 ? "testar" : "talvez";
+  return { media, eliminatorios, veredito };
+}
