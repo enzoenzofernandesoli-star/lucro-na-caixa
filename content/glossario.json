@@ -733,5 +733,15 @@
     "id": "ambiente-de-homologacao",
     "termo": "Ambiente de homologação",
     "definicao": "Ambiente de testes, sem valor fiscal ou real, usado para testar integração (por exemplo, NF-e) antes de operar de verdade."
+  },
+  {
+    "id": "plano-de-lancamento",
+    "termo": "Plano de lançamento",
+    "definicao": "Documento com produto, conta, canal, criativos, orçamento, prazos e critérios de decisão de um lançamento, escrito antes de gastar."
+  },
+  {
+    "id": "pos-mortem",
+    "termo": "Relatório final (pós-teste)",
+    "definicao": "Registro do que aconteceu num teste: números reais, o que deu certo, o que não deu, por quê e o próximo passo."
   }
 ]

@@ -1,0 +1,129 @@
+---
+modulo: 19
+aula: 5
+titulo: "Relatório final: o que deu certo, o que não deu e o próximo passo"
+nivel: avancado
+duracao_min: 20
+objetivo: "Ao final você escreve o relatório do lançamento com números reais, separa fato de opinião e define o próximo passo do negócio."
+pre_requisitos: ["19-4"]
+fontes:
+  - titulo: "Central de Ajuda da Meta para Empresas — Boas práticas para testes A/B"
+    url: "https://www.facebook.com/business/help/290009911394576"
+    consultado_em: "2026-10-18"
+  - titulo: "Lei Geral de Proteção de Dados, Lei nº 13.709/2018, art. 46 (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "O que um relatório final precisa separar?"
+    verso: "O que foi medido (fato) do que você acha que causou o resultado (hipótese)."
+  - frente: "Quais números entram no relatório?"
+    verso: "Gasto, pedidos reais, receita, CPA, ROAS, margem, lucro, devoluções e o funil."
+  - frente: "Para onde vai o aprendizado do relatório?"
+    verso: "Para a próxima ficha de produto, o próximo plano de teste e o manual de operação."
+---
+
+<Objetivo>
+Ao final você escreve o relatório do lançamento com números reais, separa fato de opinião e define o próximo passo do negócio.
+</Objetivo>
+
+<PorQue>
+Sem registro, cada lançamento começa do zero e os mesmos erros se repetem. Com um relatório honesto, até o produto que não deu certo vira vantagem: você sabe o que não fazer e o que testar em seguida. É também o que separa o seu método do discurso de guru: números reais, com fonte.
+</PorQue>
+
+## Explicação
+
+### 1. A estrutura
+
+1. **Resumo:** produto, canal, período, gasto total, decisão.
+2. **Números reais** (da loja e do gateway): gasto, pedidos, receita, CPA, ROAS, margem, lucro, devoluções.
+3. **Funil:** visitas → carrinho → checkout → compra (aula 14.1).
+4. **O que deu certo** e **o que não deu**, cada um com o número que mostra.
+5. **Hipóteses:** por que você acha que aconteceu. Marcadas como hipótese.
+6. **Próximo passo:** uma decisão e o primeiro teste.
+
+### 2. Fato x hipótese
+
+| Fato (medido) | Hipótese (a testar) |
+| --- | --- |
+| "O criativo B teve CTR de 2,1%; o A, 0,8%." | "O gancho de teste de 12 h chamou mais atenção." |
+| "70% dos carrinhos não viraram checkout." | "O frete apareceu tarde." |
+
+O mesmo cuidado do curso inteiro: o que é verificado, o que é estimativa, o que é alegação.
+
+### 3. Resultados de teste curtos
+
+Testes com menos de 7 dias podem ser inconclusivos [verificado]; diga no relatório quando um número tem pouca base (por exemplo, "só 3 vendas").
+
+### 4. Guarde com cuidado
+
+O relatório usa números agregados. Se anexar planilhas com dados de clientes, proteja o arquivo: a LGPD exige medidas de segurança (art. 46). [verificado]
+
+<Exemplo>
+Resumo do relatório da garrafa térmica (números de exemplo):
+
+- **Período:** 28 dias, Meta, R$ 700 de anúncio.
+- **Resultado real:** 21 pedidos, R$ 1.887,90 de receita, CPA R$ 33,33, margem de contribuição R$ 651, lucro **−R$ 49** antes dos custos fixos.
+- **Deu certo:** criativo de teste de 12 h (CTR 2,1%); CPA de R$ 25 na semana 3.
+- **Não deu:** semana 1 com criativos fracos (CPA R$ 58); 2 devoluções por tamanho.
+- **Hipótese:** tabela de medidas pouco visível causou as devoluções.
+- **Próximo passo:** continuar com o criativo vencedor por 2 semanas, tabela de medidas na primeira foto, teto de CPA de R$ 31.
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Relatório final"
+  itens={[
+    "Resumo com decisão.",
+    "Números reais da loja e do gateway.",
+    "Funil completo.",
+    "O que deu certo e o que não deu, cada um com número.",
+    "Hipóteses marcadas como hipóteses.",
+    "Um próximo passo e o primeiro teste.",
+    "Aprendizados levados para a ficha, o plano de teste e o manual de operação.",
+  ]}
+/>
+
+<ErroComum>
+**Relatório só com o que deu certo.** O que não deu é o que mais ensina.
+
+**Tratar hipótese como fato.** "Foi o frete" é uma hipótese até você testar.
+</ErroComum>
+
+<NaPratica>
+Escreva o relatório do seu lançamento (ou do plano, se não lançou), seguindo a estrutura. Esse relatório fecha o projeto final e o curso.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "'O frete apareceu tarde e por isso não vendeu.' É fato ou hipótese?",
+      opcoes: ["Fato", "Hipótese, até ser testada", "Lei"],
+      correta: 1,
+      explicacao: "Só um teste com o frete mais cedo confirma a causa.",
+    },
+    {
+      enunciado: "Qual a fonte dos pedidos e da receita no relatório?",
+      opcoes: ["O painel de anúncios", "A loja e o gateway", "A memória"],
+      correta: 1,
+      explicacao: "Os painéis de anúncio atribuem vendas pela própria regra.",
+    },
+    {
+      enunciado: "O produto deu prejuízo. O relatório ainda vale?",
+      opcoes: ["Não", "Sim: registra o que não fazer e o que testar em seguida", "Só se der lucro"],
+      correta: 1,
+      explicacao: "O aprendizado vale para o próximo lançamento.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Resumo, números reais, funil, acertos, erros, hipóteses, próximo passo.
+- Fato medido é diferente de hipótese.
+- Diga quando um número tem pouca base.
+- Proteja dados de clientes anexados.
+- Leve o aprendizado para o próximo ciclo.
+</Resumo>
+
+<Fontes />

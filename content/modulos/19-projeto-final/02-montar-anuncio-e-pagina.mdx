@@ -1,0 +1,132 @@
+---
+modulo: 19
+aula: 2
+titulo: "Montar anúncio e página"
+nivel: avancado
+duracao_min: 25
+objetivo: "Ao final você monta o anúncio no canal e a página de produto com fotos, título, descrição, prova, preço, frete, prazo e política de devolução, conferidos com a lei e as regras do canal."
+pre_requisitos: ["19-1", "5-2", "9-4"]
+fontes:
+  - titulo: "Código de Defesa do Consumidor, Lei nº 8.078/1990, arts. 30, 31 e 49 (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+    consultado_em: "2026-10-18"
+  - titulo: "Decreto nº 7.962/2013 — comércio eletrônico, art. 2º (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Livre — Como criar anúncios de qualidade (Central de Vendedores)"
+    url: "https://vendedores.mercadolivre.com.br/aprender/nota/como-criar-anuncios-de-qualidade"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "O que a loja online precisa mostrar em local de destaque?"
+    verso: "Nome empresarial e CPF ou CNPJ, endereço e contato (Decreto 7.962/2013, art. 2º)."
+  - frente: "Que informações a oferta precisa ter, pelo CDC?"
+    verso: "Informações corretas, claras e em português sobre características, qualidade, quantidade, preço, garantia, prazos e riscos (art. 31)."
+  - frente: "Por que conferir a página antes de ligar o anúncio?"
+    verso: "Porque anúncio bom para página ruim é dinheiro pago por clique que não compra."
+---
+
+<Objetivo>
+Ao final você monta o anúncio no canal e a página de produto com fotos, título, descrição, prova, preço, frete, prazo e política de devolução, conferidos com a lei e as regras do canal.
+</Objetivo>
+
+<PorQue>
+O anúncio leva a pessoa até a página; a página faz a venda. Se a página não responde "o que é, quanto custa com frete, quando chega e se posso devolver", o clique pago vai embora. E informação errada na página é problema com o cliente e com a lei.
+</PorQue>
+
+## Explicação
+
+### 1. O que a página precisa ter
+
+| Parte | Módulo | Pergunta que responde |
+| --- | --- | --- |
+| Foto principal e galeria | 5 | O que é? |
+| Título | 5 | Como encontro e reconheço? |
+| Descrição e ficha técnica | 5 | Serve para mim? |
+| Prova social | 5 | Outras pessoas aprovaram? |
+| Preço, kit e variações | 5 | Quanto custa? |
+| Frete e prazo, cedo | 9 | Quanto custa até a minha casa e quando chega? |
+| Política de trocas | 15 | E se eu não gostar? |
+| Identificação da loja | 2 | Quem está vendendo? |
+
+### 2. O que a lei exige
+
+- Informações corretas, claras e em português sobre características, qualidade, quantidade, preço, garantia, prazos e riscos (CDC, art. 31). [verificado]
+- A informação precisa da oferta obriga (CDC, art. 30). [verificado]
+- Na loja online: nome empresarial e CPF ou CNPJ, endereço, contato, características essenciais, despesas extras como frete e condições da oferta (Decreto 7.962/2013, art. 2º). [verificado]
+- Direito de arrependimento de 7 dias informado e respeitado (CDC, art. 49). [verificado]
+
+### 3. Marketplace
+
+No canal escolhido, siga as regras de qualidade de anúncio (no Mercado Livre, a Central de Vendedores tem orientações próprias, aula 7.4) e confira o prazo de envio (aula 15.2).
+
+<Exemplo>
+Revisão da página da garrafa térmica (situação de exemplo):
+
+| Item | Antes | Depois |
+| --- | --- | --- |
+| Frete | Só no checkout | Calculadora de CEP na página |
+| Prazo | "Entrega rápida" | "Postagem em 1 dia útil; entrega de 3 a 7 dias úteis conforme o CEP" |
+| Medidas | Não tinha | Altura, diâmetro, peso, capacidade |
+| Devolução | Link no rodapé | "7 dias para desistir, sem motivo" perto do botão |
+| CNPJ | Ausente | Rodapé com razão social, CNPJ, endereço e contato |
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Página pronta para receber tráfego"
+  itens={[
+    "Foto principal clara e galeria com uso real e medidas.",
+    "Título com o que o produto é e o principal atributo.",
+    "Descrição e ficha técnica completas.",
+    "Preço, frete e prazo visíveis antes do checkout.",
+    "Política de trocas e arrependimento visível.",
+    "Identificação da loja (razão social, CNPJ, endereço, contato).",
+    "Testada no celular: carrega rápido e o botão aparece sem rolar muito.",
+    "Compra de teste feita, com pixel registrando a compra (aula 12.1).",
+  ]}
+/>
+
+<ErroComum>
+**Prometer prazo do melhor caso.** O prazo anunciado obriga.
+
+**Ligar o anúncio antes da compra de teste.** Checkout ou pixel quebrado descoberto com dinheiro já gasto.
+</ErroComum>
+
+<NaPratica>
+Monte (ou revise) a página e o anúncio do produto do lançamento, passe pelo checklist e faça uma compra de teste.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "A loja online precisa mostrar CNPJ e endereço?",
+      opcoes: ["Não", "Sim, em local de destaque (Decreto 7.962/2013, art. 2º)", "Só no marketplace"],
+      correta: 1,
+      explicacao: "O decreto exige identificação, endereço e contato.",
+    },
+    {
+      enunciado: "Qual o melhor momento para mostrar frete e prazo?",
+      opcoes: ["Só depois do pagamento", "Na página do produto, antes do checkout", "Por e-mail"],
+      correta: 1,
+      explicacao: "Despesas extras precisam ser informadas e a surpresa no checkout derruba a conversão.",
+    },
+    {
+      enunciado: "O que fazer antes de ligar o anúncio?",
+      opcoes: ["Nada", "Compra de teste conferindo checkout e pixel", "Trocar o logo"],
+      correta: 1,
+      explicacao: "Evita pagar clique para checkout ou medição quebrados.",
+    },
+  ]}
+/>
+
+<Resumo>
+- A página responde: o que é, quanto custa, quando chega, posso devolver, quem vende.
+- CDC e Decreto 7.962 dizem o que a oferta precisa ter.
+- O prazo anunciado obriga.
+- Siga as regras de qualidade do canal.
+- Compra de teste antes do anúncio.
+</Resumo>
+
+<Fontes />
