@@ -298,5 +298,55 @@
     "id": "diferencial",
     "termo": "Diferencial",
     "definicao": "O motivo pelo qual o cliente compraria de você e não do concorrente: kit, garantia, prazo, qualidade, atendimento, conteúdo."
+  },
+  {
+    "id": "pedido-minimo",
+    "termo": "Pedido mínimo",
+    "definicao": "A menor quantidade (ou o menor valor) que o fornecedor aceita vender de uma vez."
+  },
+  {
+    "id": "amostra",
+    "termo": "Amostra",
+    "definicao": "Uma ou poucas unidades compradas antes do pedido grande, para conferir qualidade, embalagem e prazo."
+  },
+  {
+    "id": "lead-time",
+    "termo": "Prazo de reposição",
+    "definicao": "Tempo entre fazer o pedido ao fornecedor e o produto chegar ao seu estoque, pronto para vender."
+  },
+  {
+    "id": "estoque-minimo",
+    "termo": "Estoque mínimo",
+    "definicao": "Quantidade que precisa estar sempre guardada para atender as vendas enquanto o próximo pedido não chega."
+  },
+  {
+    "id": "giro-de-estoque",
+    "termo": "Giro de estoque",
+    "definicao": "Quantas vezes o estoque é vendido e reposto num período. Giro alto quer dizer dinheiro parado por menos tempo."
+  },
+  {
+    "id": "valor-aduaneiro",
+    "termo": "Valor aduaneiro",
+    "definicao": "Base dos impostos de importação: valor do produto mais frete e seguro internacionais."
+  },
+  {
+    "id": "remessa-conforme",
+    "termo": "Remessa Conforme",
+    "definicao": "Programa da Receita Federal para sites de compra internacional que cobram os impostos no momento da compra."
+  },
+  {
+    "id": "ncm",
+    "termo": "NCM",
+    "definicao": "Nomenclatura Comum do Mercosul: o código de classificação de cada mercadoria, que define as alíquotas na importação e na nota fiscal."
+  },
+  {
+    "id": "homologacao-anatel",
+    "termo": "Homologação Anatel",
+    "definicao": "Autorização da Anatel exigida para vender produtos de telecomunicações, como aparelhos com Wi-Fi ou Bluetooth."
+  },
+  {
+    "id": "certificacao-compulsoria",
+    "termo": "Certificação compulsória",
+    "definicao": "Avaliação obrigatória de segurança ou qualidade exigida pelo Inmetro para certos produtos, como brinquedos, antes de vender."
   }
 ]

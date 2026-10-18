@@ -195,7 +195,10 @@ export function calcularCacLtv(e: EntradaCacLtv): ResultadoCacLtv {
   return { cacCentavos, ltvCentavos, razao: cacCentavos && cacCentavos > 0 ? ltvCentavos / cacCentavos : null };
 }
 
-// --- Custo de importação (modelo simplificado, todos os campos do aluno) ------------
+// --- Custo de importação (todos os campos do aluno) ----------------------------------
+// Follows the Receita Federal remessa formula: customs value = goods + freight + insurance;
+// II = rate × customs value − deduction (never below zero); ICMS is charged "por dentro":
+// base = (customs value + II + other taxes) ÷ (1 − ICMS rate). No rate is fixed in code.
 
 export type EntradaImportacao = {
   /** Price per unit in US$ cents. */
@@ -208,32 +211,52 @@ export type EntradaImportacao = {
   freteUsdCentavos: number;
   /** Insurance for the whole order, US$ cents. */
   seguroUsdCentavos: number;
-  /** Taxes the student entered, as % over (goods + shipping + insurance) in R$. */
-  impostosPontosBase: number;
+  /** Import tax (II) rate over the customs value, basis points. */
+  impostoImportacaoPontosBase: number;
+  /** Deduction from the II, US$ cents (e.g. the Remessa Conforme discount). */
+  deducaoImpostoUsdCentavos: number;
+  /** Other federal taxes over the customs value (formal import: IPI, PIS, Cofins), basis points. */
+  outrosImpostosPontosBase: number;
+  /** ICMS rate, basis points, charged "por dentro". */
+  icmsPontosBase: number;
   /** Other fees in R$ (customs broker, storage, domestic shipping…). */
   outrasTaxasCentavos: number;
 };
 
 export type ResultadoImportacao = {
-  baseReaisCentavos: number;
+  valorAduaneiroUsdCentavos: number;
+  impostoImportacaoUsdCentavos: number;
+  icmsUsdCentavos: number;
+  /** All taxes converted to R$. */
   impostosCentavos: number;
   totalCentavos: number;
   /** Null when quantity is zero. */
   custoUnitarioCentavos: number | null;
+  /** Null when ICMS is 100% or more (impossible "por dentro" base). */
+  erro: string | null;
 };
 
 export function calcularImportacao(e: EntradaImportacao): ResultadoImportacao {
-  const produtosUsd = (e.precoUnitarioUsdCentavos * e.quantidadeCentesimos) / 100;
-  const baseUsd = produtosUsd + e.freteUsdCentavos + e.seguroUsdCentavos;
-  const baseReaisCentavos = arredondar((baseUsd * e.cotacaoCentavos) / 100);
-  const impostosCentavos = arredondar((baseReaisCentavos * e.impostosPontosBase) / 10_000);
-  const totalCentavos = baseReaisCentavos + impostosCentavos + e.outrasTaxasCentavos;
+  const produtos = (e.precoUnitarioUsdCentavos * e.quantidadeCentesimos) / 100;
+  const valorAduaneiro = produtos + e.freteUsdCentavos + e.seguroUsdCentavos;
+  const ii = Math.max(0, (valorAduaneiro * e.impostoImportacaoPontosBase) / 10_000 - e.deducaoImpostoUsdCentavos);
+  const outros = (valorAduaneiro * e.outrosImpostosPontosBase) / 10_000;
+  if (e.icmsPontosBase >= 10_000) {
+    return { valorAduaneiroUsdCentavos: arredondar(valorAduaneiro), impostoImportacaoUsdCentavos: arredondar(ii), icmsUsdCentavos: 0, impostosCentavos: 0, totalCentavos: 0, custoUnitarioCentavos: null, erro: "ICMS de 100% ou mais não fecha a conta." };
+  }
+  const baseIcms = (valorAduaneiro + ii + outros) / (1 - e.icmsPontosBase / 10_000);
+  const icms = (baseIcms * e.icmsPontosBase) / 10_000;
+  const paraReais = (usd: number) => arredondar((usd * e.cotacaoCentavos) / 100);
+  const impostosCentavos = paraReais(ii + outros + icms);
+  const totalCentavos = paraReais(valorAduaneiro) + impostosCentavos + e.outrasTaxasCentavos;
   return {
-    baseReaisCentavos,
+    valorAduaneiroUsdCentavos: arredondar(valorAduaneiro),
+    impostoImportacaoUsdCentavos: arredondar(ii),
+    icmsUsdCentavos: arredondar(icms),
     impostosCentavos,
     totalCentavos,
-    custoUnitarioCentavos:
-      e.quantidadeCentesimos > 0 ? arredondar((totalCentavos * 100) / e.quantidadeCentesimos) : null,
+    custoUnitarioCentavos: e.quantidadeCentesimos > 0 ? arredondar((totalCentavos * 100) / e.quantidadeCentesimos) : null,
+    erro: null,
   };
 }
 

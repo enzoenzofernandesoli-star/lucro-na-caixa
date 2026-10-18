@@ -1,0 +1,118 @@
+---
+modulo: 4
+aula: 1
+titulo: "Tipos de fornecedor"
+nivel: iniciante
+duracao_min: 15
+objetivo: "Ao final você diferencia fabricante, distribuidor, atacadista, importadora e fornecedor de dropshipping e sabe qual combina com o seu momento."
+pre_requisitos: ["3-6"]
+fontes:
+  - titulo: "Receita Federal — Perguntas e Respostas MEI e Simei, pergunta 3.7 (PDF)"
+    url: "https://www8.receita.fazenda.gov.br/SimplesNacional/Arquivos/pergunta-resposta/PerguntaoMEI.pdf"
+    consultado_em: "2026-10-18"
+  - titulo: "Código de Defesa do Consumidor, Lei nº 8.078/1990, art. 18 (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Qual fornecedor costuma ter o menor preço e o maior pedido mínimo?"
+    verso: "O fabricante."
+  - frente: "Qual a troca principal do fornecedor de dropshipping?"
+    verso: "Não precisa comprar estoque antes, mas o custo por unidade é maior e você controla pouco o prazo e a qualidade."
+  - frente: "Mesmo sendo MEI, como deve comprar mercadoria?"
+    verso: "Sempre com documento fiscal, segundo a Receita."
+---
+
+<Objetivo>
+Ao final você diferencia fabricante, distribuidor, atacadista, importadora e fornecedor de dropshipping e sabe qual combina com o seu momento.
+</Objetivo>
+
+<PorQue>
+O mesmo produto pode custar preços muito diferentes dependendo de quem vende para você. E o preço não é tudo: pedido mínimo, prazo, nota fiscal e troca de defeito mudam a sua conta e o seu risco.
+
+Conhecer os tipos de <Termo id="fornecedor">fornecedor</Termo> ajuda você a procurar no lugar certo para o tamanho do seu negócio.
+</PorQue>
+
+## Explicação
+
+| Tipo | Preço | Pedido mínimo | Prazo | Para quem |
+| --- | --- | --- | --- | --- |
+| **Fabricante** | O menor | Alto | Médio a longo | Quem já vende volume |
+| **Distribuidor** | Médio | Médio | Curto | Quem quer marcas e reposição rápida |
+| **Atacadista** | Médio | Baixo a médio | Curto | Quem está começando com estoque |
+| **Importadora** | Varia | Médio | Curto (já está no Brasil) | Produto importado sem importar você mesmo |
+| **Dropshipping** | O maior | Nenhum | Depende do fornecedor | Testar sem estoque, aceitando menos controle |
+
+### O que muda com cada um
+
+- **Fabricante**: compra direto da fonte, com espaço para personalizar (embalagem, marca). Exige caixa para o <Termo id="pedido-minimo">pedido mínimo</Termo>.
+- **Distribuidor**: representa marcas, tem estoque e entrega rápido.
+- **Atacadista**: vende muitas marcas em quantidade menor. Bom ponto de partida.
+- **Importadora**: já trouxe o produto, pagou os impostos e cuida da documentação.
+- **Dropshipping**: envia direto ao seu cliente. Você não compra antes, mas paga mais por unidade e depende do prazo e da qualidade dele.
+
+### Duas regras que valem para todos
+
+1. **Compre com nota.** Mesmo o MEI, que pode estar dispensado de emitir nota para pessoa física, deve sempre comprar mercadorias com documento fiscal, segundo a Receita. [verificado]
+2. **O cliente cobra de você.** Pelo CDC, os fornecedores respondem juntos pelos vícios do produto (art. 18). [verificado] Escolher bem o fornecedor é escolher o seu risco.
+
+<Exemplo>
+Uma garrafa térmica, com preços de exemplo para três fornecedores:
+
+| Fornecedor | Preço por unidade | Pedido mínimo | Investimento inicial |
+| --- | ---: | ---: | ---: |
+| Fabricante | R$ 22 | 500 unidades | R$ 11.000 |
+| Atacadista | R$ 32 | 20 unidades | R$ 640 |
+| Dropshipping | R$ 45 | 1 unidade | R$ 0 (paga a cada venda) |
+
+Com preço de venda de R$ 100, a margem muda muito: o fabricante deixa mais em cada venda, mas exige R$ 11 mil parados em estoque. Para testar, o atacadista costuma ser o meio-termo.
+</Exemplo>
+
+## Ferramenta
+
+Teste a margem do seu produto com o preço de cada tipo de fornecedor:
+
+<Calculadora tipo="margem" />
+
+<ErroComum>
+**Escolher só pelo preço por unidade.** Um fornecedor barato que atrasa, não emite nota ou manda defeito sai caro: devolução, reclamação e reputação ruim.
+
+**Começar pelo fabricante com pedido mínimo grande.** Se o produto não vender, todo o caixa fica parado em estoque.
+</ErroComum>
+
+<NaPratica>
+Para o seu produto finalista do módulo 3, encontre pelo menos um fornecedor de dois tipos diferentes (por exemplo, atacadista e importadora). Anote preço, pedido mínimo e prazo. Calcule a margem com cada um.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Você quer testar um produto com pouco dinheiro e já ter estoque. Qual fornecedor costuma ser o melhor começo?",
+      opcoes: ["Fabricante com pedido mínimo alto", "Atacadista", "Nenhum, só dropshipping"],
+      correta: 1,
+      explicacao: "O atacadista vende quantidades menores com prazo curto, sem exigir o pedido mínimo do fabricante.",
+    },
+    {
+      enunciado: "O fornecedor de dropshipping atrasou. O cliente reclama com quem?",
+      opcoes: ["Com o fornecedor", "Com você", "Com a transportadora"],
+      correta: 1,
+      explicacao: "O cliente comprou de você. Pelo CDC, os fornecedores respondem juntos pelos problemas do produto.",
+    },
+    {
+      enunciado: "MEI pode comprar estoque sem nota fiscal?",
+      opcoes: ["Sim, porque é dispensado de emitir", "Não: a Receita orienta que o MEI sempre compre com documento fiscal", "Só até R$ 1.000"],
+      correta: 1,
+      explicacao: "A dispensa é de emitir nota em certas vendas, não de comprar sem nota.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Fabricante: menor preço, maior pedido mínimo.
+- Atacadista: bom começo para quem quer estoque pequeno.
+- Importadora: produto importado sem você importar.
+- Dropshipping: sem estoque, mais caro e com menos controle.
+- Compre sempre com nota: o cliente vai cobrar de você.
+</Resumo>
+
+<Fontes />

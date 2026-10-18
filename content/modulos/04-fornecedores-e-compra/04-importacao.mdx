@@ -1,0 +1,142 @@
+---
+modulo: 4
+aula: 4
+titulo: "Importação para revenda x compra internacional pelo cliente"
+nivel: intermediario
+duracao_min: 25
+objetivo: "Ao final você diferencia a compra internacional de pessoa física da importação para revenda, calcula os impostos de uma remessa pelas regras de 2026 e sabe quando precisa de um despachante."
+pre_requisitos: ["4-3", "1-4"]
+fontes:
+  - titulo: "Receita Federal — Novas Regras: compras internacionais (a partir de 12/05/2026)"
+    url: "https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/remessas-postal-e-expressa/regras-futuras"
+    consultado_em: "2026-10-18"
+  - titulo: "Receita Federal — Quanto vou pagar de impostos? (remessas, atualizado em 14/09/2026)"
+    url: "https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/remessas-postal-e-expressa/preciso-pagar-impostos-nas-compras-internacionais/quanto-pagarei-de-imposto"
+    consultado_em: "2026-10-18"
+  - titulo: "Receita Federal — Remessas: Perguntas e Respostas, itens 10.3 e 12.4 (atualizado em 06/08/2026)"
+    url: "https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/remessas-postal-e-expressa/topicos/Perguntas_e_Respostas"
+    consultado_em: "2026-10-18"
+  - titulo: "Receita Federal — Manual de Habilitação no Siscomex"
+    url: "https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/habilitacao"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Remessa Conforme, compra de até US$ 50 (regra desde 12/05/2026): qual o imposto de importação?"
+    verso: "0%. O ICMS (17% a 20%, conforme o estado) continua sendo cobrado."
+  - frente: "Remessa Conforme acima de US$ 50: como é o imposto de importação?"
+    verso: "60% sobre o valor da compra, com desconto de US$ 30."
+  - frente: "Pessoa física pode importar por encomenda para revender?"
+    verso: "Não. A Receita diz que a legislação não permite importação de pessoa física com finalidade comercial presumida pela quantidade, frequência, natureza ou variedade."
+  - frente: "Empresa pode usar remessa expressa para importar para revenda?"
+    verso: "Sim, com limite anual de US$ 150 mil, documentos em nome da empresa e produtos sem licença prévia de importação."
+---
+
+<Objetivo>
+Ao final você diferencia a compra internacional de pessoa física da importação para revenda, calcula os impostos de uma remessa pelas regras de 2026 e sabe quando precisa de um despachante.
+</Objetivo>
+
+<PorQue>
+Muita gente começa comprando produto barato em site internacional para revender. Parece simples, mas mistura duas coisas que a lei trata de forma bem diferente: a compra pessoal e a importação comercial.
+
+Errar aqui pode significar produto retido, imposto que você não previu e uma operação irregular. Acertar pode significar um custo menor e um diferencial real.
+</PorQue>
+
+## Explicação
+
+### 1. Compra internacional de pessoa física (remessa)
+
+É a encomenda que uma pessoa compra para si num site estrangeiro. Os impostos são calculados sobre o <Termo id="valor-aduaneiro">valor aduaneiro</Termo>: produto + frete + seguro. [verificado]
+
+<Alerta conferidoEm="18/10/2026" fonte="https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/remessas-postal-e-expressa/regras-futuras">
+Regras da Receita Federal para remessas, válidas para declarações registradas desde **12/05/2026** [verificado]:
+
+| Site | Valor da compra | Imposto de importação | Desconto |
+| --- | --- | ---: | ---: |
+| Certificado no <Termo id="remessa-conforme">Remessa Conforme</Termo> | até US$ 50 | 0% | — |
+| Certificado no Remessa Conforme | US$ 50,01 a US$ 3.000 | 60% | US$ 30 |
+| Fora do programa | até US$ 3.000 | 60% | — |
+
+**ICMS**: de 17% a 20%, conforme o estado, cobrado em todos os casos e calculado "por dentro": base = (valor da compra + imposto de importação) ÷ (1 − alíquota). [verificado] No site certificado, os impostos são pagos na compra; fora dele, depois da chegada.
+</Alerta>
+
+### 2. Pessoa física não pode importar para revender
+
+A Receita é direta: a legislação não permite que pessoa física importe bens que, pela quantidade, frequência, natureza ou variedade, façam presumir finalidade comercial, com exceções para produtor rural, artesão e artista. [verificado]
+
+Ou seja: comprar 50 unidades no seu CPF para revender não é "compra pessoal".
+
+### 3. Empresa importando para revenda
+
+Há dois caminhos principais:
+
+- **Remessa expressa (courier) em nome da empresa**: a Receita permite que empresas importem para revenda por remessa expressa, com limite anual de **US$ 150 mil** (soma dos valores aduaneiros), documentos do remetente em nome da empresa e produtos não sujeitos a licença prévia. [verificado]
+- **Importação formal**: a empresa precisa ter o responsável habilitado no Siscomex. [verificado] Os impostos dependem do código <Termo id="ncm">NCM</Termo> do produto (imposto de importação, IPI, PIS, Cofins e ICMS). Por isso, este curso não coloca alíquotas fixas: elas variam de produto para produto. Para a primeira importação formal, contrate um despachante aduaneiro.
+
+### 4. Certificações também valem na importação
+
+Produto importado também precisa cumprir as exigências da próxima aula (Anatel, Inmetro, Anvisa). Produto sem certificação pode ser retido.
+
+<Exemplo>
+Exemplo oficial da Receita (site **não** certificado): produto R$ 49 + frete R$ 5 + seguro R$ 3 = valor aduaneiro de **R$ 57**. [verificado]
+
+- Imposto de importação: 60% × 57 = **R$ 34,20**
+- Base do ICMS: (57 + 34,20) ÷ 0,83 = R$ 109,88
+- ICMS (17%): **R$ 18,68**
+- Total: 57 + 34,20 + 18,68 = **R$ 109,88**
+
+O produto de R$ 49 chega custando quase R$ 110. Faça a conta na calculadora abaixo com os campos: imposto 60%, desconto 0, ICMS 17%, cotação R$ 1,00 (porque os valores já estão em reais).
+</Exemplo>
+
+## Ferramenta
+
+Todos os percentuais começam em zero: preencha com as regras do seu caso, conferidas no link oficial.
+
+<Calculadora tipo="importacao" />
+
+<ErroComum>
+**Revender no CPF o que comprou "para uso pessoal".** Pela regra da Receita, quantidade e frequência mostram finalidade comercial. Além do risco fiscal, você fica sem nota de compra para provar a origem.
+
+**Esquecer o ICMS "por dentro".** O ICMS incide sobre uma base que já inclui ele mesmo e o imposto de importação. Calcular 17% sobre o preço do produto subestima o imposto.
+</ErroComum>
+
+<NaPratica>
+Escolha um produto importado do seu projeto e calcule, na calculadora:
+
+1. O custo se um cliente comprasse 1 unidade num site certificado (até US$ 50 e acima de US$ 50).
+2. O custo por unidade se a sua empresa importasse 100 unidades por remessa expressa, usando as alíquotas que você conseguir confirmar para o NCM do produto (ou marcando como "a confirmar com despachante").
+
+Compare com o preço de um fornecedor nacional do mesmo produto.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Compra de US$ 40 num site certificado no Remessa Conforme, regra de 2026. Qual o imposto de importação?",
+      opcoes: ["0%", "20%", "60%"],
+      correta: 0,
+      explicacao: "Desde 12/05/2026, compras de até US$ 50 em sites certificados têm imposto de importação de 0%. O ICMS continua.",
+    },
+    {
+      enunciado: "Compra de US$ 100 em site certificado. Quanto é o imposto de importação?",
+      opcoes: ["US$ 0", "US$ 30 (60% de 100 menos US$ 30 de desconto)", "US$ 60"],
+      correta: 1,
+      explicacao: "60% × 100 = 60, menos o desconto de US$ 30 = US$ 30.",
+    },
+    {
+      enunciado: "Você quer importar 100 unidades para revender. Qual caminho a Receita aceita?",
+      opcoes: ["Comprar no seu CPF como uso pessoal", "Importar pela empresa (remessa expressa em nome do CNPJ ou importação formal)", "Dividir em várias compras no CPF"],
+      correta: 1,
+      explicacao: "Pessoa física não pode importar com finalidade comercial. A empresa pode, por remessa expressa (até US$ 150 mil por ano) ou importação formal.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Remessa de pessoa física: imposto sobre produto + frete + seguro.
+- Desde 12/05/2026, site certificado: 0% até US$ 50; acima, 60% com desconto de US$ 30. Fora do programa: 60%.
+- ICMS de 17% a 20%, calculado "por dentro", em todos os casos.
+- Pessoa física não importa para revender; a empresa pode, com regras.
+- Na importação formal, os impostos dependem do NCM: use um despachante.
+</Resumo>
+
+<Fontes />

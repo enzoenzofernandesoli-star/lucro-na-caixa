@@ -1,0 +1,137 @@
+---
+modulo: 4
+aula: 6
+titulo: "Estoque mínimo, giro e quando recomprar"
+nivel: intermediario
+duracao_min: 20
+objetivo: "Ao final você calcula o estoque mínimo, o ponto de recompra e o giro de estoque de um produto."
+pre_requisitos: ["4-3"]
+fontes:
+  - titulo: "Sebrae — Como montar uma loja virtual (PDF, seção 8: Matéria-prima/Mercadoria)"
+    url: "https://bibliotecas.sebrae.com.br/chronus/ARQUIVOS_CHRONUS/bds/bds.nsf/cb182ec91b609402415ae8adcd535eef/$File/9892.pdf"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Como calcular o estoque mínimo?"
+    verso: "Vendas médias por dia × dias entre fazer o pedido e o produto chegar (o prazo de reposição)."
+  - frente: "Como calcular o ponto de recompra?"
+    verso: "Estoque mínimo + estoque de segurança. Quando o estoque chega nesse número, faça o pedido."
+  - frente: "O que o giro de estoque mostra?"
+    verso: "Quantas vezes o dinheiro investido em estoque volta pelas vendas num período. Giro maior, dinheiro parado por menos tempo."
+---
+
+<Objetivo>
+Ao final você calcula o estoque mínimo, o ponto de recompra e o giro de estoque de um produto.
+</Objetivo>
+
+<PorQue>
+Estoque de menos: o anúncio fica sem produto, você perde vendas e, no marketplace, perde posição. Estoque de mais: o dinheiro fica parado na prateleira e falta para anúncio e reposição dos produtos que vendem.
+
+O Sebrae resume a gestão de estoques no varejo, eletrônico ou não, como a busca do equilíbrio entre oferta e demanda. [verificado] Três contas simples ajudam a achar esse equilíbrio.
+</PorQue>
+
+## Explicação
+
+### 1. Estoque mínimo
+
+O Sebrae orienta calcular o <Termo id="estoque-minimo">estoque mínimo</Termo> considerando o número de dias entre o pedido de compra e a entrega dos produtos. [verificado] Em conta:
+
+<Formula titulo="Estoque mínimo">
+Estoque mínimo = vendas médias por dia × prazo de reposição (dias)
+</Formula>
+
+O <Termo id="lead-time">prazo de reposição</Termo> é o tempo do pedido até o produto estar pronto para vender.
+
+### 2. Ponto de recompra
+
+Vendas oscilam e fornecedor atrasa. Por isso, some uma folga, o estoque de segurança:
+
+<Formula titulo="Ponto de recompra">
+Ponto de recompra = estoque mínimo + estoque de segurança
+</Formula>
+
+Quando o estoque chegar nesse número, faça o pedido. Uma forma simples de definir a segurança é cobrir alguns dias extras de venda (por exemplo, de 3 a 7 dias, conforme o quanto o fornecedor costuma atrasar). Esses dias são um critério prático, não uma regra oficial.
+
+### 3. Giro de estoque
+
+O Sebrae define o <Termo id="giro-de-estoque">giro de estoque</Termo> como o número de vezes em que o capital investido em estoque é recuperado pelas vendas, normalmente medido no ano. [verificado]
+
+<Formula titulo="Giro de estoque">
+Giro = custo das mercadorias vendidas no período ÷ estoque médio (a custo)
+</Formula>
+
+E, para saber quantos dias o estoque dura:
+
+<Formula titulo="Cobertura em dias">
+Cobertura = estoque atual ÷ vendas médias por dia
+</Formula>
+
+<Exemplo>
+Garrafa térmica com números de exemplo:
+
+- Vendas: 60 por mês → **2 por dia**.
+- Prazo de reposição do atacadista: **12 dias**.
+- Estoque mínimo: 2 × 12 = **24 unidades**.
+- Segurança de 5 dias: 2 × 5 = 10 → ponto de recompra = 24 + 10 = **34 unidades**.
+
+No ano, o custo das garrafas vendidas foi R$ 23.040 (720 × R$ 32) e o estoque médio foi de R$ 1.920 (60 unidades × R$ 32):
+- Giro = 23.040 ÷ 1.920 = **12 vezes no ano** (o estoque "virou" uma vez por mês).
+- Hoje há 50 unidades: cobertura = 50 ÷ 2 = **25 dias**.
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Controle de estoque do produto"
+  itens={[
+    "Sei quantas unidades vendo por dia, em média, nas últimas 4 semanas.",
+    "Sei o prazo real de reposição do fornecedor (do pedido até poder vender).",
+    "Calculei o estoque mínimo e o ponto de recompra.",
+    "Anotei o ponto de recompra no cadastro do produto ou na planilha.",
+    "Calculo a cobertura em dias toda semana.",
+    "Revejo o giro a cada trimestre e corto produtos que giram pouco.",
+  ]}
+/>
+
+<ErroComum>
+**Usar o prazo prometido, não o real.** Se o fornecedor promete 7 dias e entrega em 12, o seu estoque mínimo é de 12 dias.
+
+**Comprar muito para ganhar desconto.** Um desconto de 5% no preço pode não compensar meses de dinheiro parado e o risco de o produto parar de vender.
+</ErroComum>
+
+<NaPratica>
+Para o produto escolhido no projeto do módulo, estime as vendas por dia (pelo ponto de equilíbrio do módulo 1, se ainda não vende), use o prazo do fornecedor e calcule estoque mínimo, ponto de recompra e quanto dinheiro isso deixa parado. Cabe no seu caixa?
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Você vende 3 unidades por dia e o fornecedor leva 10 dias. Qual o estoque mínimo?",
+      opcoes: ["13", "30", "300"],
+      correta: 1,
+      explicacao: "3 por dia × 10 dias = 30 unidades.",
+    },
+    {
+      enunciado: "Estoque mínimo de 30 e segurança de 6 unidades. Quando recomprar?",
+      opcoes: ["Quando o estoque chegar a 36", "Quando acabar", "Quando chegar a 6"],
+      correta: 0,
+      explicacao: "Ponto de recompra = 30 + 6 = 36. Pedindo nesse momento, o produto chega antes de faltar.",
+    },
+    {
+      enunciado: "Custo das mercadorias vendidas no ano de R$ 60.000 e estoque médio de R$ 10.000. Qual o giro?",
+      opcoes: ["6 vezes", "10 vezes", "0,16"],
+      correta: 0,
+      explicacao: "60.000 ÷ 10.000 = 6. O estoque foi vendido e reposto 6 vezes no ano, uma vez a cada 2 meses.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Estoque mínimo = vendas por dia × prazo de reposição.
+- Ponto de recompra = estoque mínimo + segurança.
+- Giro = custo das mercadorias vendidas ÷ estoque médio.
+- Cobertura = estoque ÷ vendas por dia.
+- Use o prazo real do fornecedor e cuidado com compra grande só pelo desconto.
+</Resumo>
+
+<Fontes />

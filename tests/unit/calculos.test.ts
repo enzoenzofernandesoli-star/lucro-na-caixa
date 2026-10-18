@@ -184,26 +184,37 @@ describe("calcularCacLtv", () => {
 });
 
 describe("calcularImportacao", () => {
-  it("converts goods + freight + insurance, applies the entered tax and fees", () => {
-    const r = calcularImportacao({
-      precoUnitarioUsdCentavos: 500, // US$ 5
-      quantidadeCentesimos: 10_000, // 100 units
-      cotacaoCentavos: 550, // R$ 5,50
-      freteUsdCentavos: 10_000, // US$ 100
-      seguroUsdCentavos: 0,
-      impostosPontosBase: 1_000, // 10% (example)
-      outrasTaxasCentavos: 5_000, // R$ 50
-    });
-    expect(r.baseReaisCentavos).toBe(330_000); // US$ 600 × 5,50
-    expect(r.impostosCentavos).toBe(33_000);
-    expect(r.totalCentavos).toBe(368_000);
-    expect(r.custoUnitarioCentavos).toBe(3_680);
+  const base = {
+    precoUnitarioUsdCentavos: 4_900, quantidadeCentesimos: 100, cotacaoCentavos: 100,
+    freteUsdCentavos: 500, seguroUsdCentavos: 300, impostoImportacaoPontosBase: 0,
+    deducaoImpostoUsdCentavos: 0, outrosImpostosPontosBase: 0, icmsPontosBase: 0, outrasTaxasCentavos: 0,
+  };
+
+  it("reproduces the Receita Federal example (non-certified site, 60% II, 17% ICMS por dentro)", () => {
+    // Receita: product 49 + freight 5 + insurance 3 = 57; II 34,20; ICMS base 109,88; ICMS 18,68.
+    const r = calcularImportacao({ ...base, impostoImportacaoPontosBase: 6_000, icmsPontosBase: 1_700 });
+    expect(r.valorAduaneiroUsdCentavos).toBe(5_700);
+    expect(r.impostoImportacaoUsdCentavos).toBe(3_420);
+    expect(r.icmsUsdCentavos).toBe(1_868);
+    expect(r.totalCentavos).toBe(5_700 + 3_420 + 1_868);
   });
 
-  it("has no unit cost for zero quantity and no tax by default", () => {
-    const r = calcularImportacao({ precoUnitarioUsdCentavos: 500, quantidadeCentesimos: 0, cotacaoCentavos: 550, freteUsdCentavos: 0, seguroUsdCentavos: 0, impostosPontosBase: 0, outrasTaxasCentavos: 0 });
-    expect(r.custoUnitarioCentavos).toBeNull();
-    expect(r.impostosCentavos).toBe(0);
+  it("applies the US$ 30 deduction and never makes II negative", () => {
+    const r = calcularImportacao({ ...base, precoUnitarioUsdCentavos: 10_000, freteUsdCentavos: 0, seguroUsdCentavos: 0, impostoImportacaoPontosBase: 6_000, deducaoImpostoUsdCentavos: 3_000 });
+    expect(r.impostoImportacaoUsdCentavos).toBe(3_000);
+    const pequeno = calcularImportacao({ ...base, precoUnitarioUsdCentavos: 1_000, freteUsdCentavos: 0, seguroUsdCentavos: 0, impostoImportacaoPontosBase: 6_000, deducaoImpostoUsdCentavos: 3_000 });
+    expect(pequeno.impostoImportacaoUsdCentavos).toBe(0);
+  });
+
+  it("converts to reais and splits the unit cost", () => {
+    const r = calcularImportacao({ ...base, precoUnitarioUsdCentavos: 500, quantidadeCentesimos: 10_000, freteUsdCentavos: 10_000, seguroUsdCentavos: 0, cotacaoCentavos: 550, outrasTaxasCentavos: 5_000 });
+    expect(r.totalCentavos).toBe(330_000 + 5_000);
+    expect(r.custoUnitarioCentavos).toBe(3_350);
+  });
+
+  it("has no unit cost for zero quantity and refuses ICMS of 100%", () => {
+    expect(calcularImportacao({ ...base, quantidadeCentesimos: 0 }).custoUnitarioCentavos).toBeNull();
+    expect(calcularImportacao({ ...base, icmsPontosBase: 10_000 }).erro).not.toBeNull();
   });
 });
 

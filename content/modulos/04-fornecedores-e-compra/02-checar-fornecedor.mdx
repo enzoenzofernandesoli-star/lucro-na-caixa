@@ -1,0 +1,130 @@
+---
+modulo: 4
+aula: 2
+titulo: "Como encontrar e checar um fornecedor"
+nivel: iniciante
+duracao_min: 15
+objetivo: "Ao final você encontra fornecedores e checa CNPJ, situação cadastral, nota fiscal e reputação antes de pagar o primeiro pedido."
+pre_requisitos: ["4-1"]
+fontes:
+  - titulo: "Gov.br — Consultar Cadastro Nacional de Pessoas Jurídicas (CNPJ)"
+    url: "https://www.gov.br/pt-br/servicos/consultar-cadastro-nacional-de-pessoas-juridicas"
+    consultado_em: "2026-10-18"
+  - titulo: "Receita Federal — Emissão de Comprovante de Inscrição e de Situação Cadastral"
+    url: "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp"
+    consultado_em: "2026-10-18"
+  - titulo: "Sebrae — Como montar uma loja virtual (PDF)"
+    url: "https://bibliotecas.sebrae.com.br/chronus/ARQUIVOS_CHRONUS/bds/bds.nsf/cb182ec91b609402415ae8adcd535eef/$File/9892.pdf"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Onde consultar o CNPJ e a situação cadastral de um fornecedor?"
+    verso: "No serviço público de consulta de CNPJ do gov.br / Receita Federal, que emite o comprovante de inscrição e de situação cadastral."
+  - frente: "Quais 3 coisas conferir no comprovante de CNPJ do fornecedor?"
+    verso: "Situação cadastral (ativa), atividade (CNAE) compatível com o que ele vende, e se o nome e o endereço batem com o que ele informou."
+  - frente: "Por que pagar o primeiro pedido com meio que dá proteção?"
+    verso: "Porque, se o fornecedor não entregar, você tem como contestar ou recuperar o valor."
+---
+
+<Objetivo>
+Ao final você encontra fornecedores e checa CNPJ, situação cadastral, nota fiscal e reputação antes de pagar o primeiro pedido.
+</Objetivo>
+
+<PorQue>
+Golpe com fornecedor falso é comum: site bonito, preço ótimo, pagamento antecipado e a mercadoria nunca chega. E mesmo fornecedor real pode ser ruim: atrasa, troca o produto, não emite nota.
+
+Checar leva 20 minutos. Não checar pode custar o estoque inteiro.
+</PorQue>
+
+## Explicação
+
+### 1. Onde encontrar
+
+- Busca no Google por "[produto] atacado" ou "[produto] distribuidor".
+- Feiras do setor e polos atacadistas da sua região.
+- Embalagem de produtos que você já vende: o fabricante costuma estar ali.
+- Marketplaces de atacado e catálogos de importadoras.
+- Indicação de outros lojistas.
+
+### 2. Checagem em 5 passos
+
+1. **CNPJ**: peça o CNPJ e consulte no serviço público do gov.br, que mostra os dados cadastrais da empresa, e na Receita, que emite o comprovante de inscrição e de situação cadastral. [verificado] Confira se a situação é **ativa**, se a atividade combina com o que ele vende e se nome e endereço batem.
+2. **Nota fiscal**: pergunte se emite nota em todo pedido. Sem nota, descarte.
+3. **Reputação**: procure o nome e o CNPJ em sites de reclamação, no Google e nas redes. Leia como ele responde às reclamações.
+4. **Contato real**: telefone que atende, endereço que existe, alguém que responde dúvidas técnicas.
+5. **Pagamento protegido no primeiro pedido**: prefira um meio que permita contestar se a mercadoria não chegar. Desconfie de quem só aceita transferência para conta de pessoa física.
+
+### 3. Exigência legal também é sinal
+
+O guia do Sebrae para lojas virtuais lembra que a loja precisa mostrar seus dados de identificação, como razão social e CNPJ, e manter atendimento ao consumidor. [verificado] Um fornecedor que esconde esses dados no próprio site é um sinal de alerta.
+
+<Exemplo>
+Dois fornecedores de garrafa térmica (dados hipotéticos):
+
+| Checagem | Fornecedor A | Fornecedor B |
+| --- | --- | --- |
+| CNPJ | Ativo, CNAE de comércio atacadista de utilidades | Não informou |
+| Nota fiscal | Emite em todo pedido | "Só se pedir" |
+| Reputação | Algumas reclamações, todas respondidas | Várias reclamações de não entrega |
+| Pagamento | Boleto ou cartão | Só Pix para pessoa física |
+| Decisão | Seguir para amostra | Descartar |
+
+O fornecedor B tinha o menor preço da lista.
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Checagem do fornecedor"
+  itens={[
+    "Consultei o CNPJ: situação ativa e atividade compatível.",
+    "Nome e endereço do comprovante batem com o que ele informou.",
+    "Ele emite nota fiscal em todo pedido.",
+    "Pesquisei reclamações e li como ele responde.",
+    "Falei com uma pessoa que respondeu dúvidas técnicas.",
+    "O primeiro pagamento será por um meio que permite contestação.",
+  ]}
+/>
+
+<ErroComum>
+**Confiar no site bonito e no preço muito baixo.** Preço muito abaixo de todos os outros, pagamento só antecipado e conta de pessoa física é o roteiro mais comum de golpe.
+
+**Pular a checagem porque "todo mundo compra dele".** Grupos de lojistas também espalham fornecedores ruins. Cheque você mesmo.
+</ErroComum>
+
+<NaPratica>
+Pegue os fornecedores que você encontrou na aula anterior e passe cada um pelo checklist. Anote a data da consulta do CNPJ. Descarte quem falhar em CNPJ ou nota fiscal.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "O fornecedor não quis informar o CNPJ e só aceita Pix para pessoa física. O que fazer?",
+      opcoes: ["Comprar pouco para testar", "Descartar", "Pagar e pedir nota depois"],
+      correta: 1,
+      explicacao: "Sem CNPJ e com pagamento só para pessoa física, não dá para checar nem cobrar. É o roteiro típico de golpe.",
+    },
+    {
+      enunciado: "O que conferir no comprovante de CNPJ?",
+      opcoes: ["Só o nome fantasia", "Situação ativa, atividade compatível, nome e endereço", "O faturamento da empresa"],
+      correta: 1,
+      explicacao: "O comprovante mostra a situação cadastral e a atividade. O faturamento não aparece.",
+    },
+    {
+      enunciado: "Por que preferir um meio de pagamento com contestação no primeiro pedido?",
+      opcoes: ["Porque é mais barato", "Para ter como recuperar o valor se a mercadoria não chegar", "Porque o fornecedor exige"],
+      correta: 1,
+      explicacao: "No primeiro pedido você ainda não conhece o fornecedor. Proteção no pagamento reduz o risco.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Procure em buscas, feiras, embalagens, catálogos e indicações.
+- Consulte o CNPJ no serviço público e confira situação e atividade.
+- Sem nota fiscal, descarte.
+- Leia as reclamações e como ele responde.
+- Primeiro pedido com pagamento que permite contestação.
+</Resumo>
+
+<Fontes />

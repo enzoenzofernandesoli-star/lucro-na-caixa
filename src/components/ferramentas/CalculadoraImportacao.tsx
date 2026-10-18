@@ -6,9 +6,20 @@ import { formatarReais } from "@/lib/dinheiro";
 import { CampoNumero } from "./CampoNumero";
 import { PainelCalculadora, Resultado, Veredito } from "./Painel";
 
-// Every field is the student's. Taxes start at zero on purpose: no tax rate is fixed
-// in code. The rates and rules come from lesson 4.4, with source and date.
-const EXEMPLO = { preco: 500, quantidade: 10_000, cotacao: 0, frete: 0, seguro: 0, impostos: 0, outras: 0 };
+// Every field is the student's. Rates start at zero on purpose: no tax rate is fixed in
+// code. The current rules come from lesson 4.4, with source and date.
+const EXEMPLO = {
+  preco: 500,
+  quantidade: 10_000,
+  cotacao: 0,
+  frete: 0,
+  seguro: 0,
+  ii: 0,
+  deducao: 0,
+  outros: 0,
+  icms: 0,
+  taxas: 0,
+};
 
 export function CalculadoraImportacao() {
   const [v, setV] = useState(EXEMPLO);
@@ -19,8 +30,11 @@ export function CalculadoraImportacao() {
     cotacaoCentavos: v.cotacao,
     freteUsdCentavos: v.frete,
     seguroUsdCentavos: v.seguro,
-    impostosPontosBase: v.impostos,
-    outrasTaxasCentavos: v.outras,
+    impostoImportacaoPontosBase: v.ii,
+    deducaoImpostoUsdCentavos: v.deducao,
+    outrosImpostosPontosBase: v.outros,
+    icmsPontosBase: v.icms,
+    outrasTaxasCentavos: v.taxas,
   });
 
   return (
@@ -32,11 +46,14 @@ export function CalculadoraImportacao() {
         <>
           <CampoNumero rotulo="Preço por unidade (US$)" formato="numero" valor={v.preco} aoMudar={set("preco")} passo={50} />
           <CampoNumero rotulo="Quantidade" formato="numero" valor={v.quantidade} aoMudar={set("quantidade")} passo={1_000} />
-          <CampoNumero rotulo="Cotação do dólar (R$)" formato="reais" valor={v.cotacao} aoMudar={set("cotacao")} passo={5} />
           <CampoNumero rotulo="Frete internacional (US$)" formato="numero" valor={v.frete} aoMudar={set("frete")} passo={500} />
           <CampoNumero rotulo="Seguro (US$)" formato="numero" valor={v.seguro} aoMudar={set("seguro")} passo={100} />
-          <CampoNumero rotulo="Impostos (% sobre produto + frete + seguro)" formato="percentual" valor={v.impostos} aoMudar={set("impostos")} passo={100} maximo={50_000} />
-          <CampoNumero rotulo="Outras taxas (R$)" formato="reais" valor={v.outras} aoMudar={set("outras")} passo={1_000} />
+          <CampoNumero rotulo="Cotação do dólar (R$)" formato="reais" valor={v.cotacao} aoMudar={set("cotacao")} passo={5} />
+          <CampoNumero rotulo="Imposto de importação (%)" formato="percentual" valor={v.ii} aoMudar={set("ii")} passo={100} maximo={10_000} />
+          <CampoNumero rotulo="Desconto no imposto de importação (US$)" formato="numero" valor={v.deducao} aoMudar={set("deducao")} passo={500} />
+          <CampoNumero rotulo="Outros impostos federais (%)" formato="percentual" valor={v.outros} aoMudar={set("outros")} passo={100} maximo={10_000} />
+          <CampoNumero rotulo="ICMS (%) — calculado por dentro" formato="percentual" valor={v.icms} aoMudar={set("icms")} passo={100} maximo={9_900} />
+          <CampoNumero rotulo="Outras taxas (R$)" formato="reais" valor={v.taxas} aoMudar={set("taxas")} passo={1_000} />
         </>
       }
       resultados={
@@ -44,9 +61,10 @@ export function CalculadoraImportacao() {
           <Resultado rotulo="Custo total em reais" nome="total" valor={formatarReais(r.totalCentavos)} nota={`Impostos: ${formatarReais(r.impostosCentavos)}`} />
           <Resultado rotulo="Custo por unidade" nome="unitario" valor={r.custoUnitarioCentavos === null ? "—" : formatarReais(r.custoUnitarioCentavos)} />
           <Veredito>
-            {v.cotacao === 0
-              ? "Preencha a cotação do dólar do dia: sem ela o custo fica zerado."
-              : "Modelo simplificado: confira na aula 4.4 quais impostos se aplicam ao seu caso e preencha os percentuais."}
+            {r.erro ??
+              (v.cotacao === 0
+                ? "Preencha a cotação do dólar do dia: sem ela o custo fica zerado."
+                : "Os percentuais são os que você digitou. Confira na aula 4.4 as regras em vigor para o seu caso.")}
           </Veredito>
         </>
       }
