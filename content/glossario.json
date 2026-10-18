@@ -23,5 +23,140 @@
     "id": "custo-fixo",
     "termo": "Custo fixo",
     "definicao": "Gasto que você paga todo mês mesmo sem vender, como aluguel, internet, sistemas e salário fixo."
+  },
+  {
+    "id": "e-commerce",
+    "termo": "E-commerce",
+    "definicao": "Comércio eletrônico: qualquer venda em que o cliente escolhe e compra pela internet, seja numa loja própria, num marketplace ou numa rede social."
+  },
+  {
+    "id": "marketplace",
+    "termo": "Marketplace",
+    "definicao": "Site que reúne vários vendedores num lugar só, como Shopee e Mercado Livre. A plataforma traz o comprador e cobra uma comissão por venda."
+  },
+  {
+    "id": "loja-propria",
+    "termo": "Loja própria",
+    "definicao": "Site de vendas com o seu domínio e a sua marca. Você controla tudo, mas precisa trazer o cliente por conta própria."
+  },
+  {
+    "id": "dropshipping",
+    "termo": "Dropshipping",
+    "definicao": "Modelo em que você vende um produto que não tem em estoque: o fornecedor envia direto ao cliente. Perante o cliente, a responsabilidade continua sendo sua."
+  },
+  {
+    "id": "social-commerce",
+    "termo": "Social commerce",
+    "definicao": "Venda que acontece dentro de redes sociais, como TikTok Shop, Instagram e WhatsApp, muitas vezes puxada por vídeo ou live."
+  },
+  {
+    "id": "faturamento",
+    "termo": "Faturamento",
+    "definicao": "Tudo o que entrou de vendas num período, antes de pagar qualquer custo. Faturar muito não quer dizer lucrar."
+  },
+  {
+    "id": "lucro",
+    "termo": "Lucro",
+    "definicao": "O que sobra depois de pagar todos os custos, variáveis e fixos. É o único número que mostra se o negócio ganhou dinheiro."
+  },
+  {
+    "id": "ticket-medio",
+    "termo": "Ticket médio",
+    "definicao": "Valor médio de cada pedido: faturamento do período dividido pelo número de pedidos."
+  },
+  {
+    "id": "taxa-de-conversao",
+    "termo": "Taxa de conversão",
+    "definicao": "Parte das visitas que vira compra. 200 vendas em 10.000 visitas é uma conversão de 2%."
+  },
+  {
+    "id": "cpa",
+    "termo": "CPA",
+    "definicao": "Custo por aquisição: quanto você gastou em anúncio para conseguir uma venda (ou outra ação). Gasto ÷ número de vendas."
+  },
+  {
+    "id": "cac",
+    "termo": "CAC",
+    "definicao": "Custo de aquisição de cliente: tudo o que você gastou em marketing num período dividido pelo número de clientes novos que vieram nele."
+  },
+  {
+    "id": "ltv",
+    "termo": "LTV",
+    "definicao": "Valor do cliente ao longo do tempo. Neste curso, a margem que um cliente deixa somando todas as compras que ele faz com você."
+  },
+  {
+    "id": "ponto-de-equilibrio",
+    "termo": "Ponto de equilíbrio",
+    "definicao": "O faturamento (ou o número de vendas) em que a margem do mês paga exatamente os custos fixos. Abaixo dele há prejuízo."
+  },
+  {
+    "id": "markup",
+    "termo": "Markup",
+    "definicao": "Quanto você soma ao custo para chegar ao preço, em porcentagem do custo. Não é a mesma coisa que margem, que é porcentagem do preço."
+  },
+  {
+    "id": "sku",
+    "termo": "SKU",
+    "definicao": "Código que identifica cada variação de produto no estoque. Camiseta azul P e camiseta azul M são dois SKUs."
+  },
+  {
+    "id": "estoque",
+    "termo": "Estoque",
+    "definicao": "Os produtos que você já comprou e ainda não vendeu. É dinheiro parado até virar venda."
+  },
+  {
+    "id": "fornecedor",
+    "termo": "Fornecedor",
+    "definicao": "Quem vende o produto para você revender: fabricante, distribuidor, atacadista, importadora ou fornecedor de dropshipping."
+  },
+  {
+    "id": "frete-gratis",
+    "termo": "Frete grátis",
+    "definicao": "Entrega sem cobrança para o comprador. O frete continua custando: quem paga é o vendedor, a plataforma ou os dois."
+  },
+  {
+    "id": "nota-fiscal",
+    "termo": "Nota fiscal",
+    "definicao": "Documento que registra a venda para o governo. No comércio de produtos, a versão eletrônica é a NF-e."
+  },
+  {
+    "id": "mei",
+    "termo": "MEI",
+    "definicao": "Microempreendedor individual: formato de empresa mais simples do Brasil, com limite de faturamento anual e imposto mensal fixo."
+  },
+  {
+    "id": "cnpj",
+    "termo": "CNPJ",
+    "definicao": "Cadastro Nacional da Pessoa Jurídica: o número que identifica uma empresa, como o CPF identifica uma pessoa."
+  },
+  {
+    "id": "criativo",
+    "termo": "Criativo",
+    "definicao": "A peça que aparece no anúncio: vídeo, imagem ou carrossel, com o texto que vai junto."
+  },
+  {
+    "id": "trafego-pago",
+    "termo": "Tráfego pago",
+    "definicao": "Visitas que você compra com anúncios, como os da Meta, do Google, do TikTok ou dos próprios marketplaces."
+  },
+  {
+    "id": "chargeback",
+    "termo": "Chargeback",
+    "definicao": "Quando o dono do cartão contesta uma compra no banco e o valor é devolvido a ele, saindo do caixa do vendedor."
+  },
+  {
+    "id": "reputacao",
+    "termo": "Reputação do vendedor",
+    "definicao": "Nota que o marketplace dá à sua loja com base em atrasos, cancelamentos, reclamações e avaliações. Reputação ruim derruba anúncios."
+  },
+  {
+    "id": "sazonalidade",
+    "termo": "Sazonalidade",
+    "definicao": "Variação de vendas que se repete em certas épocas do ano, como Natal, Dia das Mães, volta às aulas e verão."
+  },
+  {
+    "id": "publicidade-enganosa",
+    "termo": "Publicidade enganosa",
+    "definicao": "Anúncio que induz o consumidor a erro, por informação falsa ou por omitir algo importante. É proibida pelo Código de Defesa do Consumidor."
   }
 ]
