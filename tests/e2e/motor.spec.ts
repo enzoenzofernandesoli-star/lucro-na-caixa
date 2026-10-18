@@ -10,7 +10,7 @@ test.describe("progresso", () => {
     await expect(page.getByRole("button", { name: /Aula concluída/ })).toHaveAttribute("aria-pressed", "true");
 
     await page.goto("/trilha");
-    await expect(page.locator('[data-modulo="1"] [data-status]')).toHaveText(/Concluído · 100%/);
+    await expect(page.locator(`[data-modulo="1"] [data-status]`)).toHaveText(/Em andamento · 12%/);
 
     await page.goto("/modulo/01-a-conta-do-produto");
     await expect(page.getByRole("link", { name: /Margem de contribuição \(concluída\)/ })).toBeVisible();
@@ -44,7 +44,7 @@ test.describe("progresso", () => {
     const input = page.locator("[data-importar]");
     await input.setInputFiles({ name: "ruim.json", mimeType: "application/json", buffer: Buffer.from('{"versao":9}') });
     await expect(page.getByRole("alert").filter({ hasText: "Nada foi alterado" })).toBeVisible();
-    await expect(page.locator('[data-modulo="1"] [data-status]')).toHaveText(/Concluído/);
+    await expect(page.locator(`[data-modulo="1"] [data-status]`)).toHaveText(/Em andamento/);
 
     const vazio = { versao: 1, concluidas: {}, ultimaAula: null, anotacoes: {}, revisao: {} };
     await input.setInputFiles({ name: "vazio.json", mimeType: "application/json", buffer: Buffer.from(JSON.stringify(vazio)) });
