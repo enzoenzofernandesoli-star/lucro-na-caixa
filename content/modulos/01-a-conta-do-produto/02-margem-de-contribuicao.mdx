@@ -1,0 +1,178 @@
+---
+modulo: 1
+aula: 2
+titulo: "Margem de contribuição"
+nivel: iniciante
+duracao_min: 15
+objetivo: "Ao final você calcula a margem de qualquer produto e sabe se ela paga o anúncio."
+pre_requisitos: ["1-1"]
+fontes:
+  - titulo: "Sebrae — Guia de Planejamento Financeiro para Micro e Pequenas Empresas (PDF, seção Margem de contribuição, p. 13)"
+    url: "https://sebrae.com.br/content/dam/portal-sebrae/na/midias/documentos/pdfs/guia-de-planejamento-financeiro_2026-04-18_v1.pdf"
+    consultado_em: "2026-10-18"
+  - titulo: "Ajuda do Google Ads — Glossário (verbetes ROAS e ROI)"
+    url: "https://support.google.com/google-ads/answer/12851704?hl=pt-BR"
+    consultado_em: "2026-10-18"
+  - titulo: "Central de Ajuda da Meta para Empresas — Retorno sobre o investimento em publicidade (ROAS) das compras"
+    url: "https://www.facebook.com/business/help/274294333328345"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+---
+
+<Objetivo>
+Ao final você calcula a margem de qualquer produto e sabe se ela paga o anúncio.
+</Objetivo>
+
+<PorQue>
+Imagine que você vende uma garrafa térmica por R$ 100. Parece que entraram R$ 100 no caixa. Não entraram.
+
+Antes de sobrar alguma coisa, você paga o produto, a taxa da plataforma, o imposto, o frete e a embalagem. O que fica depois disso é a margem de contribuição.
+
+Se você não sabe esse número, não sabe quanto pode gastar em anúncio. E aí vender mais pode só aumentar o prejuízo.
+</PorQue>
+
+## Explicação
+
+**Margem de contribuição** é o que sobra de cada venda depois de pagar tudo o que só existe porque aquela venda aconteceu.
+
+O Sebrae define assim: faturamento menos custos variáveis e despesas variáveis. Essa sobra é o que paga os gastos fixos, como aluguel e salários. O que sobrar depois deles é o lucro. [verificado]
+
+Vamos por partes.
+
+### 1. Custo variável
+
+É um gasto que aparece a cada venda. Vendeu um, pagou um. Se não vender nada, ele não existe.
+
+No e-commerce, os mais comuns são:
+
+- o custo do produto (o que você pagou ao fornecedor);
+- a taxa da plataforma ou do meio de pagamento (em geral, uma porcentagem do preço);
+- o imposto sobre a venda;
+- o frete que você paga;
+- a embalagem.
+
+### 2. Custo fixo
+
+É o que você paga mesmo sem vender: aluguel, internet, sistema, salário fixo. Ele **não entra** na margem de contribuição. Ele é pago pela soma das margens de todas as vendas do mês. Isso é assunto da aula de ponto de equilíbrio.
+
+### 3. A conta
+
+<Formula titulo="Margem de contribuição de uma venda">
+Margem = preço − custo do produto − taxas e imposto − frete − embalagem
+</Formula>
+
+Para saber o tamanho da margem em relação ao preço, divida uma pela outra:
+
+<Formula titulo="Margem em porcentagem">
+Margem % = margem ÷ preço × 100
+</Formula>
+
+### 4. Onde entra o anúncio
+
+<Termo id="roas" definicao="Retorno sobre o investimento em publicidade: valor das vendas atribuídas ao anúncio dividido pelo valor gasto nele.">ROAS</Termo> é a sigla em inglês para retorno sobre o gasto com anúncio. O Google Ads e a Meta calculam do mesmo jeito: valor das vendas atribuídas ao anúncio dividido pelo valor gasto. [verificado]
+
+Exemplo: gastou R$ 100 em anúncio e o anúncio trouxe R$ 400 em vendas. O ROAS é 4. Cada R$ 1 de anúncio virou R$ 4 de venda.
+
+Mas venda não é lucro. De cada venda, só a margem fica com você. Por isso existe o **ROAS de equilíbrio**: o ROAS mínimo para o anúncio não dar prejuízo.
+
+<Formula titulo="ROAS de equilíbrio">
+ROAS de equilíbrio = 1 ÷ margem (em decimal) = preço ÷ margem em reais
+</Formula>
+
+Essa fórmula não vem de nenhuma plataforma. Ela sai das duas definições acima: o anúncio empata quando o gasto com ele é igual à margem que as vendas geraram.
+
+<Alerta conferidoEm="18/10/2026" fonte="https://support.google.com/google-ads/answer/12851704?hl=pt-BR">
+O glossário do Google Ads apresenta o ROAS em **porcentagem**. Então um ROAS 4 aparece lá como 400%. Neste curso usamos o número puro (4,0). É a mesma coisa: 4,0 = 400%. [verificado]
+</Alerta>
+
+<Exemplo>
+Uma garrafa térmica vendida por R$ 100. Todos os valores abaixo são de exemplo. A taxa de 15% não é a taxa de nenhuma plataforma real; as taxas reais ficam para a aula 1.3.
+
+| Item | Valor |
+| --- | ---: |
+| Preço de venda | R$ 100,00 |
+| (−) Custo do produto | R$ 35,00 |
+| (−) Taxas e imposto: 15% de R$ 100 | R$ 15,00 |
+| (−) Frete que você paga | R$ 10,00 |
+| (−) Embalagem | R$ 1,00 |
+| **(=) Margem de contribuição** | **R$ 39,00** |
+
+Margem em porcentagem: 39 ÷ 100 × 100 = **39%**.
+
+ROAS de equilíbrio: 100 ÷ 39 = **2,56**. Cada R$ 1 de anúncio precisa trazer pelo menos R$ 2,56 em vendas. Abaixo disso, o anúncio come mais do que a venda deixa.
+</Exemplo>
+
+## Ferramenta
+
+Mude os valores e veja a margem e o ROAS de equilíbrio na hora. Use o campo de taxas para somar, em porcentagem, a taxa da plataforma e o imposto sobre a venda.
+
+<Calculadora tipo="margem" />
+
+Agora o outro lado: você já rodou um anúncio e quer saber se ele se pagou.
+
+<Calculadora tipo="roas" />
+
+<ErroComum>
+**Comparar o ROAS com 1.** Muita gente acha que ROAS acima de 1 é lucro, porque "voltou mais do que gastei". Não é. Voltou mais **venda** do que gasto. Com margem de 39%, um ROAS de 2 ainda dá prejuízo: R$ 100 de anúncio geram R$ 200 de venda, que deixam só R$ 78 de margem.
+
+**Esquecer custos pequenos.** Embalagem, etiqueta e taxa do meio de pagamento parecem detalhe. Somados em centenas de pedidos, viram a diferença entre lucro e prejuízo.
+
+**Confiar cegamente no número da plataforma.** O ROAS que a plataforma mostra conta só as vendas que ela atribui ao anúncio. A Meta avisa que, em alguns casos, essa métrica é estimada. [verificado] Confira sempre com as vendas reais da sua loja.
+</ErroComum>
+
+<NaPratica>
+Escolha um produto que você vende ou quer vender (se não tiver, use um produto da Busca Agora como laboratório).
+
+<Checklist
+  titulo="Sua conta"
+  itens={[
+    "Anote o preço de venda.",
+    "Anote o custo do produto com o fornecedor.",
+    "Some a taxa da plataforma e o imposto sobre a venda, em porcentagem.",
+    "Anote o frete que você paga e o custo da embalagem.",
+    "Coloque tudo na calculadora acima.",
+    "Escreva a margem em reais, a margem em % e o ROAS de equilíbrio.",
+  ]}
+/>
+
+Se a margem der negativa ou muito baixa, não descarte o produto ainda. Pergunte: dá para subir o preço, trocar de fornecedor ou mudar o frete?
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "A margem de um produto é 25%. Qual é o ROAS de equilíbrio?",
+      opcoes: ["2,5", "4,0", "25"],
+      correta: 1,
+      explicacao: "ROAS de equilíbrio = 1 ÷ 0,25 = 4. O anúncio precisa devolver R$ 4 em vendas para cada R$ 1 gasto.",
+    },
+    {
+      enunciado: "Qual destes gastos NÃO entra na margem de contribuição de um pedido?",
+      opcoes: ["Custo do produto", "Taxa do marketplace", "Aluguel do depósito"],
+      correta: 2,
+      explicacao: "Aluguel é custo fixo: você paga mesmo sem vender. Ele é pago pela soma das margens do mês, não entra na conta de cada pedido.",
+    },
+    {
+      enunciado: "Preço R$ 80, custo do produto R$ 40, taxas e imposto R$ 12, frete R$ 8. Qual é a margem de contribuição?",
+      opcoes: ["R$ 40,00", "R$ 28,00", "R$ 20,00"],
+      correta: 2,
+      explicacao: "80 − 40 − 12 − 8 = 20. Sobram R$ 20 por venda, que são 25% do preço.",
+    },
+    {
+      enunciado: "Sua margem é 25% e a campanha teve ROAS 3. O que aconteceu?",
+      opcoes: ["Lucro", "Empate", "Prejuízo"],
+      correta: 2,
+      explicacao: "Com margem de 25%, o equilíbrio é ROAS 4. Um ROAS 3 fica abaixo: cada R$ 100 de anúncio gera R$ 300 de venda e só R$ 75 de margem.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Margem de contribuição é o que sobra da venda depois dos custos variáveis: produto, taxas, imposto, frete e embalagem.
+- Custo fixo, como aluguel, não entra nessa conta. Ele é pago pela soma das margens.
+- Margem % = margem ÷ preço.
+- ROAS = vendas do anúncio ÷ gasto. ROAS de equilíbrio = 1 ÷ margem.
+- Se o ROAS da campanha fica abaixo do ROAS de equilíbrio, o anúncio dá prejuízo, mesmo vendendo.
+</Resumo>
+
+<Fontes />

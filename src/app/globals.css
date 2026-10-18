@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* Brand tokens: CLAUDE.md section 5 and docs/design/LucroNaCaixa.dc.html */
+@theme {
+  --color-kraft: #d9bc8c;
+  --color-kraft-escuro: #efe6d2;
+  --color-papel: #f7f2e7;
+  --color-tinta: #141210;
+  --color-amarelo: #ffe03a;
+  --color-amarelo-claro: #fff4b8;
+  --color-vermelho: #e5292b;
+  --color-vermelho-texto: #b3121a;
+  --color-branco: #ffffff;
+
+  --shadow-solida: 6px 6px 0 var(--color-tinta);
+  --shadow-solida-hover: 8px 8px 0 var(--color-tinta);
+  --shadow-solida-lg: 10px 10px 0 var(--color-tinta);
+}
+
+@theme inline {
+  --font-titulo: var(--font-saira-stencil), "Arial Narrow", sans-serif;
+  --font-numero: var(--font-bricolage), system-ui, sans-serif;
+  --font-texto: var(--font-figtree), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+html {
+  background: var(--color-kraft);
+  color: var(--color-tinta);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-kraft);
+  color: var(--color-tinta);
+  font-family: var(--font-texto);
+  overflow-x: hidden;
+}
+
+/* In a layer so Tailwind utilities (text-amarelo etc.) can override link colors. */
+@layer base {
+  a {
+    color: var(--color-tinta);
+  }
+
+  a:hover {
+    color: var(--color-vermelho-texto);
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-tinta);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Lesson reading area: 18px, ~70 characters per line */
+@layer components {
+  .prosa {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 70ch;
+  }
+
+  .prosa > * + * {
+    margin-top: 1rem;
+  }
+
+  .prosa h2 {
+    font-family: var(--font-titulo);
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    margin-top: 2.5rem;
+  }
+
+  .prosa h3 {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 1.75rem;
+  }
+
+  .prosa ul,
+  .prosa ol {
+    padding-left: 1.4em;
+  }
+
+  .prosa ul {
+    list-style: square;
+  }
+
+  .prosa ol {
+    list-style: decimal;
+  }
+
+  .prosa li + li {
+    margin-top: 0.35rem;
+  }
+
+  .prosa strong {
+    font-weight: 700;
+  }
+
+  .prosa a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+  }
+
+  .prosa code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--color-kraft-escuro);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+  }
+
+  .prosa table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .prosa th,
+  .prosa td {
+    border: 2px solid var(--color-tinta);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+
+  .prosa th {
+    background: var(--color-kraft-escuro);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .prosa td.num,
+  .prosa th.num {
+    text-align: right;
+    font-family: var(--font-mono);
+  }
+}
