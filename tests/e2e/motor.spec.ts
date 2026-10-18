@@ -119,3 +119,23 @@ test("inner pages have no horizontal scroll", async ({ page }) => {
     expect(sw, url).toBeLessThanOrEqual(cw);
   }
 });
+
+test("calculator controls stay inside their card at 1024 px with the sidebar", async ({ page, isMobile }) => {
+  test.skip(isMobile, "desktop width check");
+  await page.setViewportSize({ width: 1024, height: 900 });
+  await page.goto("/aula/03-pesquisa-e-validacao-de-produto/06-ficha-de-avaliacao-de-produto");
+  const ficha = page.locator('[data-calculadora="ficha-produto"]').first();
+  await ficha.scrollIntoViewIfNeeded();
+  const cartao = await ficha.locator("fieldset").first().boundingBox();
+  const resultado = await ficha.locator('[role="status"]').first().boundingBox();
+  const botoes = ficha.locator("[data-criterio] label");
+  const total = await botoes.count();
+  expect(total).toBe(40);
+  for (let i = 0; i < total; i++) {
+    const b = (await botoes.nth(i).boundingBox())!;
+    expect(b.x + b.width).toBeLessThanOrEqual(cartao!.x + cartao!.width + 0.5);
+    // The 1–5 buttons never overlap the results card.
+    const sobrepoe = b.x < resultado!.x + resultado!.width && b.x + b.width > resultado!.x && b.y < resultado!.y + resultado!.height && b.y + b.height > resultado!.y;
+    expect(sobrepoe).toBe(false);
+  }
+});

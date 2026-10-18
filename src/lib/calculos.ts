@@ -132,17 +132,22 @@ export function calcularPrecoIdeal(e: EntradaPreco): ResultadoPreco {
   const sobra = 10_000 - e.taxaPontosBase - e.margemDesejadaPontosBase;
   if (sobra <= 0) return { precoCentavos: null, margem: null };
   const base = e.custoCentavos + e.freteCentavos + e.embalagemCentavos;
-  const precoCentavos = Math.ceil((base * 10_000) / sobra);
-  return {
-    precoCentavos,
-    margem: calcularMargem({
+  const margemDe = (precoCentavos: number) =>
+    calcularMargem({
       precoCentavos,
       custoCentavos: e.custoCentavos,
       taxaPontosBase: e.taxaPontosBase,
       freteCentavos: e.freteCentavos,
       embalagemCentavos: e.embalagemCentavos,
-    }),
-  };
+    });
+  let precoCentavos = Math.ceil((base * 10_000) / sobra);
+  let margem = margemDe(precoCentavos);
+  // Rounding the fee can still leave the margin a hair short: add cents until it reaches the target.
+  while (margem.margemCentavos * 10_000 < precoCentavos * e.margemDesejadaPontosBase) {
+    precoCentavos += 1;
+    margem = margemDe(precoCentavos);
+  }
+  return { precoCentavos, margem };
 }
 
 // --- Markup x margem -------------------------------------------------------------
@@ -197,8 +202,11 @@ export function calcularCacLtv(e: EntradaCacLtv): ResultadoCacLtv {
 
 // --- Custo de importação (todos os campos do aluno) ----------------------------------
 // Follows the Receita Federal remessa formula: customs value = goods + freight + insurance;
-// II = rate × customs value − deduction (never below zero); ICMS is charged "por dentro":
-// base = (customs value + II + other taxes) ÷ (1 − ICMS rate). No rate is fixed in code.
+// II = rate × customs value − deduction (never below zero). Formal import (Receita
+// "bases de cálculo"): IPI over customs value + II; PIS and Cofins over customs value.
+// ICMS is charged "por dentro": base = (customs value + II + IPI + PIS/Cofins) ÷ (1 − ICMS
+// rate). Customs expenses that also enter the ICMS base are left to "outras taxas". No rate
+// is fixed in code.
 
 export type EntradaImportacao = {
   /** Price per unit in US$ cents. */
@@ -215,8 +223,10 @@ export type EntradaImportacao = {
   impostoImportacaoPontosBase: number;
   /** Deduction from the II, US$ cents (e.g. the Remessa Conforme discount). */
   deducaoImpostoUsdCentavos: number;
-  /** Other federal taxes over the customs value (formal import: IPI, PIS, Cofins), basis points. */
-  outrosImpostosPontosBase: number;
+  /** IPI rate (formal import), basis points, over customs value + II. */
+  ipiPontosBase: number;
+  /** PIS-Importação + Cofins-Importação rates added up (formal import), basis points, over customs value. */
+  pisCofinsPontosBase: number;
   /** ICMS rate, basis points, charged "por dentro". */
   icmsPontosBase: number;
   /** Other fees in R$ (customs broker, storage, domestic shipping…). */
@@ -240,7 +250,9 @@ export function calcularImportacao(e: EntradaImportacao): ResultadoImportacao {
   const produtos = (e.precoUnitarioUsdCentavos * e.quantidadeCentesimos) / 100;
   const valorAduaneiro = produtos + e.freteUsdCentavos + e.seguroUsdCentavos;
   const ii = Math.max(0, (valorAduaneiro * e.impostoImportacaoPontosBase) / 10_000 - e.deducaoImpostoUsdCentavos);
-  const outros = (valorAduaneiro * e.outrosImpostosPontosBase) / 10_000;
+  const ipi = ((valorAduaneiro + ii) * e.ipiPontosBase) / 10_000;
+  const pisCofins = (valorAduaneiro * e.pisCofinsPontosBase) / 10_000;
+  const outros = ipi + pisCofins;
   if (e.icmsPontosBase >= 10_000) {
     return { valorAduaneiroUsdCentavos: arredondar(valorAduaneiro), impostoImportacaoUsdCentavos: arredondar(ii), icmsUsdCentavos: 0, impostosCentavos: 0, totalCentavos: 0, custoUnitarioCentavos: null, erro: "ICMS de 100% ou mais não fecha a conta." };
   }
@@ -394,7 +406,9 @@ export function calcularPainelSemanal(e: EntradaPainelSemanal): ResultadoPainelS
 // Expected profit per order once refunds and chargebacks are averaged in. Assumption
 // shown to the student: on a refunded or charged-back order the seller gets nothing,
 // still pays the supplier, the platform/gateway fees and the ad cost (CPA); a
-// chargeback also costs the chargeback fee. Taxes are treated as recovered.
+// chargeback also costs the chargeback fee. Taxes are treated as recovered unless the student
+// adds them (with return shipping) to the extra cost per refund. Refund and chargeback shares
+// are separate groups of orders, so together they cannot pass 100%.
 
 export type EntradaDrop = {
   precoCentavos: number;
@@ -410,6 +424,8 @@ export type EntradaDrop = {
   /** Share of orders with chargeback, basis points. */
   chargebackPontosBase: number;
   tarifaChargebackCentavos: number;
+  /** Extra loss on each refunded or charged-back order: return shipping, tax not recovered… */
+  custoExtraReembolsoCentavos: number;
 };
 
 export type ResultadoDrop = {
@@ -423,13 +439,22 @@ export type ResultadoDrop = {
   lucroEsperadoCentavos: number;
   /** Same, as a share of price; null when price is zero. */
   margemEsperadaPontosBase: number | null;
+  /** Set when refunds + chargebacks pass 100% of the orders; the other fields are then zero. */
+  erro: string | null;
 };
 
 export function calcularMargemDrop(e: EntradaDrop): ResultadoDrop {
+  if (e.reembolsoPontosBase + e.chargebackPontosBase > 10_000) {
+    return {
+      lucroPedidoNormalCentavos: 0, perdaReembolsoCentavos: 0, perdaChargebackCentavos: 0,
+      lucroEsperadoCentavos: 0, margemEsperadaPontosBase: null,
+      erro: "Reembolsos e chargebacks juntos não podem passar de 100% dos pedidos.",
+    };
+  }
   const taxas = arredondar((e.precoCentavos * e.taxasPontosBase) / 10_000);
   const impostos = arredondar((e.precoCentavos * e.impostosPontosBase) / 10_000);
   const normal = e.precoCentavos - e.custoFornecedorCentavos - taxas - impostos - e.cpaCentavos;
-  const reembolso = -(e.custoFornecedorCentavos + taxas + e.cpaCentavos);
+  const reembolso = -(e.custoFornecedorCentavos + taxas + e.cpaCentavos + e.custoExtraReembolsoCentavos);
   const chargeback = reembolso - e.tarifaChargebackCentavos;
   const r = e.reembolsoPontosBase / 10_000;
   const k = e.chargebackPontosBase / 10_000;
@@ -440,5 +465,6 @@ export function calcularMargemDrop(e: EntradaDrop): ResultadoDrop {
     perdaChargebackCentavos: chargeback,
     lucroEsperadoCentavos: esperado,
     margemEsperadaPontosBase: e.precoCentavos > 0 ? Math.round((esperado * 10_000) / e.precoCentavos) : null,
+    erro: null,
   };
 }

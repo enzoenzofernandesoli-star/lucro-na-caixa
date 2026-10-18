@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { classesBotao } from "@/components/marca/Botao";
 import { CAIXAS_LEITNER, cartoesDoDia, hojeIso, responderCartao } from "@/lib/progresso";
 import { atualizarProgresso, useNoNavegador, useProgresso } from "@/lib/useProgresso";
+import { AvisoProgressoIlegivel } from "./AvisoIlegivel";
 
 export type Cartao = {
   id: string;
@@ -24,6 +25,7 @@ export function Flashcards({ cartoes }: { cartoes: Cartao[] }) {
   const [sessao, setSessao] = useState<string[] | null>(null);
   const [virado, setVirado] = useState(false);
   const [feitos, setFeitos] = useState({ certos: 0, errados: 0 });
+  const [erro, setErro] = useState(false);
 
   const devidos = useMemo(() => cartoesDoDia(progresso, cartoes, hoje), [progresso, cartoes, hoje]);
   const temConcluidas = cartoes.some((c) => progresso.concluidas[c.aula]);
@@ -36,6 +38,7 @@ export function Flashcards({ cartoes }: { cartoes: Cartao[] }) {
   if (sessao === null) {
     return (
       <div className="flex flex-col gap-5" data-revisao="inicio">
+        <AvisoProgressoIlegivel />
         <Caixas porCaixa={porCaixa} />
         {devidos.length > 0 ? (
           <div className="flex flex-wrap items-center gap-4">
@@ -82,7 +85,12 @@ export function Flashcards({ cartoes }: { cartoes: Cartao[] }) {
 
   function responder(acertou: boolean) {
     if (!atual) return;
-    atualizarProgresso((p) => responderCartao(p, atual.id, acertou, hoje));
+    // If the answer cannot be saved, stay on the card instead of losing it silently.
+    if (!atualizarProgresso((p) => responderCartao(p, atual.id, acertou, hoje))) {
+      setErro(true);
+      return;
+    }
+    setErro(false);
     setFeitos((f) => (acertou ? { ...f, certos: f.certos + 1 } : { ...f, errados: f.errados + 1 }));
     setSessao((s) => (s ? s.slice(1) : s));
     setVirado(false);
@@ -90,6 +98,12 @@ export function Flashcards({ cartoes }: { cartoes: Cartao[] }) {
 
   return (
     <div className="flex flex-col gap-5" data-revisao="cartao">
+      <AvisoProgressoIlegivel />
+      {erro ? (
+        <p role="alert" className="m-0 font-bold text-vermelho-texto">
+          Não foi possível salvar a resposta. O cartão continua aqui; tente de novo.
+        </p>
+      ) : null}
       <p className="m-0 font-mono text-sm" aria-live="polite">
         Cartão {feitos.certos + feitos.errados + 1} de {feitos.certos + feitos.errados + sessao.length} · aula{" "}
         {atual.aula.replace("-", ".")} {atual.tituloAula}

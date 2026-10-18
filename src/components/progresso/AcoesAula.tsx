@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { classesBotao } from "@/components/marca/Botao";
-import { concluirAula, desfazerConclusao, hojeIso, registrarVisita, salvarAnotacao } from "@/lib/progresso";
+import { concluirAula, desfazerConclusao, hojeIso, LIMITE_ANOTACAO, registrarVisita, salvarAnotacao } from "@/lib/progresso";
 import { atualizarProgresso, useNoNavegador, useProgresso } from "@/lib/useProgresso";
+import { AvisoProgressoIlegivel } from "./AvisoIlegivel";
 
 type LinkAula = { url: string; titulo: string };
 
@@ -46,9 +47,10 @@ export function AcoesAula({ id, anterior, proxima }: AcoesAulaProps) {
           {concluida ? `Concluída em ${progresso.concluidas[id].split("-").reverse().join("/")}.` : ""}
         </p>
       </div>
+      <AvisoProgressoIlegivel />
       {erro ? (
         <p role="alert" className="m-0 font-bold text-vermelho-texto">
-          O navegador não deixou salvar o progresso (modo anônimo ou armazenamento cheio).
+          Não foi possível salvar o progresso (modo anônimo, armazenamento cheio ou progresso salvo ilegível).
         </p>
       ) : null}
 
@@ -95,6 +97,7 @@ function Anotacoes({ id }: { id: string }) {
         id={idCampo}
         rows={5}
         value={rascunho ?? salvo}
+        maxLength={LIMITE_ANOTACAO}
         onChange={(e) => {
           const texto = e.target.value;
           setRascunho(texto);

@@ -13,6 +13,9 @@ fontes:
   - titulo: "Banco Central do Brasil — Guia de implementação dos procedimentos de devolução no âmbito do Pix (MED, PDF)"
     url: "https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Guia_MED.pdf"
     consultado_em: "2026-10-18"
+  - titulo: "Banco Central do Brasil — Quanto o cidadão (pessoa física) paga para usar o Pix (atualizado em 12/12/2024)"
+    url: "https://www.bcb.gov.br/meubc/faqs/p/quanto-o-cidadao-paga-para-usar-o-pix"
+    consultado_em: "2026-10-18"
   - titulo: "Decreto nº 7.962/2013, art. 5º, § 3º (Planalto)"
     url: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm"
     consultado_em: "2026-10-18"
@@ -22,7 +25,7 @@ fontes:
 verificado_em: "2026-10-18"
 flashcards:
   - frente: "Pix é gratuito para quem?"
-    verso: "Para pessoa física. Para empresa, o Banco Central fala em custo baixo, definido pela instituição."
+    verso: "Em regra, para pessoa física (e MEI). Pode haver tarifa no recebimento com indício comercial: mais de 30 Pix por mês, QR Code dinâmico ou pago por empresa. Para empresa, pode haver tarifa desde a primeira transação."
   - frente: "O MED do Pix serve para disputa comercial (produto não chegou)?"
     verso: "Não. O MED é para fraude ou falha operacional; o próprio Banco Central diz que ele não é um chargeback."
   - frente: "O que é chargeback?"
@@ -45,7 +48,7 @@ No marketplace, quase tudo isso já vem dentro da comissão. Na loja própria e 
 
 ### 1. Pix
 
-O <Termo id="pix">Pix</Termo> é o pagamento instantâneo do Banco Central: o dinheiro cai em segundos, 24 horas por dia, 7 dias por semana. É gratuito para pessoa física e tem custo baixo para empresa, segundo o Banco Central. [verificado] O valor exato que a sua empresa paga depende da instituição e do contrato.
+O <Termo id="pix">Pix</Termo> é o pagamento instantâneo do Banco Central: o dinheiro cai em segundos, 24 horas por dia, 7 dias por semana. Para pessoa física, **em regra** não há tarifa para fazer ou receber Pix; MEI e empresário individual seguem as mesmas regras. Mas o banco pode cobrar no recebimento com indício comercial: mais de 30 Pix recebidos por mês, QR Code dinâmico ou QR Code de pagador pessoa jurídica. Para empresa, a cobrança é possível desde a primeira transação. [verificado] Confira o contrato da sua instituição. O valor exato que a sua empresa paga depende da instituição e do contrato.
 
 **Risco:** o Pix não tem chargeback. O <Termo id="med">MED</Termo> (Mecanismo Especial de Devolução) existe para fraude e falha operacional. O guia do Banco Central diz que essa devolução é completamente diferente do chargeback dos cartões. [verificado]
 
@@ -102,10 +105,10 @@ Pegue o contrato (ou a página de taxas) do meio de pagamento que você usa ou p
 <Quiz
   perguntas={[
     {
-      enunciado: "Segundo o Banco Central, o Pix é gratuito para…",
-      opcoes: ["Todo mundo", "Pessoa física", "Só empresas do Simples"],
+      enunciado: "Você é MEI e recebe 80 Pix por mês das vendas. Segundo o Banco Central, o banco pode cobrar tarifa?",
+      opcoes: ["Nunca, Pix é sempre grátis", "Pode: passar de 30 Pix recebidos por mês indica uso comercial", "Só se for empresa do Simples"],
       correta: 1,
-      explicacao: "O Banco Central diz que o Pix é gratuito para pessoa física e de custo baixo para empresa.",
+      explicacao: "Em regra, pessoa física e MEI não pagam, mas acima de 30 recebimentos por mês (ou com QR Code dinâmico) pode haver tarifa.",
     },
     {
       enunciado: "O cliente diz que o produto não chegou e pediu o MED do Pix. O MED é o caminho certo para isso?",
@@ -123,7 +126,7 @@ Pegue o contrato (ou a página de taxas) do meio de pagamento que você usa ou p
 />
 
 <Resumo>
-- Pix: dinheiro na hora, gratuito para pessoa física, custo baixo para empresa, sem chargeback.
+- Pix: dinheiro na hora; em regra sem tarifa para pessoa física, mas com possível cobrança no uso comercial; sem chargeback.
 - Cartão: parcelamento vende mais, mas antecipação e chargeback custam.
 - Boleto: sem chargeback, mas demora e tem muito boleto não pago.
 - Estorno rápido no arrependimento evita chargeback.

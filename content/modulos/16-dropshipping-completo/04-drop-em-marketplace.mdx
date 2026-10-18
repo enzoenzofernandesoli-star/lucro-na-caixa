@@ -70,7 +70,16 @@ Ter um pequeno estoque dos produtos que vendem bem resolve a maior parte dos con
 Fornecedor nacional que despacha em 3 dias úteis (situação de exemplo):
 
 - **Shopee:** prazo de 1 dia útil → atraso em quase todo pedido. Além disso, a política lista dropshipping como proibido. Não usar.
-- **Mercado Livre:** com prazo de disponibilidade de 4 dias corridos, o anúncio fica ativo e o comprador vê o prazo, mas o anúncio aparece abaixo dos que têm estoque.
+- **Mercado Livre:** o prazo de disponibilidade conta dias **corridos**, inclusive fins de semana e feriados, a partir da venda. [verificado] Três dias **úteis** não viram um número fixo de dias corridos: depende do dia da semana e dos feriados. Monte o prazo pelo **pior caso** do calendário e some uma folga:
+
+  | Venda na… | 3 dias úteis do fornecedor terminam na… | Dias corridos até lá |
+  | --- | --- | --- |
+  | Segunda | Quinta | 3 |
+  | Quarta | Segunda | 5 |
+  | Sexta | Quarta | 5 |
+  | Quarta antes de um feriado na sexta | Terça seguinte | 6 |
+
+  Pior caso da tabela: 6 dias corridos; com 1 dia de folga, um prazo de disponibilidade de **7 dias** evita atraso. O anúncio fica ativo e o comprador vê o prazo, mas aparece abaixo dos que têm estoque. [estimativa]
 - **Loja própria:** prazo total informado no produto e no checkout.
 </Exemplo>
 

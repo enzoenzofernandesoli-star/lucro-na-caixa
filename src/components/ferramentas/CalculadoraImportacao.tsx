@@ -16,7 +16,8 @@ const EXEMPLO = {
   seguro: 0,
   ii: 0,
   deducao: 0,
-  outros: 0,
+  ipi: 0,
+  pisCofins: 0,
   icms: 0,
   taxas: 0,
 };
@@ -32,7 +33,8 @@ export function CalculadoraImportacao() {
     seguroUsdCentavos: v.seguro,
     impostoImportacaoPontosBase: v.ii,
     deducaoImpostoUsdCentavos: v.deducao,
-    outrosImpostosPontosBase: v.outros,
+    ipiPontosBase: v.ipi,
+    pisCofinsPontosBase: v.pisCofins,
     icmsPontosBase: v.icms,
     outrasTaxasCentavos: v.taxas,
   });
@@ -51,7 +53,8 @@ export function CalculadoraImportacao() {
           <CampoNumero rotulo="Cotação do dólar (R$)" formato="reais" valor={v.cotacao} aoMudar={set("cotacao")} passo={5} />
           <CampoNumero rotulo="Imposto de importação (%)" formato="percentual" valor={v.ii} aoMudar={set("ii")} passo={100} maximo={10_000} />
           <CampoNumero rotulo="Desconto no imposto de importação (US$)" formato="numero" valor={v.deducao} aoMudar={set("deducao")} passo={500} />
-          <CampoNumero rotulo="Outros impostos federais (%)" formato="percentual" valor={v.outros} aoMudar={set("outros")} passo={100} maximo={10_000} />
+          <CampoNumero rotulo="IPI (%) — importação formal" formato="percentual" valor={v.ipi} aoMudar={set("ipi")} passo={100} maximo={10_000} />
+          <CampoNumero rotulo="PIS + Cofins (%) — importação formal" formato="percentual" valor={v.pisCofins} aoMudar={set("pisCofins")} passo={100} maximo={10_000} />
           <CampoNumero rotulo="ICMS (%) — calculado por dentro" formato="percentual" valor={v.icms} aoMudar={set("icms")} passo={100} maximo={9_900} />
           <CampoNumero rotulo="Outras taxas (R$)" formato="reais" valor={v.taxas} aoMudar={set("taxas")} passo={1_000} />
         </>

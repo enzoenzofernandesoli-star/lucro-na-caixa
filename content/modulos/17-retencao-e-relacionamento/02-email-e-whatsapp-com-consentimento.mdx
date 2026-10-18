@@ -40,7 +40,7 @@ Comprar uma lista de contatos e disparar oferta parece rápido. Também é o cam
 | **Serviço** | Confirmação do pedido, rastreio, aviso de atraso | Execução do contrato (LGPD, art. 7º) [verificado] |
 | **Marketing** | Ofertas, lançamentos, cupom de volta | Normalmente consentimento (art. 7º e 8º) [verificado] |
 
-Consulte um profissional para confirmar a base legal de cada uso na sua loja.
+A base legal da LGPD é uma camada; a regra do canal é outra. No **WhatsApp**, a política da plataforma pede número fornecido e permissão (opt-in) para receber mensagens da empresa, inclusive as de serviço (seção 3). [verificado] Por e-mail, a confirmação e o rastreio podem seguir a execução do contrato. Consulte um profissional para confirmar a base legal de cada uso na sua loja.
 
 ### 2. Consentimento que vale (LGPD)
 
@@ -67,7 +67,13 @@ Texto de consentimento no checkout (situação de exemplo):
 
 > ☐ Quero receber por WhatsApp ofertas e lançamentos da Loja Café Serra (no máximo 2 mensagens por mês). Posso cancelar quando quiser respondendo SAIR.
 
-O que está certo: caixa desmarcada, canal, finalidade e frequência ditos, saída fácil. A confirmação do pedido e o rastreio vão para todos os clientes, porque fazem parte da entrega.
+O que está certo: caixa desmarcada, canal, finalidade e frequência ditos, saída fácil.
+
+A confirmação do pedido e o rastreio vão **por e-mail** para todos os clientes, porque fazem parte da entrega. Pelo WhatsApp, só para quem marcou uma permissão **separada** para atualizações do pedido, por exemplo:
+
+> ☐ Quero receber por WhatsApp a confirmação e o rastreio deste pedido.
+
+São duas permissões diferentes: a de atualização do pedido não autoriza mandar ofertas.
 </Exemplo>
 
 ## Ferramenta
@@ -110,10 +116,10 @@ Escreva o texto de consentimento da sua loja para e-mail e para WhatsApp, e a fr
       explicacao: "O art. 8º exige finalidade determinada.",
     },
     {
-      enunciado: "Mensagem de rastreio do pedido precisa do mesmo consentimento de marketing?",
-      opcoes: ["Sim", "Não: é mensagem de serviço ligada à entrega", "Só no WhatsApp"],
+      enunciado: "Rastreio do pedido pelo WhatsApp: o que é preciso?",
+      opcoes: ["Nada, é mensagem de serviço", "Permissão (opt-in) do cliente para receber atualizações do pedido pelo WhatsApp, separada da permissão de ofertas", "A mesma permissão das ofertas"],
       correta: 1,
-      explicacao: "Mensagens de serviço normalmente se apoiam na execução do contrato.",
+      explicacao: "A política do WhatsApp exige opt-in também para mensagens de serviço; por e-mail, o rastreio pode seguir a execução do contrato.",
     },
   ]}
 />

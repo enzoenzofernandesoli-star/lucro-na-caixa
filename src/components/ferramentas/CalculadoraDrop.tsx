@@ -16,6 +16,7 @@ const EXEMPLO = {
   reembolso: 800,
   chargeback: 100,
   tarifa: 1_500,
+  extra: 0,
 };
 
 /** Dropshipping margin (module 16): refunds and chargebacks inside the margin. */
@@ -31,6 +32,7 @@ export function CalculadoraDrop() {
     reembolsoPontosBase: v.reembolso,
     chargebackPontosBase: v.chargeback,
     tarifaChargebackCentavos: v.tarifa,
+    custoExtraReembolsoCentavos: v.extra,
   });
 
   return (
@@ -48,9 +50,15 @@ export function CalculadoraDrop() {
           <CampoNumero rotulo="Pedidos reembolsados (%)" formato="percentual" valor={v.reembolso} aoMudar={set("reembolso")} passo={50} maximo={10_000} />
           <CampoNumero rotulo="Pedidos com chargeback (%)" formato="percentual" valor={v.chargeback} aoMudar={set("chargeback")} passo={25} maximo={10_000} />
           <CampoNumero rotulo="Tarifa por chargeback" formato="reais" valor={v.tarifa} aoMudar={set("tarifa")} passo={500} />
+          <CampoNumero rotulo="Custo extra por reembolso (frete de volta, imposto não recuperado)" formato="reais" valor={v.extra} aoMudar={set("extra")} passo={500} />
         </>
       }
       resultados={
+        r.erro ? (
+          <p role="alert" className="m-0 font-bold text-vermelho-texto">
+            {r.erro} Os dois grupos são de pedidos diferentes: um pedido reembolsado não é contado também como chargeback.
+          </p>
+        ) : (
         <>
           <Resultado rotulo="Lucro de um pedido sem problema" nome="normal" valor={formatarReais(r.lucroPedidoNormalCentavos)} />
           <Resultado
@@ -71,9 +79,10 @@ export function CalculadoraDrop() {
               : "Com os problemas na conta, cada pedido dá prejuízo em média."}
           </Veredito>
           <p className="m-0 font-mono text-xs">
-            Premissa: no reembolso e no chargeback você devolve o valor, mas já pagou fornecedor, taxas e anúncio. Impostos tratados como recuperados.
+            Premissa: no reembolso e no chargeback você devolve o valor, mas já pagou fornecedor, taxas e anúncio. Impostos tratados como recuperados, a menos que você os inclua no custo extra (confirme com o contador).
           </p>
         </>
+        )
       }
     />
   );

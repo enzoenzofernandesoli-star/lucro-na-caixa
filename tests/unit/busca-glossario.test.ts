@@ -96,6 +96,19 @@ describe("real content", () => {
     }
   });
 
+  it("every glossary rule points to a lesson that exists and has a checked date", async () => {
+    const { aulas } = await lerConteudo(path.join(process.cwd(), "content", "modulos"));
+    const ids = new Set(aulas.map((a) => `${a.frontmatter.modulo}-${a.frontmatter.aula}`));
+    const bruto = esquemaGlossario.parse(JSON.parse(await readFile(path.join(process.cwd(), "content", "glossario.json"), "utf8")));
+    const comAula = bruto.filter((t) => t.aula);
+    expect(comAula.length).toBeGreaterThan(0);
+    for (const t of comAula) {
+      expect(ids, t.id).toContain(t.aula);
+      expect(t.conferidoEm, t.id).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    }
+    expect(() => esquemaGlossario.parse([{ id: "x", termo: "X", definicao: "y", aula: "1-1" }])).toThrow();
+  });
+
   it("glossary file parses", async () => {
     const bruto = JSON.parse(await readFile(path.join(process.cwd(), "content", "glossario.json"), "utf8"));
     expect(() => esquemaGlossario.parse(bruto)).not.toThrow();

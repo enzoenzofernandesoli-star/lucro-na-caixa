@@ -122,7 +122,9 @@
   {
     "id": "mei",
     "termo": "MEI",
-    "definicao": "Microempreendedor individual: formato de empresa mais simples do Brasil, com limite de faturamento anual e imposto mensal fixo."
+    "definicao": "Microempreendedor individual: formato de empresa mais simples do Brasil, com limite de faturamento anual e imposto mensal fixo.",
+    "aula": "2-2",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "cnpj",
@@ -172,12 +174,16 @@
   {
     "id": "simples-nacional",
     "termo": "Simples Nacional",
-    "definicao": "Regime de impostos para micro e pequenas empresas em que vários tributos são pagos numa guia só, com alíquota que depende do faturamento dos últimos 12 meses."
+    "definicao": "Regime de impostos para micro e pequenas empresas em que vários tributos são pagos numa guia só, com alíquota que depende do faturamento dos últimos 12 meses.",
+    "aula": "2-2",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "das",
     "termo": "DAS",
-    "definicao": "Documento de Arrecadação do Simples Nacional: a guia mensal de imposto do MEI e das empresas do Simples."
+    "definicao": "Documento de Arrecadação do Simples Nacional: a guia mensal de imposto do MEI e das empresas do Simples.",
+    "aula": "2-2",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "cpa-maximo",
@@ -187,7 +193,9 @@
   {
     "id": "frete-subsidiado",
     "termo": "Frete subsidiado",
-    "definicao": "Frete em que a plataforma paga uma parte para o comprador pagar menos ou nada. O resto pode sair da margem do vendedor."
+    "definicao": "Frete em que a plataforma paga uma parte para o comprador pagar menos ou nada. O resto pode sair da margem do vendedor.",
+    "aula": "6-4",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "lucratividade",
@@ -207,37 +215,51 @@
   {
     "id": "me-epp",
     "termo": "ME e EPP",
-    "definicao": "Microempresa (ME) e empresa de pequeno porte (EPP): portes de empresa definidos pela receita bruta anual na Lei Complementar 123/2006."
+    "definicao": "Microempresa (ME) e empresa de pequeno porte (EPP): portes de empresa definidos pela receita bruta anual na Lei Complementar 123/2006.",
+    "aula": "2-2",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "inscricao-estadual",
     "termo": "Inscrição estadual",
-    "definicao": "Cadastro da empresa na Secretaria da Fazenda do estado, necessário para quem vende mercadorias e recolhe ICMS."
+    "definicao": "Cadastro da empresa na Secretaria da Fazenda do estado, necessário para quem vende mercadorias e recolhe ICMS.",
+    "aula": "2-3",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "certificado-digital",
     "termo": "Certificado digital",
-    "definicao": "Arquivo ou cartão que funciona como assinatura eletrônica da empresa. Para emitir NF-e, ele precisa ser emitido por autoridade da ICP-Brasil e conter o CNPJ."
+    "definicao": "Arquivo ou cartão que funciona como assinatura eletrônica da empresa. Para emitir NF-e, ele precisa ser emitido por autoridade da ICP-Brasil e conter o CNPJ.",
+    "aula": "2-3",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "nf-e",
     "termo": "NF-e",
-    "definicao": "Nota fiscal eletrônica de produtos: documento digital, assinado com certificado, que registra a venda de mercadorias para o fisco."
+    "definicao": "Nota fiscal eletrônica de produtos: documento digital, assinado com certificado, que registra a venda de mercadorias para o fisco.",
+    "aula": "2-3",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "direito-de-arrependimento",
     "termo": "Direito de arrependimento",
-    "definicao": "Direito do consumidor de desistir de uma compra feita fora da loja física, em até 7 dias da compra ou do recebimento, com devolução do que pagou (CDC, art. 49)."
+    "definicao": "Direito do consumidor de desistir de uma compra feita fora da loja física, em até 7 dias da compra ou do recebimento, com devolução do que pagou (CDC, art. 49).",
+    "aula": "2-4",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "vicio-do-produto",
     "termo": "Vício do produto",
-    "definicao": "Defeito ou diferença que torna o produto impróprio, diminui o valor ou não bate com o que foi anunciado. Dá ao consumidor direito a conserto, troca ou devolução."
+    "definicao": "Defeito ou diferença que torna o produto impróprio, diminui o valor ou não bate com o que foi anunciado. Dá ao consumidor direito a conserto, troca ou devolução.",
+    "aula": "2-4",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "lgpd",
     "termo": "LGPD",
-    "definicao": "Lei Geral de Proteção de Dados (Lei 13.709/2018): regras para coletar, usar, guardar e apagar dados pessoais."
+    "definicao": "Lei Geral de Proteção de Dados (Lei 13.709/2018): regras para coletar, usar, guardar e apagar dados pessoais.",
+    "aula": "2-5",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "dado-pessoal",
@@ -252,12 +274,16 @@
   {
     "id": "pix",
     "termo": "Pix",
-    "definicao": "Pagamento instantâneo criado pelo Banco Central: o dinheiro cai na conta do recebedor em segundos, a qualquer hora."
+    "definicao": "Pagamento instantâneo criado pelo Banco Central: o dinheiro cai na conta do recebedor em segundos, a qualquer hora.",
+    "aula": "2-6",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "med",
     "termo": "MED (Pix)",
-    "definicao": "Mecanismo Especial de Devolução do Pix, criado pelo Banco Central para casos de fraude ou falha operacional. Não serve para disputa comercial."
+    "definicao": "Mecanismo Especial de Devolução do Pix, criado pelo Banco Central para casos de fraude ou falha operacional. Não serve para disputa comercial.",
+    "aula": "2-6",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "estorno",
@@ -332,7 +358,9 @@
   {
     "id": "remessa-conforme",
     "termo": "Remessa Conforme",
-    "definicao": "Programa da Receita Federal para sites de compra internacional que cobram os impostos no momento da compra."
+    "definicao": "Programa da Receita Federal para sites de compra internacional que cobram os impostos no momento da compra.",
+    "aula": "4-4",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "ncm",
@@ -342,12 +370,16 @@
   {
     "id": "homologacao-anatel",
     "termo": "Homologação Anatel",
-    "definicao": "Autorização da Anatel exigida para vender produtos de telecomunicações, como aparelhos com Wi-Fi ou Bluetooth."
+    "definicao": "Autorização da Anatel exigida para vender produtos de telecomunicações, como aparelhos com Wi-Fi ou Bluetooth.",
+    "aula": "4-5",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "certificacao-compulsoria",
     "termo": "Certificação compulsória",
-    "definicao": "Avaliação obrigatória de segurança ou qualidade exigida pelo Inmetro para certos produtos, como brinquedos, antes de vender."
+    "definicao": "Avaliação obrigatória de segurança ou qualidade exigida pelo Inmetro para certos produtos, como brinquedos, antes de vender.",
+    "aula": "4-5",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "foto-principal",
@@ -382,22 +414,30 @@
   {
     "id": "pontos-de-penalidade",
     "termo": "Pontos de penalidade",
-    "definicao": "Sistema da Shopee que soma pontos quando a loja falha (atraso, não envio, anúncio proibido). Muitos pontos tiram benefícios e reduzem a visibilidade."
+    "definicao": "Sistema da Shopee que soma pontos quando a loja falha (atraso, não envio, anúncio proibido). Muitos pontos tiram benefícios e reduzem a visibilidade.",
+    "aula": "6-5",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "taxa-de-nao-envio",
     "termo": "Taxa de não envio",
-    "definicao": "Parte dos pedidos que a loja não enviou dentro do prazo e que acabaram cancelados. É uma das métricas que mais pesam na reputação."
+    "definicao": "Parte dos pedidos que a loja não enviou dentro do prazo e que acabaram cancelados. É uma das métricas que mais pesam na reputação.",
+    "aula": "6-5",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "reducao-de-visibilidade",
     "termo": "Redução de visibilidade",
-    "definicao": "Quando o marketplace mostra o anúncio para menos gente na busca e nas vitrines, como punição por falhas operacionais. O anúncio continua no ar."
+    "definicao": "Quando o marketplace mostra o anúncio para menos gente na busca e nas vitrines, como punição por falhas operacionais. O anúncio continua no ar.",
+    "aula": "6-5",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "ads-de-marketplace",
     "termo": "Anúncio dentro do marketplace",
-    "definicao": "Anúncio pago exibido dentro da própria plataforma (Shopee Ads, Mercado Ads), na busca ou em vitrines."
+    "definicao": "Anúncio pago exibido dentro da própria plataforma (Shopee Ads, Mercado Ads), na busca ou em vitrines.",
+    "aula": "6-6",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "declaracao-de-conteudo",
@@ -412,37 +452,51 @@
   {
     "id": "termometro",
     "termo": "Termômetro de reputação",
-    "definicao": "A barra colorida do Mercado Livre, do vermelho ao verde, que resume como o vendedor atende: reclamações, cancelamentos e envios incorretos."
+    "definicao": "A barra colorida do Mercado Livre, do vermelho ao verde, que resume como o vendedor atende: reclamações, cancelamentos e envios incorretos.",
+    "aula": "7-2",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "mercadolider",
     "termo": "MercadoLíder",
-    "definicao": "Medalha do Mercado Livre para vendedores com reputação verde e alto volume de vendas e faturamento, com mais exposição e benefícios."
+    "definicao": "Medalha do Mercado Livre para vendedores com reputação verde e alto volume de vendas e faturamento, com mais exposição e benefícios.",
+    "aula": "7-2",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "fulfillment",
     "termo": "Fulfillment (Full)",
-    "definicao": "Serviço em que o estoque fica no centro de distribuição da plataforma, que armazena, embala, envia e cuida do pós-venda."
+    "definicao": "Serviço em que o estoque fica no centro de distribuição da plataforma, que armazena, embala, envia e cuida do pós-venda.",
+    "aula": "7-3",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "envio-flex",
     "termo": "Envios Flex",
-    "definicao": "Modalidade do Mercado Livre em que o vendedor faz a entrega no mesmo dia ou no dia seguinte, com a tecnologia da plataforma."
+    "definicao": "Modalidade do Mercado Livre em que o vendedor faz a entrega no mesmo dia ou no dia seguinte, com a tecnologia da plataforma.",
+    "aula": "7-3",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "acos",
     "termo": "ACOS",
-    "definicao": "Custo de publicidade sobre as vendas: gasto com anúncio ÷ receita gerada por ele. É o inverso do ROAS (ACOS 25% = ROAS 4)."
+    "definicao": "Custo de publicidade sobre as vendas: gasto com anúncio ÷ receita gerada por ele. É o inverso do ROAS (ACOS 25% = ROAS 4).",
+    "aula": "7-5",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "mediacao",
     "termo": "Mediação",
-    "definicao": "Quando a plataforma entra numa reclamação entre comprador e vendedor para decidir a solução."
+    "definicao": "Quando a plataforma entra numa reclamação entre comprador e vendedor para decidir a solução.",
+    "aula": "7-6",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "compra-garantida",
     "termo": "Compra Garantida",
-    "definicao": "Programa do Mercado Livre que protege o comprador e permite devolver o produto pelos canais da plataforma."
+    "definicao": "Programa do Mercado Livre que protege o comprador e permite devolver o produto pelos canais da plataforma.",
+    "aula": "7-6",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "gancho",
@@ -467,7 +521,9 @@
   {
     "id": "periodo-probatorio",
     "termo": "Período probatório",
-    "definicao": "Fase inicial de uma loja nova no TikTok Shop, com limites de pedidos por dia e de anúncios, que sobem conforme o desempenho."
+    "definicao": "Fase inicial de uma loja nova no TikTok Shop, com limites de pedidos por dia e de anúncios, que sobem conforme o desempenho.",
+    "aula": "8-1",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "checkout",
@@ -542,7 +598,9 @@
   {
     "id": "aigc",
     "termo": "Conteúdo gerado por IA",
-    "definicao": "Imagem, vídeo ou voz criados ou muito editados com inteligência artificial. Plataformas como o TikTok exigem rótulo quando parece real."
+    "definicao": "Imagem, vídeo ou voz criados ou muito editados com inteligência artificial. Plataformas como o TikTok exigem rótulo quando parece real.",
+    "aula": "11-6",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "fadiga-de-criativo",
@@ -567,7 +625,9 @@
   {
     "id": "fase-de-aprendizado",
     "termo": "Fase de aprendizado",
-    "definicao": "Período em que a Meta ainda está descobrindo como veicular um conjunto de anúncios. Costuma terminar após cerca de 50 resultados na semana após a última edição significativa."
+    "definicao": "Período em que a Meta ainda está descobrindo como veicular um conjunto de anúncios. Costuma terminar após cerca de 50 resultados na semana após a última edição significativa.",
+    "aula": "12-3",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "ctr",
@@ -587,7 +647,9 @@
   {
     "id": "merchant-center",
     "termo": "Google Merchant Center",
-    "definicao": "Painel do Google onde a loja envia os dados dos produtos (feed) para aparecerem em anúncios do Shopping e outras superfícies."
+    "definicao": "Painel do Google onde a loja envia os dados dos produtos (feed) para aparecerem em anúncios do Shopping e outras superfícies.",
+    "aula": "13-2",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "feed-de-produtos",
@@ -597,7 +659,9 @@
   {
     "id": "performance-max",
     "termo": "Performance Max",
-    "definicao": "Tipo de campanha do Google Ads baseado em metas que veicula em todo o inventário do Google (Pesquisa, YouTube, Display, Discover, Gmail, Maps) a partir de uma só campanha."
+    "definicao": "Tipo de campanha do Google Ads baseado em metas que veicula em todo o inventário do Google (Pesquisa, YouTube, Display, Discover, Gmail, Maps) a partir de uma só campanha.",
+    "aula": "13-2",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "atribuicao",
@@ -607,7 +671,9 @@
   {
     "id": "janela-de-atribuicao",
     "termo": "Janela de atribuição",
-    "definicao": "Prazo, depois de um clique ou visualização do anúncio, dentro do qual uma compra é creditada ao anúncio (por exemplo, 7 dias após o clique)."
+    "definicao": "Prazo, depois de um clique ou visualização do anúncio, dentro do qual uma compra é creditada ao anúncio (por exemplo, 7 dias após o clique).",
+    "aula": "13-4",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "funil-de-vendas",
@@ -637,7 +703,9 @@
   {
     "id": "edicao-significativa",
     "termo": "Edição significativa",
-    "definicao": "Mudança em um conjunto de anúncios da Meta (público, criativo, evento de otimização, anúncio novo, pausa longa e, às vezes, orçamento) que faz o conjunto voltar à fase de aprendizado."
+    "definicao": "Mudança em um conjunto de anúncios da Meta (público, criativo, evento de otimização, anúncio novo, pausa longa e, às vezes, orçamento) que faz o conjunto voltar à fase de aprendizado.",
+    "aula": "12-5",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "etiqueta-de-envio",
@@ -652,22 +720,30 @@
   {
     "id": "prazo-de-postagem",
     "termo": "Prazo de postagem",
-    "definicao": "Tempo que o vendedor tem para despachar o pedido depois da venda. Cada plataforma define o seu."
+    "definicao": "Tempo que o vendedor tem para despachar o pedido depois da venda. Cada plataforma define o seu.",
+    "aula": "15-2",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "taxa-de-resposta",
     "termo": "Taxa de resposta do chat",
-    "definicao": "Métrica que mede quantas mensagens de compradores você respondeu e em quanto tempo. Na Shopee, só conta resposta em até 12 horas."
+    "definicao": "Métrica que mede quantas mensagens de compradores você respondeu e em quanto tempo. Na Shopee, só conta resposta em até 12 horas.",
+    "aula": "15-3",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "contestacao",
     "termo": "Contestação",
-    "definicao": "Pedido do titular do cartão ao banco para desfazer uma compra (o chargeback). O vendedor pode se defender com provas como nota fiscal e comprovante de entrega."
+    "definicao": "Pedido do titular do cartão ao banco para desfazer uma compra (o chargeback). O vendedor pode se defender com provas como nota fiscal e comprovante de entrega.",
+    "aula": "15-5",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "prazo-de-disponibilidade",
     "termo": "Prazo de disponibilidade",
-    "definicao": "No Mercado Livre, o tempo que o vendedor informa para ter o produto pronto para envio, usado em encomenda, fabricação ou estoque que chega do fornecedor. Conta fins de semana e feriados."
+    "definicao": "No Mercado Livre, o tempo que o vendedor informa para ter o produto pronto para envio, usado em encomenda, fabricação ou estoque que chega do fornecedor. Conta fins de semana e feriados.",
+    "aula": "16-4",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "drop-nacional",
@@ -687,7 +763,9 @@
   {
     "id": "opt-in",
     "termo": "Opt-in",
-    "definicao": "Permissão que a pessoa dá para receber suas mensagens (e-mail, WhatsApp). Precisa ser clara, para uma finalidade definida, e poder ser retirada a qualquer momento."
+    "definicao": "Permissão que a pessoa dá para receber suas mensagens (e-mail, WhatsApp). Precisa ser clara, para uma finalidade definida, e poder ser retirada a qualquer momento.",
+    "aula": "17-2",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "fluxo-pos-compra",
@@ -727,7 +805,9 @@
   {
     "id": "token-de-acesso",
     "termo": "Token de acesso",
-    "definicao": "Credencial temporária que autoriza o seu sistema a usar a API em nome da sua conta. É segredo: nunca vai no código nem em mensagens."
+    "definicao": "Credencial temporária que autoriza o seu sistema a usar a API em nome da sua conta. É segredo: nunca vai no código nem em mensagens.",
+    "aula": "18-2",
+    "conferidoEm": "2026-10-18"
   },
   {
     "id": "ambiente-de-homologacao",

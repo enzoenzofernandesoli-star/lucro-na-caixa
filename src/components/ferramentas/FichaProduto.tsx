@@ -18,7 +18,7 @@ function Criterio({ id, titulo, ajuda, nota, aoMudar }: { id: string; titulo: st
     <fieldset className="m-0 border-0 p-0" data-criterio={id}>
       <legend className="text-base font-semibold">{titulo}</legend>
       <p className="m-0 mb-2 text-sm">{ajuda}</p>
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {[1, 2, 3, 4, 5].map((n) => (
           <label
             key={n}

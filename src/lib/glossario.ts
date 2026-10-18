@@ -1,11 +1,19 @@
 import { z } from "zod";
 import dados from "../../content/glossario.json";
 
-const esquemaTermo = z.strictObject({
-  id: z.string().regex(/^[a-z0-9-]+$/, "id em minúsculas, sem acento, com hífens"),
-  termo: z.string().min(1),
-  definicao: z.string().min(1),
-});
+const esquemaTermo = z
+  .strictObject({
+    id: z.string().regex(/^[a-z0-9-]+$/, "id em minúsculas, sem acento, com hífens"),
+    termo: z.string().min(1),
+    definicao: z.string().min(1),
+    /** For rules that change (platform, law, tax): the lesson that cites the source… */
+    aula: z.string().regex(/^\d{1,2}-\d{1,2}$/).optional(),
+    /** …and the date the rule was checked (YYYY-MM-DD). */
+    conferidoEm: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  })
+  .refine((t) => (t.aula === undefined) === (t.conferidoEm === undefined), {
+    message: "aula e conferidoEm andam juntos",
+  });
 
 export const esquemaGlossario = z.array(esquemaTermo).superRefine((termos, ctx) => {
   const vistos = new Set<string>();
@@ -31,6 +39,11 @@ export function termoPorId(id: string): TermoGlossario | undefined {
 /** Lowercase, accent-free text for searching ("Margem" matches "margem", "ação" matches "acao"). */
 export function normalizar(texto: string): string {
   return texto.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
+}
+
+/** "2026-10-18" → "18/10/2026". */
+export function dataBr(iso: string): string {
+  return iso.split("-").reverse().join("/");
 }
 
 export function filtrarGlossario(termos: readonly TermoGlossario[], busca: string): TermoGlossario[] {

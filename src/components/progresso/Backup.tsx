@@ -2,8 +2,9 @@
 
 import { useRef, useState } from "react";
 import { classesBotao } from "@/components/marca/Botao";
-import { exportarProgresso, hojeIso, importarProgresso } from "@/lib/progresso";
+import { exportarProgresso, hojeIso, importarProgresso, LIMITE_BACKUP_BYTES } from "@/lib/progresso";
 import { gravarProgresso, useProgresso } from "@/lib/useProgresso";
+import { AvisoProgressoIlegivel } from "./AvisoIlegivel";
 
 /** Export progress to a JSON file and import it back (with validation). */
 export function BackupProgresso() {
@@ -24,7 +25,7 @@ export function BackupProgresso() {
 
   async function importar(arquivo: File | undefined) {
     if (!arquivo) return;
-    if (arquivo.size > 2_000_000) {
+    if (arquivo.size > LIMITE_BACKUP_BYTES) {
       setMensagem({ tipo: "erro", texto: "Arquivo grande demais para ser um progresso do curso." });
       return;
     }
@@ -50,6 +51,7 @@ export function BackupProgresso() {
         O progresso fica salvo só neste navegador. Exporte um arquivo para guardar ou levar para outro computador.
         Importar <strong>substitui</strong> o progresso atual.
       </p>
+      <AvisoProgressoIlegivel comLink={false} />
       <div className="flex flex-wrap gap-4">
         <button type="button" onClick={exportar} className={classesBotao("primario", "cursor-pointer")}>
           Exportar progresso

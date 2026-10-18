@@ -11,6 +11,12 @@ const DATA_ISO = /^\d{4}-\d{2}-\d{2}$/;
 
 export const CAIXAS_LEITNER = 5;
 
+/** Longest note per lesson, in characters. The textarea, the mutator and the schema share it. */
+export const LIMITE_ANOTACAO = 20_000;
+
+/** Largest backup file accepted on import, in bytes. Sized for every lesson with a full note. */
+export const LIMITE_BACKUP_BYTES = 20_000_000;
+
 const esquemaCartao = z.strictObject({
   caixa: z.int().min(1).max(CAIXAS_LEITNER),
   proxima: z.string().regex(DATA_ISO),
@@ -21,7 +27,7 @@ export const esquemaProgresso = z.strictObject({
   /** Lesson id -> ISO date it was completed. */
   concluidas: z.record(z.string().regex(ID_AULA), z.string().regex(DATA_ISO)),
   ultimaAula: z.string().regex(ID_AULA).nullable(),
-  anotacoes: z.record(z.string().regex(ID_AULA), z.string().max(20_000)),
+  anotacoes: z.record(z.string().regex(ID_AULA), z.string().max(LIMITE_ANOTACAO)),
   /** Flashcard id -> Leitner box and next review date. */
   revisao: z.record(z.string().min(1).max(200), esquemaCartao),
 });
@@ -68,7 +74,7 @@ export function registrarVisita(p: Progresso, id: IdAula): Progresso {
 export function salvarAnotacao(p: Progresso, id: IdAula, texto: string): Progresso {
   const anotacoes = { ...p.anotacoes };
   if (texto.trim() === "") delete anotacoes[id];
-  else anotacoes[id] = texto;
+  else anotacoes[id] = texto.slice(0, LIMITE_ANOTACAO);
   return { ...p, anotacoes };
 }
 

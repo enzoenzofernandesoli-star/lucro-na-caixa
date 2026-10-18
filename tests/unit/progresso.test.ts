@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import {
   cartoesDoDia,
   concluirAula,
@@ -7,6 +7,8 @@ import {
   hojeIso,
   importarProgresso,
   intervaloDias,
+  LIMITE_ANOTACAO,
+  LIMITE_BACKUP_BYTES,
   percentualConcluido,
   progressoVazio,
   proximaAula,
@@ -16,6 +18,14 @@ import {
   somarDias,
   statusModulo,
 } from "@/lib/progresso";
+import {
+  _limparCacheProgresso,
+  atualizarProgresso,
+  CHAVE_PROGRESSO,
+  CHAVE_PROGRESSO_ILEGIVEL,
+  gravarProgresso,
+  progressoIlegivel,
+} from "@/lib/useProgresso";
 
 const HOJE = "2026-10-18";
 
@@ -124,5 +134,61 @@ describe("export / import", () => {
     const r = importarProgresso(texto);
     expect(r.ok).toBe(false);
     if (!r.ok) expect(r.erro).toMatch(erro);
+  });
+});
+
+
+describe("note size limit", () => {
+  it("keeps notes of exactly the limit and cuts longer ones, so the progress stays valid", () => {
+    const cheia = salvarAnotacao(progressoVazio(), "1-2", "a".repeat(LIMITE_ANOTACAO));
+    expect(cheia.anotacoes["1-2"]).toHaveLength(LIMITE_ANOTACAO);
+    const longa = salvarAnotacao(progressoVazio(), "1-2", "a".repeat(LIMITE_ANOTACAO + 1));
+    expect(longa.anotacoes["1-2"]).toHaveLength(LIMITE_ANOTACAO);
+    expect(importarProgresso(exportarProgresso(longa)).ok).toBe(true);
+  });
+
+  it("a backup with a full note in every lesson fits the import limit and comes back", () => {
+    let p = progressoVazio();
+    for (let m = 0; m < 20; m++) for (let a = 1; a <= 8; a++) p = salvarAnotacao(p, `${m}-${a}`, "ção\n\"x\"".repeat(LIMITE_ANOTACAO / 7));
+    const texto = exportarProgresso(p);
+    expect(new TextEncoder().encode(texto).length).toBeLessThanOrEqual(LIMITE_BACKUP_BYTES);
+    expect(importarProgresso(texto)).toEqual({ ok: true, progresso: p });
+  });
+});
+
+describe("browser store", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+    _limparCacheProgresso();
+  });
+
+  it("saves and reads back a valid progress", () => {
+    expect(atualizarProgresso((p) => concluirAula(p, "1-2", HOJE))).toBe(true);
+    _limparCacheProgresso();
+    expect(JSON.parse(window.localStorage.getItem(CHAVE_PROGRESSO)!).concluidas).toEqual({ "1-2": HOJE });
+  });
+
+  it("never writes an invalid progress", () => {
+    const invalido = { ...progressoVazio(), anotacoes: { "1-2": "a".repeat(LIMITE_ANOTACAO + 1) } };
+    expect(gravarProgresso(invalido)).toBe(false);
+    expect(window.localStorage.getItem(CHAVE_PROGRESSO)).toBeNull();
+  });
+
+  it("does not overwrite an unreadable saved value on automatic updates", () => {
+    const antigo = JSON.stringify({ ...progressoVazio(), concluidas: { "1-2": HOJE }, anotacoes: { "1-2": "a".repeat(LIMITE_ANOTACAO + 1) } });
+    window.localStorage.setItem(CHAVE_PROGRESSO, antigo);
+    expect(progressoIlegivel()).toBe(true);
+    expect(atualizarProgresso((p) => registrarVisita(p, "2-1"))).toBe(false);
+    expect(window.localStorage.getItem(CHAVE_PROGRESSO)).toBe(antigo);
+  });
+
+  it("an import replaces an unreadable value and keeps a copy of it aside", () => {
+    window.localStorage.setItem(CHAVE_PROGRESSO, "{quebrado");
+    expect(progressoIlegivel()).toBe(true);
+    const novo = concluirAula(progressoVazio(), "3-1", HOJE);
+    expect(gravarProgresso(novo)).toBe(true);
+    expect(window.localStorage.getItem(CHAVE_PROGRESSO_ILEGIVEL)).toBe("{quebrado");
+    expect(progressoIlegivel()).toBe(false);
+    expect(atualizarProgresso((p) => registrarVisita(p, "3-1"))).toBe(true);
   });
 });

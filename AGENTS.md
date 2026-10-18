@@ -88,7 +88,7 @@ Referência completa: `docs/design/LucroNaCaixa.dc.html` (arquivo-fonte do desig
 - Bordas 3px `tinta`, cantos 12–22px, sombra sólida deslocada (`6px 6px 0 tinta`) em botões e cartões de destaque; no hover o botão "levanta" 2px.
 - Títulos em Saira Stencil One maiúsculo; números grandes em Bricolage Grotesque 800; rótulos em IBM Plex Mono com espaçamento.
 - Elementos de marca: fita vermelha diagonal, etiqueta de pedido com código de barras, selo redondo amarelo.
-- Acessibilidade: contraste 4.5:1, alvos de toque de 44px, botões reais, navegação por teclado, `prefers-reduced-motion`.
+- Acessibilidade: contraste 4.5:1, alvos de toque de 44px, botões reais, navegação por teclado, `prefers-reduced-motion`. Exceção: o `<Termo>` dentro do texto corrido segue a exceção de controle em linha (WCAG 2.5.8); a área clicável é ampliada na vertical, sem mudar o espaçamento das linhas.
 - Leitura confortável: área de texto da aula com no máximo ~70 caracteres por linha, fonte 18px.
 
 ## 6. Estrutura do site
@@ -105,6 +105,7 @@ Referência completa: `docs/design/LucroNaCaixa.dc.html` (arquivo-fonte do desig
 Componentes MDX disponíveis para as aulas: `<Objetivo>`, `<PorQue>`, `<Exemplo>`, `<Formula>`, `<Calculadora tipo="margem|roas|ponto-equilibrio|preco|markup|cac-ltv|importacao|ficha-produto|campanha|painel-semanal|drop">`, `<ErroComum>`, `<NaPratica>`, `<Quiz>`, `<Checklist>`, `<Resumo>`, `<Fontes>`, `<Termo>` (link ao glossário), `<Alerta conferidoEm="DD/MM/AAAA" fonte="https://...">` (regra de plataforma que muda).
 
 - A pasta de cada módulo usa o slug definido em `src/data/modulos.ts` (ex.: `content/modulos/15-operacao/`).
+- Em `content/glossario.json`, termo que é regra que muda (plataforma, lei, imposto) leva `aula` (id da aula que cita a fonte) e `conferidoEm` (AAAA-MM-DD). O glossário mostra a data e o link da aula.
 - `npm run fontes` (ou `npm run fontes -- NN` para um módulo) confere se os links das fontes respondem e se não redirecionam para página genérica. Páginas que bloqueiam robôs precisam ser conferidas no navegador.
 
 ## 7. Convenções

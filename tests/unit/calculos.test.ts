@@ -141,8 +141,15 @@ describe("calcularPrecoIdeal", () => {
   it("rounds the formula price up so the margin reaches the target", () => {
     const e = { custoCentavos: 3_500, freteCentavos: 1_000, embalagemCentavos: 100, taxaPontosBase: 1_500, margemDesejadaPontosBase: 3_000 };
     const r = calcularPrecoIdeal(e);
-    expect(r.precoCentavos).toBe(8_364);
+    expect(r.precoCentavos).toBe(8_365);
     expect(r.margem?.margemPontosBase).toBeGreaterThanOrEqual(3_000);
+  });
+
+  it("adds cents when the rounded fee leaves the margin short of the target", () => {
+    // Formula gives R$ 1,54, but its 5% fee rounds to R$ 0,08 → 29,87%. R$ 1,55 reaches 30%.
+    const r = calcularPrecoIdeal({ custoCentavos: 100, freteCentavos: 0, embalagemCentavos: 0, taxaPontosBase: 500, margemDesejadaPontosBase: 3_000 });
+    expect(r.precoCentavos).toBe(155);
+    expect(r.margem!.margemCentavos * 10_000).toBeGreaterThanOrEqual(155 * 3_000);
   });
 
   it("is impossible when fees + margin reach 100%", () => {
@@ -187,7 +194,7 @@ describe("calcularImportacao", () => {
   const base = {
     precoUnitarioUsdCentavos: 4_900, quantidadeCentesimos: 100, cotacaoCentavos: 100,
     freteUsdCentavos: 500, seguroUsdCentavos: 300, impostoImportacaoPontosBase: 0,
-    deducaoImpostoUsdCentavos: 0, outrosImpostosPontosBase: 0, icmsPontosBase: 0, outrasTaxasCentavos: 0,
+    deducaoImpostoUsdCentavos: 0, ipiPontosBase: 0, pisCofinsPontosBase: 0, icmsPontosBase: 0, outrasTaxasCentavos: 0,
   };
 
   it("reproduces the Receita Federal example (non-certified site, 60% II, 17% ICMS por dentro)", () => {
@@ -210,6 +217,14 @@ describe("calcularImportacao", () => {
     const r = calcularImportacao({ ...base, precoUnitarioUsdCentavos: 500, quantidadeCentesimos: 10_000, freteUsdCentavos: 10_000, seguroUsdCentavos: 0, cotacaoCentavos: 550, outrasTaxasCentavos: 5_000 });
     expect(r.totalCentavos).toBe(330_000 + 5_000);
     expect(r.custoUnitarioCentavos).toBe(3_350);
+  });
+
+  it("formal import: IPI over customs value + II, PIS/Cofins over customs value", () => {
+    const formal = { ...base, precoUnitarioUsdCentavos: 10_000, freteUsdCentavos: 0, seguroUsdCentavos: 0 };
+    // Customs value 100, II 10% = 10, IPI 10% of 110 = 11 → taxes 21, total 121.
+    expect(calcularImportacao({ ...formal, impostoImportacaoPontosBase: 1_000, ipiPontosBase: 1_000 }).totalCentavos).toBe(12_100);
+    // PIS + Cofins 10% over the customs value only: 10.
+    expect(calcularImportacao({ ...formal, impostoImportacaoPontosBase: 1_000, pisCofinsPontosBase: 1_000 }).totalCentavos).toBe(12_000);
   });
 
   it("has no unit cost for zero quantity and refuses ICMS of 100%", () => {
@@ -302,7 +317,7 @@ describe("calcularPainelSemanal", () => {
 describe("calcularMargemDrop", () => {
   const base = {
     precoCentavos: 10_000, custoFornecedorCentavos: 4_000, taxasPontosBase: 500, impostosPontosBase: 600,
-    cpaCentavos: 2_500, reembolsoPontosBase: 0, chargebackPontosBase: 0, tarifaChargebackCentavos: 0,
+    cpaCentavos: 2_500, reembolsoPontosBase: 0, chargebackPontosBase: 0, tarifaChargebackCentavos: 0, custoExtraReembolsoCentavos: 0,
   };
 
   it("equals the normal order profit with no refunds", () => {
@@ -322,5 +337,18 @@ describe("calcularMargemDrop", () => {
 
   it("handles zero price", () => {
     expect(calcularMargemDrop({ ...base, precoCentavos: 0 }).margemEsperadaPontosBase).toBeNull();
+  });
+
+  it("adds the extra refund cost to refunds and chargebacks", () => {
+    const r = calcularMargemDrop({ ...base, reembolsoPontosBase: 1_000, custoExtraReembolsoCentavos: 1_000 });
+    expect(r.perdaReembolsoCentavos).toBe(-8_000);
+    expect(r.perdaChargebackCentavos).toBe(-8_000);
+  });
+
+  it("refuses refunds + chargebacks above 100% and accepts exactly 100%", () => {
+    expect(calcularMargemDrop({ ...base, reembolsoPontosBase: 10_000, chargebackPontosBase: 10_000 }).erro).not.toBeNull();
+    const tudo = calcularMargemDrop({ ...base, reembolsoPontosBase: 6_000, chargebackPontosBase: 4_000, tarifaChargebackCentavos: 1_500 });
+    expect(tudo.erro).toBeNull();
+    expect(tudo.lucroEsperadoCentavos).toBe(Math.round(0.6 * -7_000 + 0.4 * -8_500));
   });
 });

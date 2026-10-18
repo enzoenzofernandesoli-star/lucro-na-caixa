@@ -1,7 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useDeferredValue, useId, useState } from "react";
-import { filtrarGlossario, type TermoGlossario } from "@/lib/glossario";
+import { dataBr, filtrarGlossario, type TermoGlossario } from "@/lib/glossario";
+
+/** Lesson id -> link data, for terms whose rule is checked in a lesson. */
+export type AulasDoGlossario = Record<string, { url: string; titulo: string }>;
 
 export function CampoBusca({
   rotulo,
@@ -33,7 +37,7 @@ export function CampoBusca({
   );
 }
 
-export function ListaGlossario({ termos }: { termos: TermoGlossario[] }) {
+export function ListaGlossario({ termos, aulas }: { termos: TermoGlossario[]; aulas: AulasDoGlossario }) {
   const [busca, setBusca] = useState("");
   const adiada = useDeferredValue(busca);
   const filtrados = filtrarGlossario(termos, adiada);
@@ -53,6 +57,14 @@ export function ListaGlossario({ termos }: { termos: TermoGlossario[] }) {
           >
             <dt className="text-lg font-bold">{t.termo}</dt>
             <dd className="m-0 mt-1 max-w-[70ch] leading-relaxed">{t.definicao}</dd>
+            {t.aula && t.conferidoEm && aulas[t.aula] ? (
+              <dd className="m-0 mt-2 font-mono text-sm">
+                Regra que muda · conferida em {dataBr(t.conferidoEm)} · fonte na{" "}
+                <Link href={aulas[t.aula].url}>
+                  aula {t.aula.replace("-", ".")} — {aulas[t.aula].titulo}
+                </Link>
+              </dd>
+            ) : null}
           </div>
         ))}
       </dl>
