@@ -1,0 +1,134 @@
+---
+modulo: 15
+aula: 5
+titulo: "Chargeback e fraude"
+nivel: intermediario
+duracao_min: 20
+objetivo: "Ao final você entende como funciona uma contestação de cartão, guarda as provas certas de cada pedido e reconhece sinais de pedido suspeito."
+pre_requisitos: ["2-6", "15-2"]
+fontes:
+  - titulo: "Mercado Pago Developers — Gerenciar contestações"
+    url: "https://www.mercadopago.com.br/developers/pt/docs/checkout-pro-preferences/chargebacks/manage"
+    consultado_em: "2026-10-18"
+  - titulo: "Banco Central do Brasil — Guia do Mecanismo Especial de Devolução (MED)"
+    url: "https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Guia_MED.pdf"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "O que é chargeback?"
+    verso: "O desfazimento de uma compra no cartão a pedido do titular junto ao banco; a loja pode perder o valor se não provar a venda."
+  - frente: "Quais provas guardar de cada pedido?"
+    verso: "Nota fiscal, comprovante de envio com rastreio, confirmação de entrega e as conversas com o comprador."
+  - frente: "O Pix tem chargeback?"
+    verso: "Não. Existe o MED, para fraude e falha operacional, que o Banco Central diz ser completamente diferente do chargeback."
+---
+
+<Objetivo>
+Ao final você entende como funciona uma contestação de cartão, guarda as provas certas de cada pedido e reconhece sinais de pedido suspeito.
+</Objetivo>
+
+<PorQue>
+Você vende, entrega e, semanas depois, o dinheiro some: o titular do cartão contestou a compra. Às vezes é fraude com cartão roubado; às vezes é o próprio comprador dizendo que não recebeu. Sem prova, a loja perde o produto, o frete e o valor.
+</PorQue>
+
+## Explicação
+
+### 1. Como funciona
+
+1. O titular contesta a compra no banco emissor do cartão (<Termo id="contestacao">contestação</Termo>).
+2. O intermediador de pagamento avisa a loja e pede provas.
+3. A loja envia a defesa; o intermediador faz a mediação com a bandeira e o banco emissor. [verificado]
+4. Se a decisão for contra a loja, o valor é descontado; se for a favor, é devolvido. [verificado]
+
+No Mercado Pago, por exemplo, a documentação só pode ser enviada **uma vez por caso**, e a resolução pode levar **até 6 meses**, dependendo da bandeira. [verificado] Cada intermediador tem prazos próprios: leia a notificação.
+
+### 2. As provas
+
+O Mercado Pago aceita arquivos de evidência como notas fiscais, comprovantes de envio e capturas de tela. [verificado] Monte o "kit de defesa" de cada pedido **na hora da venda**, não quando chega a contestação:
+
+- Nota fiscal.
+- Comprovante de postagem e <Termo id="codigo-de-rastreio">código de rastreio</Termo>.
+- Confirmação de entrega no endereço do pedido.
+- Conversas com o comprador.
+- Foto do conteúdo embalado (aula 15.1).
+
+### 3. Sinais de pedido suspeito
+
+Critérios práticos, não regra oficial [estimativa]:
+
+- Nome do comprador muito diferente do titular, endereço de entrega distante do de cobrança.
+- Vários pedidos grandes em pouco tempo, cartões diferentes, mesmo endereço.
+- Pressa incomum ("mandem hoje, pago o frete expresso").
+- Produto de alto valor e fácil revenda.
+
+Na dúvida, confirme por contato antes de enviar, ou cancele e estorne.
+
+### 4. Pix é outra coisa
+
+O Pix não tem chargeback. O MED existe para fraude e falha operacional, e o guia do Banco Central diz que ele é completamente diferente do chargeback dos cartões. [verificado] Detalhes na aula 2.6.
+
+<Exemplo>
+Contestação "produto não recebido", pedido de R$ 240 (situação de exemplo):
+
+| Loja A (sem provas) | Loja B (com kit de defesa) |
+| --- | --- |
+| Só tem o número do pedido | Nota fiscal, rastreio com entrega no endereço, foto do pacote, conversa em que o cliente agradece |
+| Perde R$ 240 + produto + frete | Envia a defesa no prazo; chance real de reverter |
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Kit de defesa por pedido"
+  itens={[
+    "Nota fiscal emitida e salva.",
+    "Comprovante de postagem e código de rastreio salvos.",
+    "Confirmação de entrega salva.",
+    "Conversas com o comprador exportadas ou registradas.",
+    "Foto do conteúdo do pacote.",
+    "Pedidos suspeitos conferidos antes do envio.",
+  ]}
+/>
+
+<ErroComum>
+**Enviar a defesa incompleta.** Em alguns intermediadores só há uma chance de enviar documentos.
+
+**Despachar pedido suspeito de alto valor sem conferir.** O prejuízo do chargeback é o produto, o frete e o valor.
+</ErroComum>
+
+<NaPratica>
+Escolha os últimos 5 pedidos da sua loja (ou de teste) e confira se o kit de defesa de cada um está completo. Crie uma pasta padrão por número de pedido.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Quem decide uma contestação de cartão?",
+      opcoes: ["Só a loja", "O processo passa pelo intermediador, a bandeira e o banco emissor", "O comprador sozinho"],
+      correta: 1,
+      explicacao: "O intermediador faz a mediação com bandeira e banco emissor.",
+    },
+    {
+      enunciado: "Qual destas é uma prova útil contra 'produto não recebido'?",
+      opcoes: ["Print do anúncio", "Rastreio com entrega confirmada no endereço do pedido", "Avaliação de outro cliente"],
+      correta: 1,
+      explicacao: "Comprovante de envio e entrega é a prova central.",
+    },
+    {
+      enunciado: "O Pix tem chargeback?",
+      opcoes: ["Sim, igual ao cartão", "Não; existe o MED, que é diferente", "Só acima de R$ 1.000"],
+      correta: 1,
+      explicacao: "O Banco Central diz que o MED é completamente diferente do chargeback.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Chargeback: o titular contesta e a loja precisa provar a venda.
+- Monte o kit de defesa na hora da venda.
+- Prazos e regras variam por intermediador; às vezes só uma chance.
+- Confira pedidos suspeitos antes de enviar.
+- Pix não tem chargeback; tem o MED.
+</Resumo>
+
+<Fontes />

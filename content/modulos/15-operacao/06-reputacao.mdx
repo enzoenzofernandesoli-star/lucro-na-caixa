@@ -1,0 +1,132 @@
+---
+modulo: 15
+aula: 6
+titulo: "Reputação: como uma operação ruim mata o anúncio bom"
+nivel: intermediario
+duracao_min: 15
+objetivo: "Ao final você liga cada falha de operação à métrica de reputação que ela afeta e monta uma rotina para acompanhar e proteger a reputação."
+pre_requisitos: ["15-1", "15-2", "15-3"]
+fontes:
+  - titulo: "Mercado Livre — O que é e como funciona a reputação como vendedor (Ajuda)"
+    url: "https://www.mercadolivre.com.br/ajuda/866"
+    consultado_em: "2026-10-18"
+  - titulo: "Shopee — All about the seller's penalty points system (07/10/2024)"
+    url: "https://seller.shopee.com.br/edu/article/19385"
+    consultado_em: "2026-10-18"
+  - titulo: "Shopee — O que é a taxa de resposta do chat e como ela é medida? (31/07/2025)"
+    url: "https://seller.shopee.com.br/edu/article/2713/"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "O que pesa na reputação do Mercado Livre?"
+    verso: "A quantidade de vendas afetadas por reclamações, cancelamentos feitos pelo vendedor e envios incorretos."
+  - frente: "Qual é o foco principal do sistema de penalidades da Shopee desde 2023?"
+    verso: "Reduzir a taxa de não envio."
+  - frente: "Por que reputação ruim derruba um anúncio bom?"
+    verso: "Porque as plataformas reduzem a exposição e o comprador desconfia de quem tem nota ruim."
+---
+
+<Objetivo>
+Ao final você liga cada falha de operação à métrica de reputação que ela afeta e monta uma rotina para acompanhar e proteger a reputação.
+</Objetivo>
+
+<PorQue>
+Você acertou o produto, o preço e o anúncio. As vendas sobem, a expedição não acompanha, os atrasos geram reclamações e, em poucas semanas, a reputação cai e o anúncio some da busca. Nos marketplaces, a operação é parte do marketing.
+</PorQue>
+
+## Explicação
+
+### 1. O que as plataformas medem
+
+**Mercado Livre** — a reputação considera a quantidade de vendas afetadas por reclamações, cancelamentos feitos por você e envios incorretos; e ela permite que mais compradores encontrem seus anúncios. [verificado] Detalhes na aula 7.2.
+
+**Shopee** — mede atraso no envio e taxa de não envio, com pontos de penalidade; desde 09/01/2023, o foco principal é reduzir o não envio. [verificado] A taxa de resposta do chat entra no desempenho da loja. [verificado] Detalhes nas aulas 6.4 e 6.5.
+
+### 2. Falha → métrica
+
+| Falha de operação | Métrica afetada |
+| --- | --- |
+| Pedido sem estoque, cancelado | Cancelamentos (ML), não envio (Shopee) |
+| Postagem fora do prazo | Atraso no envio (Shopee); no ML, enviar no prazo de "Vendas" é condição para manter o verde |
+| Produto errado ou avariado | Reclamações, devoluções |
+| Chat sem resposta | Taxa de resposta |
+| Anúncio diferente do produto | Reclamações e risco de suspensão |
+
+### 3. Rotina de proteção
+
+- **Todo dia:** pedidos a enviar, chat, reclamações abertas.
+- **Toda semana:** painel de reputação de cada canal, junto do painel semanal (aula 14.6).
+- **Estoque sincronizado** entre canais, para não vender o que não tem.
+- **Pausar anúncio** quando o estoque acaba, em vez de vender e cancelar.
+
+### 4. Antes de escalar
+
+Escala multiplica os erros de operação (aula 14.4). Só aumente a verba se a expedição e o atendimento aguentam o dobro.
+
+<Exemplo>
+Loja que vendia 10 pedidos por dia e passou a 40 depois de um anúncio bom (situação de exemplo):
+
+| Semana | Pedidos | Atrasos | Reclamações | O que aconteceu |
+| --- | --- | --- | --- | --- |
+| 1 | 70 | 0 | 1 | Normal |
+| 2 | 280 | 35 | 12 | Embalagem não deu conta |
+| 3 | 150 | 20 | 15 | Reputação caiu, exposição caiu, vendas caíram |
+
+A operação, não o anúncio, derrubou as vendas. A correção foi contratar ajuda na expedição **antes** de voltar a subir a verba.
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Rotina de reputação"
+  itens={[
+    "Painel de reputação de cada canal olhado toda semana.",
+    "Estoque sincronizado entre canais.",
+    "Anúncio pausado quando o estoque acaba.",
+    "Chat e reclamações verificados todo dia.",
+    "Capacidade de expedição conferida antes de escalar.",
+  ]}
+/>
+
+<ErroComum>
+**Vender sem estoque e cancelar depois.** Cancelamento pesa na reputação e no não envio.
+
+**Escalar o anúncio sem escalar a operação.** O pico de vendas vira pico de reclamações.
+</ErroComum>
+
+<NaPratica>
+Abra o painel de reputação dos seus canais e anote cada métrica. Para a pior, escreva a falha de operação que a causou e a correção. Inclua isso no seu manual de operação (projeto do módulo).
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Vender sem estoque e cancelar afeta o quê no Mercado Livre?",
+      opcoes: ["Nada", "A reputação, porque cancelamentos feitos pelo vendedor contam", "Só o preço"],
+      correta: 1,
+      explicacao: "Cancelamentos feitos por você estão entre os fatores da reputação.",
+    },
+    {
+      enunciado: "Qual é o foco principal das penalidades da Shopee desde 09/01/2023?",
+      opcoes: ["Fotos", "Reduzir o não envio", "Preço"],
+      correta: 1,
+      explicacao: "A Shopee informa que o foco principal é reduzir a taxa de não envio.",
+    },
+    {
+      enunciado: "Vendas triplicaram e os atrasos começaram. O que fazer antes de subir a verba?",
+      opcoes: ["Subir mais", "Ajustar a operação para aguentar o volume", "Trocar o criativo"],
+      correta: 1,
+      explicacao: "Escalar com operação sem capacidade derruba a reputação.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Nos marketplaces, a reputação define a exposição.
+- Atraso, cancelamento, erro e chat sem resposta afetam métricas diferentes.
+- Olhe a reputação toda semana e o chat todo dia.
+- Sincronize estoque e pause anúncio sem estoque.
+- Escale a operação antes da verba.
+</Resumo>
+
+<Fontes />

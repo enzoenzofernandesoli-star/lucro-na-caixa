@@ -638,5 +638,30 @@
     "id": "edicao-significativa",
     "termo": "Edição significativa",
     "definicao": "Mudança em um conjunto de anúncios da Meta (público, criativo, evento de otimização, anúncio novo, pausa longa e, às vezes, orçamento) que faz o conjunto voltar à fase de aprendizado."
+  },
+  {
+    "id": "etiqueta-de-envio",
+    "termo": "Etiqueta de envio",
+    "definicao": "Etiqueta com destinatário, remetente e código de barras do serviço de entrega, colada no pacote. Em marketplaces, é gerada pela própria plataforma."
+  },
+  {
+    "id": "codigo-de-rastreio",
+    "termo": "Código de rastreio",
+    "definicao": "Identificador do envio que permite a vendedor e comprador acompanhar o trajeto do pacote. Também serve de prova de envio e entrega."
+  },
+  {
+    "id": "prazo-de-postagem",
+    "termo": "Prazo de postagem",
+    "definicao": "Tempo que o vendedor tem para despachar o pedido depois da venda. Cada plataforma define o seu."
+  },
+  {
+    "id": "taxa-de-resposta",
+    "termo": "Taxa de resposta do chat",
+    "definicao": "Métrica que mede quantas mensagens de compradores você respondeu e em quanto tempo. Na Shopee, só conta resposta em até 12 horas."
+  },
+  {
+    "id": "contestacao",
+    "termo": "Contestação",
+    "definicao": "Pedido do titular do cartão ao banco para desfazer uma compra (o chargeback). O vendedor pode se defender com provas como nota fiscal e comprovante de entrega."
   }
 ]
