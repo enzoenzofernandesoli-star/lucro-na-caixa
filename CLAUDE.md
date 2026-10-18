@@ -102,7 +102,10 @@ Referência completa: `docs/design/LucroNaCaixa.dc.html` (arquivo-fonte do desig
 - `/revisao` flashcards com repetição espaçada dos conceitos já estudados.
 - `/busca` busca em todas as aulas.
 
-Componentes MDX disponíveis para as aulas: `<Objetivo>`, `<PorQue>`, `<Exemplo>`, `<Formula>`, `<Calculadora tipo="margem|roas|ponto-equilibrio|preco|markup|cac-ltv|importacao">`, `<ErroComum>`, `<NaPratica>`, `<Quiz>`, `<Checklist>`, `<Resumo>`, `<Fontes>`, `<Termo>` (link ao glossário), `<Alerta>` (regra de plataforma que muda).
+Componentes MDX disponíveis para as aulas: `<Objetivo>`, `<PorQue>`, `<Exemplo>`, `<Formula>`, `<Calculadora tipo="margem|roas|ponto-equilibrio|preco|markup|cac-ltv|importacao|ficha-produto|campanha|painel-semanal|drop">`, `<ErroComum>`, `<NaPratica>`, `<Quiz>`, `<Checklist>`, `<Resumo>`, `<Fontes>`, `<Termo>` (link ao glossário), `<Alerta conferidoEm="DD/MM/AAAA" fonte="https://...">` (regra de plataforma que muda).
+
+- A pasta de cada módulo usa o slug definido em `src/data/modulos.ts` (ex.: `content/modulos/15-operacao/`).
+- `npm run fontes` (ou `npm run fontes -- NN` para um módulo) confere se os links das fontes respondem e se não redirecionam para página genérica. Páginas que bloqueiam robôs precisam ser conferidas no navegador.
 
 ## 7. Convenções
 
