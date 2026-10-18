@@ -1,0 +1,124 @@
+---
+modulo: 14
+aula: 6
+titulo: "Painel semanal: os números que você olha toda segunda"
+nivel: avancado
+duracao_min: 20
+objetivo: "Ao final você monta um painel semanal com funil, CPA, ROAS e lucro, sabe de onde tirar cada número e define um gatilho de ação para cada um."
+pre_requisitos: ["14-1", "14-2", "13-4"]
+fontes:
+  - titulo: "Ajuda do Google Analytics — Eventos recomendados (vendas on-line)"
+    url: "https://support.google.com/analytics/answer/9267735?hl=pt-BR"
+    consultado_em: "2026-10-18"
+  - titulo: "Central de Ajuda da Meta para Empresas — Sobre modelos de atribuição e configurações de atribuição"
+    url: "https://www.facebook.com/business/help/460276478298895"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Qual é a fonte da verdade para pedidos e receita no painel?"
+    verso: "A loja (ou o marketplace) e o gateway, não o painel de anúncios."
+  - frente: "Por que pôr o ROAS de equilíbrio ao lado do ROAS?"
+    verso: "Porque o ROAS sozinho não diz se a semana deu lucro; comparado ao equilíbrio, diz."
+  - frente: "O que é um gatilho de ação?"
+    verso: "Uma regra escrita do tipo 'se o número X passar de Y, faço Z'."
+---
+
+<Objetivo>
+Ao final você monta um painel semanal com funil, CPA, ROAS e lucro, sabe de onde tirar cada número e define um gatilho de ação para cada um.
+</Objetivo>
+
+<PorQue>
+Olhar o painel de anúncios todo dia, várias vezes, dá ansiedade e decisões ruins. Olhar uma vez por semana, sempre os mesmos números, da mesma fonte, mostra tendência. É a diferença entre reagir a ruído e gerenciar um negócio.
+</PorQue>
+
+## Explicação
+
+### 1. Os números
+
+| Número | De onde vem | Por quê |
+| --- | --- | --- |
+| Visitas, carrinhos, checkouts | Plataforma de loja ou Analytics | Funil (aula 14.1) |
+| Pedidos pagos e receita | Loja ou marketplace + gateway | Fonte da verdade |
+| Gasto com anúncios | Soma dos painéis de anúncio | Custo real |
+| CPA e ROAS | Gasto ÷ pedidos reais; receita real ÷ gasto | Sem depender da atribuição (aula 13.4) |
+| ROAS de equilíbrio | 1 ÷ margem de contribuição (aula 1.6) | Linha de lucro |
+| Lucro da semana | Margem da receita − gasto com anúncios | O que importa |
+| CAC e LTV (mensal) | Aula 14.2 | Quanto pagar por cliente |
+
+O CPA e o ROAS deste painel usam **pedidos e receita reais**, não as vendas atribuídas de cada plataforma: assim a sobreposição entre painéis não engana você (aula 13.4).
+
+### 2. Gatilhos de ação
+
+Para cada número, uma regra escrita. Exemplos [estimativa]:
+
+- Pedido por checkout caiu mais de 30% → conferir gateway e frete no mesmo dia.
+- CPA acima do máximo por 2 semanas → rever criativo e página; não aumentar verba.
+- Lucro da semana negativo 2 vezes seguidas → reduzir verba e revisar produto (aula 14.5).
+
+### 3. O ritual
+
+Toda segunda, 30 minutos: preencher, comparar com a semana anterior, aplicar gatilhos, escrever **uma** decisão.
+
+<Exemplo>
+Duas semanas lado a lado (números de exemplo, margem antes do anúncio 40%):
+
+| | Semana 1 | Semana 2 |
+| --- | --- | --- |
+| Visitas | 2.000 | 2.100 |
+| Carrinhos | 120 | 126 |
+| Checkouts | 60 | 63 |
+| Pedidos | 30 | 19 |
+| Receita | R$ 3.000 | R$ 1.900 |
+| Gasto com anúncios | R$ 900 | R$ 900 |
+| ROAS (equilíbrio 2,5) | 3,33 | 2,11 |
+| Lucro da semana | R$ 300 | −R$ 140 |
+
+O funil igual até o checkout e a queda só em pedidos apontam para o pagamento. Decisão da semana: conferir gateway antes de mexer em anúncio.
+</Exemplo>
+
+## Ferramenta
+
+<Calculadora tipo="painel-semanal" />
+
+<ErroComum>
+**Usar as vendas atribuídas dos painéis no lugar dos pedidos reais.** A soma passa do real (aula 13.4).
+
+**Mudar a fonte do número de uma semana para outra.** Comparação só vale com a mesma régua.
+</ErroComum>
+
+<NaPratica>
+Monte uma planilha com as colunas da tabela do exemplo, preencha as últimas 4 semanas (ou comece nesta segunda) e escreva três gatilhos de ação. Esse é o projeto do módulo.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Margem antes do anúncio de 40%. Qual é o ROAS de equilíbrio?",
+      opcoes: ["0,4", "2,5", "4"],
+      correta: 1,
+      explicacao: "1 ÷ 0,40 = 2,5.",
+    },
+    {
+      enunciado: "Receita R$ 2.000, margem 40%, gasto com anúncios R$ 900. Qual é o lucro da semana antes dos fixos?",
+      opcoes: ["−R$ 100", "R$ 1.100", "R$ 800"],
+      correta: 0,
+      explicacao: "2.000 × 0,40 = 800; 800 − 900 = −100.",
+    },
+    {
+      enunciado: "De onde tirar o número de pedidos do painel?",
+      opcoes: ["Do painel de anúncios", "Da loja ou marketplace, conferido com o gateway", "Do Google Trends"],
+      correta: 1,
+      explicacao: "Pedidos e receita reais vêm da loja; painéis de anúncio atribuem vendas pela própria regra.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Uma vez por semana, sempre os mesmos números e fontes.
+- Pedidos e receita reais, não vendas atribuídas.
+- ROAS sempre ao lado do ROAS de equilíbrio.
+- Um gatilho de ação por número.
+- Uma decisão escrita por semana.
+</Resumo>
+
+<Fontes />

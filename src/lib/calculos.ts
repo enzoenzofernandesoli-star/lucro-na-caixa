@@ -341,3 +341,104 @@ export function simularCampanha(e: EntradaCampanha): ResultadoCampanha {
     roas: e.orcamentoCentavos > 0 ? receitaCentavos / e.orcamentoCentavos : null,
   };
 }
+
+// --- Painel semanal (módulo 14) ------------------------------------------------------
+// Funnel rates come from the store's own counts; profit uses the contribution margin
+// before ads, so it matches the margin calculator of module 1.
+
+export type EntradaPainelSemanal = {
+  visitas: number;
+  carrinhos: number;
+  checkouts: number;
+  pedidos: number;
+  receitaCentavos: number;
+  gastoAnunciosCentavos: number;
+  /** Contribution margin before ads, basis points. */
+  margemPontosBase: number;
+};
+
+export type ResultadoPainelSemanal = {
+  /** Step rates in basis points; null when the previous step is zero. */
+  carrinhoPorVisita: number | null;
+  checkoutPorCarrinho: number | null;
+  pedidoPorCheckout: number | null;
+  conversao: number | null;
+  ticketMedioCentavos: number | null;
+  cpaCentavos: number | null;
+  roas: number | null;
+  roasEquilibrio: number | null;
+  /** Contribution margin of the week minus ad spend. */
+  lucroCentavos: number;
+};
+
+function taxa(parte: number, todo: number): number | null {
+  return todo > 0 ? Math.round((parte * 10_000) / todo) : null;
+}
+
+export function calcularPainelSemanal(e: EntradaPainelSemanal): ResultadoPainelSemanal {
+  const margemCentavos = arredondar((e.receitaCentavos * e.margemPontosBase) / 10_000);
+  return {
+    carrinhoPorVisita: taxa(e.carrinhos, e.visitas),
+    checkoutPorCarrinho: taxa(e.checkouts, e.carrinhos),
+    pedidoPorCheckout: taxa(e.pedidos, e.checkouts),
+    conversao: taxa(e.pedidos, e.visitas),
+    ticketMedioCentavos: e.pedidos > 0 ? arredondar(e.receitaCentavos / e.pedidos) : null,
+    cpaCentavos: e.pedidos > 0 ? arredondar(e.gastoAnunciosCentavos / e.pedidos) : null,
+    roas: e.gastoAnunciosCentavos > 0 ? e.receitaCentavos / e.gastoAnunciosCentavos : null,
+    roasEquilibrio: e.margemPontosBase > 0 ? 10_000 / e.margemPontosBase : null,
+    lucroCentavos: margemCentavos - e.gastoAnunciosCentavos,
+  };
+}
+
+// --- Margem do dropshipping (módulo 16) ----------------------------------------------
+// Expected profit per order once refunds and chargebacks are averaged in. Assumption
+// shown to the student: on a refunded or charged-back order the seller gets nothing,
+// still pays the supplier, the platform/gateway fees and the ad cost (CPA); a
+// chargeback also costs the chargeback fee. Taxes are treated as recovered.
+
+export type EntradaDrop = {
+  precoCentavos: number;
+  /** Supplier price + supplier shipping per order. */
+  custoFornecedorCentavos: number;
+  /** Platform + gateway fees, basis points of price. */
+  taxasPontosBase: number;
+  /** Taxes on the sale, basis points of price. */
+  impostosPontosBase: number;
+  cpaCentavos: number;
+  /** Share of orders refunded, basis points. */
+  reembolsoPontosBase: number;
+  /** Share of orders with chargeback, basis points. */
+  chargebackPontosBase: number;
+  tarifaChargebackCentavos: number;
+};
+
+export type ResultadoDrop = {
+  /** Profit of an order that goes well. */
+  lucroPedidoNormalCentavos: number;
+  /** Loss of a refunded order (negative). */
+  perdaReembolsoCentavos: number;
+  /** Loss of a charged-back order (negative). */
+  perdaChargebackCentavos: number;
+  /** Average profit per order, refunds and chargebacks included. */
+  lucroEsperadoCentavos: number;
+  /** Same, as a share of price; null when price is zero. */
+  margemEsperadaPontosBase: number | null;
+};
+
+export function calcularMargemDrop(e: EntradaDrop): ResultadoDrop {
+  const taxas = arredondar((e.precoCentavos * e.taxasPontosBase) / 10_000);
+  const impostos = arredondar((e.precoCentavos * e.impostosPontosBase) / 10_000);
+  const normal = e.precoCentavos - e.custoFornecedorCentavos - taxas - impostos - e.cpaCentavos;
+  const reembolso = -(e.custoFornecedorCentavos + taxas + e.cpaCentavos);
+  const chargeback = reembolso - e.tarifaChargebackCentavos;
+  const r = e.reembolsoPontosBase / 10_000;
+  const k = e.chargebackPontosBase / 10_000;
+  const esperado = arredondar((1 - r - k) * normal + r * reembolso + k * chargeback);
+  return {
+    lucroPedidoNormalCentavos: normal,
+    perdaReembolsoCentavos: reembolso,
+    perdaChargebackCentavos: chargeback,
+    lucroEsperadoCentavos: esperado,
+    margemEsperadaPontosBase: e.precoCentavos > 0 ? Math.round((esperado * 10_000) / e.precoCentavos) : null,
+  };
+}

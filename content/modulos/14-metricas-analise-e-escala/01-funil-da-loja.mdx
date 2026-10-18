@@ -1,0 +1,122 @@
+---
+modulo: 14
+aula: 1
+titulo: "O funil da loja: visita → carrinho → checkout → compra"
+nivel: avancado
+duracao_min: 15
+objetivo: "Ao final você mede cada etapa do funil da sua loja, calcula as taxas de passagem e encontra a etapa que mais perde vendas."
+pre_requisitos: ["12-6", "9-5"]
+fontes:
+  - titulo: "Ajuda do Google Analytics — Eventos recomendados (vendas on-line)"
+    url: "https://support.google.com/analytics/answer/9267735?hl=pt-BR"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Quais são as etapas do funil de uma loja online?"
+    verso: "Visita → ver produto → adicionar ao carrinho → iniciar checkout → compra."
+  - frente: "Quais eventos do Google Analytics medem o funil de e-commerce?"
+    verso: "view_item, add_to_cart, begin_checkout e purchase, entre outros eventos recomendados."
+  - frente: "Por que medir a taxa de cada etapa, e não só a conversão final?"
+    verso: "Porque a conversão final não diz onde a venda se perde; a taxa de cada etapa diz."
+---
+
+<Objetivo>
+Ao final você mede cada etapa do funil da sua loja, calcula as taxas de passagem e encontra a etapa que mais perde vendas.
+</Objetivo>
+
+<PorQue>
+A conversão caiu de 2% para 1%. O que aconteceu? Pode ser que menos gente adicione ao carrinho (produto ou preço), que menos gente comece o checkout (frete) ou que o pagamento esteja falhando. Cada causa tem um conserto diferente, e só o funil mostra qual é.
+</PorQue>
+
+## Explicação
+
+### 1. As etapas
+
+<Termo id="funil-de-vendas">Funil</Termo> da loja:
+
+1. **Visita** (sessão na loja)
+2. **Ver produto**
+3. **Adicionar ao carrinho**
+4. **Iniciar checkout**
+5. **Compra** (pedido pago)
+
+O Google Analytics tem eventos recomendados para vendas on-line que cobrem essas etapas, como `view_item`, `add_to_cart`, `begin_checkout` e `purchase`, além de outros como `add_shipping_info`, `add_payment_info` e `refund`. [verificado] As plataformas de loja e os pixels (aula 12.1) costumam registrar eventos equivalentes.
+
+### 2. As taxas de passagem
+
+<Formula>
+Taxa da etapa = quem chegou nesta etapa ÷ quem estava na etapa anterior
+</Formula>
+
+<Formula>
+Conversão da loja = pedidos ÷ visitas
+</Formula>
+
+### 3. O que cada queda indica
+
+| Etapa que caiu | Onde olhar primeiro |
+| --- | --- |
+| Visita → carrinho | Página de produto, preço, fotos, prova (módulos 5 e 9) |
+| Carrinho → checkout | Frete e prazo aparecendo tarde (aula 9.5) |
+| Checkout → compra | Pagamento recusado, campo demais, falta de confiança |
+| Tudo caiu junto | Tráfego de pior qualidade ou problema técnico (site lento, fora do ar) |
+
+Não existe taxa "certa" universal: compare a sua loja com ela mesma, semana a semana. [estimativa]
+
+<Exemplo>
+Semana da loja (números de exemplo): 2.000 visitas, 120 carrinhos, 60 checkouts, 30 pedidos.
+
+- Carrinho por visita: 120 ÷ 2.000 = **6%**
+- Checkout por carrinho: 60 ÷ 120 = **50%**
+- Pedido por checkout: 30 ÷ 60 = **50%**
+- Conversão: 30 ÷ 2.000 = **1,5%**
+
+Na semana seguinte, o pedido por checkout caiu para 25% e o resto ficou igual. O problema não é o anúncio nem a página: é o pagamento. Conferir o gateway primeiro.
+</Exemplo>
+
+## Ferramenta
+
+<Calculadora tipo="painel-semanal" />
+
+<ErroComum>
+**Olhar só a conversão final.** Ela cai e você troca o anúncio, quando o problema era o checkout.
+
+**Comparar semanas com tráfego muito diferente sem perceber.** Uma semana com muito tráfego frio pode ter taxas piores sem que nada na loja tenha mudado.
+</ErroComum>
+
+<NaPratica>
+Abra o painel da sua plataforma de loja (ou do Analytics) e anote as cinco etapas da última semana. Calcule as taxas e marque a etapa que mais perde gente.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "1.000 visitas e 15 pedidos. Qual é a conversão da loja?",
+      opcoes: ["0,15%", "1,5%", "15%"],
+      correta: 1,
+      explicacao: "15 ÷ 1.000 = 0,015 = 1,5%.",
+    },
+    {
+      enunciado: "Carrinhos estáveis, mas checkouts caíram pela metade. Onde olhar?",
+      opcoes: ["No criativo do anúncio", "No frete e prazo que aparecem no carrinho", "Na foto principal"],
+      correta: 1,
+      explicacao: "A queda entre carrinho e checkout costuma ter a ver com frete, prazo ou surpresa de custo.",
+    },
+    {
+      enunciado: "Qual evento recomendado do Google Analytics marca o início do checkout?",
+      opcoes: ["view_item", "begin_checkout", "refund"],
+      correta: 1,
+      explicacao: "begin_checkout é o evento recomendado para início de checkout.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Funil: visita → produto → carrinho → checkout → compra.
+- Calcule a taxa de cada etapa, não só a conversão.
+- Cada queda aponta um lugar para olhar.
+- Compare a loja com ela mesma.
+- Eventos do Analytics e do pixel medem as etapas.
+</Resumo>
+
+<Fontes />

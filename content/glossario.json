@@ -608,5 +608,35 @@
     "id": "janela-de-atribuicao",
     "termo": "Janela de atribuição",
     "definicao": "Prazo, depois de um clique ou visualização do anúncio, dentro do qual uma compra é creditada ao anúncio (por exemplo, 7 dias após o clique)."
+  },
+  {
+    "id": "funil-de-vendas",
+    "termo": "Funil de vendas",
+    "definicao": "Sequência de etapas até a compra (visita, produto, carrinho, checkout, pedido). Medir quanto passa de uma etapa para a outra mostra onde a venda se perde."
+  },
+  {
+    "id": "coorte",
+    "termo": "Coorte",
+    "definicao": "Grupo de clientes que começou no mesmo período (por exemplo, quem comprou pela primeira vez em março), acompanhado ao longo do tempo para medir recompra e valor."
+  },
+  {
+    "id": "taxa-de-recompra",
+    "termo": "Taxa de recompra",
+    "definicao": "Parte dos clientes que voltou a comprar dentro de um período."
+  },
+  {
+    "id": "escala-vertical",
+    "termo": "Escala vertical",
+    "definicao": "Crescer aumentando a verba do que já funciona."
+  },
+  {
+    "id": "escala-horizontal",
+    "termo": "Escala horizontal",
+    "definicao": "Crescer abrindo novos criativos, públicos, canais ou produtos, em vez de só aumentar a verba."
+  },
+  {
+    "id": "edicao-significativa",
+    "termo": "Edição significativa",
+    "definicao": "Mudança em um conjunto de anúncios da Meta (público, criativo, evento de otimização, anúncio novo, pausa longa e, às vezes, orçamento) que faz o conjunto voltar à fase de aprendizado."
   }
 ]

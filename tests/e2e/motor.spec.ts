@@ -95,7 +95,7 @@ test("busca finds lessons by words in their text", async ({ page }) => {
 
 test("ferramentas shows every calculator and they react to input", async ({ page }) => {
   await page.goto("/ferramentas");
-  for (const tipo of ["margem", "roas", "ponto-equilibrio", "preco", "markup", "cac-ltv", "importacao"]) {
+  for (const tipo of ["margem", "roas", "ponto-equilibrio", "preco", "markup", "cac-ltv", "importacao", "ficha-produto", "campanha", "painel-semanal", "drop"]) {
     await expect(page.locator(`[data-calculadora="${tipo}"]`)).toBeVisible();
   }
   const pe = page.locator('[data-calculadora="ponto-equilibrio"]');

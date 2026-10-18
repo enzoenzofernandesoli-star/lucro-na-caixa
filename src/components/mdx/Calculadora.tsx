@@ -1,4 +1,5 @@
 import type { ComponentType } from "react";
+import { CalculadoraDrop } from "@/components/ferramentas/CalculadoraDrop";
 import { CalculadoraCacLtv } from "@/components/ferramentas/CalculadoraCacLtv";
 import { CalculadoraImportacao } from "@/components/ferramentas/CalculadoraImportacao";
 import { CalculadoraMargem } from "@/components/ferramentas/CalculadoraMargem";
@@ -7,6 +8,7 @@ import { CalculadoraPontoEquilibrio } from "@/components/ferramentas/Calculadora
 import { CalculadoraPreco } from "@/components/ferramentas/CalculadoraPreco";
 import { CalculadoraRoas } from "@/components/ferramentas/CalculadoraRoas";
 import { FichaProduto } from "@/components/ferramentas/FichaProduto";
+import { PainelSemanal } from "@/components/ferramentas/PainelSemanal";
 import { SimuladorCampanha } from "@/components/ferramentas/SimuladorCampanha";
 
 /** Every calculator, in the order /ferramentas shows them. */
@@ -20,6 +22,8 @@ export const CALCULADORAS = {
   importacao: { titulo: "Custo de importação", aula: "4-4", Componente: CalculadoraImportacao },
   "ficha-produto": { titulo: "Ficha de avaliação de produto", aula: "3-6", Componente: FichaProduto },
   campanha: { titulo: "Simulador de campanha", aula: "12-5", Componente: SimuladorCampanha },
+  "painel-semanal": { titulo: "Painel semanal", aula: "14-6", Componente: PainelSemanal },
+  drop: { titulo: "Margem do drop", aula: "16-6", Componente: CalculadoraDrop },
 } satisfies Record<string, { titulo: string; aula: string; Componente: ComponentType }>;
 
 export type TipoCalculadora = keyof typeof CALCULADORAS;

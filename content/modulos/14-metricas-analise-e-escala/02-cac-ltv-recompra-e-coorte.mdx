@@ -1,0 +1,123 @@
+---
+modulo: 14
+aula: 2
+titulo: "CAC, LTV, recompra e coorte"
+nivel: avancado
+duracao_min: 20
+objetivo: "Ao final você calcula CAC e LTV com margem, mede recompra por coorte e decide quanto pode pagar por um cliente novo."
+pre_requisitos: ["14-1", "1-6"]
+fontes:
+  - titulo: "Ajuda do Google Analytics — Eventos recomendados (vendas on-line)"
+    url: "https://support.google.com/analytics/answer/9267735?hl=pt-BR"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Como calcular o CAC?"
+    verso: "Gasto com marketing no período ÷ clientes novos no período."
+  - frente: "Como calcular o LTV usado neste curso?"
+    verso: "Ticket médio × margem de contribuição × número médio de compras por cliente."
+  - frente: "O que é uma coorte?"
+    verso: "Grupo de clientes que começou no mesmo período, acompanhado ao longo do tempo."
+---
+
+<Objetivo>
+Ao final você calcula CAC e LTV com margem, mede recompra por coorte e decide quanto pode pagar por um cliente novo.
+</Objetivo>
+
+<PorQue>
+Se o cliente compra uma vez e some, cada venda precisa pagar o anúncio sozinha. Se ele volta duas ou três vezes, você pode pagar mais para conquistá-lo. Saber qual é o seu caso muda quanto você pode investir, mas só com números reais, não com o "LTV" que se imagina.
+</PorQue>
+
+## Explicação
+
+### 1. CAC
+
+<Formula>
+CAC = gasto com marketing no período ÷ clientes novos no período
+</Formula>
+
+<Termo id="cac">CAC</Termo> conta **clientes novos**, não pedidos. Se metade dos pedidos é de quem já comprou, o CAC é maior que o CPA.
+
+### 2. LTV com margem
+
+<Formula>
+LTV = ticket médio × margem de contribuição × compras por cliente
+</Formula>
+
+Use a **margem**, não a receita: o <Termo id="ltv">LTV</Termo> em receita parece maior e engana. Este curso sempre usa LTV em margem. [estimativa]
+
+### 3. Recompra e coorte
+
+A <Termo id="taxa-de-recompra">taxa de recompra</Termo> é a parte dos clientes que voltou a comprar no período. Medir por <Termo id="coorte">coorte</Termo> evita misturar clientes antigos e novos:
+
+| Coorte (1ª compra) | Clientes | Voltaram em 90 dias | Recompra |
+| --- | --- | --- | --- |
+| Janeiro | 80 | 12 | 15% |
+| Fevereiro | 100 | 18 | 18% |
+| Março | 120 | 30 | 25% |
+
+(números de exemplo) A coorte de março recomprou mais: o que mudou? Embalagem, cupom de retorno, produto?
+
+### 4. A regra de decisão
+
+- **LTV ÷ CAC abaixo de 1**: cada cliente custa mais do que deixa.
+- **LTV ÷ CAC acima de 1**: o cliente paga a aquisição; o que sobra paga custos fixos e lucro.
+
+Referências de mercado como "LTV ÷ CAC de 3" circulam muito, mas não há uma fonte oficial que valha para todo e-commerce. [alegação não confirmada] Use a sua conta: o que sobra precisa cobrir os custos fixos (aula 1.8).
+
+<Exemplo>
+Mês da loja (números de exemplo): gasto com marketing R$ 2.000; 50 clientes novos; ticket R$ 120; margem 35%; 1,8 compra por cliente em 12 meses.
+
+- CAC = 2.000 ÷ 50 = **R$ 40**
+- LTV = 120 × 0,35 × 1,8 = **R$ 75,60**
+- LTV ÷ CAC = 75,60 ÷ 40 = **1,89**
+
+Cada cliente deixa R$ 35,60 a mais do que custou, mas só ao longo de 12 meses: o caixa precisa aguentar esse prazo.
+</Exemplo>
+
+## Ferramenta
+
+<Calculadora tipo="cac-ltv" />
+
+<ErroComum>
+**Usar LTV de receita.** R$ 216 de receita viram R$ 75,60 de margem.
+
+**Supor recompra que você nunca mediu.** Comece com 1 compra por cliente até ter dados de coorte.
+</ErroComum>
+
+<NaPratica>
+Exporte os pedidos da sua loja (ou use o exemplo) e separe os clientes pela data da primeira compra. Para cada mês, conte quantos voltaram em 90 dias. Calcule CAC e LTV do último trimestre.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "R$ 3.000 de marketing e 60 clientes novos. Qual é o CAC?",
+      opcoes: ["R$ 20", "R$ 50", "R$ 180"],
+      correta: 1,
+      explicacao: "3.000 ÷ 60 = 50.",
+    },
+    {
+      enunciado: "Ticket R$ 100, margem 30%, 2 compras por cliente. Qual é o LTV em margem?",
+      opcoes: ["R$ 60", "R$ 200", "R$ 30"],
+      correta: 0,
+      explicacao: "100 × 0,30 × 2 = 60.",
+    },
+    {
+      enunciado: "Por que medir recompra por coorte?",
+      opcoes: ["Para não misturar clientes antigos e novos", "Porque é obrigatório por lei", "Para aumentar o CAC"],
+      correta: 0,
+      explicacao: "A coorte acompanha cada grupo desde a primeira compra.",
+    },
+  ]}
+/>
+
+<Resumo>
+- CAC = marketing ÷ clientes novos.
+- LTV em margem = ticket × margem × compras por cliente.
+- Meça recompra por coorte.
+- LTV ÷ CAC acima de 1 paga a aquisição; o resto paga os fixos.
+- Não suponha recompra que você não mediu.
+</Resumo>
+
+<Fontes />

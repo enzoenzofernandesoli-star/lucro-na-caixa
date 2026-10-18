@@ -1,0 +1,121 @@
+---
+modulo: 14
+aula: 3
+titulo: "Testes A/B: como testar sem se enganar"
+nivel: avancado
+duracao_min: 20
+objetivo: "Ao final você desenha um teste A/B com uma variável, tamanho e prazo suficientes, e sabe quando o resultado ainda não diz nada."
+pre_requisitos: ["11-5", "14-1"]
+fontes:
+  - titulo: "Central de Ajuda da Meta para Empresas — Boas práticas para testes A/B"
+    url: "https://www.facebook.com/business/help/290009911394576"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Quantas variáveis mudar em um teste A/B?"
+    verso: "Uma. Se mudar duas, não dá para saber qual causou a diferença."
+  - frente: "Por quanto tempo a Meta recomenda rodar um teste A/B?"
+    verso: "No mínimo 7 dias para resultados confiáveis; o máximo no Gerenciador é 30 dias."
+  - frente: "Diferença de 3 vendas contra 2 prova que A é melhor?"
+    verso: "Não. Com números tão pequenos, a diferença pode ser acaso."
+---
+
+<Objetivo>
+Ao final você desenha um teste A/B com uma variável, tamanho e prazo suficientes, e sabe quando o resultado ainda não diz nada.
+</Objetivo>
+
+<PorQue>
+"Testei a página nova e vendeu mais." Quantas vendas? "Três contra duas." Isso não é teste, é sorteio. Decisões tomadas com números pequenos parecem científicas e são aleatórias, e você pode descartar a versão melhor.
+</PorQue>
+
+## Explicação
+
+### 1. Uma variável por vez
+
+Um <Termo id="teste-ab">teste A/B</Termo> compara duas versões que diferem em **uma** coisa: preço, foto principal, título, gancho do vídeo, frete. O resto fica igual.
+
+### 2. O que a Meta recomenda para testes de anúncio
+
+- Testar por **no mínimo 7 dias** para resultados confiáveis; testes com menos de 7 dias podem ser inconclusivos. O máximo no Gerenciador é **30 dias**. [verificado]
+- Se o seu cliente costuma levar mais de 7 dias para comprar depois de ver o anúncio, testar por mais tempo (por exemplo, 10 dias). [verificado]
+- Não usar o público do teste em outras campanhas ao mesmo tempo: públicos sobrepostos podem contaminar o resultado. [verificado]
+
+### 3. Tamanho: quantas vendas bastam
+
+Quanto menos vendas, mais o acaso pesa. Com poucas vendas por versão, só diferenças muito grandes são confiáveis. [estimativa] Antes de testar, pergunte: **em quanto tempo cada versão terá dezenas de conversões?** Se a resposta for "meses", teste algo mais acima no funil (CTR, carrinho) ou uma mudança maior.
+
+### 4. Como decidir
+
+| Resultado | Decisão |
+| --- | --- |
+| Diferença grande e consistente ao longo dos dias | Adote a vencedora |
+| Diferença pequena, poucas conversões | Inconclusivo: mantenha a atual ou teste mudança maior |
+| Uma versão ganhou só em 1 dia | Não decida por um dia |
+
+<Exemplo>
+Teste de frete na página (números de exemplo), 14 dias, 1.000 visitas em cada versão:
+
+| | Visitas | Pedidos | Conversão |
+| --- | --- | --- | --- |
+| A: frete à parte | 1.000 | 14 | 1,4% |
+| B: frete grátis acima de R$ 99 | 1.000 | 22 | 2,2% |
+
+B teve 8 pedidos a mais e venceu em 11 dos 14 dias. Ainda é pouco, mas a diferença é grande e repetida. Antes de adotar, confira se a **margem** de B (com o frete pago por você) continua melhor: mais pedidos com lucro menor pode não valer.
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Desenho do teste"
+  itens={[
+    "Uma variável só, escrita: 'A tem X, B tem Y'.",
+    "Métrica de decisão escolhida antes (conversão, CPA, margem).",
+    "Prazo de pelo menos 7 dias, sem editar no meio.",
+    "Estimativa de quantas conversões cada versão terá.",
+    "Públicos sem sobreposição com outras campanhas.",
+    "Regra de decisão escrita antes de ver o resultado.",
+  ]}
+/>
+
+<ErroComum>
+**Parar quando a sua versão favorita está ganhando.** Decida o prazo antes e respeite.
+
+**Mudar várias coisas e chamar de teste.** Você descobre que algo mudou, não o quê.
+</ErroComum>
+
+<NaPratica>
+Escolha uma mudança na sua loja ou anúncio, preencha o checklist e estime em quantos dias cada versão terá pelo menos 30 conversões com o seu tráfego atual.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Qual o prazo mínimo que a Meta recomenda para testes A/B confiáveis?",
+      opcoes: ["2 dias", "7 dias", "60 dias"],
+      correta: 1,
+      explicacao: "A Meta recomenda no mínimo sete dias; testes menores podem ser inconclusivos.",
+    },
+    {
+      enunciado: "Versão A: 3 vendas. Versão B: 2 vendas. O que concluir?",
+      opcoes: ["A é melhor", "Inconclusivo: números pequenos demais", "B é melhor"],
+      correta: 1,
+      explicacao: "Com tão poucas vendas, a diferença pode ser acaso.",
+    },
+    {
+      enunciado: "Você trocou foto e preço ao mesmo tempo e vendeu mais. O que sabe?",
+      opcoes: ["Que a foto funcionou", "Que o preço funcionou", "Que a combinação mudou o resultado, mas não qual das duas"],
+      correta: 2,
+      explicacao: "Com duas variáveis, não dá para separar o efeito de cada uma.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Uma variável por teste.
+- Pelo menos 7 dias, sem editar no meio.
+- Poucas conversões = resultado inconclusivo.
+- Métrica e regra de decisão escritas antes.
+- Confira a margem da vencedora, não só a conversão.
+</Resumo>
+
+<Fontes />

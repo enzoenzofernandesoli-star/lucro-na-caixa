@@ -271,3 +271,56 @@ describe("simularCampanha", () => {
     expect(r.resultadoCentavos).toBe(0);
   });
 });
+
+import { calcularMargemDrop, calcularPainelSemanal } from "@/lib/calculos";
+
+describe("calcularPainelSemanal", () => {
+  const base = { visitas: 2_000, carrinhos: 120, checkouts: 60, pedidos: 30, receitaCentavos: 300_000, gastoAnunciosCentavos: 90_000, margemPontosBase: 4_000 };
+
+  it("computes funnel rates, CPA, ROAS and profit", () => {
+    const r = calcularPainelSemanal(base);
+    expect(r.carrinhoPorVisita).toBe(600);
+    expect(r.checkoutPorCarrinho).toBe(5_000);
+    expect(r.pedidoPorCheckout).toBe(5_000);
+    expect(r.conversao).toBe(150);
+    expect(r.ticketMedioCentavos).toBe(10_000);
+    expect(r.cpaCentavos).toBe(3_000);
+    expect(r.roas).toBeCloseTo(3.333, 3);
+    expect(r.roasEquilibrio).toBe(2.5);
+    expect(r.lucroCentavos).toBe(120_000 - 90_000);
+  });
+
+  it("returns null rates for empty steps", () => {
+    const r = calcularPainelSemanal({ ...base, visitas: 0, pedidos: 0, gastoAnunciosCentavos: 0, margemPontosBase: 0 });
+    expect(r.carrinhoPorVisita).toBeNull();
+    expect(r.cpaCentavos).toBeNull();
+    expect(r.roas).toBeNull();
+    expect(r.roasEquilibrio).toBeNull();
+  });
+});
+
+describe("calcularMargemDrop", () => {
+  const base = {
+    precoCentavos: 10_000, custoFornecedorCentavos: 4_000, taxasPontosBase: 500, impostosPontosBase: 600,
+    cpaCentavos: 2_500, reembolsoPontosBase: 0, chargebackPontosBase: 0, tarifaChargebackCentavos: 0,
+  };
+
+  it("equals the normal order profit with no refunds", () => {
+    const r = calcularMargemDrop(base);
+    expect(r.lucroPedidoNormalCentavos).toBe(10_000 - 4_000 - 500 - 600 - 2_500);
+    expect(r.lucroEsperadoCentavos).toBe(2_400);
+    expect(r.margemEsperadaPontosBase).toBe(2_400);
+  });
+
+  it("averages refunds and chargebacks into the expected profit", () => {
+    const r = calcularMargemDrop({ ...base, reembolsoPontosBase: 800, chargebackPontosBase: 200, tarifaChargebackCentavos: 1_500 });
+    expect(r.perdaReembolsoCentavos).toBe(-7_000);
+    expect(r.perdaChargebackCentavos).toBe(-8_500);
+    // 0.90 × 2400 + 0.08 × (−7000) + 0.02 × (−8500) = 2160 − 560 − 170
+    expect(r.lucroEsperadoCentavos).toBe(1_430);
+  });
+
+  it("handles zero price", () => {
+    expect(calcularMargemDrop({ ...base, precoCentavos: 0 }).margemEsperadaPontosBase).toBeNull();
+  });
+});
