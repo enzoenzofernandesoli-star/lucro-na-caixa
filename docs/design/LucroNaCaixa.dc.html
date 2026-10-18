@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Lucro na Caixa · identidade escolhida</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=Figtree:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#D9BC8C}
+a{color:#141210}a:hover{color:#E5292B}
+.dp-btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 #141210}
+.dp-step:hover{background:#FFE03A}
+.dp-opt:hover{background:#FFF4B8}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1680px; box-sizing: border-box; background: #D9BC8C; color: #141210; font-family: 'Figtree', sans-serif; position: relative; overflow: hidden">
+
+<section style="position: relative; height: 720px; box-sizing: border-box; padding: 64px 80px; display: flex; flex-direction: column; justify-content: space-between">
+<div aria-hidden="true" style="position: absolute; right: -120px; top: 120px; width: 900px; height: 70px; background: #E5292B; transform: rotate(8deg); display: flex; align-items: center; gap: 40px; padding-left: 60px; font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 18px; letter-spacing: 0.2em; color: #FFFFFF; white-space: nowrap">VENDIDO · DESPACHADO · ENTREGUE · VENDIDO · DESPACHADO</div>
+<div style="position: relative; display: flex; justify-content: space-between; align-items: center">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; letter-spacing: 0.15em">CURSO · E-COMMERCE · DROPSHIPPING</span>
+<span style="padding: 8px 16px; background: #141210; color: #FFE03A; border-radius: 999px; font-weight: 700; font-size: 14px">10 MÓDULOS</span>
+</div>
+<div style="position: relative; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 24px; max-width: 840px">
+<h1 style="margin: 0; font-family: 'Saira Stencil One', sans-serif; font-weight: 400; font-size: 150px; line-height: 0.88">LUCRO NA<br>CAIXA<span style="color: #E5292B">.</span></h1>
+<p style="margin: 0; font-size: 27px; line-height: 1.35; font-weight: 500; max-width: 680px">E-commerce e dropshipping do zero ao avançado: vender mais, anunciar melhor e saber se cada venda deixa dinheiro no caixa.</p>
+<div style="display: flex; gap: 16px">
+<a class="dp-btn" href="#aula-d" style="display: inline-flex; align-items: center; min-height: 58px; padding: 0 30px; border: 3px solid #141210; border-radius: 14px; background: #FFE03A; color: #141210; font-weight: 700; font-size: 18px; text-decoration: none; box-shadow: 6px 6px 0 #141210">Abrir o módulo 1</a>
+<a href="#aula-d" style="display: inline-flex; align-items: center; min-height: 58px; padding: 0 26px; border: 3px solid #141210; border-radius: 14px; background: #F7F2E7; font-weight: 700; font-size: 18px; text-decoration: none">Ver a trilha</a>
+</div>
+</div>
+<div style="position: relative; width: 320px; height: 330px">
+<div style="position: absolute; left: 0; top: 10px; width: 270px; background: #F7F2E7; border: 3px solid #141210; padding: 20px; display: flex; flex-direction: column; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; transform: rotate(-4deg)">
+<div style="display: flex; justify-content: space-between; border-bottom: 3px solid #141210; padding-bottom: 8px"><b>PEDIDO</b><span>#0001</span></div>
+<div>DESTINO: <b>LUCRO</b></div>
+<div aria-hidden="true" style="height: 52px; background: repeating-linear-gradient(90deg,#141210 0 3px,transparent 3px 6px,#141210 6px 7px,transparent 7px 11px)"></div>
+</div>
+<div style="position: absolute; right: 0; bottom: 0; width: 190px; height: 190px; border-radius: 50%; background: #FFE03A; border: 3px solid #141210; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(12deg); text-align: center; box-shadow: 6px 6px 0 #141210">
+<span style="font-size: 14px; font-weight: 700">MARGEM</span>
+<span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 52px; line-height: 1">39%</span>
+<span style="font-size: 12px">exemplo</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="aula-d" style="height: 960px; box-sizing: border-box; margin: 0 40px; background: #F7F2E7; border: 3px solid #141210; border-radius: 22px; box-shadow: 10px 10px 0 #141210; overflow: hidden; display: grid; grid-template-columns: 320px minmax(0, 1fr)">
+<nav aria-label="Módulos" style="border-right: 3px solid #141210; padding: 28px 20px; display: flex; flex-direction: column; gap: 6px; background: #EFE6D2">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.15em; margin-bottom: 10px">MÓDULOS</span>
+<sc-for list="{{modulos}}" as="m" hint-placeholder-count="10">
+<a href="#aula-d" style="display: flex; gap: 12px; align-items: center; min-height: 44px; padding: 6px 12px; border-radius: 10px; text-decoration: none; background: {{m.bg}}; color: {{m.fg}}; font-size: 15px; font-weight: 600">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; width: 22px">{{m.n}}</span><span>{{m.t}}</span></a>
+</sc-for>
+</nav>
+<div style="padding: 40px 56px; display: flex; flex-direction: column; gap: 24px; min-width: 0">
+<span style="align-self: flex-start; padding: 6px 14px; background: #E5292B; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 13px; letter-spacing: 0.1em">MÓDULO 01 · AULA 02</span>
+<h2 style="margin: 0; font-family: 'Saira Stencil One', sans-serif; font-weight: 400; font-size: 56px; line-height: 1">MARGEM DE CONTRIBUIÇÃO</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; max-width: 720px">É o que sobra de cada venda depois de pagar o produto, as taxas, o frete e a embalagem. Se ela não paga o anúncio, vender mais só aumenta o prejuízo.</p>
+<div style="display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 20px">
+<div style="border: 3px solid #141210; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px; background: #FFFFFF">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.15em">CALCULADORA</span>
+<sc-for list="{{campos}}" as="c" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="font-size: 16px; font-weight: 600">{{c.label}}</span>
+<div style="display: flex; align-items: center; gap: 8px">
+<button class="dp-step" type="button" onClick="{{c.menos}}" aria-label="Diminuir" style="width: 44px; height: 44px; border-radius: 10px; border: 3px solid #141210; background: #FFFFFF; font-size: 20px; font-weight: 700; cursor: pointer">−</button>
+<span style="font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 17px; min-width: 110px; text-align: center">{{c.valor}}</span>
+<button class="dp-step" type="button" onClick="{{c.mais}}" aria-label="Aumentar" style="width: 44px; height: 44px; border-radius: 10px; border: 3px solid #141210; background: #FFFFFF; font-size: 20px; font-weight: 700; cursor: pointer">+</button>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="border: 3px solid #141210; border-radius: 16px; padding: 24px; background: #FFE03A; display: flex; flex-direction: column; justify-content: space-between; gap: 16px">
+<div><div style="font-size: 15px; font-weight: 500">Margem antes do anúncio</div><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 44px; line-height: 1.1">{{mc}}</div><div style="font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 16px; color: #B3121A">{{mcp}}</div></div>
+<div><div style="font-size: 15px; font-weight: 500">ROAS de equilíbrio</div><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 44px; line-height: 1.1">{{roas}}</div></div>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; font-weight: 500">{{veredito}}</p>
+</div>
+</div>
+<div style="border-top: 3px dashed #141210; padding-top: 20px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-weight: 700; font-size: 18px">Teste rápido: a margem é 25%. Qual é o ROAS de equilíbrio?</span>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<sc-for list="{{opcoes}}" as="o" hint-placeholder-count="3">
+<button class="dp-opt" type="button" onClick="{{o.pick}}" style="min-height: 50px; padding: 0 24px; border-radius: 12px; border: 3px solid #141210; background: {{o.bg}}; color: {{o.fg}}; font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 16px; cursor: pointer">{{o.t}}</button>
+</sc-for>
+</div>
+<span style="font-size: 16px; font-weight: 700; color: #B3121A">{{feedback}}</span>
+</div>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1680}}'>
+class Component extends DCLogic {
+constructor(p){super(p);this.state={preco:100,custo:35,taxa:15,frete:10,resp:null};}
+renderVals(){
+const s=this.state;const brl=v=>'R$ '+v.toFixed(2).replace('.',',');
+const mc=s.preco-s.custo-s.preco*s.taxa/100-s.frete-1;const p=mc/s.preco;
+const set=(k,d,min)=>()=>this.setState({[k]:Math.max(min,s[k]+d)});
+const mods=['A conta do produto','Escolher e validar','Fornecedores','Shopee','Mercado Livre e TikTok Shop','Página que vende','Criativo e vídeo','Tráfego pago','Métricas e escala','Dropshipping e ERP'];
+const ops=[{t:'2,5',ok:false},{t:'4,0',ok:true},{t:'25',ok:false}];
+return {
+modulos:mods.map((t,i)=>({t,n:String(i+1).padStart(2,'0'),bg:i===0?'#141210':'transparent',fg:i===0?'#FFE03A':'#141210'})),
+campos:[
+{label:'Preço de venda',valor:brl(s.preco),menos:set('preco',-5,10),mais:set('preco',5,10)},
+{label:'Custo do produto',valor:brl(s.custo),menos:set('custo',-5,0),mais:set('custo',5,0)},
+{label:'Taxas (%)',valor:s.taxa+'%',menos:set('taxa',-1,0),mais:set('taxa',1,0)},
+{label:'Frete que você paga',valor:brl(s.frete),menos:set('frete',-1,0),mais:set('frete',1,0)}],
+mc:brl(mc),mcp:(p*100).toFixed(1).replace('.',',')+'% do preço',
+roas:p>0?(1/p).toFixed(2).replace('.',','):'—',
+veredito:p<=0?'Cada venda dá prejuízo antes mesmo do anúncio.':(p<0.2?'Margem apertada: o anúncio precisa ser muito eficiente.':'Margem saudável para testar anúncios com controle.'),
+opcoes:ops.map((o,i)=>({t:o.t,pick:()=>this.setState({resp:i}),bg:s.resp===i?(o.ok?'#141210':'#E5292B'):'#FFFFFF',fg:s.resp===i?'#FFFFFF':'#141210'})),
+feedback:s.resp===null?'Escolha uma resposta.':(ops[s.resp].ok?'Certo: 1 ÷ 0,25 = 4. O anúncio precisa devolver R$ 4 para cada R$ 1.':'Ainda não. ROAS de equilíbrio = 1 ÷ margem. Tente de novo.')
+};}
+}
+</script>
+</body>
+</html>
