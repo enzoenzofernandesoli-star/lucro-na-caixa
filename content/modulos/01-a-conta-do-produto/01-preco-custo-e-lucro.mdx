@@ -1,0 +1,138 @@
+---
+modulo: 1
+aula: 1
+titulo: "Preço, custo e lucro"
+nivel: iniciante
+duracao_min: 15
+objetivo: "Ao final você separa faturamento, custo e lucro de um mês de vendas e calcula a lucratividade."
+pre_requisitos: ["0-4"]
+fontes:
+  - titulo: "Sebrae — Guia de Planejamento Financeiro para Micro e Pequenas Empresas (PDF, seções Diferença entre faturamento e lucro e Lucratividade)"
+    url: "https://sebrae.com.br/content/dam/portal-sebrae/na/midias/documentos/pdfs/guia-de-planejamento-financeiro_2026-04-18_v1.pdf"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Qual a diferença entre faturamento e lucro?"
+    verso: "Faturamento é tudo o que entrou de vendas. Lucro é o que sobra depois de pagar todos os custos."
+  - frente: "Como calcular a lucratividade?"
+    verso: "Lucro ÷ faturamento × 100. Mostra quanto de cada real vendido virou lucro."
+  - frente: "Por que dá para faturar muito e ter prejuízo?"
+    verso: "Porque cada venda pode custar mais do que rende. Vender mais, nesse caso, só aumenta o prejuízo."
+---
+
+<Objetivo>
+Ao final você separa faturamento, custo e lucro de um mês de vendas e calcula a lucratividade.
+</Objetivo>
+
+<PorQue>
+Você vendeu R$ 20 mil no mês. Parece ótimo. Mas no fim do mês a conta do banco está igual, ou menor. Para onde foi o dinheiro?
+
+Essa é a confusão mais comum de quem começa: achar que vender é ganhar. Esta aula separa as três palavras que você vai usar em todo o curso: preço, custo e lucro.
+</PorQue>
+
+## Explicação
+
+### 1. Preço
+
+É o valor que o cliente paga. Somando todos os preços das vendas de um mês, você tem o <Termo id="faturamento">faturamento</Termo>.
+
+### 2. Custo
+
+É tudo o que você paga para o negócio funcionar. Ele se divide em dois tipos, que você vai usar o tempo todo:
+
+- <Termo id="custo-variavel">Custo variável</Termo>: aparece a cada venda. Produto, taxa da plataforma, imposto, frete, embalagem.
+- <Termo id="custo-fixo">Custo fixo</Termo>: aparece todo mês, vendendo ou não. Internet, sistema, contador, aluguel.
+
+### 3. Lucro
+
+É o que sobra:
+
+<Formula titulo="Lucro do mês">
+Lucro = faturamento − custos variáveis − custos fixos
+</Formula>
+
+O Sebrae insiste nessa separação: faturamento é o total das vendas e lucro é o que fica depois de todos os gastos. [verificado]
+
+### 4. Lucratividade
+
+Para comparar meses ou negócios de tamanhos diferentes, use a porcentagem. O Sebrae chama de lucratividade: o lucro dividido pelo faturamento. [verificado]
+
+<Formula titulo="Lucratividade">
+Lucratividade = lucro ÷ faturamento × 100
+</Formula>
+
+Uma <Termo id="lucratividade">lucratividade</Termo> de 10% quer dizer que, de cada R$ 100 vendidos, R$ 10 viraram lucro.
+
+<Exemplo>
+Uma loja de garrafas térmicas num mês. Todos os valores são de exemplo.
+
+| Item | Valor |
+| --- | ---: |
+| Faturamento (200 garrafas × R$ 100) | R$ 20.000 |
+| (−) Produto (200 × R$ 35) | R$ 7.000 |
+| (−) Taxas e imposto (15%) | R$ 3.000 |
+| (−) Frete e embalagem (200 × R$ 11) | R$ 2.200 |
+| (−) Anúncios | R$ 5.500 |
+| (−) Custos fixos | R$ 1.500 |
+| **(=) Lucro** | **R$ 800** |
+
+Lucratividade: 800 ÷ 20.000 × 100 = **4%**.
+
+Vendeu R$ 20 mil, ganhou R$ 800. É lucro, mas é pouco: um aumento pequeno no anúncio já zera o mês.
+</Exemplo>
+
+## Ferramenta
+
+A calculadora abaixo faz a parte por venda dessa conta (sem anúncio e sem custo fixo). Você vai entender cada campo na próxima aula.
+
+<Calculadora tipo="margem" />
+
+<ErroComum>
+**Usar o dinheiro da conta como termômetro.** A conta do banco mistura dinheiro de vendas antigas, parcelas a receber e contas a pagar. Para saber se teve lucro, faça a conta do mês com faturamento, custos variáveis e custos fixos.
+
+**Esquecer o próprio salário.** Se você trabalha no negócio, o seu pró-labore é custo fixo. Lucro que só existe porque você trabalha de graça não é lucro.
+</ErroComum>
+
+<NaPratica>
+Pegue o último mês da sua loja (ou monte um mês fictício com o seu produto de laboratório). Liste:
+
+1. O faturamento.
+2. Os custos variáveis, item por item.
+3. Os custos fixos, item por item.
+4. O lucro e a lucratividade.
+
+Se não tiver os números, anote quais faltam. Descobrir o que você não mede já é um resultado.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Qual destes é custo fixo?",
+      opcoes: ["Embalagem do pedido", "Mensalidade do sistema de gestão", "Comissão do marketplace"],
+      correta: 1,
+      explicacao: "A mensalidade é paga mesmo sem vendas. Embalagem e comissão aparecem a cada venda: são custos variáveis.",
+    },
+    {
+      enunciado: "Faturamento de R$ 10.000 e lucro de R$ 1.500. Qual a lucratividade?",
+      opcoes: ["1,5%", "15%", "66%"],
+      correta: 1,
+      explicacao: "1.500 ÷ 10.000 × 100 = 15%.",
+    },
+    {
+      enunciado: "Uma loja dobrou o faturamento e o lucro caiu. Isso é possível?",
+      opcoes: ["Não, mais vendas sempre dão mais lucro", "Sim, se as novas vendas custaram mais do que renderam", "Só se o imposto mudou"],
+      correta: 1,
+      explicacao: "Se cada venda extra (com anúncio, frete e taxas) custa mais do que rende, vender mais aumenta o prejuízo.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Faturamento é o que entra; lucro é o que sobra.
+- Custos variáveis aparecem a cada venda; fixos, todo mês.
+- Lucro = faturamento − custos variáveis − custos fixos.
+- Lucratividade = lucro ÷ faturamento.
+- O seu trabalho no negócio também é custo.
+</Resumo>
+
+<Fontes />

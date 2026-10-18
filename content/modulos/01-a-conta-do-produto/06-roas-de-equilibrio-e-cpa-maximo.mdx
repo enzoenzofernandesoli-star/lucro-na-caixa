@@ -1,0 +1,149 @@
+---
+modulo: 1
+aula: 6
+titulo: "ROAS de equilíbrio e CPA máximo"
+nivel: iniciante
+duracao_min: 20
+objetivo: "Ao final você calcula, antes de anunciar, o CPA máximo e o ROAS de equilíbrio de um produto e diz se uma campanha deu lucro."
+pre_requisitos: ["1-2", "1-5"]
+fontes:
+  - titulo: "Ajuda do Google Ads — Glossário (verbetes CPA, ROAS e ROI)"
+    url: "https://support.google.com/google-ads/answer/12851704?hl=pt-BR"
+    consultado_em: "2026-10-18"
+  - titulo: "Central de Ajuda da Meta para Empresas — Retorno sobre o investimento em publicidade (ROAS) das compras"
+    url: "https://www.facebook.com/business/help/274294333328345"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "O que é o CPA máximo de um produto?"
+    verso: "O máximo de anúncio por venda sem prejuízo. É igual à margem de contribuição da venda, em reais."
+  - frente: "Margem de R$ 30 por venda. Uma campanha teve CPA de R$ 36. Lucro ou prejuízo?"
+    verso: "Prejuízo de R$ 6 por venda, antes dos custos fixos."
+  - frente: "Como ligar CPA e ROAS?"
+    verso: "ROAS = preço ÷ CPA (quando cada venda tem o mesmo preço). CPA máximo ↔ ROAS de equilíbrio."
+---
+
+<Objetivo>
+Ao final você calcula, antes de anunciar, o CPA máximo e o ROAS de equilíbrio de um produto e diz se uma campanha deu lucro.
+</Objetivo>
+
+<PorQue>
+O painel de anúncios mostra dezenas de números. Quem não sabe qual é o limite do próprio produto olha para eles sem saber se está bom ou ruim.
+
+Duas contas resolvem isso: o **CPA máximo** e o **ROAS de equilíbrio**. Você faz as duas antes de gastar o primeiro real. Depois, basta comparar o painel com elas.
+</PorQue>
+
+## Explicação
+
+### 1. CPA
+
+<Termo id="cpa">CPA</Termo> é quanto você gastou em anúncio para conseguir cada venda. O Google Ads define como o custo total dividido pelo total de conversões. [verificado]
+
+<Formula titulo="CPA">
+CPA = gasto com anúncio ÷ número de vendas
+</Formula>
+
+### 2. CPA máximo
+
+Cada venda deixa uma <Termo id="margem-de-contribuicao">margem de contribuição</Termo> (aula 1.2). Se o anúncio custa mais que essa margem, cada venda dá prejuízo. Então:
+
+<Formula titulo="CPA máximo">
+CPA máximo = margem de contribuição da venda, em reais
+</Formula>
+
+O <Termo id="cpa-maximo">CPA máximo</Termo> é o ponto de empate. Abaixo dele, sobra dinheiro para os custos fixos. Acima, cada venda tira dinheiro do caixa.
+
+### 3. ROAS de equilíbrio
+
+O <Termo id="roas">ROAS</Termo> olha o mesmo anúncio pelo outro lado: vendas ÷ gasto. A Meta calcula o ROAS das compras como o valor de conversão das compras dividido pelo valor gasto. [verificado]
+
+O <Termo id="roas-de-equilibrio">ROAS de equilíbrio</Termo> é o ROAS em que o anúncio empata:
+
+<Formula titulo="ROAS de equilíbrio">
+ROAS de equilíbrio = preço ÷ CPA máximo = 1 ÷ margem (em decimal)
+</Formula>
+
+As duas contas dizem a mesma coisa: com preço R$ 100 e margem R$ 25, o CPA máximo é R$ 25 e o ROAS de equilíbrio é 100 ÷ 25 = 4.
+
+### 4. Lendo uma campanha
+
+- **CPA abaixo do CPA máximo** (ou ROAS acima do equilíbrio): a campanha contribui para pagar os custos fixos.
+- **CPA acima** (ou ROAS abaixo): cada venda dá prejuízo.
+
+### 5. Um cuidado
+
+O número que a plataforma mostra é o que ela atribui ao anúncio. A Meta avisa que, em alguns casos, o ROAS é estimado. [verificado] Sempre confira com as vendas reais da sua loja no mesmo período (você verá atribuição em detalhe no módulo 13).
+
+<Exemplo>
+Garrafa térmica de **R$ 100** com margem de contribuição de **R$ 39** (39%), valores de exemplo:
+
+- CPA máximo: **R$ 39**.
+- ROAS de equilíbrio: 100 ÷ 39 = **2,56**.
+
+Campanha A: R$ 600 gastos, 20 vendas.
+- CPA = 600 ÷ 20 = R$ 30 → abaixo de R$ 39. Sobram R$ 9 por venda: **R$ 180** no total.
+- ROAS = 2.000 ÷ 600 = 3,33 → acima de 2,56. Mesma conclusão.
+
+Campanha B: R$ 600 gastos, 12 vendas.
+- CPA = 600 ÷ 12 = R$ 50 → acima de R$ 39. Perde R$ 11 por venda: **−R$ 132**.
+- ROAS = 1.200 ÷ 600 = 2,00 → abaixo de 2,56.
+</Exemplo>
+
+## Ferramenta
+
+Coloque as vendas e o gasto de uma campanha. A calculadora mostra o ROAS, o equilíbrio e o que sobrou.
+
+<Calculadora tipo="roas" />
+
+<ErroComum>
+**Achar que ROAS acima de 1 é lucro.** ROAS 2 quer dizer R$ 2 de venda por R$ 1 de anúncio, não R$ 2 de lucro. Com margem de 39%, ROAS 2 ainda dá prejuízo.
+
+**Calcular o CPA máximo com o preço.** O limite é a margem, não o preço. Pagar R$ 60 de anúncio para vender um produto de R$ 100 parece barato, mas, com margem de R$ 39, é prejuízo de R$ 21 por venda.
+</ErroComum>
+
+<NaPratica>
+Para o seu produto de laboratório:
+
+1. Pegue a margem de contribuição calculada nas aulas anteriores.
+2. Escreva o CPA máximo e o ROAS de equilíbrio.
+3. Defina uma meta mais segura: por exemplo, CPA de no máximo 70% do CPA máximo, para sobrar dinheiro para os custos fixos. Anote os dois números: limite e meta.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Produto com margem de contribuição de R$ 20. Qual o CPA máximo?",
+      opcoes: ["R$ 20", "R$ 40", "Depende só do preço"],
+      correta: 0,
+      explicacao: "O CPA máximo é igual à margem da venda: R$ 20. Acima disso, cada venda dá prejuízo.",
+    },
+    {
+      enunciado: "Preço R$ 80, margem R$ 20. Qual o ROAS de equilíbrio?",
+      opcoes: ["2", "4", "0,25"],
+      correta: 1,
+      explicacao: "ROAS de equilíbrio = preço ÷ margem = 80 ÷ 20 = 4 (ou 1 ÷ 0,25).",
+    },
+    {
+      enunciado: "Gastou R$ 900 e fez 30 vendas. Margem por venda de R$ 25. Resultado?",
+      opcoes: ["Lucro de R$ 150", "Prejuízo de R$ 150", "Empate"],
+      correta: 1,
+      explicacao: "CPA = 900 ÷ 30 = R$ 30, acima da margem de R$ 25. Perde R$ 5 por venda × 30 = −R$ 150.",
+    },
+    {
+      enunciado: "O ROAS que a plataforma mostra é sempre exato?",
+      opcoes: ["Sim, é o número real de vendas", "Não, é o que ela atribui ao anúncio e pode ser estimado", "Só no Google"],
+      correta: 1,
+      explicacao: "A plataforma conta as vendas que atribui ao anúncio, e a Meta avisa que às vezes o valor é estimado. Confira com as vendas reais.",
+    },
+  ]}
+/>
+
+<Resumo>
+- CPA = gasto ÷ vendas. CPA máximo = margem de contribuição em reais.
+- ROAS de equilíbrio = preço ÷ margem = 1 ÷ margem %.
+- CPA abaixo do máximo (ou ROAS acima do equilíbrio): a campanha contribui.
+- O limite é a margem, não o preço.
+- Compare o painel com as vendas reais: o número da plataforma é atribuído.
+</Resumo>
+
+<Fontes />

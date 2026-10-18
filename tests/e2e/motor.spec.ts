@@ -73,7 +73,7 @@ test("revisão only offers cards after the lesson is completed, then schedules t
 
 test("glossário filters terms and lesson terms open their definition", async ({ page }) => {
   await page.goto("/glossario");
-  await page.getByLabel("Buscar termo").fill("equilibrio");
+  await page.getByLabel("Buscar termo").fill("roas de equilibrio");
   await expect(page.locator("dl > div")).toHaveCount(1);
   await expect(page.locator("dl > div")).toContainText("ROAS de equilíbrio");
 
@@ -86,9 +86,9 @@ test("glossário filters terms and lesson terms open their definition", async ({
 
 test("busca finds lessons by words in their text", async ({ page }) => {
   await page.goto("/busca");
-  await page.getByLabel("O que você procura?").fill("aluguel");
-  await expect(page.getByText(/1 aula encontrada/)).toBeVisible();
-  await expect(page.getByRole("link", { name: /Margem de contribuição/ })).toBeVisible();
+  await page.getByLabel("O que você procura?").fill("roas de equilibrio");
+  await expect(page.getByText(/aulas? encontradas?/)).not.toHaveText(/^0 /);
+  await expect(page.getByRole("link", { name: /ROAS de equilíbrio e CPA máximo/ })).toBeVisible();
   await page.getByLabel("O que você procura?").fill("xyzabc");
   await expect(page.getByText(/0 aulas encontradas/)).toBeVisible();
 });

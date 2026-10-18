@@ -1,0 +1,132 @@
+---
+modulo: 1
+aula: 8
+titulo: "Ponto de equilíbrio"
+nivel: iniciante
+duracao_min: 15
+objetivo: "Ao final você calcula quantas vendas por mês pagam os seus custos fixos e quanto precisa vender para ter o lucro que quer."
+pre_requisitos: ["1-7"]
+fontes:
+  - titulo: "Sebrae — Guia de Planejamento Financeiro para Micro e Pequenas Empresas (PDF, seções Ponto de equilíbrio e Margem de contribuição)"
+    url: "https://sebrae.com.br/content/dam/portal-sebrae/na/midias/documentos/pdfs/guia-de-planejamento-financeiro_2026-04-18_v1.pdf"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Fórmula do ponto de equilíbrio em faturamento?"
+    verso: "Custos fixos ÷ margem de contribuição em %."
+  - frente: "Custos fixos de R$ 2.000 e margem de R$ 40 por venda. Quantas vendas pagam o mês?"
+    verso: "2.000 ÷ 40 = 50 vendas."
+  - frente: "Como incluir um lucro desejado no ponto de equilíbrio?"
+    verso: "Some o lucro desejado aos custos fixos antes de dividir pela margem."
+---
+
+<Objetivo>
+Ao final você calcula quantas vendas por mês pagam os seus custos fixos e quanto precisa vender para ter o lucro que quer.
+</Objetivo>
+
+<PorQue>
+Toda loja tem custos que chegam todo mês: sistema, internet, contador, o seu pró-labore. A margem de cada venda vai pagando esses custos aos poucos. Até pagar tudo, o mês está no vermelho.
+
+Saber esse número muda o jeito de planejar. Em vez de "quero vender mais", você passa a ter uma meta concreta: "preciso de 77 vendas para empatar".
+</PorQue>
+
+## Explicação
+
+### 1. A ideia
+
+O <Termo id="ponto-de-equilibrio">ponto de equilíbrio</Termo> é onde a soma das margens do mês fica igual aos custos fixos. Lucro zero, prejuízo zero.
+
+### 2. As fórmulas
+
+O Sebrae calcula o ponto de equilíbrio dividindo os custos e despesas fixas pela margem de contribuição em porcentagem, e mostra que dá para incluir o lucro mínimo desejado na conta. [verificado]
+
+<Formula titulo="Faturamento de equilíbrio">
+Faturamento de equilíbrio = custos fixos ÷ margem de contribuição %
+</Formula>
+
+<Formula titulo="Vendas de equilíbrio">
+Vendas de equilíbrio = custos fixos ÷ margem de contribuição por venda (em reais)
+</Formula>
+
+Arredonde para cima: não existe meia venda.
+
+### 3. Com lucro desejado
+
+<Formula titulo="Vendas para ter o lucro que você quer">
+Vendas = (custos fixos + lucro desejado) ÷ margem por venda
+</Formula>
+
+### 4. E o anúncio?
+
+Se você anuncia, o anúncio por venda (o CPA) também sai da margem. Use a margem **depois do anúncio** na conta:
+
+<Formula titulo="Margem depois do anúncio">
+Margem depois do anúncio = margem de contribuição − CPA
+</Formula>
+
+<Exemplo>
+Loja com custos fixos de **R$ 3.000** por mês. Produto de R$ 100 com margem de **R$ 39** (39%). Valores de exemplo.
+
+- Vendas de equilíbrio: 3.000 ÷ 39 = 76,9 → **77 vendas**.
+- Faturamento de equilíbrio: 3.000 ÷ 0,39 = **R$ 7.692,31**.
+
+Com anúncio custando **R$ 25** por venda (CPA), a margem depois do anúncio cai para 39 − 25 = R$ 14:
+- Vendas de equilíbrio: 3.000 ÷ 14 = 214,3 → **215 vendas**.
+
+Querendo **R$ 2.000** de lucro, com o mesmo anúncio:
+- (3.000 + 2.000) ÷ 14 = 357,1 → **358 vendas**.
+
+O anúncio quase triplicou a meta de vendas. É por isso que a margem precisa ser calculada antes de anunciar.
+</Exemplo>
+
+## Ferramenta
+
+Coloque os seus custos fixos, o preço médio e a margem. Para incluir o anúncio, use a margem depois do anúncio em porcentagem do preço.
+
+<Calculadora tipo="ponto-equilibrio" />
+
+<ErroComum>
+**Esquecer custos fixos pequenos.** Ferramenta de R$ 49, domínio, certificado digital, contador. Some todos, e some o seu pró-labore.
+
+**Fazer o ponto de equilíbrio com a margem antes do anúncio quando todas as vendas vêm de anúncio.** A meta fica baixa demais e o mês fecha no vermelho mesmo "batendo a meta".
+</ErroComum>
+
+<NaPratica>
+1. Liste todos os seus custos fixos mensais (ou estime os de uma loja que você abriria).
+2. Use a margem do seu produto de laboratório.
+3. Calcule as vendas de equilíbrio sem anúncio e com um CPA estimado.
+4. Divida as vendas de equilíbrio por 30: quantas vendas por dia isso exige? Parece possível no seu cenário?
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Custos fixos de R$ 1.800 e margem de R$ 30 por venda. Quantas vendas para empatar?",
+      opcoes: ["30", "60", "180"],
+      correta: 1,
+      explicacao: "1.800 ÷ 30 = 60 vendas.",
+    },
+    {
+      enunciado: "Custos fixos de R$ 2.000 e margem de contribuição de 25%. Qual o faturamento de equilíbrio?",
+      opcoes: ["R$ 500", "R$ 2.500", "R$ 8.000"],
+      correta: 2,
+      explicacao: "2.000 ÷ 0,25 = R$ 8.000.",
+    },
+    {
+      enunciado: "Margem de R$ 40 por venda e CPA de R$ 30. Custos fixos de R$ 1.000. Quantas vendas para empatar?",
+      opcoes: ["25", "34", "100"],
+      correta: 2,
+      explicacao: "Margem depois do anúncio = 40 − 30 = R$ 10. 1.000 ÷ 10 = 100 vendas.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Ponto de equilíbrio: a soma das margens do mês igual aos custos fixos.
+- Vendas de equilíbrio = custos fixos ÷ margem por venda (arredonde para cima).
+- Para ter lucro, some o lucro desejado aos custos fixos.
+- Se as vendas vêm de anúncio, use a margem depois do anúncio.
+- Inclua todos os custos fixos, inclusive o seu pró-labore.
+</Resumo>
+
+<Fontes />

@@ -1,0 +1,159 @@
+---
+modulo: 1
+aula: 3
+titulo: "Taxas que comem a margem"
+nivel: iniciante
+duracao_min: 20
+objetivo: "Ao final você calcula a taxa real de uma venda na Shopee e no Mercado Livre e sabe onde conferir a tabela oficial."
+pre_requisitos: ["1-2"]
+fontes:
+  - titulo: "Shopee — Como funciona a Política de Comissão para vendedores da Shopee? (Centro de Educação do Vendedor)"
+    url: "https://seller.shopee.com.br/edu/article/18483/"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Livre — Quanto custa vender um produto? (Ajuda)"
+    url: "https://www.mercadolivre.com.br/ajuda/870"
+    consultado_em: "2026-10-18"
+  - titulo: "Mercado Livre — Como funcionam as taxas do Mercado Livre? (Central de Vendedores)"
+    url: "https://vendedores.mercadolivre.com.br/nota/como-funcionam-as-taxas-do-mercado-livre"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Na Shopee (CNPJ), quanto é a comissão de um item de R$ 50?"
+    verso: "20% + R$ 4,50 = R$ 14,50 (tabela conferida em 18/10/2026)."
+  - frente: "Por que um item de R$ 80 pode pagar mais comissão que um de R$ 79,99 na Shopee?"
+    verso: "Porque a faixa muda: até R$ 79,99 é 20% + R$ 4,50; de R$ 80 a R$ 99,99 é 14% + R$ 16."
+  - frente: "Mercado Livre: qual a faixa da tarifa no Clássico e no Premium?"
+    verso: "Clássico entre 10% e 14%; Premium entre 15% e 19%, conforme a categoria (conferido em 18/10/2026)."
+  - frente: "O que é antecipação?"
+    verso: "Receber hoje uma venda parcelada que cairia nos próximos meses, pagando uma taxa por isso."
+---
+
+<Objetivo>
+Ao final você calcula a taxa real de uma venda na Shopee e no Mercado Livre e sabe onde conferir a tabela oficial.
+</Objetivo>
+
+<PorQue>
+Muita gente calcula a margem com "15% de taxa" porque ouviu de alguém. Só que a taxa real depende da plataforma, da faixa de preço, da categoria e do tipo de anúncio. Num produto barato, a parte fixa da taxa pode comer um terço do preço.
+
+Errar a taxa é errar a margem. E errar a margem é errar tudo o que vem depois: preço, anúncio e estoque.
+</PorQue>
+
+## Explicação
+
+### 1. As três camadas de taxa
+
+Numa venda online, você pode pagar até três coisas:
+
+1. **Comissão da plataforma**: a <Termo id="comissao">comissão do marketplace</Termo>, quase sempre uma porcentagem do preço, às vezes somada a um valor fixo por item.
+2. **Taxa do pagamento**: o custo de processar Pix, cartão ou boleto. Em alguns marketplaces ela já vem dentro da comissão.
+3. **Antecipação**: se a venda é parcelada e você quer o dinheiro antes, paga a taxa de <Termo id="antecipacao">antecipação</Termo>.
+
+### 2. Shopee
+
+<Alerta conferidoEm="18/10/2026" fonte="https://seller.shopee.com.br/edu/article/18483/">
+Comissão da Shopee para vendedores **CNPJ**, por valor do item [verificado]:
+
+| Valor do item | Comissão |
+| --- | --- |
+| Até R$ 79,99 | 20% + R$ 4,50 |
+| R$ 80 a R$ 99,99 | 14% + R$ 16 |
+| R$ 100 a R$ 199,99 | 14% + R$ 20 |
+| R$ 200 a R$ 499,99 | 14% + R$ 26 |
+| Acima de R$ 500 | 14% + R$ 26 |
+
+A Shopee informa que a comissão já inclui a taxa de transação e que é cobrada só sobre o valor do produto. Para itens abaixo de R$ 8, o adicional por item é a metade do preço. O valor fixo de R$ 4,50 vale desde 01/10/2026 (antes era R$ 4,00). Vendedor CPF com mais de 450 pedidos em 90 dias tem regra própria. [verificado]
+</Alerta>
+
+Repare no **degrau em R$ 80**. Um item de R$ 79,99 paga 20% + R$ 4,50 = R$ 20,50. Um item de R$ 80 paga 14% + R$ 16 = R$ 27,20. Subir um centavo no preço custa R$ 6,70 a mais de comissão.
+
+### 3. Mercado Livre
+
+<Alerta conferidoEm="18/10/2026" fonte="https://www.mercadolivre.com.br/ajuda/870">
+No Mercado Livre, a tarifa de venda depende do tipo de anúncio e da categoria [verificado]:
+
+- **Clássico**: entre 10% e 14%, sem parcelamento sem juros para o comprador.
+- **Premium**: entre 15% e 19%, com até 12x sem juros (conforme valor e meio de pagamento).
+
+Há ainda um **custo fixo por unidade** para produtos baratos: abaixo de R$ 12,50, ele é 50% do preço; entre R$ 12,50 e R$ 79, há três faixas; acima de R$ 79, não há custo fixo, segundo a Central de Vendedores. [verificado] Os valores exatos de cada faixa não aparecem nessa página: confira no simulador de custos do próprio Mercado Livre. Blogs relatam que, em 2026, esse custo passou a depender de peso e medidas. [alegação não confirmada]
+</Alerta>
+
+A página oficial também diz que as tarifas podem incluir a intermediação, o processamento do pagamento pelo Mercado Pago e, quando você escolhe, a taxa de antecipação. [verificado]
+
+### 4. Como transformar tudo em uma porcentagem
+
+Para usar na calculadora, some tudo e divida pelo preço:
+
+<Formula titulo="Taxa efetiva da venda">
+Taxa efetiva % = (comissão % × preço + valor fixo + outras taxas) ÷ preço × 100
+</Formula>
+
+<Exemplo>
+Produto vendido por **R$ 59,90** na Shopee (CNPJ), tabela conferida em 18/10/2026:
+
+- Comissão: 20% × 59,90 = R$ 11,98
+- Valor fixo: R$ 4,50
+- Total: R$ 16,48
+- Taxa efetiva: 16,48 ÷ 59,90 = **27,5%** do preço
+
+O mesmo produto no Mercado Livre, Clássico, numa categoria de **12%** (número de exemplo dentro da faixa oficial de 10% a 14%), ainda teria o custo fixo por unidade, porque custa menos de R$ 79. Sem saber esse custo fixo, você não consegue comparar as duas plataformas: abra o simulador antes.
+</Exemplo>
+
+## Ferramenta
+
+Coloque a taxa efetiva que você calculou no campo "Taxas e imposto". O imposto você aprende na próxima aula; por enquanto, deixe só a taxa.
+
+<Calculadora tipo="margem" />
+
+<ErroComum>
+**Usar a mesma taxa para todos os produtos.** Na Shopee, a faixa de preço muda a comissão; no Mercado Livre, a categoria e o tipo de anúncio mudam a tarifa. Calcule produto por produto.
+
+**Esquecer a parte fixa.** Em produto barato, os R$ 4,50 da Shopee ou o custo fixo do Mercado Livre pesam mais do que a porcentagem. Num item de R$ 20, R$ 4,50 já são 22,5% do preço, antes da comissão.
+</ErroComum>
+
+<NaPratica>
+Pegue o seu produto de laboratório e calcule a taxa efetiva:
+
+1. Na Shopee, pela tabela acima (confira se ela ainda vale no link oficial).
+2. No Mercado Livre, usando o simulador de custos oficial com a categoria certa.
+
+Anote as duas taxas efetivas e a data em que você conferiu. Em qual plataforma a margem fica maior?
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Na tabela da Shopee conferida em 18/10/2026, quanto é a comissão de um item de R$ 120 (CNPJ)?",
+      opcoes: ["20% + R$ 4,50 = R$ 28,50", "14% + R$ 20 = R$ 36,80", "14% + R$ 26 = R$ 42,80"],
+      correta: 1,
+      explicacao: "R$ 120 está na faixa de R$ 100 a R$ 199,99: 14% × 120 = 16,80, mais R$ 20 = R$ 36,80.",
+    },
+    {
+      enunciado: "No Mercado Livre, o que muda entre Clássico e Premium?",
+      opcoes: ["Só a cor do anúncio", "A tarifa e o parcelamento sem juros para o comprador", "Nada, é a mesma tarifa"],
+      correta: 1,
+      explicacao: "O Premium cobra mais (15% a 19%) e oferece parcelamento sem juros; o Clássico cobra 10% a 14% e não oferece.",
+    },
+    {
+      enunciado: "Produto de R$ 20 na Shopee: quanto o valor fixo de R$ 4,50 representa do preço?",
+      opcoes: ["4,5%", "22,5%", "45%"],
+      correta: 1,
+      explicacao: "4,50 ÷ 20 = 0,225, ou 22,5%. Somando os 20% de comissão, a taxa efetiva passa de 42%.",
+    },
+    {
+      enunciado: "O que é antecipação?",
+      opcoes: ["Um desconto para o comprador", "Receber antes uma venda parcelada, pagando uma taxa", "A comissão do marketplace"],
+      correta: 1,
+      explicacao: "Antecipar é trazer para hoje um dinheiro que cairia nos próximos meses. Esse adiantamento tem custo.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Taxa tem até três camadas: comissão, pagamento e antecipação.
+- Shopee (CNPJ): porcentagem + valor fixo por faixa de preço; atenção ao degrau em R$ 80.
+- Mercado Livre: Clássico 10% a 14%, Premium 15% a 19%, mais custo fixo abaixo de R$ 79.
+- Transforme tudo em taxa efetiva (% do preço) para usar na calculadora.
+- Regras mudam: confira a página oficial e anote a data.
+</Resumo>
+
+<Fontes />

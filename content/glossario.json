@@ -158,5 +158,45 @@
     "id": "publicidade-enganosa",
     "termo": "Publicidade enganosa",
     "definicao": "Anúncio que induz o consumidor a erro, por informação falsa ou por omitir algo importante. É proibida pelo Código de Defesa do Consumidor."
+  },
+  {
+    "id": "comissao",
+    "termo": "Comissão do marketplace",
+    "definicao": "Valor que o marketplace cobra em cada venda, em geral uma porcentagem do preço, às vezes somada a um valor fixo por item."
+  },
+  {
+    "id": "antecipacao",
+    "termo": "Antecipação de recebíveis",
+    "definicao": "Receber hoje um dinheiro de venda parcelada que só cairia nos meses seguintes. Quem antecipa paga uma taxa por isso."
+  },
+  {
+    "id": "simples-nacional",
+    "termo": "Simples Nacional",
+    "definicao": "Regime de impostos para micro e pequenas empresas em que vários tributos são pagos numa guia só, com alíquota que depende do faturamento dos últimos 12 meses."
+  },
+  {
+    "id": "das",
+    "termo": "DAS",
+    "definicao": "Documento de Arrecadação do Simples Nacional: a guia mensal de imposto do MEI e das empresas do Simples."
+  },
+  {
+    "id": "cpa-maximo",
+    "termo": "CPA máximo",
+    "definicao": "O máximo que você pode pagar em anúncio por venda sem ter prejuízo. É igual à margem de contribuição da venda, em reais."
+  },
+  {
+    "id": "frete-subsidiado",
+    "termo": "Frete subsidiado",
+    "definicao": "Frete em que a plataforma paga uma parte para o comprador pagar menos ou nada. O resto pode sair da margem do vendedor."
+  },
+  {
+    "id": "lucratividade",
+    "termo": "Lucratividade",
+    "definicao": "Lucro dividido pelo faturamento, em porcentagem. Mostra quanto de cada real vendido virou lucro."
+  },
+  {
+    "id": "margem-bruta",
+    "termo": "Margem bruta",
+    "definicao": "Preço menos o custo do produto, dividido pelo preço. Ainda não desconta taxas, imposto, frete nem anúncio."
   }
 ]
