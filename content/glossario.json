@@ -468,5 +468,30 @@
     "id": "periodo-probatorio",
     "termo": "Período probatório",
     "definicao": "Fase inicial de uma loja nova no TikTok Shop, com limites de pedidos por dia e de anúncios, que sobem conforme o desempenho."
+  },
+  {
+    "id": "checkout",
+    "termo": "Checkout",
+    "definicao": "As telas finais da compra: carrinho, dados, frete, pagamento e confirmação. É onde mais compras são abandonadas."
+  },
+  {
+    "id": "plataforma-de-loja",
+    "termo": "Plataforma de loja virtual",
+    "definicao": "Serviço pronto para montar uma loja online (catálogo, carrinho, pagamento, frete) sem programar do zero, em geral por mensalidade ou comissão."
+  },
+  {
+    "id": "core-web-vitals",
+    "termo": "Core Web Vitals",
+    "definicao": "Três métricas do Google para experiência da página: carregamento (LCP), resposta ao toque (INP) e estabilidade visual (CLS)."
+  },
+  {
+    "id": "abandono-de-carrinho",
+    "termo": "Abandono de carrinho",
+    "definicao": "Quando a pessoa coloca o produto no carrinho mas não termina a compra."
+  },
+  {
+    "id": "politica-de-trocas",
+    "termo": "Política de trocas",
+    "definicao": "Página que explica arrependimento, defeito, troca e devolução. Precisa estar visível antes da compra."
   }
 ]

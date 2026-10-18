@@ -1,0 +1,131 @@
+---
+modulo: 9
+aula: 6
+titulo: "Velocidade e celular"
+nivel: intermediario
+duracao_min: 15
+objetivo: "Ao final você mede a velocidade da loja no celular com as métricas do Google e sabe o que corrigir primeiro."
+pre_requisitos: ["9-5"]
+fontes:
+  - titulo: "web.dev (Google) — Core Web Vitals (atualizado em 31/10/2024)"
+    url: "https://web.dev/articles/vitals?hl=pt-br"
+    consultado_em: "2026-10-18"
+  - titulo: "Google — PageSpeed Insights"
+    url: "https://pagespeed.web.dev/"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Quais os limites 'bons' das Core Web Vitals?"
+    verso: "LCP até 2,5 s; INP até 200 ms; CLS até 0,1, no 75º percentil das visitas."
+  - frente: "O que cada Core Web Vital mede?"
+    verso: "LCP: carregamento do maior conteúdo. INP: rapidez de resposta a toques e cliques. CLS: elementos pulando na tela."
+  - frente: "Qual a causa mais comum de loja lenta no celular?"
+    verso: "Imagens pesadas demais e aplicativos/scripts em excesso."
+---
+
+<Objetivo>
+Ao final você mede a velocidade da loja no celular com as métricas do Google e sabe o que corrigir primeiro.
+</Objetivo>
+
+<PorQue>
+Boa parte das compras online começa no celular, muitas vezes em internet móvel. Uma página que demora a aparecer, trava ao tocar ou "pula" na tela faz a pessoa voltar para o anúncio do concorrente. E você pagou pelo clique.
+</PorQue>
+
+## Explicação
+
+### 1. As três métricas do Google
+
+As <Termo id="core-web-vitals">Core Web Vitals</Termo> medem a experiência da página. Os limites considerados bons são [verificado]:
+
+| Métrica | O que mede | Bom |
+| --- | --- | --- |
+| **LCP** | Tempo até o maior conteúdo aparecer | até 2,5 segundos |
+| **INP** | Rapidez de resposta a toques e cliques | até 200 milissegundos |
+| **CLS** | Elementos mudando de lugar enquanto carrega | até 0,1 |
+
+O Google recomenda medir no **75º percentil** das visitas, separando celular e computador. [verificado]
+
+### 2. Como medir
+
+1. Abra o PageSpeed Insights.
+2. Cole o endereço da página de produto (não só da home).
+3. Olhe o resultado de **celular**.
+4. Anote LCP, INP e CLS e as sugestões principais.
+
+### 3. O que costuma resolver
+
+- **Imagens**: comprimir, usar formatos modernos, tamanho certo para a tela. É o ganho mais comum no LCP.
+- **Apps e scripts**: cada aplicativo instalado na plataforma pode adicionar código. Remova o que não usa.
+- **Espaço reservado** para imagens e banners, para nada pular (CLS).
+- **Fontes e vídeos** carregando só quando necessário.
+
+### 4. Celular primeiro
+
+Revise cada página no celular: botão de compra visível, texto legível sem zoom, campos do checkout fáceis de tocar, teclado certo para CEP e telefone.
+
+<Exemplo>
+Página de produto antes e depois (resultados de exemplo no celular):
+
+| Métrica | Antes | Depois | O que foi feito |
+| --- | ---: | ---: | --- |
+| LCP | 5,8 s | 2,3 s | Fotos de 3 MB comprimidas para 150 KB |
+| INP | 420 ms | 160 ms | 4 apps não usados removidos |
+| CLS | 0,32 | 0,05 | Espaço reservado para o banner de frete |
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Velocidade e celular"
+  itens={[
+    "Medi a página de produto no PageSpeed Insights, no celular.",
+    "LCP até 2,5 s, INP até 200 ms e CLS até 0,1 (ou plano para chegar lá).",
+    "Imagens comprimidas e no tamanho certo.",
+    "Removi apps e scripts que não uso.",
+    "Testei a compra inteira num celular, com internet móvel.",
+    "Botão de compra visível sem rolar muito.",
+  ]}
+/>
+
+<ErroComum>
+**Medir só a home no computador.** O cliente do anúncio cai na página de produto, no celular. Meça essa.
+
+**Instalar um app para cada coisa.** Cada um pesa um pouco; juntos, deixam a loja lenta.
+</ErroComum>
+
+<NaPratica>
+Meça a página de produto da sua loja (ou da loja de laboratório) no PageSpeed Insights, no celular. Anote LCP, INP e CLS e as 3 sugestões principais. Corrija a primeira e meça de novo.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Qual o limite 'bom' de LCP?",
+      opcoes: ["até 1 segundo", "até 2,5 segundos", "até 10 segundos"],
+      correta: 1,
+      explicacao: "O Google considera bom o LCP de até 2,5 segundos.",
+    },
+    {
+      enunciado: "A página 'pula' enquanto carrega e o cliente clica no lugar errado. Qual métrica está ruim?",
+      opcoes: ["LCP", "INP", "CLS"],
+      correta: 2,
+      explicacao: "CLS mede a estabilidade visual: elementos mudando de lugar enquanto a página carrega.",
+    },
+    {
+      enunciado: "Qual página medir primeiro numa loja que vende por anúncio?",
+      opcoes: ["A página 'Sobre nós'", "A página de produto, no celular", "O painel administrativo"],
+      correta: 1,
+      explicacao: "É onde o clique do anúncio chega, e a maioria chega pelo celular.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Core Web Vitals: LCP até 2,5 s, INP até 200 ms, CLS até 0,1.
+- Meça a página de produto, no celular, no PageSpeed Insights.
+- Imagens comprimidas são o ganho mais comum.
+- Menos apps e scripts, espaço reservado para não pular.
+- Teste a compra inteira no celular.
+</Resumo>
+
+<Fontes />

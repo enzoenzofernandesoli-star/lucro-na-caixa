@@ -1,0 +1,134 @@
+---
+modulo: 9
+aula: 3
+titulo: "Estrutura da loja: home, categoria, produto, carrinho e checkout"
+nivel: intermediario
+duracao_min: 20
+objetivo: "Ao final você sabe o papel de cada página da loja e o que cada uma precisa ter para levar a visita até a compra."
+pre_requisitos: ["9-2", "5-3"]
+fontes:
+  - titulo: "Decreto nº 7.962/2013, arts. 2º e 4º (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm"
+    consultado_em: "2026-10-18"
+  - titulo: "Código de Defesa do Consumidor, Lei nº 8.078/1990, art. 31 (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Qual o papel da página de produto?"
+    verso: "Responder todas as dúvidas para a pessoa decidir comprar: fotos, preço, frete, prazo, descrição, avaliações e trocas."
+  - frente: "O que o decreto exige antes de finalizar o pedido?"
+    verso: "Sumário do contrato com as cláusulas que limitam direitos e ferramentas para identificar e corrigir erros antes de finalizar."
+  - frente: "O que deve acontecer logo depois que o cliente finaliza a compra?"
+    verso: "Confirmação imediata do recebimento do pedido e o contrato disponível para guardar."
+---
+
+<Objetivo>
+Ao final você sabe o papel de cada página da loja e o que cada uma precisa ter para levar a visita até a compra.
+</Objetivo>
+
+<PorQue>
+Cada página da loja é um degrau. Se um degrau falha, a pessoa desce: sai da home sem achar o produto, sai da página de produto sem saber o frete, abandona o carrinho porque o <Termo id="checkout">checkout</Termo> pede cadastro demais. Saber o papel de cada página mostra onde consertar.
+</PorQue>
+
+## Explicação
+
+### 1. Home
+
+**Papel**: mostrar em segundos o que a loja vende e levar à categoria ou ao produto certo.
+- Promessa clara da loja, produtos principais, busca visível.
+- Selos de confiança: avaliações, trocas, formas de pagamento.
+
+### 2. Categoria
+
+**Papel**: ajudar a escolher.
+- Filtros úteis (tamanho, cor, preço), fotos padronizadas, preço visível.
+
+### 3. Produto
+
+**Papel**: responder todas as dúvidas.
+- Fotos e vídeo (módulo 5), preço, **frete e prazo calculáveis pelo CEP**, descrição com os 7 blocos, avaliações, trocas.
+- A oferta precisa trazer informações corretas, claras e em português sobre características, preço, garantia, prazos, origem e riscos (CDC, art. 31). [verificado]
+
+### 4. Carrinho
+
+**Papel**: confirmar a escolha.
+- Resumo dos itens, frete, prazo, cupom e total, sem surpresa. O decreto exige que despesas adicionais como entrega apareçam discriminadas no preço (art. 2º, IV). [verificado]
+
+### 5. Checkout
+
+**Papel**: concluir sem atrito.
+- Poucos campos, sem cadastro obrigatório antes de ver o frete.
+- Antes de finalizar: sumário do contrato com as cláusulas que limitam direitos e ferramentas para identificar e corrigir erros (Decreto 7.962/2013, art. 4º, I e II). [verificado]
+- Depois de finalizar: confirmação imediata do pedido e contrato disponível para o cliente guardar (art. 4º, III e IV). [verificado]
+
+<Exemplo>
+Funil de exemplo de uma loja, em um mês:
+
+| Etapa | Visitas | Passa para a próxima |
+| --- | ---: | ---: |
+| Home e categorias | 10.000 | 45% |
+| Página de produto | 4.500 | 12% |
+| Carrinho | 540 | 55% |
+| Checkout concluído | 297 | — |
+
+Taxa de conversão: 297 ÷ 10.000 = **2,97%**. O maior vazamento está entre produto e carrinho: é ali que a auditoria do projeto do módulo deve começar.
+</Exemplo>
+
+## Ferramenta
+
+<Checklist
+  titulo="Revisão da estrutura"
+  itens={[
+    "A home diz em uma frase o que a loja vende.",
+    "Busca visível e categorias com filtros úteis.",
+    "Página de produto com frete e prazo pelo CEP.",
+    "Carrinho mostra frete e total sem surpresa.",
+    "Checkout sem cadastro obrigatório antes do frete.",
+    "Sumário do pedido e chance de corrigir antes de finalizar.",
+    "Confirmação imediata depois da compra.",
+  ]}
+/>
+
+<ErroComum>
+**Mostrar o frete só no último passo.** É uma das maiores causas de <Termo id="abandono-de-carrinho">abandono de carrinho</Termo>, e o decreto pede que as despesas de entrega apareçam discriminadas.
+
+**Home cheia de banners e sem busca.** Quem já sabe o que quer precisa achar rápido.
+</ErroComum>
+
+<NaPratica>
+Faça uma compra de teste (até antes de pagar) numa loja própria qualquer, anotando cada passo e cada dúvida que surgiu. Compare com o checklist e marque onde a loja perderia você.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Qual o principal papel da página de produto?",
+      opcoes: ["Mostrar todos os produtos da loja", "Responder as dúvidas para a pessoa decidir comprar", "Coletar o e-mail"],
+      correta: 1,
+      explicacao: "A página de produto existe para tirar dúvidas: fotos, preço, frete, prazo, descrição, avaliações e trocas.",
+    },
+    {
+      enunciado: "O que o Decreto 7.962 exige antes de finalizar a compra?",
+      opcoes: ["Cadastro completo", "Sumário do contrato e ferramentas para corrigir erros", "Assinatura digital"],
+      correta: 1,
+      explicacao: "O art. 4º pede sumário do contrato e ferramentas para identificar e corrigir erros antes de finalizar.",
+    },
+    {
+      enunciado: "10.000 visitas e 250 pedidos. Qual a taxa de conversão?",
+      opcoes: ["0,25%", "2,5%", "25%"],
+      correta: 1,
+      explicacao: "250 ÷ 10.000 = 0,025 = 2,5%.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Home orienta, categoria ajuda a escolher, produto tira dúvidas.
+- Carrinho confirma sem surpresa; checkout conclui sem atrito.
+- Frete e despesas extras discriminados, de preferência já na página de produto.
+- Sumário e correção de erros antes de finalizar; confirmação imediata depois.
+- Meça o funil para achar o maior vazamento.
+</Resumo>
+
+<Fontes />

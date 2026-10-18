@@ -1,0 +1,131 @@
+---
+modulo: 9
+aula: 1
+titulo: "Quando vale ter loja própria"
+nivel: intermediario
+duracao_min: 15
+objetivo: "Ao final você decide, com números, se a loja própria compensa para o seu produto agora ou se é melhor continuar no marketplace."
+pre_requisitos: ["2-1", "1-6"]
+fontes:
+  - titulo: "Sebrae — Como montar uma loja virtual (PDF)"
+    url: "https://bibliotecas.sebrae.com.br/chronus/ARQUIVOS_CHRONUS/bds/bds.nsf/cb182ec91b609402415ae8adcd535eef/$File/9892.pdf"
+    consultado_em: "2026-10-18"
+  - titulo: "Shopee — Como funciona a Política de Comissão para vendedores da Shopee?"
+    url: "https://seller.shopee.com.br/edu/article/18483/"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "Qual o principal custo da loja própria que o marketplace não tem?"
+    verso: "Trazer cada visita: anúncio, conteúdo, e-mail. É o custo de aquisição que substitui a comissão do marketplace."
+  - frente: "Quando a loja própria costuma valer a pena?"
+    verso: "Quando o CPA por venda na loja fica abaixo da comissão que você pagaria no marketplace, ou quando a recompra e a marca justificam."
+  - frente: "Loja própria precisa seguir as mesmas regras do marketplace?"
+    verso: "Precisa seguir a lei (CDC, Decreto 7.962, LGPD). As regras da plataforma deixam de existir; a responsabilidade fica toda com você."
+---
+
+<Objetivo>
+Ao final você decide, com números, se a loja própria compensa para o seu produto agora ou se é melhor continuar no marketplace.
+</Objetivo>
+
+<PorQue>
+"Quero sair do marketplace e parar de pagar comissão." Faz sentido, mas a <Termo id="loja-propria">loja própria</Termo> troca a comissão por outro custo: trazer o cliente até você. Quem troca sem fazer a conta muitas vezes paga mais em anúncio do que pagava de comissão.
+</PorQue>
+
+## Explicação
+
+### 1. A troca de custos
+
+| | Marketplace | Loja própria |
+| --- | --- | --- |
+| Quem traz o cliente | A plataforma | Você |
+| Custo principal por venda | Comissão | Anúncio (CPA) + taxa de pagamento |
+| Custo fixo | Baixo | Plataforma, domínio, tempo de gestão |
+| Dados do cliente | Limitados | Seus (com LGPD) |
+| Regras | Da plataforma | Só da lei |
+
+O guia do Sebrae para lojas virtuais lembra que montar a loja envolve definir plataforma, hospedagem e domínio, e que a logística e as exigências legais pesam muito na operação. [verificado]
+
+### 2. A conta da decisão
+
+Compare, por venda:
+
+<Formula titulo="A loja própria compensa quando">
+CPA na loja + taxa de pagamento + custo fixo por venda menor que a comissão total no marketplace
+</Formula>
+
+Na Shopee, por exemplo, um item de R$ 120 paga 14% + R$ 20 = R$ 36,80 de comissão (tabela de 18/10/2026). [verificado] Na loja própria, essa venda compensa se custar menos que isso para trazer o cliente e receber o pagamento.
+
+### 3. Quando a loja própria faz mais sentido
+
+- Você já tem público (seguidores, clientes de loja física, lista de contatos com consentimento).
+- O produto tem **recompra** (módulo 17): o segundo pedido não paga anúncio de novo.
+- Você quer construir **marca** e controlar a experiência.
+- O ticket é alto o bastante para o CPA caber na margem.
+
+### 4. Quando ainda não
+
+- Você não sabe o seu CPA.
+- Não tem tempo para produzir conteúdo e gerir anúncios.
+- O produto é barato e de compra única.
+
+<Exemplo>
+Garrafa a R$ 120, valores de exemplo:
+
+| | Shopee | Loja própria |
+| --- | ---: | ---: |
+| Comissão / taxa de pagamento | R$ 36,80 | R$ 4,79 (3,99% de exemplo) |
+| Anúncio por venda (CPA) | — | R$ 28,00 |
+| Custo fixo da loja rateado (R$ 300 ÷ 100 vendas) | — | R$ 3,00 |
+| **Custo de canal por venda** | **R$ 36,80** | **R$ 35,79** |
+
+Quase empate. A loja própria só ganha de verdade se o CPA cair (conteúdo, recompra) ou o ticket subir (kits). Se o CPA fosse R$ 40, a loja perderia.
+</Exemplo>
+
+## Ferramenta
+
+Use o CPA esperado na loja própria para ver o que sobra:
+
+<Calculadora tipo="roas" />
+
+<ErroComum>
+**Comparar comissão com zero.** A loja própria não é "sem comissão": o anúncio e a taxa de pagamento ocupam esse lugar.
+
+**Abandonar o marketplace de uma vez.** Muitas operações mantêm o marketplace para volume e usam a loja própria para recompra e marca (modelo híbrido, aula 2.1).
+</ErroComum>
+
+<NaPratica>
+Calcule o "custo de canal por venda" do seu produto no marketplace e numa loja própria, como no exemplo. Use um CPA estimado conservador. Escreva: hoje, a loja própria compensa? O que precisaria mudar para compensar?
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Qual custo a loja própria tem no lugar da comissão do marketplace?",
+      opcoes: ["Nenhum", "O custo de trazer o cliente (anúncio) e a taxa de pagamento", "Só o domínio"],
+      correta: 1,
+      explicacao: "Na loja própria, quem traz a visita é você. O anúncio por venda costuma ser o maior custo.",
+    },
+    {
+      enunciado: "Comissão no marketplace de R$ 30 por venda; na loja, CPA de R$ 35 + taxa de R$ 4. O que compensa?",
+      opcoes: ["Loja própria", "Marketplace", "Os dois são iguais"],
+      correta: 1,
+      explicacao: "Na loja, o custo por venda é R$ 39, maior que os R$ 30 do marketplace.",
+    },
+    {
+      enunciado: "Qual destes torna a loja própria mais atraente?",
+      opcoes: ["Produto barato de compra única", "Produto com recompra e clientes fiéis", "Não saber o próprio CPA"],
+      correta: 1,
+      explicacao: "Na recompra, o cliente já conhece a loja e o custo de aquisição não se repete.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Loja própria troca comissão por custo de trazer o cliente.
+- Compare por venda: CPA + taxa de pagamento + fixo rateado x comissão do marketplace.
+- Faz sentido com público próprio, recompra, marca e ticket que comporte o CPA.
+- O modelo híbrido costuma ser o caminho.
+- Na loja própria, as regras são as da lei, e a responsabilidade é toda sua.
+</Resumo>
+
+<Fontes />

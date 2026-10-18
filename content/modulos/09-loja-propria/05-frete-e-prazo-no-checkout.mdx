@@ -1,0 +1,120 @@
+---
+modulo: 9
+aula: 5
+titulo: "Frete e prazo no checkout"
+nivel: intermediario
+duracao_min: 15
+objetivo: "Ao final você define a política de frete da loja própria (cobrado, grátis ou grátis acima de um valor) com a conta da margem e mostra prazo e frete do jeito certo."
+pre_requisitos: ["9-4", "1-5"]
+fontes:
+  - titulo: "Decreto nº 7.962/2013, arts. 2º, IV e V, e 6º (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm"
+    consultado_em: "2026-10-18"
+  - titulo: "Código de Defesa do Consumidor, Lei nº 8.078/1990, art. 30 (Planalto)"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm"
+    consultado_em: "2026-10-18"
+verificado_em: "2026-10-18"
+flashcards:
+  - frente: "O que o decreto exige sobre o frete?"
+    verso: "Que despesas adicionais, como entrega, sejam discriminadas no preço, e que as condições da oferta incluam prazo e forma de entrega."
+  - frente: "Como calcular o pedido mínimo para frete grátis?"
+    verso: "Escolha um valor em que a margem do pedido pague o frete médio e ainda sobre. Ex.: frete médio ÷ margem % = pedido mínimo de equilíbrio."
+  - frente: "Prazo de entrega prometido obriga a loja?"
+    verso: "Sim. A oferta precisa obriga (CDC, art. 30) e a contratação deve cumprir prazos (Decreto 7.962, art. 6º)."
+---
+
+<Objetivo>
+Ao final você define a política de frete da loja própria (cobrado, grátis ou grátis acima de um valor) com a conta da margem e mostra prazo e frete do jeito certo.
+</Objetivo>
+
+<PorQue>
+Na loja própria, ninguém subsidia o frete (aula 1.5). Ou o cliente paga, ou você paga. E a forma de mostrar o frete muda muito a conversão: frete alto descoberto no último passo derruba a compra; frete grátis sem conta derruba a margem.
+</PorQue>
+
+## Explicação
+
+### 1. O que a lei exige
+
+- Despesas adicionais, como entrega, discriminadas no preço (Decreto 7.962/2013, art. 2º, IV). [verificado]
+- Condições da oferta com modalidade de pagamento, disponibilidade, forma e **prazo** de entrega (art. 2º, V). [verificado]
+- Cumprir a oferta, com entrega nos prazos, quantidade e qualidade (art. 6º). [verificado] E a oferta precisa obriga quem a faz (CDC, art. 30). [verificado]
+
+### 2. Três políticas de frete
+
+| Política | Quando usar | Cuidado |
+| --- | --- | --- |
+| Frete cobrado | Produtos pesados, margem baixa | Mostrar pelo CEP já na página do produto |
+| Frete grátis em tudo | Margem alta, produto leve | O frete médio sai inteiro da margem |
+| Grátis acima de um valor | Aumentar o ticket | Calcular o valor mínimo pela margem |
+
+### 3. O valor mínimo para frete grátis
+
+<Formula titulo="Pedido mínimo de equilíbrio">
+Pedido mínimo = frete médio ÷ margem de contribuição %
+</Formula>
+
+Com frete médio de R$ 24 e margem de 40%, o pedido de R$ 60 gera R$ 24 de margem: exatamente o frete. Para sobrar, o mínimo precisa ficar acima disso.
+
+### 4. Prazo: prometa o que cumpre
+
+Some prazo de separação + prazo da transportadora + folga. Prazo prometido e não cumprido gera reclamação e, pela lei, é descumprimento da oferta.
+
+<Exemplo>
+Loja de garrafas com margem de 40% e frete médio de R$ 24 (valores de exemplo):
+
+| Pedido | Margem | Frete grátis? | Sobra |
+| ---: | ---: | --- | ---: |
+| R$ 59,90 (1 garrafa) | R$ 23,96 | Não, cliente paga | R$ 23,96 |
+| R$ 119,80 (2 garrafas) | R$ 47,92 | Sim (acima de R$ 99) | R$ 23,92 |
+
+Com "frete grátis acima de R$ 99", o pedido de 2 garrafas sobra o mesmo que o de 1, e o cliente leva o dobro de produto: um bom motivo para comprar mais.
+</Exemplo>
+
+## Ferramenta
+
+Simule o pedido mínimo com o frete médio entrando como custo:
+
+<Calculadora tipo="margem" />
+
+<ErroComum>
+**Prometer "entrega em 3 dias" para todo o Brasil.** Prazo de transportadora varia por região. Mostre o prazo calculado pelo CEP.
+
+**Frete grátis abaixo do pedido mínimo de equilíbrio.** Cada venda pequena vira prejuízo.
+</ErroComum>
+
+<NaPratica>
+Calcule o frete médio da sua loja (ou estime com 3 CEPs, como na aula 1.5). Calcule o pedido mínimo de equilíbrio e escolha a sua política de frete. Escreva como o frete e o prazo vão aparecer na página de produto.
+</NaPratica>
+
+<Quiz
+  perguntas={[
+    {
+      enunciado: "Frete médio de R$ 30 e margem de 30%. Qual o pedido mínimo de equilíbrio para frete grátis?",
+      opcoes: ["R$ 30", "R$ 60", "R$ 100"],
+      correta: 2,
+      explicacao: "30 ÷ 0,30 = R$ 100. Abaixo disso, a margem do pedido não paga o frete.",
+    },
+    {
+      enunciado: "Onde o frete deve aparecer, segundo a boa prática e o decreto?",
+      opcoes: ["Só depois do pagamento", "Discriminado, de preferência já na página do produto pelo CEP", "Nunca"],
+      correta: 1,
+      explicacao: "O decreto exige despesas de entrega discriminadas; mostrar cedo evita abandono.",
+    },
+    {
+      enunciado: "A loja prometeu entrega em 5 dias e entregou em 12. Isso é…",
+      opcoes: ["Normal", "Descumprimento da oferta", "Responsabilidade só da transportadora"],
+      correta: 1,
+      explicacao: "A oferta obriga e a contratação deve cumprir os prazos. Perante o cliente, a responsabilidade é da loja.",
+    },
+  ]}
+/>
+
+<Resumo>
+- Frete discriminado e prazo informado são exigência legal.
+- Três políticas: cobrado, grátis em tudo, grátis acima de um valor.
+- Pedido mínimo de equilíbrio = frete médio ÷ margem %.
+- Prometa só o prazo que cumpre, calculado pelo CEP.
+- Frete grátis acima de um valor pode aumentar o ticket sem perder margem.
+</Resumo>
+
+<Fontes />
